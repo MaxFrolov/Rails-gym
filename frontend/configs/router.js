@@ -8,15 +8,14 @@ angular.module('app')
     $locationProvider.html5Mode(true);
 
     $stateProvider
+      .state('main', {
+        url: '/',
+        templateUrl: 'components/main/main.html'
+      })
       .state('app', {
         abstract: true,
         controller: 'AppCtrl',
         templateUrl: 'components/app/app.html'
-      })
-      .state('app.posts', {
-        url: '/posts',
-        controller: 'PostsCtrl',
-        templateUrl: 'components/posts/index.html'
       });
 
     $urlRouterProvider.otherwise('/');

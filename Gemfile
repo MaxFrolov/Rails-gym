@@ -37,6 +37,7 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'sprockets', '~> 2.12.3' #need for spa_rails old version
 gem 'responders'
 gem 'slim'
 gem 'angular-rails-templates', github: 'sars/angular-rails-templates'

@@ -3,12 +3,13 @@ html(lang='en' data-ng-app='app')
   head
     base(href="/")
     meta(charset='utf-8')
-    title App name
+    title GYM
     meta(name='description' content='App description')
     meta(charset='utf-8')
     = stylesheet_link_tag 'manifests/application'
+    = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 
   body
 
-    #app.app(ui-view='')
+    ui-view.app
     = javascript_include_tag 'manifests/application'
