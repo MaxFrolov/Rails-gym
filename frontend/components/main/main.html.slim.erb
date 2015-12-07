@@ -49,7 +49,7 @@ section.main-page__rules
     .row
       .col-sm-5
         .container-fluid
-          .col-sm-offset-5.col-sm-7.next-events__wrapper
+          .next-events__wrapper
             .main__next-events
               span.brand-color> Следующие
               'события
@@ -60,9 +60,9 @@ section.main-page__rules
           .event__field-wrap ng-repeat="field in fields" ng-class="{'active': field.activeState}" ng-click="changeState(field.id, field.trueDate)"
             span {{field.date}}
             p {{field.name}}
-      .col-sm-5
+      .col-sm-5.event-time__wrapper
         .row
-          img.img-responsive ng-src='/assets/assets/first-page-images/event-page-{{eventId}}.jpg'
+          img ng-src='/assets/assets/first-page-images/event-page-{{eventId}}.jpg'
           .wrap-inner
           .event-timer
             timer end-time="eventDate" interval="1000" max-time-unit="'day'" {{ddays}} day{{daysS}} | {{hours}} hour{{hoursS}} | {{minutes}} minute{{minutesS}} | {{seconds}} second{{secondsS}}

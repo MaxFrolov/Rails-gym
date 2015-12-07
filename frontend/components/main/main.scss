@@ -1,8 +1,10 @@
 .main-page__wrapper {
   padding-top: 50px;
-  background: url('../../assets/first-page-images/main.jpg');
+  padding-bottom: 50px;
   height: 100vh;
   width: 100%;
+  background: url('../../assets/first-page-images/main.jpg') no-repeat 50% 0;
+  background-size: cover;
   text-align: center;
 
   ul {
@@ -52,7 +54,6 @@ section  {
 }
 
 section.main-page__rules {
-  min-width: 1070px;
 
   .page-rules__who-i {
     padding-top: 10px;
@@ -114,7 +115,8 @@ section.main-page__rules {
   color: #fff;
 
   .next-events__wrapper {
-    padding: 60px 35px;
+    padding-top: 50px;
+    margin: 0 auto;
   }
 
   .main__next-events {
@@ -155,13 +157,16 @@ section.main-page__rules {
     opacity: 0.3;
   }
 
+  .event-time__wrapper {
+    overflow: hidden;
+  }
+
   .event-timer {
-    width: 50%;
-    height: 20%;
+    text-align: center;
     overflow: auto;
     margin: auto;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 50%; left: 0; right: 0;
 
     timer {
       font-size: 18px;
