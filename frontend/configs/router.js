@@ -10,7 +10,8 @@ angular.module('app')
     $stateProvider
       .state('main', {
         url: '/',
-        templateUrl: 'components/main/main.html'
+        templateUrl: 'components/main/main.html',
+        controller: 'Main'
       })
       .state('app', {
         abstract: true,

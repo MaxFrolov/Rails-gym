@@ -55,6 +55,9 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-lodash'
   gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-bootstrap'
+  gem 'rails-assets-moment'
+  gem 'rails-assets-angular-timer'
+  gem 'rails-assets-humanize-duration'
 end
 
 
