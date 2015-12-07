@@ -37,18 +37,26 @@
   }
 }
 
+span.brand-color {
+  color: #ea4c23;
+}
+
 .page-rules__who-i, .page-rules__rule {
-  padding-top: 10px;
   padding-bottom: 10px;
 }
 
-section.main-page__rules {
+section  {
+  width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+section.main-page__rules {
   min-width: 1070px;
 
   .page-rules__who-i {
-    border-left: 3px solid red;
+    padding-top: 10px;
+    border-left: 5px solid #ea4c23;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 24px;
@@ -57,6 +65,10 @@ section.main-page__rules {
   .page-rules__rule {
     font-size: 22px;
     font-style: italic;
+  }
+
+  .rules__description {
+    padding-bottom: 50px;
   }
 
   .page__main-rules {
@@ -70,6 +82,7 @@ section.main-page__rules {
         margin-top: 10px;
 
         .rules-content {
+          margin-top: 48px;
           padding-left: 50px;
 
           h5 {
@@ -91,6 +104,68 @@ section.main-page__rules {
           padding-left: 5px;
         }
       }
+    }
+  }
+}
+
+.main-page__events {
+  background: url('../../assets/first-page-images/events.jpg') no-repeat;
+  background-size: cover;
+  color: #fff;
+
+  .next-events__wrapper {
+    padding: 60px 35px;
+  }
+
+  .main__next-events {
+    text-transform: uppercase;
+    border-left: 5px solid #ea4c23;
+    padding: 5px 10px;
+    font-size: 24px;
+  }
+
+  .main__next-events-description {
+    font-style: italic;
+    color: #C8C8C8;
+    padding: 20px 15px;
+  }
+
+  .event__field-wrap {
+    background: #2C4665;
+    border-bottom: 1px solid #677A8A;
+    padding: 28px 25px;
+    cursor: pointer;
+  }
+
+  .event__field-wrap:last-child {
+    border-bottom: none;
+  }
+
+  .events__wrap>.active {
+    background: #ea4c23;
+  }
+
+  .wrap-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: 0.3;
+  }
+
+  .event-timer {
+    width: 50%;
+    height: 20%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+
+    timer {
+      font-size: 18px;
+      font-weight: bold;
     }
   }
 }

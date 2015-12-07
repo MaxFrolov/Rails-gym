@@ -15,9 +15,11 @@ header.main-page__background
       h1 Изменить
       h3 Свою жизнь
 section.main-page__rules
-  .container
+  .container.rules__description
     .row
-      .col-sm-5.page-rules__who-i что для меня важно ?
+      .col-sm-5.page-rules__who-i
+        span.brand-color>что
+        'для меня важно ?
       .col-sm-7.page-rules__rule Я не хочу вас тащить в спортивный зал. Сидя дома, просто осмотритесь...
   .container
     .row
@@ -41,4 +43,29 @@ section.main-page__rules
               h5 будь сильным
               span Чем ты сильнее, сильнее зависть людей.
       .col-sm-4
-        img src='<%=asset_path "assets/first-page-images/man.png" %>'
+        img.img-responsive src='<%=asset_path "assets/first-page-images/man.png" %>'
+.main-page__events
+  .container-fluid
+    .row
+      .col-sm-5
+        .container-fluid
+          .col-sm-offset-5.col-sm-7.next-events__wrapper
+            .main__next-events
+              span.brand-color> Следующие
+              'события
+            .main__next-events-description Вот уже много лет я не теряю любви к регулярным тренировкам, есть особый
+                                           драйв в том, чтобы бросать своему телу новые вызовы и достигать результата.
+      .col-sm-2
+        .row.events__wrap
+          .event__field-wrap ng-repeat="field in fields" ng-class="{'active': field.activeState}" ng-click="changeState(field.id, field.trueDate)"
+            span {{field.date}}
+            p {{field.name}}
+      .col-sm-5
+        .row
+          img.img-responsive ng-src='/assets/assets/first-page-images/event-page-{{eventId}}.jpg'
+          .wrap-inner
+          .event-timer
+            timer end-time="eventDate" interval="1000" max-time-unit="'day'" {{ddays}} day{{daysS}} | {{hours}} hour{{hoursS}} | {{minutes}} minute{{minutesS}} | {{seconds}} second{{secondsS}}
+
+
+
