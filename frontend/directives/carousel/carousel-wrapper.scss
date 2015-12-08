@@ -1,0 +1,26 @@
+.wrapper-slider__img {
+  height: 100px;
+  width: 100px;
+  border: 5px solid #ea4c23;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+
+}
+
+.carousel-caption, .carousel-indicators {
+  position: static;
+}
+
+.carousel-caption {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.carousel-indicators {
+  margin: 0 auto;
+}
+
+.carousel-control.right, .carousel-control.left {
+  background-image: none;
+}

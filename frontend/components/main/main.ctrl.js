@@ -2,6 +2,16 @@ angular.module('app').controller('Main', function($scope) {
   $scope.eventId = 0;
   $scope.changeState = changeState;
 
+  $scope.carouselInterval = 5000;
+
+  $scope.slides = [
+    {image: '/assets/assets/first-page-images/man.png',
+      text: 'Не знаю як тренажерка, а заняття з аеробіки мені дуже подобаються. Ходила в різні заклади,' +
+      ' але врешті-решт зупинилась саме на цьому. Зараз вже півроку як переїхали, але все-одно ходжу "Раструсись".' +
+      ' Тренер Алеся просто супер.'},
+    {image: '/assets/assets/first-page-images/types/5.jpg', text: 'Хороший клуб, тренеры внимательны и профессиональны,' +
+    ' но самый лучший тренер - Алеся!'}
+  ];
 
   $scope.fields = [
     {

@@ -5,5 +5,6 @@ angular.module('app', [
   'ui.router',
   'restangular',
   'ui.bootstrap',
-  'timer'
+  'timer',
+  'ui.bootstrap.carousel'
 ]);
