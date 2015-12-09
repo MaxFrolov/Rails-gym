@@ -6,5 +6,6 @@ angular.module('app', [
   'restangular',
   'ui.bootstrap',
   'timer',
-  'ui.bootstrap.carousel'
+  'ui.bootstrap.carousel',
+  'ngMap'
 ]);

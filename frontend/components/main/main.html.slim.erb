@@ -75,29 +75,9 @@ section.main-page__popular_types
       .col-sm-7.page-rules__rule Тебе тяжело в тренажёрном зале, но твоему сопернику может быть в два раза тяжелее.
   .container
     .row
-      .col-sm-4
+      .col-sm-4 ng-repeat="type in popularTypes"
         .type_wrapper_bg
-          img.img-responsive src='<%=asset_path "assets/first-page-images/types/1.jpg" %>'
-          .inner-type-bg
-      .col-sm-4
-        .type_wrapper_bg
-          img.img-responsive src='<%=asset_path "assets/first-page-images/types/2.jpg" %>'
-          .inner-type-bg
-      .col-sm-4
-        .type_wrapper_bg
-          img.img-responsive src='<%=asset_path "assets/first-page-images/types/3.jpg" %>'
-          .inner-type-bg
-      .col-sm-4
-        .type_wrapper_bg
-          img.img-responsive src='<%=asset_path "assets/first-page-images/types/4.jpg" %>'
-          .inner-type-bg
-      .col-sm-4
-        .type_wrapper_bg
-          img.img-responsive src='<%=asset_path "assets/first-page-images/types/5.jpg" %>'
-          .inner-type-bg
-      .col-sm-4
-        .type_wrapper_bg
-          img.img-responsive src='<%=asset_path "assets/first-page-images/types/6.jpg" %>'
+          img.img-responsive ng-src='assets/assets/first-page-images/types/{{type}}.jpg'
           .inner-type-bg
 .main-page__reviews
   section.inner-bg__reviews
@@ -130,8 +110,10 @@ section.main-page__our-trainer
         p Мастер / Волейбол
         span Очень информативный тренинг. Ваш тренер всегда будет готов объяснить факты. Его умение технично...
 section.main-page__video-training
-  .video-training_wrapper
-    iframe width="830" height="460" src="https://www.youtube.com/embed/CWCXLvbi3CM" frameborder="0" allowfullscreen=""
+  .container
+    .row
+      .col-sm-offset-3.col-sm-6.video-training_wrapper
+        iframe width="100%" height="100%" src="https://www.youtube.com/embed/CWCXLvbi3CM" frameborder="0" allowfullscreen=""
 section.main-page__latest_news
   .container.rules__description
     .row
@@ -235,3 +217,41 @@ section.main-page__price
             p с тренером
             p безлимит
           button.btn.btn-default type="button" записаться
+.main-page__counters
+  .container
+    .row
+      .col-sm-3.col-xs-6.counters-block__wrapper ng-repeat="count in fieldCounts"
+        counter-to times="count.counts"
+        span {{count.text}}
+
+.main-page__location
+  .container-fluid
+    .row
+      .col-sm-6.location-google__map
+        .row
+          ng-map zoom="16" center="[50.911928, 34.810180]"
+            marker position="[50.911870, 34.810076]" animation="Animation.BOUNCE" centered="true"
+      .col-sm-6.location-information
+        h2 наши контакты
+        p
+          i.fa.fa-map-marker
+          'г. Сумы ул. Троицкая 1/1
+        p
+          i.fa.fa-phone
+          '+380993323232 / +380954544343
+        p
+          i.fa.fa-envelope-o
+          'alesya-berserk@gmail.com
+footer.main-page__footer.text-center
+  .footer_logo
+    img src='<%=asset_path "assets/first-page-images/logo.jpg" %>'
+  .footer_social
+    ul
+      li
+        a href="#" Vk
+      li
+        a href="#" Facebook
+      li
+        a href="#" Instagram
+  .footer_copyright
+    p Copyright © 2015 - Venumteam - All rights reserved.

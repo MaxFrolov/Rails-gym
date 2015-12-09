@@ -58,6 +58,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-moment'
   gem 'rails-assets-angular-timer'
   gem 'rails-assets-humanize-duration'
+  gem 'rails-assets-ngmap'
 end
 
 
