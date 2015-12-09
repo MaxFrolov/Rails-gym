@@ -145,6 +145,7 @@ GEM
     rails-assets-lodash (2.4.2)
     rails-assets-moment (2.10.6)
     rails-assets-momentjs (2.9.0)
+    rails-assets-ngmap (1.15.1)
     rails-assets-restangular (1.4.0)
       rails-assets-angular
       rails-assets-lodash (>= 1.3.0, < 2.5.0)
@@ -233,6 +234,7 @@ DEPENDENCIES
   rails-assets-humanize-duration!
   rails-assets-lodash!
   rails-assets-moment!
+  rails-assets-ngmap!
   rails-assets-restangular (= 1.4.0)!
   rails-assets-ui-router!
   rails-assets-ui-utils!

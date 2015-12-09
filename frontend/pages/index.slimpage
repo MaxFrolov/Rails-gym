@@ -13,3 +13,4 @@ html(lang='en' data-ng-app='app')
 
     ui-view.app
     = javascript_include_tag 'manifests/application'
+    = javascript_include_tag 'http://maps.google.com/maps/api/js'

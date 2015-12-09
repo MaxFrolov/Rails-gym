@@ -9,6 +9,7 @@
  *= require moment
  *= require angular-timer
  *= require humanize-duration
+ *= require ngmap
  *= require ../module
  *= require_tree ../
  */

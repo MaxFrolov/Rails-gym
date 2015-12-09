@@ -1,6 +1,8 @@
 angular.module('app').controller('Main', function($scope) {
   $scope.eventId = 0;
   $scope.changeState = changeState;
+  $scope.cycle = cycle;
+  $scope.popularTypes = cycle(6);
 
   $scope.carouselInterval = 5000;
 
@@ -35,6 +37,13 @@ angular.module('app').controller('Main', function($scope) {
     }
   ];
 
+  $scope.fieldCounts = [
+    { counts: 255, text: 'Отзывов' },
+    { counts: 130, text: 'Клиентов' },
+    { counts: 100, text: 'Тренажеров' },
+    { counts: 10, text: 'Тренеров' }
+  ];
+
   $scope.eventDate = $scope.fields[0].trueDate;
 
   function changeState(id, trueDate) {
@@ -44,4 +53,17 @@ angular.module('app').controller('Main', function($scope) {
       item.activeState = (item.id === id)
     });
   }
+
+  function cycle(n) {
+    $scope.varible = [];
+
+    for (var i = 1; i <= n; i++) {
+      $scope.varible.push(i);
+    }
+    return $scope.varible
+  }
+
+
+
+
 });

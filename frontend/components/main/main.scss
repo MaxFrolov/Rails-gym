@@ -20,6 +20,8 @@
         padding: 10px 15px;
         font-size: 14px;
         font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Play', sans-serif;
       }
     }
   }
@@ -31,6 +33,7 @@
 
     h1, h2, h3 {
       text-transform: uppercase;
+      font-family: 'PT Sans Caption', sans-serif;
     }
 
     h1 { font-size: 75px; }
@@ -60,10 +63,12 @@ section  {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 24px;
+  font-family: 'PT Sans Caption', sans-serif;
 }
 
 .page-rules__rule {
   font-size: 22px;
+  font-family: 'Open Sans', sans-serif;
   font-style: italic;
 }
 
@@ -76,6 +81,10 @@ section.main-page__rules {
   .page__main-rules {
     background-color: #F6F6F6;
     padding: 50px;
+
+    p {
+      font-family: 'Open Sans', sans-serif;
+    }
 
     ul {
       list-style: none;
@@ -92,6 +101,11 @@ section.main-page__rules {
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 5px;
+            font-family: 'Play', sans-serif;
+          }
+
+          span {
+            font-family: 'Open Sans', sans-serif;
           }
         }
       }
@@ -100,6 +114,7 @@ section.main-page__rules {
         font-size: 24px;
         float: left;
         color: #ea4c23;
+        font-family: 'PT Sans Caption', sans-serif;
 
         &:after {
           content: '-';
@@ -120,12 +135,14 @@ section.main-page__rules {
   border-left: 5px solid #ea4c23;
   padding: 5px 10px;
   font-size: 24px;
+  font-family: 'PT Sans Caption', sans-serif;
 }
 
 .main__next-events-description {
   font-style: italic;
   color: #C8C8C8;
   padding: 20px 15px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .main-page__events {
@@ -139,6 +156,7 @@ section.main-page__rules {
     padding: 28px 25px;
     cursor: pointer;
     height: 33.3333%;
+    font-family: 'Play', sans-serif;
   }
 
   .event__field-wrap:last-child {
@@ -207,7 +225,7 @@ section.main-page__rules {
 }
 
 .main-page__reviews {
-  background: url("../../assets/first-page-images/reviews.jpg");
+  background: url("../../assets/first-page-images/reviews.jpg") no-repeat fixed 50% 0;
   background-size: cover;
   position: relative;
 
@@ -217,7 +235,7 @@ section.main-page__rules {
     padding-bottom: 100px;
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
   }
 
@@ -236,6 +254,7 @@ section.main-page__rules {
 
   .video-training_wrapper {
     text-align: center;
+    height: 300px;
   }
 }
 
@@ -290,6 +309,7 @@ section.main-page__rules {
 }
 
 .price-wrapper {
+  margin-top: 30px;
   border: 3px solid #E1E1E1;
   text-align: center;
   padding: 35px 25px;
@@ -297,6 +317,7 @@ section.main-page__rules {
   color: black;
   background: #fff;
   transition: all .2s ease-in-out;
+  font-family: 'Play', sans-serif;
 
   .price-include {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -337,11 +358,90 @@ section.main-page__rules {
 }
 
 .red-border {
-  margin-top: -20px;
+  margin-top: 10px;
   border: 3px solid #ea4c23;
   padding: 55px 25px;
 }
 
-.price-container {
+.counters-block__wrapper {
+  padding: 50px;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: 'Play', sans-serif;
+
+  p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  span {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #848484;
+  }
+
+  &:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+  }
+}
+
+.main-page__location {
+  background: #000000;
+}
+
+.location-information {
+  background: #000000;
+  color: #fff;
+  padding-top: 5%;
+  padding-left: 7%;
+  padding-bottom: 3%;
+  font-family: 'Open Sans', sans-serif;
+
+  h2 {
+    margin-top: 0;
+    font-family: 'PT Sans Caption', sans-serif;
+  }
+
+  i {
+    color: #ea4c23;
+    margin-right: 15px;
+  }
+}
+
+.main-page__footer {
   padding-top: 50px;
+
+  .footer_social {
+    margin-top: 30px;
+    padding-bottom: 20px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        padding: 15px 10px;
+
+        a {
+          text-transform: uppercase;
+          color: #848484;
+          font-weight: bold;
+          font-family: 'Play', sans-serif;
+        }
+      }
+    }
+  }
+
+  .footer_copyright {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    padding-top: 10px;
+    color: #848484;
+  }
+}
+
+@media (max-width: 768px) {
+  .red-border {
+    margin-top: 30px;
+  }
 }
