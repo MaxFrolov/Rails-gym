@@ -7,5 +7,8 @@ angular.module('app', [
   'ui.bootstrap',
   'timer',
   'ui.bootstrap.carousel',
-  'ngMap'
+  'ngMap',
+  'ui.select',
+  'satellizer',
+  'ngSanitize'
 ]);

@@ -1,0 +1,5 @@
+input.form-control(id="{{field.htmlId}}" name="{{field.fullName}}" placeholder="{{field.label}}"
+  popover-placement="{{field.hint.placement}}" popover="{{field.hint.content}}" popover-trigger="{{field.hint.trigger}}"
+  ng-required="field.required" type="{{field.type || 'text'}}" ng-model="field.obj[field.name]"
+  ng-change="field.onChange()" ng-disabled="field.disabled")
+span ng-if="field.text" {{field.text}}

@@ -1,0 +1,10 @@
+.select-birthday__wrapper   {
+  display: flex;
+  & > div {
+    flex: 1;
+    &:nth-child(1) {
+      flex: 2;
+    }
+  }
+}
+

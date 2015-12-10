@@ -36,4 +36,5 @@ Rails.application.configure do
   config.assets.compress = false
   config.assets.debug = true
 
+  config.mandrill_mailer.letter_opener = true
 end

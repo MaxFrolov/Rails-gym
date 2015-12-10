@@ -3,7 +3,7 @@
   padding-bottom: 50px;
   height: 100vh;
   width: 100%;
-  background: url('../../assets/first-page-images/main.jpg') no-repeat 50% 0;
+  background: asset_url('assets/first-page-images/main.jpg') no-repeat 50% 0;
   background-size: cover;
   text-align: center;
 
@@ -39,6 +39,28 @@
     h1 { font-size: 75px; }
     h2 { font-size: 36px; }
     h3 { font-size: 55px; }
+  }
+
+  .main-header__login {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    cursor: pointer;
+
+    a {
+      font-family: 'Play', sans-serif;
+      color: #fff;
+
+      &:last-child {
+        padding-left: 10px;
+        border-left: 1px solid #fff;
+        box-sizing: border-box;
+      }
+
+      &:first-child {
+        padding-right: 10px;
+      }
+    }
   }
 }
 
@@ -146,7 +168,7 @@ section.main-page__rules {
 }
 
 .main-page__events {
-  background: url('../../assets/first-page-images/events.jpg') no-repeat;
+  background: asset_url('assets/first-page-images/events.jpg') no-repeat;
   background-size: cover;
   color: #fff;
 
@@ -225,7 +247,7 @@ section.main-page__rules {
 }
 
 .main-page__reviews {
-  background: url("../../assets/first-page-images/reviews.jpg") no-repeat fixed 50% 0;
+  background: asset_url("assets/first-page-images/reviews.jpg") no-repeat fixed 50% 0;
   background-size: cover;
   position: relative;
 
@@ -249,7 +271,7 @@ section.main-page__rules {
 }
 
 .main-page__video-training {
-  background: url("../../assets/first-page-images/bg-video.jpg") no-repeat fixed;
+  background: asset_url("assets/first-page-images/bg-video.jpg") no-repeat fixed;
   background-size: cover;
 
   .video-training_wrapper {
@@ -327,19 +349,6 @@ section.main-page__rules {
 
   button {
     margin-top: 30px;
-    border-radius: 0;
-    border: 2px solid black;
-    background: none;
-    padding: 10px 35px;
-    text-transform: uppercase;
-    transition: all .2s ease-in-out;
-
-    &:hover {
-      transition: all .2s ease-in-out;
-      border: 2px solid black;
-      background: black;
-      color: #fff;
-    }
   }
 
   h5 {

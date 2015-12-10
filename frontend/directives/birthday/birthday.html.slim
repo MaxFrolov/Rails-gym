@@ -1,0 +1,24 @@
+.select-birthday__wrapper
+  ui-select(ng-model="dateModel.month" theme="bootstrap" search-enabled="false"
+    ng-required="field.required" on-select="formattingDate($item, $model)")
+
+    ui-select-match placeholder="Месяц" {{$select.selected.label}}
+    ui-select-choices.ui-select-choices-square(repeat="choice.value as choice in months")
+
+      div ng-bind-html="choice.label | highlight: $select.search"
+
+  ui-select(ng-model="dateModel.day" theme="bootstrap" search-enabled="false"
+    ng-required="field.required" on-select="formattingDate($item, $model)")
+
+    ui-select-match placeholder="День" {{$select.selected.label}}
+    ui-select-choices.ui-select-choices-square(repeat="choice.value as choice in days")
+
+      div ng-bind-html="choice.label | highlight: $select.search"
+
+  ui-select(ng-model="dateModel.year" theme="bootstrap" search-enabled="false"
+    ng-required="field.required" on-select="formattingDate($item, $model)")
+
+    ui-select-match placeholder="Год" {{$select.selected.label}}
+    ui-select-choices.ui-select-choices-square(repeat="choice.value as choice in years")
+
+      div ng-bind-html="choice.label | highlight: $select.search"

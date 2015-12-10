@@ -17,8 +17,35 @@ angular.module('app')
         abstract: true,
         controller: 'AppCtrl',
         templateUrl: 'components/app/app.html'
-      });
-
+      })
+      .state('app.signUpMethod', {
+        url: '/sign-up-method',
+        templateUrl: 'components/auth/sign-up/method/method.html'
+      })
+      .state('app.signUp', {
+        url:'/sign-up',
+        templateUrl: 'components/auth/sign-up/signUp.html',
+        controller: 'SignUpCtrl'
+      })
+    .state('confirmEmail', {
+      url: '/users/confirm/:token',
+      onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {
+        $http.get('/api/confirmation', {params: {confirmation_token: $stateParams.token}})
+          .then(function(response) {
+            $auth.setToken(response.data.auth_token);
+            CurrentUser.reload().then(function() {
+             // Notification.success('Your email has been confirmed');
+              $state.go('main');
+            });
+          })
+          .catch(function(response) {
+            CurrentUser.reload().then(function() {
+              //Notification.error(response.data.errors);
+              $state.go('main');
+            })
+          });
+      }
+    });
     $urlRouterProvider.otherwise('/');
 
   });

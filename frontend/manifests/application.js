@@ -10,6 +10,9 @@
  *= require angular-timer
  *= require humanize-duration
  *= require ngmap
+ *= require angular-ui-select
+ *= require angular-sanitize
+ *= require satellizer
  *= require ../module
  *= require_tree ../
  */

@@ -1,0 +1,31 @@
+.footer-page__location
+  .container-fluid
+    .row
+      .col-sm-6.location-google__map
+        .row
+          ng-map zoom="16" center="[50.911928, 34.810180]"
+            marker position="[50.911870, 34.810076]" animation="Animation.BOUNCE" centered="true"
+      .col-sm-6.location-information
+        h2 наши контакты
+        p
+          i.fa.fa-map-marker
+          'г. Сумы ул. Троицкая 1/1
+        p
+          i.fa.fa-phone
+          '+380993323232 / +380954544343
+        p
+          i.fa.fa-envelope-o
+          'alesya-berserk@gmail.com
+footer.footer-page__footer.text-center
+  .footer_logo
+    img src='<%=asset_path "assets/first-page-images/logo.jpg" %>'
+  .footer_social
+    ul
+      li
+        a href="#" Vk
+      li
+        a href="#" Facebook
+      li
+        a href="#" Instagram
+  .footer_copyright
+    p Copyright © 2015 - Venumteam - All rights reserved.

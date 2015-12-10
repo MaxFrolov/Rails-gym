@@ -63,7 +63,4 @@ angular.module('app').controller('Main', function($scope) {
     return $scope.varible
   }
 
-
-
-
 });
