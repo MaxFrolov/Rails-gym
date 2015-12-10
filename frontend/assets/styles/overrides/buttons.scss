@@ -1,0 +1,65 @@
+@import "assets/styles/vars";
+
+.btn {
+  font-family: BrandonBold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
+
+  &.btn-info {
+    color: #fff;
+  }
+  &.btn-upper {
+    text-transform: uppercase;
+  }
+
+  &.btn-add {
+    position: relative;
+    padding-left: 12px;
+    box-sizing: border-box;
+    .glyphicon {
+      position: relative;
+      left: -3px;
+    }
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #FFF;
+  &:hover {
+    color: #FFF;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.btn-lg {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 14px 27px;
+  border-width: 2px;
+}
+
+.btn-xs {
+  font-size: 14px;
+}
+
+.btn-primary {
+  border-radius: 0;
+  border: 2px solid black;
+  background: none;
+  padding: 10px 35px;
+  text-transform: uppercase;
+  transition: all .2s ease-in-out;
+  color: #000000;
+
+  &:hover {
+    transition: all .2s ease-in-out;
+    border: 2px solid black;
+    background: black;
+    color: #fff;
+  }
+
+  &:active, &:focus {
+    background: #585859;
+  }
+}

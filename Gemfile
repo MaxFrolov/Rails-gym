@@ -35,8 +35,20 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'letter_opener'
 end
 
+# For seed data
+gem 'database_cleaner'
+gem 'faker'
+
+gem 'factory_girl_rails'
+gem 'mandrill_mailer'
+gem 'launchy'
+gem 'devise'
+gem 'jwt_authentication', github: 'Rezonans/jwt_authentication', tag: 'v0.0.5'
+gem 'cancancan', '~> 1.10'
+gem 'active_model_serializers', '0.8.3'
 gem 'sprockets', '~> 2.12.3' #need for spa_rails old version
 gem 'responders'
 gem 'slim'
@@ -55,12 +67,11 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-lodash'
   gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular-ui-select', github: 'sars/angular-ui-select' # https://github.com/angular-ui/ui-select/pull/1068
   gem 'rails-assets-moment'
   gem 'rails-assets-angular-timer'
   gem 'rails-assets-humanize-duration'
   gem 'rails-assets-ngmap'
-end
-
-
-source 'https://rails-assets.org' do
+  gem 'rails-assets-angular-sanitize'
+  gem 'rails-assets-satellizer'
 end

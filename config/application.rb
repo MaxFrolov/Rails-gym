@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module GymStore
   class Application < Rails::Application
-    config.angular_templates.inside_paths << Rails.root.join('frontend')
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -23,5 +22,13 @@ module GymStore
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.angular_templates.inside_paths << Rails.root.join('frontend')
+
+    config.api_only = false
+
+    config.autoload_paths << Rails.root.join('lib', 'autoload')
+
+    require Rails.root.join('lib', 'sass_helpers.rb')
   end
 end

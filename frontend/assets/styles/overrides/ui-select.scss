@@ -1,0 +1,65 @@
+@import "assets/styles/vars";
+
+.ui-select-choices {
+  font: 16px NeuzeitSLTBook;
+}
+
+.ui-select-bootstrap {
+  .btn {
+    font-family: NeuzeitSLTBook, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .ui-select-choices-row > a {
+    padding: 7px 20px;
+  }
+
+  .ui-select-choices-row.active > a {
+    background-color: $brand-primary;
+  }
+}
+
+.ui-select-choices-square {
+  border-radius: 0;
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+  min-height: 44px;
+  line-height: normal;
+  padding-left: 12px;
+  padding-right: 6px;
+
+  & > .ui-select-choices {
+    box-sizing: content-box;
+    left: -1px;
+  }
+}
+
+
+.ui-select-container.open[search-enabled="false"] {
+  height: 44px;
+
+  .ui-select-dropdown {
+    top: 0 !important;
+  }
+}
+
+.ui-select-container.open.direction-up .ui-select-dropdown {
+  bottom: 100%;
+  top: auto !important;
+}
+
+.ui-select-container.direction-up[search-enabled="false"] .ui-select-dropdown {
+  bottom: 0;
+}
+
+.ui-select-match {
+  .ui-select-toggle {
+    a.btn.btn-xs.btn-link.pull-right {
+      margin-right: 10px;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
