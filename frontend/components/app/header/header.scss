@@ -2,4 +2,46 @@
   padding: 50px 20px;
   background: asset_url('assets/first-page-images/header-bg.jpg') no-repeat;
   background-size: cover;
+  text-align: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      padding: 10px 15px;
+
+      a {
+        color: #fff;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Play', sans-serif;
+      }
+    }
+  }
+
+  .header-page__login {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    cursor: pointer;
+
+    a {
+      font-family: 'Play', sans-serif;
+      color: #fff;
+
+      &:last-child {
+        padding-left: 10px;
+        border-left: 1px solid #fff;
+        box-sizing: border-box;
+      }
+
+      &:first-child {
+        padding-right: 10px;
+      }
+    }
+  }
 }
