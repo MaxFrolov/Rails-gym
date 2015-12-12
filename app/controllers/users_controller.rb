@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.all
-    render_resources @user
+    @users = User.find_by(user_params)
+    render_resources(@users, each_serializer: UserSerializer)
   end
 
   def update
