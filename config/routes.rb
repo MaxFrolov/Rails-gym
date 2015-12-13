@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get     'confirmation', to: 'jwt_authentication/confirmations#show'
       post    'resend_confirmation', to: 'jwt_authentication/confirmations#create'
     end
+
+    resources :blogs, only: [:index, :create, :update, :destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

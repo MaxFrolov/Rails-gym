@@ -1,0 +1,39 @@
+'use strict';
+
+/**
+ * Config for the router
+ */
+angular.module('app').config(function($authProvider) {
+
+  $authProvider.loginUrl = '/api/login';
+  $authProvider.signupUrl = '/api/registration';
+  $authProvider.tokenName = 'auth_token';
+  $authProvider.tokenPrefix = 'pt_satellizer';
+  $authProvider.signupRedirect = false;
+  $authProvider.loginRedirect = false;
+  $authProvider.logoutRedirect = false;
+  $authProvider.loginOnSignup = true;
+
+  $authProvider.facebook({
+    clientId: '<%=ENV['FACEBOOK_APP_ID']%>',
+    url: '/api/auth/facebook',
+    dataUrl: '/api/facebook/data',
+    scope: ['email', 'public_profile', 'user_about_me', 'user_birthday', 'user_education_history',
+      'user_hometown', 'user_location', 'user_work_history', 'user_friends']
+  });
+
+
+
+}).run([
+  '$auth',
+  'satellizer.config',
+  'satellizer.Oauth1',
+  'satellizer.Oauth2',
+  function($auth, config, Oauth1, Oauth2) {
+    $auth.oauthData = function (name, userData) {
+      var providerObj = _.extend({}, _.clone(config.providers[name]), { url: config.providers[name].dataUrl }),
+        provider = providerObj.type === '1.0' ? new Oauth1() : new Oauth2();
+      return provider.open(providerObj, userData || {});
+    }
+  }
+]);
