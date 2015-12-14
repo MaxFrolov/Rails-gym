@@ -11,7 +11,12 @@
  *= require humanize-duration
  *= require ngmap
  *= require angular-ui-select
+ *= require angular-mask
+ *= require ngInfiniteScroll
  *= require angular-sanitize
+ *= require angular-ui-notification
+ *= require angular-permission
+ *= require angular-checklist-model
  *= require satellizer
  *= require ../module
  *= require_tree ../

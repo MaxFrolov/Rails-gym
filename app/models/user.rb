@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   enum role: {member: 0, admin: 1}
 
+  has_many :blogs
 end

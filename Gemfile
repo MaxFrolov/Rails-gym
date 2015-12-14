@@ -42,6 +42,8 @@ end
 gem 'database_cleaner'
 gem 'faker'
 
+gem 'kaminari'
+gem 'rails-api'
 gem 'factory_girl_rails'
 gem 'mandrill_mailer'
 gem 'launchy'
@@ -72,6 +74,11 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-timer'
   gem 'rails-assets-humanize-duration'
   gem 'rails-assets-ngmap'
+  gem 'rails-assets-angular-checklist-model'
+  gem 'rails-assets-angular-mask'
+  gem 'rails-assets-angular-permission'
+  gem 'rails-assets-ngInfiniteScroll'
+  gem 'rails-assets-angular-ui-notification'
   gem 'rails-assets-angular-sanitize'
-  gem 'rails-assets-satellizer'
+  gem 'rails-assets-satellizer', '0.11.3'
 end

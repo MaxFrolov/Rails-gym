@@ -27,25 +27,30 @@ angular.module('app')
         templateUrl: 'components/auth/sign-up/signUp.html',
         controller: 'SignUpCtrl'
       })
-    .state('confirmEmail', {
-      url: '/users/confirm/:token',
-      onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {
-        $http.get('/api/confirmation', {params: {confirmation_token: $stateParams.token}})
-          .then(function(response) {
-            $auth.setToken(response.data.auth_token);
-            CurrentUser.reload().then(function() {
-             // Notification.success('Your email has been confirmed');
-              $state.go('main');
-            });
-          })
-          .catch(function(response) {
-            CurrentUser.reload().then(function() {
-              //Notification.error(response.data.errors);
-              $state.go('main');
+      .state('app.blog', {
+        url:'/blog?page',
+        templateUrl: 'components/blog/blog.html',
+        controller: 'BlogCtrl'
+      })
+      .state('confirmEmail', {
+        url: '/users/confirm/:token',
+        onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {
+          $http.get('/api/confirmation', {params: {confirmation_token: $stateParams.token}})
+            .then(function(response) {
+              $auth.setToken(response.data.auth_token);
+              CurrentUser.reload().then(function() {
+               // Notification.success('Your email has been confirmed');
+                $state.go('main');
+              });
             })
-          });
-      }
-    });
+            .catch(function(response) {
+              CurrentUser.reload().then(function() {
+                //Notification.error(response.data.errors);
+                $state.go('main');
+              })
+            });
+        }
+      });
     $urlRouterProvider.otherwise('/');
 
   });

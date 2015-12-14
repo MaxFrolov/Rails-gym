@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < ApiController
   load_and_authorize_resource
   def show
     render_resource_data(@user)

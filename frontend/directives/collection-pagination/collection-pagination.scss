@@ -1,0 +1,14 @@
+@import "assets/styles/vars";
+
+collection-pagination {
+  > .pagination {
+    > .disabled, > li {
+      > span, > a {
+        &, &:hover, &:focus {
+          border-color: $tabs-border-color;
+          font: 15px NeuzeitSLTBook, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+      }
+    }
+  }
+}

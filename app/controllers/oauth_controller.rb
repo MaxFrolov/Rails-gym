@@ -1,4 +1,4 @@
-class OauthController < ApplicationController
+class OauthController < ApiController
   before_action :load_oauth
 
   def retrieve_data

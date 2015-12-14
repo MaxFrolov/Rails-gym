@@ -10,5 +10,10 @@ angular.module('app', [
   'ngMap',
   'ui.select',
   'satellizer',
-  'ngSanitize'
+  'ngSanitize',
+  'ngMask',
+  'infinite-scroll',
+  'checklist-model',
+  'permission',
+  'ui-notification'
 ]);
