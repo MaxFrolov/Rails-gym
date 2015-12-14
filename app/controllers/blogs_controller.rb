@@ -1,7 +1,7 @@
-class BlogsController < ApplicationController
+class BlogsController < ApiController
 
   def index
-    posts = Blog.all
+    posts = Blog.all.page(params[:page]).per(params[:per])
     render_resources(posts)
   end
 

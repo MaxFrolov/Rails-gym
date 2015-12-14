@@ -9,5 +9,6 @@ class Ability
       can :index, User
       can [:show, :update, :destroy], User, id: user.id
     end
+    can :index, Blog
   end
 end

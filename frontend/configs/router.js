@@ -28,7 +28,7 @@ angular.module('app')
         controller: 'SignUpCtrl'
       })
       .state('app.blog', {
-        url:'/blog',
+        url:'/blog?page',
         templateUrl: 'components/blog/blog.html',
         controller: 'BlogCtrl'
       })

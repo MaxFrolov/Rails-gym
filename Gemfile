@@ -42,6 +42,8 @@ end
 gem 'database_cleaner'
 gem 'faker'
 
+gem 'kaminari'
+gem 'rails-api'
 gem 'factory_girl_rails'
 gem 'mandrill_mailer'
 gem 'launchy'

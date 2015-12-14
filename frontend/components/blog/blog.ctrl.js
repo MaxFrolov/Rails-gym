@@ -1,8 +1,4 @@
-angular.module('app').controller('BlogCtrl',function($scope, Restangular) {
+angular.module('app').controller('BlogCtrl',function($scope, Restangular, $stateParams) {
 
- $scope.blog = {}
-
- Restangular.all('blogs').getList().then(function(responce) {
-  console.log(responce);
- })
+ $scope.posts = Restangular.all('blogs').getList({page: $stateParams.page, per: 5}).$object;
 });
