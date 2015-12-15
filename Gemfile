@@ -65,7 +65,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular'
   gem 'rails-assets-ui-utils'
   gem 'rails-assets-ui-router'
-  gem 'rails-assets-restangular', '1.4.0'
+  gem 'rails-assets-restangular', '1.5.1'
   gem 'rails-assets-lodash'
   gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-bootstrap'

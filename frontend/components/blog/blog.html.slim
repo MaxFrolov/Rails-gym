@@ -1,10 +1,24 @@
 .blog_page
   .container
     .row
-      .blog-block ng-repeat="post in posts"
-        .post-img
-          img ng-src="assets/assets/first-page-images/blog-img/{{post.picture_url}}{{$index}}.jpg"
-        h1 {{post.header}}
-        h5 {{post.short_description}}
-        a href='#' more...
-      collection-pagination resource="posts" ng-if="posts"
+      .col-sm-9
+        .blog-block ng-repeat="post in posts"
+          .post-img
+            img.img-responsive ng-src="assets/assets/first-page-images/blog-img/{{post.picture_url}}{{post.id}}.jpg"
+          .blog_description
+            a.post-header href="#" {{post.header}}
+            h5 {{post.short_description}}
+            a.link href='#' читать дальше...
+          .blog_posts__meta
+            span {{formatDate(post.news_date)}}
+        collection-pagination resource="posts"
+      .col-sm-3
+        .blog-bar-categories категории
+        .blog-categories
+          ul
+            li Музыка
+            li Спорт
+            li Технологии
+            li Природа
+
+
