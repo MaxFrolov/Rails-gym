@@ -1,30 +1,37 @@
 'use strict';
 
 /**
-* Config for the restangular
-*/
+ * Config for the restangular
+ */
 angular.module('app')
-  .config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('/api');
+    .config(function(RestangularProvider) {
+      RestangularProvider.setBaseUrl('/api');
 
+      RestangularProvider.addResponseInterceptor(function (response, operation, what) {
+        if (operation === 'getList') {
+          if (response.resources) {
+            response.resources.total = _.result(response.meta, 'total');
+          }
+          return response.resources;
+        }
+        if (['get', 'post', 'put', 'patch'].indexOf(operation) !== -1) {
+          return response.resource;
+        }
+        return response;
+      });
 
-    RestangularProvider.addResponseInterceptor(function (response, operation, what) {
-      if (operation === 'getList') {
-        if (response['resources']) response['resources'].count = response.count;
-        return response['resources'];
-      }
-      if (['get', 'post', 'put'].indexOf(operation) !== -1) {
-        return response['resource'];
-      }
-      return response;
+      RestangularProvider.addRequestInterceptor(function (request, operation, what) {
+        if (operation === 'post' || operation === 'put' || operation === 'patch') {
+          return {resource: request};
+        }
+        return request;
+      });
+
+      RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
+
+      RestangularProvider.setRestangularFields({
+        patchFields: 'patchFields',
+        exists: 'exists'
+      });
     });
 
-    RestangularProvider.addRequestInterceptor(function (request, operation, what) {
-      if (operation === 'post' || operation === 'put') {
-        return {resource: request};
-      }
-      return request;
-    });
-
-    RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
-  });
