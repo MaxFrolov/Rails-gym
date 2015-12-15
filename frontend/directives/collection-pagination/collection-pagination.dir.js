@@ -13,7 +13,6 @@ angular.module('app').directive('collectionPagination', function() {
           $scope.resource = result;
         });
       }
-      console.log($scope.resource.total>$scope.resource.length );
     },
     templateUrl: 'directives/collection-pagination/collection-pagination.html',
     scope: {
