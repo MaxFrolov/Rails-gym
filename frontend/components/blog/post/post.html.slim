@@ -1,0 +1,26 @@
+.post-page
+  .container
+    .row
+      .col-sm-9
+        .post-head__header
+          h2 {{currentPost.header}}
+          h5 {{currentPost.short_description}}
+        .post_main__img
+          img.img-responsive ng-src="assets/assets/first-page-images/blog-img/{{currentPost.picture_url}}{{currentPost.id}}.jpg"
+        .post_body
+          p {{currentPost.news}}
+      .col-sm-3
+    .post-comments
+      .post-comment__wrapper ng-repeat="commentInfo in comments"
+        h4 Автор: {{commentInfo.name}}
+        avatar user="commentInfo.user"
+        p {{commentInfo.message}}
+    .row
+      .col-sm-6.auth__form-wrapper
+        form.form-horizontal name="authForm" ng-submit="signUp()" novalidate="novalidate"
+
+          horizontal-form obj="comment" fields="fields" errors="errors"
+
+          .row.auth__buttons-row
+            .col-sm-offset-4.col-sm-8
+              button.btn.btn-primary.btn-lg.auth__submit type="submit" отправить

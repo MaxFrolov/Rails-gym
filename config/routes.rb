@@ -11,7 +11,12 @@ Rails.application.routes.draw do
       post    'resend_confirmation', to: 'jwt_authentication/confirmations#create'
     end
 
-    resources :blogs, only: :index
+    resources :users, only: [:show, :update, :index, :destroy] do
+      resources :comments, only: [:create, :update]
+    end
+
+    resources :comments, only: [:index, :show]
+    resources :posts, only: [:index, :show]
   end
 
   match '/(*path)', via: :all, to: frontend_page('index.htm')

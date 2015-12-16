@@ -1,0 +1,46 @@
+.post-page {
+  .post-head__header {
+    h2 {
+      text-transform: uppercase;
+      color: #6D6C6C;
+      font-family: 'PT Sans Caption', sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      position: relative;
+      margin-bottom: 15px;
+      display: block;
+      padding-bottom: 5px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 3px;
+        background: #ea4c23;
+      }
+    }
+  }
+
+  h5, .post_body p {
+    color: #848484;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h5 {
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  .post_body p {
+    font-size: 18px;
+    padding: 20px 5px;
+    border-bottom: 3px solid #E1E1E1;;
+  }
+
+  .post-comments {
+
+  }
+}
+
