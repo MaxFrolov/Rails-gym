@@ -39,12 +39,14 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'letter_opener'
-  gem 'letter_opener'
 end
 
 # For seed data
 gem 'database_cleaner'
 gem 'faker'
+
+gem 'mini_magick', '4.2.7'
+gem 'carrierwave-data-uri'
 
 gem 'kaminari'
 gem 'rails-api'
@@ -61,8 +63,6 @@ gem 'slim'
 gem 'angular-rails-templates', github: 'sars/angular-rails-templates'
 gem 'spa_rails', github: 'Rezonans/spa_rails'
 gem 'bootstrap-sass', '~> 3.3.5'
-
-gem 'active_model_serializers', '0.8.3'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular-animate'

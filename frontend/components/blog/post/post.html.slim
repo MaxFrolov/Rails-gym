@@ -13,7 +13,7 @@
     .post-comments
       .post-comment__wrapper ng-repeat="commentInfo in comments"
         h4 Автор: {{commentInfo.name}}
-        avatar user="commentInfo.user"
+        avatar user="commentInfo.user.avatar"
         p {{commentInfo.message}}
     .row
       .col-sm-6.auth__form-wrapper
