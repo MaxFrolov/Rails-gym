@@ -1,6 +1,7 @@
-class UserSerializer < UserIndexSerializer
-  attributes :email, :unconfirmed_email, :role, :birthday,
-             :first_name, :last_name, :created_at, :default_address
+class UserSerializer < UserAvatarSerializer
+  attributes :email, :role, :birthday, :first_name, :last_name
+
+  has_many :comments
 
   def is_confirmed
     object.confirmed?

@@ -5,5 +5,5 @@ angular.module('app').controller('BlogCtrl',function($scope, Restangular, $state
   return moment(date).subtract(10, 'days').calendar()
  }
 
- $scope.posts = Restangular.all('blogs').getList({page: $stateParams.page, per: 5}).$object;
+ $scope.posts = Restangular.all('posts').getList({page: $stateParams.page, per: 5}).$object;
 });

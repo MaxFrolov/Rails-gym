@@ -8,7 +8,7 @@
           .blog_description
             a.post-header href="#" {{post.header}}
             h5 {{post.short_description}}
-            a.link href='#' читать дальше...
+            a.link ui-sref='app.post({ id: post.id })' читать дальше...
           .blog_posts__meta
             span {{formatDate(post.news_date)}}
         collection-pagination resource="posts"

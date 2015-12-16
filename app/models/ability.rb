@@ -8,7 +8,9 @@ class Ability
     if user.persisted?
       can :index, User
       can [:show, :update, :destroy], User, id: user.id
+      can [:create, :update, :destroy], Comment
     end
-    can :index, Blog
+    can [:index, :show], Comment
+    can [:index, :show], Post
   end
 end
