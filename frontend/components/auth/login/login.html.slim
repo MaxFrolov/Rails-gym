@@ -1,0 +1,14 @@
+.login-page.clearfix
+  .col-sm-offset-4.col-sm-4.auth__form-wrapper
+    .social-buttons-block
+      button.btn.btn-primary ui-sref="app.signUp" ng-click="authenticate('facebook')"
+        i.fa.fa-facebook.social-buttons-block__icon
+        span.social-buttons-block__label Войти с Facebook
+
+    form.auth__login-form.form-horizontal name="authForm" ng-submit="logIn()" novalidate="novalidate"
+      horizontal-form obj="user" fields="fields" errors="errors" width="9"
+
+      .row.auth__buttons-row
+        .col-sm-offset-3.col-sm-9
+          button.btn.btn-primary.btn-lg.auth__submit type="submit" Войти
+

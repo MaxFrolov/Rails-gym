@@ -4,7 +4,7 @@
   div ng-class="field.labelClass" ng-if="field.hide"
   a.horizontal-form__link ng-if="field.hide" ng-class="field.fieldClass" ng-click="field.hide = undefined" {{field.hide}}
 
-  label.control-label.form-group__label ng-class="field.labelClass" ng-if="!field.hide" for="{{field.htmlId}}" {{field.label}}
+  label.control-label.form-group__label ng-class="field.labelClass" ng-if="!field.hide" ng-hide="field.hideLabel" for="{{field.htmlId}}" {{field.label}}
   .horizontal-form__field-col ng-class="field.fieldClass" ng-if="!field.hide"
     .horizontal-form__field-wrapper ng-include="'directives/horizontal-form/fields/' + field.tplType + '.html'"
     small.help-block ng-if="errors[field.fullName]" {{errors[field.fullName].join(', ')}}

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [:show, :update, :index, :destroy] do
-      resources :comments, only: [:create, :update]
+      resource :comments, only: [:create, :update]
     end
 
     resources :comments, only: [:index, :show]

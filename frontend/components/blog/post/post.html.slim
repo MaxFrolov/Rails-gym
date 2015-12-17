@@ -10,16 +10,21 @@
         .post_body
           p {{currentPost.news}}
       .col-sm-3
-    .post-comments
-      .post-comment__wrapper ng-repeat="commentInfo in comments"
-        h4 Автор: {{commentInfo.name}}
-        avatar user="commentInfo.user.avatar"
-        p {{commentInfo.message}}
-    .row
-      .col-sm-6.auth__form-wrapper
-        form.form-horizontal name="authForm" ng-submit="signUp()" novalidate="novalidate"
 
-          horizontal-form obj="comment" fields="fields" errors="errors"
+      .col-sm-9.post-comments
+        .post-comment__wrapper ng-repeat="commentInfo in comments"
+          .row
+            .col-sm-2
+              avatar user="commentInfo.user.avatar"
+            .col-sm-10
+              h4 Автор: {{commentInfo.name}}
+              span {{commentInfo.comment_date | calendarDate}}
+              p {{commentInfo.message}}
+
+      .col-sm-6.col-sm-offset-1.auth__form-wrapper
+        form.form-horizontal name="commentForm" ng-submit="saveComment()" novalidate="novalidate"
+
+          horizontal-form obj="comment" fields="fields" errors="errors" width="12"
 
           .row.auth__buttons-row
             .col-sm-offset-4.col-sm-8

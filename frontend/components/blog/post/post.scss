@@ -40,7 +40,51 @@
   }
 
   .post-comments {
+    background-color: #eeeeee;
 
+    .post-comment__wrapper {
+      padding: 20px 30px;
+      border-bottom: 1px solid #fff;
+
+      h4 {
+        text-transform: uppercase;
+        color: #6D6C6C;
+        font-family: 'PT Sans Caption', sans-serif;
+        font-size: 22px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        color: #848484;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        margin-top: 5px;
+      }
+
+      span {
+        color: #ea4c23;
+        font-family: 'Play', sans-serif;
+        font-weight: bold;
+      }
+    }
   }
 }
 
+.post-page  {
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+  .auth__form-wrapper {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #eeeeee;
+
+    .btn-lg.auth__submit {
+      background-color: #fff;
+
+      &:hover {
+        background-color: #000
+      }
+    }
+  }
+}
