@@ -11,6 +11,9 @@
         li
           a ui-sref="app.blog" Блог
 
-    .header-page__login
+    .header-page__login ng-if="!currentUser.exists()"
       a ui-sref="app.login" Войти
       a ui-sref="app.signUpMethod" Зарегистрироваться
+    .header-page__login ng-if="currentUser.exists()"
+      a href="#" Добро пожаловать {{currentUser.first_name}}
+      a href="#" ng-click="logout()" Выйти

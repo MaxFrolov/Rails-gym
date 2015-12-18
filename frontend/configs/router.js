@@ -16,7 +16,12 @@ angular.module('app')
       .state('app', {
         abstract: true,
         controller: 'AppCtrl',
-        templateUrl: 'components/app/app.html'
+        templateUrl: 'components/app/app.html',
+        resolve: {
+          currentUser: function($auth, CurrentUser) {
+            return CurrentUser.get();
+          }
+        }
       })
       .state('app.signUpMethod', {
         url: '/sign-up-method',
@@ -26,6 +31,11 @@ angular.module('app')
         url:'/sign-up',
         templateUrl: 'components/auth/sign-up/signUp.html',
         controller: 'SignUpCtrl'
+      })
+      .state('app.login', {
+        url: '/login',
+        templateUrl: 'components/auth/login/login.html',
+        controller: 'LoginCtrl'
       })
       .state('app.blog', {
         url:'/blog?page',

@@ -1,6 +1,4 @@
 .method-page {
-  padding-top: 50px;
-  padding-bottom: 50px;
   text-align: center;
 
   .social-button__wrapper {
@@ -14,7 +12,12 @@
   }
 }
 
-.sign-up__page {
+.method-page, .login-page, .sign-up__page {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+.login-page .social-buttons-block {
+  padding: 30px;
+}
+

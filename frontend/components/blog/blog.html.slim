@@ -10,7 +10,7 @@
             h5 {{post.short_description}}
             a.link ui-sref='app.post({ id: post.id })' читать дальше...
           .blog_posts__meta
-            span {{formatDate(post.news_date)}}
+            span {{post.news_date | calendarDate}}
         collection-pagination resource="posts"
       .col-sm-3
         .blog-bar-categories категории
