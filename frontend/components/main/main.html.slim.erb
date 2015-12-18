@@ -3,16 +3,19 @@ header.main-page__background
     .row
       ul
         li
-          a href="#" Главная
+          a ui-sref="main" Главная
         li
           a href="#" Cобытия
         li
           a href="#" Магазин
         li
-          a href="#" Блог
-    .main-header__login
+          a ui-sref="app.blog" Блог
+    .main-header__login ng-if="!currentUser.exists()"
       a ui-sref="app.login" Войти
       a ui-sref="app.signUpMethod" Зарегистрироваться
+    .main-header__login ng-if="currentUser.exists()"
+      a href="#" Добро пожаловать {{currentUser.first_name}}
+      a href="#" ng-click="logout()" Выйти
     .main-text__brand
       h2 Приготовьтесь
       h1 Изменить

@@ -11,7 +11,12 @@ angular.module('app')
       .state('main', {
         url: '/',
         templateUrl: 'components/main/main.html',
-        controller: 'Main'
+        controller: 'Main',
+        resolve: {
+          currentUser: function($auth, CurrentUser) {
+            return CurrentUser.get();
+          }
+        }
       })
       .state('app', {
         abstract: true,
@@ -38,7 +43,7 @@ angular.module('app')
         controller: 'LoginCtrl'
       })
       .state('app.blog', {
-        url:'/blog?page',
+        url:'/blog?sort&page',
         templateUrl: 'components/blog/blog.html',
         controller: 'BlogCtrl'
       })

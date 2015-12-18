@@ -11,7 +11,7 @@
           p {{currentPost.news}}
       .col-sm-3
 
-      .col-sm-9.post-comments
+      .col-sm-9.post-comments ng-if="comments"
         .post-comment__wrapper ng-repeat="commentInfo in comments"
           .row
             .col-sm-2
@@ -20,8 +20,9 @@
               h4 Автор: {{commentInfo.name}}
               span {{commentInfo.comment_date | calendarDate}}
               p {{commentInfo.message}}
-
-      .col-sm-6.col-sm-offset-1.auth__form-wrapper
+      .col-sm-9 ng-if="!currentUser.exists()"
+        h5 Зарегестрируйтесь что бы оставить комментарий
+      .col-sm-7.col-sm-offset-1.auth__form-wrapper ng-if="currentUser.exists()"
         form.form-horizontal name="commentForm" ng-submit="saveComment()" novalidate="novalidate"
 
           horizontal-form obj="comment" fields="fields" errors="errors" width="12"
