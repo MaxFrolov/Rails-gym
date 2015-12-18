@@ -1,13 +1,16 @@
 class PostsController < ApiController
+  load_resource
 
   def index
-    posts = Post.all.page(params[:page]).per(params[:per])
-    render_resources(posts)
+    params[:category] ?
+    @posts = @posts.where(post_category: params[:category]).page(params[:page]).per(params[:per]) :
+        @posts = @posts.ransack(q: params[:sort] || 'created_at desc').result.page(params[:page]).per(params[:per])
+
+    render_resources @posts
   end
 
   def show
-    post = Post.find_by(id: params[:id])
-    render_resource_data(post)
+    render_resource_data(@post)
   end
 
   def create
@@ -28,6 +31,6 @@ class PostsController < ApiController
   private
 
   def post_params
-    params.allow_empty_require(:resource).permit(:picture_url, :header, :short_description, :news, :news_date)
+    params.allow_empty_require(:resource).permit(:picture_url, :header, :short_description, :news, :news_date, :post_category)
   end
 end

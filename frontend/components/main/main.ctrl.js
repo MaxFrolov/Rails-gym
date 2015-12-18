@@ -1,4 +1,5 @@
-angular.module('app').controller('Main', function($scope) {
+angular.module('app').controller('Main', function($scope, currentUser) {
+  $scope.currentUser = currentUser;
   $scope.eventId = 0;
   $scope.changeState = changeState;
   $scope.cycle = cycle;

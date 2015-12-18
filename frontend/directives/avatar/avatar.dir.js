@@ -12,9 +12,6 @@ angular.module('app')
       scope: {
         user: '='
       },
-      link: function (scope) {
-        console.log(scope.user)
-      },
       templateUrl: 'directives/avatar/avatar.html'
     }
   });

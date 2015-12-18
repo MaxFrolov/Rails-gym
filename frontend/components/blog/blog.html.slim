@@ -16,9 +16,8 @@
         .blog-bar-categories категории
         .blog-categories
           ul
-            li Музыка
-            li Спорт
-            li Технологии
-            li Природа
+            li ng-repeat="field  in categoryFields"
+              a href='#' ng-click='sortBy(field.value)' {{field.name}}
+            
 
 
