@@ -1,0 +1,33 @@
+.profile-page
+  .container
+    .row
+      .col-sm-3
+        .profile_avatar__wrapper
+          avatar user="currentUser.avatar"
+          .profile_avatar__name
+            span> {{currentUser.first_name}}
+            span {{currentUser.last_name}}
+          .profile_img-change
+            upload-button.center-block on-success='successfulAvatarCropHandler(responce)'
+      .col-sm-8.profile_characteristic
+        ul
+          li
+            i.fa.fa-birthday-cake
+            '{{currentUser.birthday}}
+          li
+            i.fa.fa-at
+            '{{currentUser.email}}
+  .calendar-block
+    .container-fluid
+      .row.calendar-block__wrapper
+        .profile-calendar__develop.calendar-plan
+          .calendar-flex-wrap
+            h5 Разработка плана
+            h3 Тренировочный процесс на эту неделю
+            a.training-calendar Календарь тренировок
+        a.profile-calendar__plan.calendar-plan href="#" ng-repeat="field in planFields"
+          h4 {{field.day}}
+          .profile-calendar__body
+            h2 {{field.body}}
+          .calendar-details
+            span узнать больше...

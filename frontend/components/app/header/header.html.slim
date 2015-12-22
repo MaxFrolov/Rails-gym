@@ -16,4 +16,7 @@
       a ui-sref="app.signUpMethod" Зарегистрироваться
     .header-page__login ng-if="currentUser.exists()"
       a href="#" Добро пожаловать {{currentUser.first_name}}
+      a ui-sref="app.profile" Профиль
       a href="#" ng-click="logout()" Выйти
+    .header-page__state
+      h2 {{header}}

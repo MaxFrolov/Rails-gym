@@ -52,6 +52,11 @@ angular.module('app')
         templateUrl: 'components/blog/post/post.html',
         controller: 'PostCtrl'
       })
+      .state('app.profile', {
+        url: '/profile',
+        templateUrl: 'components/profile/profile.html',
+        controller: 'ProfileCtrl'
+      })
       .state('confirmEmail', {
         url: '/users/confirm/:token',
         onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {

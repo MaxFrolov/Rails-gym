@@ -14,6 +14,7 @@
  *= require angular-mask
  *= require ngInfiniteScroll
  *= require angular-sanitize
+ *= require ngImgCrop
  *= require angular-ui-notification
  *= require angular-permission
  *= require angular-checklist-model

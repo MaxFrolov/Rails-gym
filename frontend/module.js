@@ -12,6 +12,7 @@ angular.module('app', [
   'satellizer',
   'ngSanitize',
   'ngMask',
+  'ngImgCrop',
   'infinite-scroll',
   'checklist-model',
   'permission',

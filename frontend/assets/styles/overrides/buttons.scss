@@ -63,3 +63,19 @@
     background: #585859;
   }
 }
+
+.btn-brand {
+  color: #fff;
+  background-color: #ea4c23;
+  border-color: #ea4c23;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    transition: all .2s ease-in-out;
+    color: #fff;
+    background-color: #c73813;
+    border-color: #be3512;
+  }
+}

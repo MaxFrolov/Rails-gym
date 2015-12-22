@@ -223,6 +223,7 @@ GEM
     rails-assets-lodash (3.10.1)
     rails-assets-moment (2.10.6)
     rails-assets-momentjs (2.9.0)
+    rails-assets-ngImgCrop (0.3.2)
     rails-assets-ngInfiniteScroll (1.2.1)
       rails-assets-angular (>= 1.2.0)
     rails-assets-ngmap (1.15.1)
@@ -344,6 +345,7 @@ DEPENDENCIES
   rails-assets-humanize-duration
   rails-assets-lodash!
   rails-assets-moment
+  rails-assets-ngImgCrop
   rails-assets-ngInfiniteScroll
   rails-assets-ngmap
   rails-assets-restangular (= 1.5.1)!
