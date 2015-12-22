@@ -1,0 +1,3 @@
+.modal-footer
+  button.btn.btn-primary ng-click="ok()" ng-if="_.includes(modalOptions.buttons, 'ok')" Принять
+  button.btn.btn-brand ng-click="$dismiss('cancel')" ng-if="_.includes(modalOptions.buttons, 'cancel')" Отменить

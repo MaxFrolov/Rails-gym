@@ -1,0 +1,8 @@
+ng-include src='"components/app/modals/modal-header.html"'
+
+.modal-body
+  .crop-holder
+    img-crop image='realsize' result-image='cropped'
+    img.thumb ng-src="{{cropped}}"
+
+ng-include src='"components/app/modals/modal-footer.html"'

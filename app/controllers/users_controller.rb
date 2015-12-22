@@ -21,6 +21,6 @@ class UsersController < ApiController
 private
 
   def user_params
-    params.require(:resource).permit(:first_name, :last_name, :birthday, :email)
+    params.require(:resource).permit(:first_name, :last_name, :birthday, :email, :avatar)
   end
 end

@@ -1,0 +1,94 @@
+.profile-page {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.profile_avatar__wrapper {
+  text-align: center;
+}
+
+.profile_img-change button.btn.btn-brand {
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.profile_characteristic {
+  font-family: 'Open Sans', sans-serif;
+
+  ul {
+    list-style: none;
+
+    li {
+      font-size: 16px;
+      color: #848484;
+
+      &>i {
+        font-size: 18px;
+        color: #CFB745;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.calendar-plan {
+  width: 12.5%;
+  background: #212d36;
+  float: left;
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+}
+
+.calendar-block {
+  text-align: center;
+  font-family: 'Play', sans-serif;
+  margin-top: 50px;
+}
+
+.profile-calendar__plan {
+
+  h4 {
+    color: #cfb745;
+    line-height: 50px;
+  }
+
+  .profile-calendar__body, h4 {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+  }
+
+  .profile-calendar__body {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+
+    h2 {
+      color: #fff;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  .calendar-details {
+    line-height: 48px;
+  }
+}
+
+.profile-calendar__develop {
+  display: flex;
+  align-items: center;
+
+  h5 {
+    color: #ea4c23;
+  }
+
+  h3 {
+    color: #fff;
+    margin: 0;
+  }
+}
+
+.calendar-block__wrapper {
+  height: 300px;
+}
+

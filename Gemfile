@@ -83,6 +83,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-mask'
   gem 'rails-assets-angular-permission'
   gem 'rails-assets-ngInfiniteScroll'
+  gem 'rails-assets-ngImgCrop'
   gem 'rails-assets-angular-ui-notification'
   gem 'rails-assets-angular-sanitize'
   gem 'rails-assets-satellizer', '0.11.3'

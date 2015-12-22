@@ -2,13 +2,13 @@ class CommentsController < ApiController
   load_and_authorize_resource
 
   def index
-    comments = Comment.where(post_id: params[:post_id]).includes(:user)
-    render_resources(comments)
+    @comments = Comment.where(post_id: params[:post_id]).includes(:user)
+    render_resources(@comments)
   end
 
   def show
-    comment = Comment.find_by(id: params[:id])
-    render_resource_data(comment)
+    @comment = Comment.find_by(id: params[:id])
+    render_resource_data(@comment)
   end
 
   def create
@@ -17,12 +17,12 @@ class CommentsController < ApiController
   end
 
   def update
-    @comments.update(comment_params)
-    render_resource_or_errors(@comments)
+    @comment.update(comment_params)
+    render_resource_or_errors(@comment)
   end
 
   def destroy
-    @comments.destroy
+    @comment.destroy
     render nothing: true
   end
 
