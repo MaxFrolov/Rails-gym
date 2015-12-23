@@ -14,10 +14,12 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :update, :index, :destroy] do
       resource :comments, only: [:create, :update]
       resource :posts, only: [:create, :update, :destroy]
+      resource :diet_advices, only: [:create, :update, :destroy]
     end
 
     resources :comments, only: [:index, :show]
     resources :posts, only: [:index, :show]
+    resources :diet_advices, only: [:index, :show]
   end
 
   match '/(*path)', via: :all, to: frontend_page('index.htm')

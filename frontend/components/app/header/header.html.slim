@@ -2,13 +2,15 @@
   .container-fluid.header-page__wrapper
     .row
       ul
-        li
+        li ui-sref-active="active"
           a ui-sref="main" Главная
-        li
+        li ui-sref-active="active"
           a href="#" Cобытия
-        li
+        li ui-sref-active="active"
           a href="#" Магазин
-        li
+        li ui-sref-active="active"
+          a ui-sref="app.nutrition" Питание
+        li ui-sref-active="active"
           a ui-sref="app.blog" Блог
 
     .header-page__login ng-if="!currentUser.exists()"
