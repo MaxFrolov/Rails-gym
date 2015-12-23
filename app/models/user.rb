@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :advices
+  has_many :diet_advices, through: :advices
 end

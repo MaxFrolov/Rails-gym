@@ -1,0 +1,48 @@
+.nutrition-post__bg {
+  position: relative;
+
+  &:hover .inner-type-bg {
+    opacity: 0.7;
+    transition: all 0.35s;
+  }
+
+  .inner-type-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ea4c23;
+    opacity: 0;
+    transition: all 0.35s;
+  }
+}
+
+.nutrition-page {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .nutrition-posts {
+    margin-bottom: 30px;
+
+    h3 {
+      color: #ea4c23;
+      font-family: 'Play', sans-serif;
+      text-transform: capitalize;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      color: #848484;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 18px;
+    }
+  }
+
+  .nutrition-posts:nth-child(4n) {
+    clear: left;
+  }
+}
+
+

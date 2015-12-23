@@ -21,6 +21,11 @@
         font-family: 'Play', sans-serif;
       }
     }
+
+    li.active a {
+      color: #ea4c23;
+      text-decoration: none;
+    }
   }
 
   .header-page__login {
