@@ -33,12 +33,11 @@ angular.module('app').controller('ProfileCtrl', function($scope, Restangular) {
   $scope.successfulAvatarCropHandler = successfulAvatarCropHandler;
 
   function successfulAvatarCropHandler(responce) {
-    $scope.currentUser.avatar.avatar.url = responce;
-    var entity = $scope.currentUser;
-    entity.fromServer = true;
-    entity.save().then(function(responce) {
-      entity.avatar.avatar.url = responce.avatar.avatar.url;
+    var currentUser = $scope.currentUser;
+    currentUser.customPUT(_.extend(currentUser, {avatar_data_uri: responce})).then(function(responce) {
+      currentUser.avatar_url = responce.avatar_url
     });
-    return entity;
+
+    return currentUser;
   }
 });

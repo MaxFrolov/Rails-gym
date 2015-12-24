@@ -1,0 +1,23 @@
+.blog_page
+  .container
+    .row
+      .col-sm-9
+        .blog-block ng-repeat="post in posts"
+          .post-img
+            img.img-responsive ng-src="assets/assets/first-page-images/blog-img/{{post.picture_url}}{{post.id}}.jpg"
+          .blog_description
+            a.post-header href="#" {{post.header}}
+            h5 {{post.short_description}}
+            a.link ui-sref='app.blog.post({ id: post.id })' читать дальше...
+          .blog_posts__meta
+            span {{post.news_date | calendarDate}}
+        collection-pagination resource="posts"
+      .col-sm-3
+        .blog-bar-categories категории
+        .blog-categories
+          ul
+            li ng-repeat="field  in categoryFields"
+              a href='#' ng-click='sortBy(field.value)' {{field.name}}
+            
+
+

@@ -8,10 +8,10 @@
           a href="#" Cобытия
         li ui-sref-active="active"
           a href="#" Магазин
-        li ui-sref-active="active"
-          a ui-sref="app.nutrition" Питание
-        li ui-sref-active="active"
-          a ui-sref="app.blog" Блог
+        li ng-class="{active: activeNestedChild('app.nutrition.*')}"
+          a ui-sref="app.nutrition.healthy-food" Питание
+        li ng-class="{active: activeNestedChild('app.blog.*')}"
+          a ui-sref="app.blog.posts" Блог
 
     .header-page__login ng-if="!currentUser.exists()"
       a ui-sref="app.login" Войти

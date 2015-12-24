@@ -43,13 +43,18 @@ angular.module('app')
         controller: 'LoginCtrl'
       })
       .state('app.blog', {
-        url:'/blog?sort&page',
-        templateUrl: 'components/blog/blog.html',
-        controller: 'BlogCtrl'
+        abstract: true,
+        url:'/blog',
+        templateUrl: 'components/blog/blog.html'
       })
-      .state('app.post', {
+      .state('app.blog.posts', {
+        url:'/posts?sort&page',
+        templateUrl: 'components/blog/posts/posts.html',
+        controller: 'PostsCtrl'
+      })
+      .state('app.blog.post', {
         url: '/post?id',
-        templateUrl: 'components/blog/post/post.html',
+        templateUrl: 'components/blog/posts/post/post.html',
         controller: 'PostCtrl'
       })
       .state('app.profile', {
@@ -58,9 +63,19 @@ angular.module('app')
         controller: 'ProfileCtrl'
       })
       .state('app.nutrition', {
-        url: '/nutrition?page',
-        templateUrl: 'components/nutrition/nutrition.html',
-        controller: 'NutritionCtrl'
+        abstract: true,
+        url: '/nutrition',
+        templateUrl: 'components/nutrition/nutrition.html'
+      })
+      .state('app.nutrition.healthy-food', {
+        url: '/healthy-food?page',
+        templateUrl: 'components/nutrition/healthy-food/healthy-food.html',
+        controller: 'HealthyFoodCtrl'
+      })
+      .state('app.nutrition.food', {
+        url: '/food?id',
+        templateUrl: 'components/nutrition/healthy-food/food/food.html',
+        controller: 'FoodCtrl'
       })
       .state('confirmEmail', {
         url: '/users/confirm/:token',
