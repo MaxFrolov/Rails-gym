@@ -1,0 +1,11 @@
+.nutrition-page
+  .container
+    .row
+      .nutrition-posts.col-sm-4 ng-repeat="nutrition in nutritions"
+        .nutrition-post__bg
+          img.img-responsive ng-src="{{nutrition.image_url}}"
+          .inner-type-bg
+        h3 {{nutrition.category}}
+        h4 {{nutrition.short_description}}
+        a ui-sref="app.nutrition.food({ id: nutrition.id })" читать дальше...
+    collection-pagination resource="nutritions"

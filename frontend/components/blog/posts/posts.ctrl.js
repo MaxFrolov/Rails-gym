@@ -1,4 +1,4 @@
-angular.module('app').controller('BlogCtrl',function($scope, Restangular, $stateParams, $state, toParams) {
+angular.module('app').controller('PostsCtrl',function($scope, Restangular, $stateParams, $state, toParams) {
   $scope.sortValue = sortValue;
   $scope.sortBy = sortBy;
 
