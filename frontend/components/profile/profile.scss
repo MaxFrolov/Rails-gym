@@ -1,3 +1,5 @@
+@import "assets/styles/vars";
+
 .profile-page {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -20,11 +22,11 @@
 
     li {
       font-size: 16px;
-      color: #848484;
+      color: $text;
 
       &>i {
         font-size: 18px;
-        color: #CFB745;
+        color: $yellow-link;
         margin-right: 5px;
       }
     }
@@ -48,7 +50,7 @@
 .profile-calendar__plan {
 
   h4 {
-    color: #cfb745;
+    color: $yellow-link;
     line-height: 50px;
   }
 
@@ -79,7 +81,7 @@
   align-items: center;
 
   h5 {
-    color: #ea4c23;
+    color: $brand-primary;
   }
 
   h3 {

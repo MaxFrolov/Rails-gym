@@ -45,12 +45,13 @@
 
 .btn-primary {
   border-radius: 0;
-  border: 1px solid black;
+  border: 1px solid #D6D6D6;
   background: none;
   padding: 10px 35px;
   text-transform: uppercase;
   transition: all .2s ease-in-out;
-  color: #000000;
+  color: #848585;
+  font-family: 'Play', sans-serif;
 
   &:hover {
     transition: all .2s ease-in-out;
@@ -66,8 +67,8 @@
 
 .btn-brand {
   color: #fff;
-  background-color: #ea4c23;
-  border-color: #ea4c23;
+  background-color: $brand-primary;
+  border-color: $brand-primary;
   text-transform: uppercase;
   border-radius: 0;
   transition: all .2s ease-in-out;

@@ -1,10 +1,12 @@
+@import "assets/styles/vars";
+
 .food-page-main {
   padding-top: 50px;
   padding-bottom: 50px;
 
   h2 {
     text-transform: uppercase;
-    color: #6D6C6C;
+    color: $header-grey;
     font-family: 'PT Sans Caption', sans-serif;
     font-size: 24px;
     font-weight: bold;
@@ -20,12 +22,12 @@
       bottom: 0;
       width: 30px;
       height: 3px;
-      background: #ea4c23;
+      background: $brand-primary;
     }
   }
 
   h4, p {
-    color: #848484;
+    color: $text;
     font-family: 'Open Sans', sans-serif;
   }
 

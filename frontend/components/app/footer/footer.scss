@@ -1,3 +1,5 @@
+@import "assets/styles/vars";
+
 .footer-page__location {
   background: #000000;
 }
@@ -16,7 +18,7 @@
   }
 
   i {
-    color: #ea4c23;
+    color: $brand-primary;
     margin-right: 15px;
   }
 }
@@ -38,7 +40,7 @@
 
         a {
           text-transform: uppercase;
-          color: #848484;
+          color: $text;
           font-weight: bold;
           font-family: 'Play', sans-serif;
         }
@@ -49,6 +51,6 @@
   .footer_copyright {
     border-top: 1px solid rgba(0, 0, 0, 0.3);
     padding-top: 10px;
-    color: #848484;
+    color: $text;
   }
 }

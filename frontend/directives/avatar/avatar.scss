@@ -1,6 +1,8 @@
+@import "assets/styles/vars";
+
 .avatar {
   display: inline-block;
-  border: 4px solid #ea4c23;
+  border: 4px solid $brand-primary;
   width: 100px;
   height: 100px;
   text-align: center;
