@@ -13,7 +13,7 @@ class Ability
       can [:create, :update, :destroy], DietAdvice,  user_id: user.id
     end
     can [:index, :show], Comment
-    can [:index, :show], Post
+    can [:index, :show, :recommended_posts], Post
     can [:index, :show], DietAdvice
   end
 end

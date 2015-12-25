@@ -6,7 +6,7 @@
           h2 {{currentPost.header}}
           h5 {{currentPost.short_description}}
         .post_main__img
-          img.img-responsive ng-src="assets/assets/first-page-images/blog-img/{{currentPost.picture_url}}{{currentPost.id}}.jpg"
+          img.img-responsive src="{{currentPost.picture_url_url}}"
         .post_body
           p {{currentPost.news}}
       .col-sm-3

@@ -28,9 +28,15 @@ class PostsController < ApiController
     render nothing: true
   end
 
+  def recommended_posts
+    @posts = @posts.sample(params[:count].to_f)
+    render_resources @posts
+  end
+
   private
 
   def post_params
-    params.allow_empty_require(:resource).permit(:picture_url, :header, :short_description, :news, :news_date, :post_category)
+    params.allow_empty_require(:resource).permit(:picture_url, :header, :short_description, :news, :news_date,
+                                                 :post_category, :count)
   end
 end
