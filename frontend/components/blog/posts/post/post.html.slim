@@ -6,9 +6,9 @@
           h2 {{currentPost.header}}
           h5 {{currentPost.short_description}}
         .post_main__img
-          img.img-responsive src="{{currentPost.picture_url_url}}"
+          img.img-responsive src="{{currentPost.image_url}}"
         .post_body
-          p {{currentPost.news}}
+          p {{currentPost.post_description}}
       .col-sm-3
 
       .col-sm-9.post-comments ng-if="comments.length"

@@ -7,6 +7,7 @@ class CreateComments < ActiveRecord::Migration
       t.datetime :comment_date
       t.references :user, index: true
       t.references :post, index: true
+      t.references :food, index: true
       t.timestamps null: false
     end
   end
