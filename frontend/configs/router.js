@@ -45,7 +45,8 @@ angular.module('app')
       .state('app.blog', {
         abstract: true,
         url:'/blog',
-        templateUrl: 'components/blog/blog.html'
+        templateUrl: 'components/blog/blog.html',
+        controller: 'BlogCtrl'
       })
       .state('app.blog.posts', {
         url:'/posts?sort&page',

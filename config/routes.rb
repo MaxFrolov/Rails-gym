@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     end
 
     resources :comments, only: [:index, :show]
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      get '/recommended_posts', to: 'posts#recommended_posts', on: :collection
+    end
     resources :diet_advices, only: [:index, :show]
   end
 
