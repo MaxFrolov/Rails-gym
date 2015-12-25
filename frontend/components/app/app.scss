@@ -1,3 +1,4 @@
+@import "assets/styles/vars";
 .post-container {
   margin: 10px 20% 10px 20%;
   background-color: #C3BFC1;
@@ -13,7 +14,7 @@ h3 {
 }
 
 a:hover {
-  color: #ea4c23 !important;
+  color: $brand-primary !important;
   transition: all 0.35s;
   text-decoration: none;
 }

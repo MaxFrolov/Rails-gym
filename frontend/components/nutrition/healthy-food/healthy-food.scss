@@ -1,3 +1,5 @@
+@import "assets/styles/vars";
+
 .nutrition-post__bg {
   position: relative;
 
@@ -12,7 +14,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #ea4c23;
+    background-color: $brand-primary;
     opacity: 0;
     transition: all 0.35s;
   }
@@ -26,7 +28,7 @@
     margin-bottom: 30px;
 
     h3 {
-      color: #ea4c23;
+      color: $brand-primary;
       font-family: 'Play', sans-serif;
       text-transform: capitalize;
       margin-top: 5px;
@@ -34,9 +36,13 @@
     }
 
     h4 {
-      color: #848484;
+      color: $text;
       font-family: 'Open Sans', sans-serif;
       font-size: 18px;
+    }
+
+    a {
+      color: $yellow-link;
     }
   }
 

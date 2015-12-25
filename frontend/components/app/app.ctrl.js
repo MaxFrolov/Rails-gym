@@ -8,6 +8,13 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
   $scope.activeNestedChild = activeNestedChild;
 
   function activeNestedChild(state) {
+    if ($state.includes('app.blog.*')) {
+      $scope.stateHeader = 'Блог';
+    } else if ($state.includes('app.nutrition.*')) {
+      $scope.stateHeader = 'Питание';
+    } else {
+      $scope.stateHeader = ''
+    }
     return $state.includes(state)
   }
 

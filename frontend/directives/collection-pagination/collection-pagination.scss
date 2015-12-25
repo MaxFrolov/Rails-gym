@@ -7,7 +7,7 @@ collection-pagination {
         &, &:hover, &:focus {
           border-color: $tabs-border-color;
           font: 15px NeuzeitSLTBook, "Helvetica Neue", Helvetica, Arial, sans-serif;
-          color: #6D6C6C;
+          color: $header-grey;
         }
       }
     }
@@ -17,6 +17,6 @@ collection-pagination {
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover,
 .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
   color: #fff !important;
-  background-color: #ea4c23;
-  border-color: #ea4c23;
+  background-color: $brand-primary;
+  border-color: $brand-primary;
 }

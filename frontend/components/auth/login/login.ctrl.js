@@ -37,8 +37,8 @@ angular.module('app').controller('LoginCtrl', function($scope, $state, $auth, No
   function loginSuccessCallback() {
     $scope.errors = {};
     CurrentUser.reload().then(function () {
-      Notification.success('You were successfully logged in.');
-      $state.go('app.blog');
+      Notification.success('Вход выполнен успешно.');
+      $state.go('app.blog.posts');
     });
   }
 
@@ -49,6 +49,6 @@ angular.module('app').controller('LoginCtrl', function($scope, $state, $auth, No
   }
 
   function authErrorCallback() {
-    Notification.error('You have to be registered on site.')
+    Notification.error('Вы должны зарегестрироватся на сайте.')
   }
 });

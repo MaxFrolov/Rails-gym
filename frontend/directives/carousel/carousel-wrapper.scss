@@ -1,7 +1,9 @@
+@import "assets/styles/vars";
+
 .wrapper-slider__img {
   height: 100px;
   width: 100px;
-  border: 5px solid #ea4c23;
+  border: 5px solid $brand-primary;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
