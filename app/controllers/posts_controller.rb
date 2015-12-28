@@ -36,7 +36,7 @@ class PostsController < ApiController
   private
 
   def post_params
-    params.allow_empty_require(:resource).permit(:picture_url, :header, :short_description, :news, :news_date,
+    params.allow_empty_require(:resource).permit(:image_url, :header, :short_description, :post_description, :post_date,
                                                  :post_category, :count)
   end
 end

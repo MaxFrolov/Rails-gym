@@ -10,10 +10,10 @@ class Ability
       can [:show, :update, :destroy], User, id: user.id
       can [:create, :update, :destroy], Comment,  user_id: user.id
       can [:create, :update, :destroy], Post,  user_id: user.id
-      can [:create, :update, :destroy], DietAdvice,  user_id: user.id
+      can [:create, :update, :destroy], Food,  user_id: user.id
     end
     can [:index, :show], Comment
     can [:index, :show, :recommended_posts], Post
-    can [:index, :show], DietAdvice
+    can [:index, :show], Food
   end
 end
