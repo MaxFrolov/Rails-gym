@@ -19,12 +19,14 @@ nutrition_incr = 0
                  post_description: Faker::Lorem.paragraph(8), post_date: Faker::Time.between(3.month.ago, Time.now, :all),
                                                  post_category: rand(0..3)})
 
-  Comment.create({ message: Faker::Lorem.sentence(3), user_id: rand(1..13), post_id: rand(1..13), email: Faker::Internet.email,
-                 name: Faker::Name.first_name, comment_date: Faker::Time.between(3.month.ago, Time.now, :all)})
 
-  Food.create({ category: Faker::Lorem.word, header: Faker::Lorem.sentence(1), short_description: Faker::Lorem.sentence(5),
+
+  Food.create({ category: rand(0..3), short_description: Faker::Lorem.sentence(5),
                 image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'nutrition', "#{nutrition_incr += 1}.jpg")),
-                food_description: Faker::Lorem.paragraph(8) })
+                food_description: Faker::Lorem.paragraph(8), header: Faker::Lorem.sentence(3) })
 end
 
-
+25.times do
+Comment.create({ message: Faker::Lorem.sentence(3), user_id: rand(1..12), post_id: rand(1..12), food_id: rand(1..12), email: Faker::Internet.email,
+                 name: Faker::Name.first_name, comment_date: Faker::Time.between(3.month.ago, Time.now, :all)})
+end

@@ -1,0 +1,56 @@
+@import "assets/styles/vars";
+
+.post-comments {
+  padding-top: 30px;
+
+  .post-comment__wrapper {
+    padding: 20px 30px;
+    border-bottom: 1px solid #E6E6E6;
+    background-color: #FDFDFD;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    h4 {
+      text-transform: uppercase;
+      color: $header-grey;
+      font-family: 'PT Sans Caption', sans-serif;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: $text;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    span {
+      color: $brand-primary;
+      font-family: 'Play', sans-serif;
+      font-weight: bold;
+    }
+  }
+
+  .auth__form-wrapper {
+    padding: 20px;
+    margin-top: 20px;
+
+    .btn-lg.auth__submit {
+      background-color: #fff;
+
+      &:hover {
+        background-color: #000
+      }
+    }
+  }
+
+  h5 {
+    color: $text;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-size: 16px;
+  }
+}
