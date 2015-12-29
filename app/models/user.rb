@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  has_many :events
   has_many :posts
   has_many :comments
   has_many :user_advices
