@@ -1,8 +1,12 @@
 @import "assets/styles/vars";
 
 .post-page {
+  padding-top: 30px;
+  padding-bottom: 50px;
+
   .post-head__header {
     h2 {
+      margin-top: 0;
       text-transform: uppercase;
       color: $header-grey;
       font-family: 'PT Sans Caption', sans-serif;
@@ -25,72 +29,11 @@
     }
   }
 
-  h5, .post_body p {
-    color: $text;
-    font-family: 'Open Sans', sans-serif;
-  }
-
-  h5 {
-    font-style: italic;
-    font-size: 16px;
-  }
-
   .post_body p {
     font-size: 18px;
     padding: 20px 5px;
-    border-bottom: 3px solid #E1E1E1;;
-  }
-
-  .post-comments {
-    padding-top: 30px;
-
-    .post-comment__wrapper {
-      padding: 20px 30px;
-      border-bottom: 1px solid #E6E6E6;
-      background-color: #FDFDFD;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      h4 {
-        text-transform: uppercase;
-        color: $header-grey;
-        font-family: 'PT Sans Caption', sans-serif;
-        font-size: 22px;
-        margin-bottom: 5px;
-      }
-
-      p {
-        color: $text;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 16px;
-        margin-top: 5px;
-      }
-
-      span {
-        color: $brand-primary;
-        font-family: 'Play', sans-serif;
-        font-weight: bold;
-      }
-    }
-  }
-}
-
-.post-page  {
-  padding-top: 30px;
-  padding-bottom: 50px;
-
-  .auth__form-wrapper {
-    padding: 20px;
-    margin-top: 20px;
-
-    .btn-lg.auth__submit {
-      background-color: #fff;
-
-      &:hover {
-        background-color: #000
-      }
-    }
+    border-bottom: 3px solid #E1E1E1;
+    color: $text;
+    font-family: 'Open Sans', sans-serif;
   }
 }

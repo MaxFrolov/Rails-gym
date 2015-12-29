@@ -2,7 +2,9 @@ class CommentsController < ApiController
   load_and_authorize_resource
 
   def index
-    @comments = Comment.where(post_id: params[:post_id]).includes(:user)
+    params[:post_id]?
+      @comments = @comments.where(post_id: params[:post_id]).includes(:user) :
+        @comments = @comments.where(food_id: params[:food_id]).includes(:user)
     render_resources(@comments)
   end
 
@@ -29,6 +31,6 @@ class CommentsController < ApiController
   private
 
   def comment_params
-    params.allow_empty_require(:resource).permit(:message, :comment_date, :user_id, :post_id, :name, :email)
+    params.allow_empty_require(:resource).permit(:message, :comment_date, :user_id, :post_id, :name, :email, :food_id)
   end
 end

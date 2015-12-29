@@ -1,20 +1,10 @@
-.recommended-posts {
-  position: relative;
-  display: block;
-  margin-top: 30px;
+@import "assets/styles/vars";
 
-  .img-header__wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: rgba(234, 76, 35, 0.59);
-    color: #fff;
-    width: 100%;
-    padding: 10px 5px;
-
-    span {
-      font: 14px 'Play', sans-serif;
-      text-transform: uppercase;
-    }
-  }
+.blog-bar-categories {
+  padding: 10px;
+  border-left: 3px solid $brand-primary;
+  text-transform: uppercase;
+  color: $header-grey;
+  font-family: 'Play', sans-serif;
+  font-weight: bold;
 }

@@ -66,7 +66,8 @@ angular.module('app')
       .state('app.nutrition', {
         abstract: true,
         url: '/nutrition',
-        templateUrl: 'components/nutrition/nutrition.html'
+        templateUrl: 'components/nutrition/nutrition.html',
+        controller: 'NutritionCtrl'
       })
       .state('app.nutrition.healthy-food', {
         url: '/healthy-food?page',

@@ -19,9 +19,4 @@
             li ng-repeat="field  in categoryFields"
               a href='#' ng-click='sortBy(field.value)' {{field.name}}
         .blog-bar-categories рекомендуемые
-        a.recommended-posts ui-sref="app.blog.post({ id: post.id })" ng-repeat="post in recommendedPosts"
-          img.img-responsive src="{{post.image_url}}"
-          .img-header__wrapper
-            span {{post.header}}
-
-
+        recommended-bar resources="recommendedPosts" link="app.blog.post({ id: resource.id })"

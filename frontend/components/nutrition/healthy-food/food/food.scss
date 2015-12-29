@@ -1,8 +1,11 @@
 @import "assets/styles/vars";
 
-.food-page-main {
+.food-page {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.food-page-main {
 
   h2 {
     text-transform: uppercase;
@@ -41,4 +44,13 @@
     padding: 20px 5px;
     border-bottom: 3px solid #E1E1E1;
   }
+}
+
+.food-bar__header {
+  padding: 10px;
+  border-left: 3px solid $brand-primary;
+  text-transform: uppercase;
+  color: $header-grey;
+  font-family: 'Play', sans-serif;
+  font-weight: bold;
 }
