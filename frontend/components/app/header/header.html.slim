@@ -4,8 +4,8 @@
       ul
         li ui-sref-active="active"
           a ui-sref="main" Главная
-        li ui-sref-active="active"
-          a href="#" Cобытия
+        li ng-class="{active: activeNestedChild('app.abstract-events.*')}"
+          a ui-sref="app.abstract-events.events" Cобытия
         li ui-sref-active="active"
           a href="#" Магазин
         li ng-class="{active: activeNestedChild('app.nutrition.*')}"
