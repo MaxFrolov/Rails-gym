@@ -12,6 +12,8 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
       $scope.stateHeader = 'Блог';
     } else if ($state.includes('app.nutrition.*')) {
       $scope.stateHeader = 'Питание';
+    } else if ($state.includes('app.abstract-events.*')) {
+      $scope.stateHeader = 'События';
     } else {
       $scope.stateHeader = ''
     }

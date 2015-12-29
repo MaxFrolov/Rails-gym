@@ -1,0 +1,13 @@
+.event-page
+  .container
+    .row
+      .col-sm-3
+        .event-bar__details
+          h3 детали
+          ul
+            li начало: {{event.start_date | date}}
+            li конец: {{event.end_date | date}}
+      .col-sm-9
+        img.img-responsive src="{{event.image_url}}"
+        h4 {{event.short_description}}
+        h5 {{event.description}}

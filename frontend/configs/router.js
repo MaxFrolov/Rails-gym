@@ -79,6 +79,22 @@ angular.module('app')
         templateUrl: 'components/nutrition/healthy-food/food/food.html',
         controller: 'FoodCtrl'
       })
+      .state('app.abstract-events', {
+        abstract: true,
+        url: '/abstract-events',
+        templateUrl: 'components/abstr-events/abstr-events.html',
+        controller: 'AbstrEventsCtrl'
+      })
+      .state('app.abstract-events.events', {
+        url: '/events',
+        templateUrl: 'components/abstr-events/events/events.html',
+        controller: 'EventsCtrl'
+      })
+      .state('app.abstract-events.event', {
+        url: '/event?id',
+        templateUrl: 'components/abstr-events/events/event/event.html',
+        controller: 'EventCtrl'
+      })
       .state('confirmEmail', {
         url: '/users/confirm/:token',
         onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {

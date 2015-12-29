@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resource :comments, only: [:create, :update]
       resource :posts, only: [:create, :update, :destroy]
       resource :foods, only: [:create, :update, :destroy]
+      resource :events, only: [:create, :update, :destroy]
     end
 
     resources :comments, only: [:index, :show]
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
       get '/recommended_posts', to: 'posts#recommended_posts', on: :collection
     end
     resources :foods, only: [:index, :show]
+    resources :events, only: [:index, :show]
   end
 
   match '/(*path)', via: :all, to: frontend_page('index.htm')
