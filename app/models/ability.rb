@@ -12,10 +12,13 @@ class Ability
       can [:create, :update, :destroy], Post,  user_id: user.id
       can [:create, :update, :destroy], Food,  user_id: user.id
       can [:create, :update, :destroy], Event,  user_id: user.id
+      can [:create, :update, :destroy], Product,  user_id: user.id
+
     end
     can [:index, :show], Comment
     can [:index, :show, :recommended_posts], Post
     can [:index, :show], Food
     can [:index, :show], Event
+    can [:index, :show], Product
   end
 end
