@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resource :posts, only: [:create, :update, :destroy]
       resource :foods, only: [:create, :update, :destroy]
       resource :events, only: [:create, :update, :destroy]
+      resource :products, only: [:create, :update, :destroy]
     end
 
     resources :comments, only: [:index, :show]
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     end
     resources :foods, only: [:index, :show]
     resources :events, only: [:index, :show]
+    resources :products, only: [:index, :show]
   end
 
   match '/(*path)', via: :all, to: frontend_page('index.htm')

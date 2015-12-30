@@ -95,6 +95,22 @@ angular.module('app')
         templateUrl: 'components/abstr-events/events/event/event.html',
         controller: 'EventCtrl'
       })
+      .state('app.shop', {
+        abstract: true,
+        url: '/shop',
+        templateUrl: 'components/shop/shop.html',
+        controller: 'ShopCtrl'
+      })
+      .state('app.shop.products', {
+        url: '/products',
+        templateUrl: 'components/shop/products/products.html',
+        controller: 'ProductsCtrl'
+      })
+      .state('app.shop.product', {
+        url: '/product?id',
+        templateUrl: 'components/shop/products/product/product.html',
+        controller: 'ShopCtrl'
+      })
       .state('confirmEmail', {
         url: '/users/confirm/:token',
         onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {
