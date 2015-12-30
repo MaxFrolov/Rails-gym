@@ -34,23 +34,23 @@
     }
   }
 
-  .auth__form-wrapper {
-    padding: 20px;
-    margin-top: 20px;
-
-    .btn-lg.auth__submit {
-      background-color: #fff;
-
-      &:hover {
-        background-color: #000
-      }
-    }
-  }
-
   h5 {
     color: $text;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
     font-size: 16px;
+  }
+}
+
+.auth__form-wrapper {
+  padding: 20px;
+  margin-top: 20px;
+
+  .btn-lg.auth__submit {
+    background-color: #fff;
+
+    &:hover {
+      background-color: #000
+    }
   }
 }
