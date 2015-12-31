@@ -1,0 +1,35 @@
+.shop-page {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .shop_page__products {
+    margin-bottom: 30px;
+
+    h5, p {
+      font-family: 'Play', sans-serif;
+      margin-top: 5px;
+    }
+
+    h5 {
+      color: #cfb745;
+      text-transform: capitalize;
+      margin-bottom: 5px;
+    }
+
+    h4 {
+      text-transform: uppercase;
+      color: #6D6C6C;
+      font-family: 'PT Sans Caption', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      display: block;
+    }
+
+    p {
+      color: #ea4c23;
+      margin-bottom: 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
