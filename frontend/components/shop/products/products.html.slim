@@ -2,11 +2,32 @@
   .container
     .row
       .col-sm-9
+        .row.container-fluid.shop-products__header
+          .col-md-6
+            p {{$stateParams.page}}
+            span.shop__count-products всего {{products.total}}
+          collection-sort resource="products" options="sortOptions"
         .col-sm-4.shop_page__products ng-repeat="product in products"
           .img-wrapper
             img.img-responsive src="{{product.image_product_url}}"
           h5 {{product.category}}
-          h4 {{product.name}}
-          p {{product.price}} ₴
+          .text-center
+            h4 {{product.name}}
+            p {{product.price}} ₴
+            button.btn.btn-brand-shop ng-click="addItem(product)" купить
       .col-sm-3
+        .shop-bar__cart
+          h3 корзина
+          .container-fluid.row.bar-cart__wrapper ng-repeat="item in cart"
+            img.img-responsive src="{{item.product.image_product_url}}"
+            h5 {{item.product.name}}
+            p {{item.count}} x {{item.product.price}} ₴
+            span.cart__delete-item ng-click="removeItem(item)" X
+          .bar-cart__total
+            p Всего: {{priceTotal | currency: "₴"}}
+          .container-fluid.row ng-if="!_.isEmpty(cart)"
+            .col-sm-6
+              button.btn.btn-brand type="button" ng-click="setToStorage()" в корзину
+            .col-sm-6
+              button.btn.btn-brand оформить
     collection-pagination resource="products"

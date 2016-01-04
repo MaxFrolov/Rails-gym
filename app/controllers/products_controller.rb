@@ -2,7 +2,7 @@ class ProductsController < ApiController
   load_resource
 
   def index
-    @products = @products.ransack(q: params[:sort] || 'created_at desc').result.page(params[:page]).per(params[:per])
+    @products = @products.ransack(s: params[:sort] || 'created_at desc').result.page(params[:page]).per(params[:per])
     render_resources @products
   end
 

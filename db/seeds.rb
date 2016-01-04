@@ -33,7 +33,7 @@ product_incr = 0
   Product.create ({ name: Faker::Commerce.product_name, category: rand(1..4), price: Faker::Commerce.price, product_description: Faker::Hipster.paragraph(8),
                     image_product: File.open(File.join(Rails.root, 'test', 'fixtures' , 'products', "#{product_incr += 1}.jpg")),
                     composition: Faker::Commerce.department(5), recommendation_for_use: Faker::Hipster.sentence(5),
-                    grams: Faker::Number.decimal(2), count: rand(1..15), sale: false })
+                    grams: Faker::Number.decimal(2), count: rand(1..15), sale: false})
 end
 
 25.times do

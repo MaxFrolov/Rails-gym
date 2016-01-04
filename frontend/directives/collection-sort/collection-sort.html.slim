@@ -1,8 +1,8 @@
 .clearfix
-  .col-md-1.childcare-offers__sort-label
-    ' Sort by
+  .col-md-2.sort-label
+    ' Сортировать по
   .col-md-4
     ui-select ng-model="resource.reqParams.sort" ng-change="changeSort()" theme="bootstrap"
-      ui-select-match placeholder="Sort by..." {{$select.selected.name}}
+      ui-select-match placeholder="Сортировать по..." {{$select.selected.name}}
       ui-select-choices.ui-select-choices-square repeat="option.key as option in options"
         div ng-bind-html="option.name"
