@@ -1,0 +1,12 @@
+.shop-page
+  .container
+    .row
+      .col-sm-9
+        .col-sm-4.shop_page__products ng-repeat="product in products"
+          .img-wrapper
+            img.img-responsive src="{{product.image_product_url}}"
+          h5 {{product.category}}
+          h4 {{product.name}}
+          p {{product.price}} ₴
+      .col-sm-3
+    collection-pagination resource="products"
