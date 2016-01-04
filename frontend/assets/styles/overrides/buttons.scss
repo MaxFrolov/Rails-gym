@@ -72,11 +72,32 @@
   text-transform: uppercase;
   border-radius: 0;
   transition: all .2s ease-in-out;
+  font-family: 'Play', sans-serif;
+  font-size: 14px;
 
   &:hover {
     transition: all .2s ease-in-out;
     color: #fff;
     background-color: #c73813;
     border-color: #be3512;
+  }
+}
+
+.btn-brand-shop {
+  color: $brand-primary;
+  background-color: transparent;
+  border-color: $brand-primary;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all .2s ease-in-out;
+  font-family: 'Play', sans-serif;
+  padding: 8px 30px;
+  font-size: 16px;
+
+  &:hover {
+    transition: all .2s ease-in-out;
+    color: #fff;
+    background-color: $brand-primary;
+    border-color: $brand-primary;
   }
 }

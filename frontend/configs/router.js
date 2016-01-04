@@ -86,7 +86,7 @@ angular.module('app')
         controller: 'AbstrEventsCtrl'
       })
       .state('app.abstract-events.events', {
-        url: '/events',
+        url: '/events?page',
         templateUrl: 'components/abstr-events/events/events.html',
         controller: 'EventsCtrl'
       })
@@ -102,7 +102,7 @@ angular.module('app')
         controller: 'ShopCtrl'
       })
       .state('app.shop.products', {
-        url: '/products',
+        url: '/products?page',
         templateUrl: 'components/shop/products/products.html',
         controller: 'ProductsCtrl'
       })
