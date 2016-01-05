@@ -1,0 +1,36 @@
+.cart-page
+  .container
+    .row
+      .col-sm-12.cart__table-header
+        .col-sm-6
+          h3 Продукты
+        .col-sm-2
+          h3 Цена
+        .col-sm-2
+          h3 Количество
+        .col-sm-2
+          h3 Всего
+      .col-sm-12.full-height.text-center.cart__table-body ng-repeat="item in cart"
+        .col-sm-6.full-height
+          .col-sm-1
+            span.cart__delete-item ng-click="removeItem(item)" X
+          .col-sm-7
+            img.img-responsive src="{{item.product.image_product_url}}"
+          .col-sm-4
+            h5 {{item.product.name}}
+        .col-sm-2
+          span {{item.product.price}} ₴
+        .col-sm-2
+          input type="number" step="1" ng-model="item.count" ng-change="countCartItem()"
+        .col-sm-2
+          span {{item.product.price*item.count | currency: "₴"}}
+      .col-sm-offset-6.col-sm-6.cart-block__total
+        .cart-total__header
+          h4 Общяя сумма
+        table cellspacing="0"
+          tbody
+            tr
+              th Сумма:
+              td {{priceTotal | currency: "₴"}}
+        .cart-total__button.text-center
+          button.btn.btn-brand type="button" перейти к оформлению заказа

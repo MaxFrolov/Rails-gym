@@ -1,0 +1,23 @@
+.product-page
+  .container
+    .row
+      .col-sm-4
+        img.img-responsive src="{{product.image_product_url}}"
+
+      .col-sm-6.product-block__right
+        h3 {{product.name}}
+        h4 {{product.price}} ₴
+        h5 {{product.composition}}
+        .product__add-to-cart
+          input type="number" step="1" ng-model="productCount" ng-change="validateCount(productCount)"
+          button.btn.btn-brand type="button" ng-click="addItem(product, productCount)" Добавить в корзину
+        h6 Категория: {{product.category}}
+        .add-cart__success ng-if="addingSuccess"
+          span Товар успешно добавлен
+          button.btn.btn-primary type="button" ui-sref="app.shop.cart" ng-click="setToStorage()" перейти в корзину
+      .col-sm-12.product-block__tab
+        uib-tabset
+          uib-tab heading="Описание"
+            p {{product.product_description}}
+          uib-tab heading="Отзывы"
+            p asfasg

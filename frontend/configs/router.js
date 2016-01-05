@@ -109,7 +109,12 @@ angular.module('app')
       .state('app.shop.product', {
         url: '/product?id',
         templateUrl: 'components/shop/products/product/product.html',
-        controller: 'ShopCtrl'
+        controller: 'ProductCtrl'
+      })
+      .state('app.shop.cart', {
+        url: '/cart',
+        templateUrl: 'components/shop/cart/cart.html',
+        controller: 'CartCtrl'
       })
       .state('confirmEmail', {
         url: '/users/confirm/:token',
