@@ -16,5 +16,6 @@ angular.module('app', [
   'infinite-scroll',
   'checklist-model',
   'permission',
-  'ui-notification'
+  'ui-notification',
+  'ui.bootstrap.tabs'
 ]);

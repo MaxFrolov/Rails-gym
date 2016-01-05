@@ -14,6 +14,7 @@ angular.module('app').controller('ShopCtrl', function($scope, Restangular, $stat
   $scope.addItem = addItem;
   $scope.setToStorage = setToStorage;
   $scope.removeItem = removeItem;
+  $scope.countCartItem = countCartItem;
 
   function removeItem(item) {
     $scope.cart[item.product.id].count > 1 ? $scope.cart[item.product.id].count-- : delete $scope.cart[item.product.id];
@@ -25,8 +26,21 @@ angular.module('app').controller('ShopCtrl', function($scope, Restangular, $stat
     localStorage['totalPrice'] = $scope.priceTotal;
   }
 
-  function addItem(item) {
-    $scope.cart[item.id] ? $scope.cart[item.id].count++ : $scope.cart[item.id] = { count: 1, product: item };
-    $scope.priceTotal += item.price;
+  function countCartItem() {
+    var priceTotal = 0;
+    for (var i in $scope.cart) {
+      if ($scope.cart[i].count < 1) {
+        $scope.cart[i].count = 1;
+      }
+      priceTotal += $scope.cart[i].count*$scope.cart[i].product.price;
+    }
+    $scope.priceTotal = priceTotal;
+  }
+
+  function addItem(item, count) {
+    var itemCount = count ? count : 1;
+    $scope.cart[item.id] ? $scope.cart[item.id].count += itemCount : $scope.cart[item.id] = { count: itemCount, product: item };
+    $scope.priceTotal += count ? count*item.price : item.price;
+    $scope.addingSuccess = true;
   }
 });
