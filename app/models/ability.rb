@@ -15,10 +15,13 @@ class Ability
       can [:create, :update, :destroy], Product,  user_id: user.id
 
     end
+
     can [:index, :show], Comment
     can [:index, :show, :recommended_posts], Post
     can [:index, :show], Food
     can [:index, :show], Event
     can [:index, :show], Product
+    can [:index, :show, :create, :update], Order
+    can [:index, :show, :create, :update], OrderItem
   end
 end

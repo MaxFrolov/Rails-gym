@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     resources :foods, only: [:index, :show]
     resources :events, only: [:index, :show]
     resources :products, only: [:index, :show]
+    resources :orders, only: [:show]
+    resources :order_items, only: [:create, :update]
+
   end
 
   match '/(*path)', via: :all, to: frontend_page('index.htm')
