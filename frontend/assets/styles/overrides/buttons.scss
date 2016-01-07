@@ -81,6 +81,11 @@
     background-color: #c73813;
     border-color: #be3512;
   }
+
+  &:focus {
+    color: #fff;
+    outline: none;
+  }
 }
 
 .btn-brand-shop {
@@ -99,5 +104,24 @@
     color: #fff;
     background-color: $brand-primary;
     border-color: $brand-primary;
+  }
+}
+
+.btn-cart {
+  color: #fff;
+  background-color: #333333;
+  border-color: #262626;
+  border-radius: 0;
+  font-family: 'Play', sans-serif;
+
+  &:hover {
+    opacity: 0.9;
+    color: #fff;
+  }
+
+  &:after {
+    content: "\f061";
+    font-family: "FontAwesome";
+    margin: 0 0 0 5px;
   }
 }

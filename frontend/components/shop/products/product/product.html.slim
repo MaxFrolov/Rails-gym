@@ -14,10 +14,12 @@
         h6 Категория: {{product.category}}
         .add-cart__success ng-if="addingSuccess"
           span Товар успешно добавлен
-          button.btn.btn-primary type="button" ui-sref="app.shop.cart" ng-click="setToStorage()" перейти в корзину
+          button.btn.btn-cart type="button" ui-sref="app.shop.cart" ng-click="setToStorage()" перейти в корзину
       .col-sm-12.product-block__tab
         uib-tabset
           uib-tab heading="Описание"
             p {{product.product_description}}
+          uib-tab heading="Рекоммендация по пременению"
+            p {{product.recommendation_for_use}}
           uib-tab heading="Отзывы"
             p asfasg

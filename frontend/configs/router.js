@@ -116,6 +116,11 @@ angular.module('app')
         templateUrl: 'components/shop/cart/cart.html',
         controller: 'CartCtrl'
       })
+      .state('app.shop.order', {
+        url: '/order',
+        templateUrl: 'components/shop/billing-info/billing-info.html',
+        controller: 'BillingInfoCtrl'
+      })
       .state('confirmEmail', {
         url: '/users/confirm/:token',
         onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {

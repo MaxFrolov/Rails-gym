@@ -1,0 +1,4 @@
+input.form-control(id="{{field.htmlId}}" name="{{field.fullName}}" mask="(999) 999-9999" placeholder="{{field.label}}"
+  ng-required="field.required" type="{{field.type || 'text'}}" ng-model="field.obj[field.name]"
+  ng-disabled="field.caregiverType" ng-change="field.onChange()")
+a ui-sref='app.phone-verification' ng-if="field.caregiverType" do you want to change phone number?
