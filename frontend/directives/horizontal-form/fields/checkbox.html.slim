@@ -1,7 +1,7 @@
 .checkbox ng-class="'horizontal-form__checkbox-' + (field.theme || 'default')"
   label.control-label.horizontal-form__checkbox-label
     input (type="checkbox" ng-model="field.obj[field.name]" id="{{field.htmlId}}" ng-true-value="'{{field.true_value || true}}'"
-           ng-false-value="'{{field.false_value || ''}}'")
+           ng-false-value="'{{field.false_value || ''}}'" ng-change="field.onChange()")
     span> {{field.checkboxLabel}}
     a ui-sref="app.legal" ng-if="field.link" target="_blank" {{ field.link }}
 

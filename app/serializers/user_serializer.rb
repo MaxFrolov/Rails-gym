@@ -1,5 +1,5 @@
 class UserSerializer < UserAvatarSerializer
-  attributes :email, :role, :birthday, :first_name, :last_name
+  attributes :email, :role, :birthday, :first_name, :last_name, :phone
 
   def is_confirmed
     object.confirmed?
