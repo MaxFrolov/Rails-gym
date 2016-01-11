@@ -1,4 +1,4 @@
-.form-group.horizontal-form__form-group(ng-repeat="rawField in fields" ng-class="{'has-error': errors[field.fullName]}"
+.form-group.horizontal-form__form-group(ng-repeat="rawField in fields" ng-class="{'has-error': errors[field.fullName], 'left': field.inline, 'clear': field.clear}"
   ng-hide="field.condition && !field.condition(field.obj)" ng-init="field = processField(rawField)" ng-click="removeError(field)")
 
   div ng-class="field.labelClass" ng-if="field.hide"

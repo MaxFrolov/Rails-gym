@@ -284,6 +284,66 @@
     }
   }
 
+  .billing__returning-customer {
+
+    .returning-customer__block {
+      background: #f5f5f5;
+      padding: 10px 20px;
+      margin-bottom: 15px;
+      margin-left: -15px;
+      font: 16px 'Play', sans-serif;
+      font-weight: normal;
+      color: #4a5861;
+
+      a {
+        color: $brand-primary;
+        cursor: pointer;
+      }
+    }
+
+    .returning-customer__form {
+      margin-bottom: 30px;
+
+      &>span {
+        font: 14px 'Play', sans-serif;
+        font-weight: normal;
+        color: #4a5861;
+        margin-bottom: 30px;
+        display: block;
+      }
+
+      button.btn.btn-cart {
+        padding: 10px 30px;
+      }
+    }
+
+    .left {
+      float: left;
+      width: 48%;
+
+      &:last-child {
+        margin-left: 6.5%;
+      }
+    }
+  }
+
+  .billing-page__form {
+    padding-right: 30px;
+
+    .clear {
+      clear: both;
+    }
+
+    .left {
+      float: left;
+      width: 47%;
+
+      &:nth-child(2), &:nth-child(5) {
+        margin-left: 13%;
+      }
+    }
+  }
+
   .billing__order-review {
     padding: 40px 30px 30px;
     border: 10px solid #f5f5f5;
@@ -324,3 +384,5 @@
     }
   }
 }
+
+
