@@ -1,34 +1,56 @@
-angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular) {
+angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, CurrentUser) {
   $scope.errors = {};
   $scope.billingInfo = {};
+  $scope.loginObj = {};
+  $scope.loginProcessing = loginProcessing;
   $scope.oderProcessing = oderProcessing;
+
+  $scope.loginFields = [
+    {
+      name: 'email',
+      label: 'Email',
+      inline: true
+    },
+    {
+      name: 'password',
+      label: 'Пароль',
+      type: 'password',
+      inline: true
+    }
+  ];
 
   $scope.fields = [
     {
       name: 'first_name',
-      label: 'Имя'
+      label: 'Имя',
+      inline: true
     },
     {
       name: 'last_name',
-      label: 'Фамилия'
+      label: 'Фамилия',
+      inline: true
     },
     {
       name: 'company_name',
       label: 'Название компании',
-      optional: true
+      optional: true,
+      clear: true
     },
     {
       name: 'email',
-      label: 'Email'
+      label: 'Email',
+      inline: true
     },
     {
       name: 'phone',
       label: 'Телефон',
-      type: 'phone'
+      type: 'phone',
+      inline: true
     },
     {
       name: 'city',
-      label: 'Город'
+      label: 'Город',
+      clear: true
     },
     {
       name: 'country',
@@ -55,19 +77,44 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
       optional: true
     }
   ];
-  $scope.productObj = {};
-  function oderProcessing() {
-  //  Restangular.all('order_items').customPOST({ items: [{product_id: 2, quantity: 3, unit_price: 35.5},
-  //    {product_id: 3, quantity: 2, unit_price: 35.5}] }).then(function(responce) {
-  //      console.log(responce);
-  //    });
-  //  var itemsArr = $scope.cart.map(function(elem){
-  //    return {product_id: elem.product.id, quantity: elem.count, unit_price: elem.product.price}
-  //  });
-    for (var i in $scope.cart) {
 
+  function loginProcessing() {
+
+    $auth.login({ user: $scope.loginFields })
+      .then(loginSuccessCallback)
+      .catch(loginErrorCallback);
+
+
+    function loginSuccessCallback() {
+      $scope.errors = {};
+      CurrentUser.reload().then(function () {
+        Notification.success('Вход выполнен успешно.');
+      });
     }
-    console.log($scope.cart);
+
+    function loginErrorCallback(response) {
+      _.each(response.data.errors, function(message) {
+        Notification.error(message)
+      });
+    }
+  }
+
+  $scope.productObj = {};
+  $scope.orderItems = { items:[] };
+
+  function oderProcessing() {
+    for (var i in $scope.cart) {
+      var items = $scope.cart;
+      $scope.orderItems.items.push({
+        product_id: items[i].product.id,
+        quantity: items[i].count,
+        unit_price: items[i].product.price
+      });
+    }
+    Restangular.all('order_items').customPOST($scope.orderItems).then(function(responce) {
+        console.log(responce);
+      });
+
     //$http.post('/api/registration', {user: $scope.user}).then(function(responce) {
     //  $auth.setToken(responce.data.auth_token);
     //  CurrentUser.reload().then(function() {

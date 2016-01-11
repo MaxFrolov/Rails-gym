@@ -1,10 +1,25 @@
 .billing-page
   .container
-    form.form-horizontal name="authForm" ng-submit="oderProcessing()" novalidate="novalidate"
+    .billing__returning-customer
+      .returning-customer__block
+        span Постоянный клиент?
+        a ng-click="returningCustomer = !returningCustomer"  Нажмите здесь, чтобы войти
+
+      .returning-customer__form ng-show="returningCustomer"
+        span Если вы покупали у нас прежде, пожалуйста, введите свои данные в полях ниже. Если вы являетесь новым клиентом,
+             пожалуйста, перейдите в раздел Детали заказа.
+        .container-fluid
+          .row
+            form.form-horizontal name="orderForm" ng-submit="loginProcessing()" novalidate="novalidate"
+              horizontal-form obj="loginObj" fields="loginFields" errors="errors" vertical="true"
+              button.btn.btn-cart.btn-lg.auth__submit type="submit" Войти
+
+
+    form.form-horizontal name="orderForm" ng-submit="oderProcessing()" novalidate="novalidate"
       .row
-        .col-sm-7
+        .col-sm-7.billing-page__form
           h3 Детали заказа
-          horizontal-form obj="billingInfo" fields="fields" errors="errors"
+          horizontal-form obj="billingInfo" fields="fields" errors="errors" vertical="true"
         .col-sm-5
           .billing__order-review
             h3 Ваш заказ
