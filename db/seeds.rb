@@ -4,7 +4,8 @@ DatabaseCleaner.clean
 User.create({ email: 'admin@example.com', password: '123123123', confirmed_at: Time.now,
               first_name: 'Max', last_name: 'Frolov',
               birthday: Faker::Time.between(45.years.ago, 25.years.ago), role: :admin,
-              avatar: File.open(File.join(Rails.root, 'test', 'fixtures' , 'avatars', "#{rand(1..4)}.png")) })
+              avatar: File.open(File.join(Rails.root, 'test', 'fixtures' , 'avatars', "#{rand(1..4)}.png")),
+              phone: Faker::PhoneNumber.cell_phone})
 post_incr = 0
 nutrition_incr = 0
 event_incr = 0
@@ -14,7 +15,8 @@ product_incr = 0
   User.create({ email: Faker::Internet.email, password: Faker::Internet.password(8), confirmed_at: Time.now,
                 first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
                 birthday: Faker::Time.between(45.years.ago, 25.years.ago), role: :member,
-                avatar: File.open(File.join(Rails.root, 'test', 'fixtures' , 'avatars', "#{rand(1..4)}.png"))})
+                avatar: File.open(File.join(Rails.root, 'test', 'fixtures' , 'avatars', "#{rand(1..4)}.png")),
+                phone: Faker::PhoneNumber.cell_phone})
 
   User.find_by(first_name: 'Max').posts.create ({image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'blog-img', "blog_picture#{post_incr += 1}.jpg")),
                  header: Faker::Hipster.sentence(3), short_description: Faker::Hipster.sentence(5),

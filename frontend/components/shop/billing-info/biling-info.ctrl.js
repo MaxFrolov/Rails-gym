@@ -1,9 +1,21 @@
-angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, CurrentUser) {
+angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, Notification) {
   $scope.errors = {};
-  $scope.billingInfo = {};
+
   $scope.loginObj = {};
   $scope.loginProcessing = loginProcessing;
   $scope.oderProcessing = oderProcessing;
+  $scope.condition = false;
+
+  var user = $scope.currentUser;
+
+  $scope.billingInfo = user.exists() ?
+  {
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    birthday: user.birthday,
+    phone: user.phone
+  } : {};
 
   $scope.loginFields = [
     {
@@ -18,6 +30,23 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
       inline: true
     }
   ];
+
+  var password = {
+        name: 'password',
+        label: 'Введите пароль',
+        type: 'password',
+        condition: function() {
+          return $scope.condition
+        }
+      },
+      passwordConfirm = {
+        name: 'password_confirmation',
+        label: 'Подтвердите пароль',
+        type: 'password',
+        condition: function() {
+          return $scope.condition
+        }
+      };
 
   $scope.fields = [
     {
@@ -61,15 +90,19 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
       label: 'Адресс'
     },
     {
-      name: 'password',
-      label: 'Введите пароль',
-      type: 'password'
+      name: 'register',
+      label: 'Хотите создать аккаунт?',
+      type: 'checkbox',
+      onChange: function() {
+        $scope.condition = !$scope.condition;
+      },
+      optional: true,
+      condition: function() {
+        return !user.exists()
+      }
     },
-    {
-      name: 'password_confirmation',
-      label: 'Подтвердите пароль',
-      type: 'password'
-    },
+    password,
+    passwordConfirm,
     {
       name: 'order_notes',
       label: 'Примечания',
@@ -80,7 +113,7 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
 
   function loginProcessing() {
 
-    $auth.login({ user: $scope.loginFields })
+    $auth.login({ user: $scope.loginObj })
       .then(loginSuccessCallback)
       .catch(loginErrorCallback);
 
@@ -89,6 +122,9 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
       $scope.errors = {};
       CurrentUser.reload().then(function () {
         Notification.success('Вход выполнен успешно.');
+        $scope.returningCustomer = false;
+        $scope.loginObj.name = '';
+        $scope.loginObj.email = '';
       });
     }
 
