@@ -122,7 +122,6 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
       $scope.errors = {};
       CurrentUser.reload().then(function () {
         Notification.success('Вход выполнен успешно.');
-        $scope.returningCustomer = false;
         $scope.loginObj.name = '';
         $scope.loginObj.email = '';
       });

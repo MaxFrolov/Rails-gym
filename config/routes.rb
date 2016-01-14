@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   scope :api do
     devise_for :users, skip: :all, failure_app: CustomAuthFailure
 
@@ -23,9 +24,13 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show] do
       get '/recommended_posts', to: 'posts#recommended_posts', on: :collection
     end
-    resources :foods, only: [:index, :show]
+    resources :foods, only: [:index, :show] do
+      get '/recommended_foods', to: 'foods#recommended_foods', on: :collection
+    end
     resources :events, only: [:index, :show]
-    resources :products, only: [:index, :show]
+    resources :products, only: [:index, :show] do
+      get '/recommended_products', to: 'products#recommended_products', on: :collection
+    end
     resources :orders, only: [:show]
     resources :order_items, only: [:create, :update]
 

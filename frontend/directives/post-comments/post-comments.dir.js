@@ -7,11 +7,16 @@ angular.module('app').directive('postComments', function() {
       currentUser: '='
     },
     controller: function($scope, Restangular, $stateParams, Notification, $state) {
-      $scope.saveComment = saveComment;
+
       var param = $state.includes('app.blog.*')? 'post_id' : 'food_id';
+
       $scope.comment = {
-        comment_date: new Date()
+        comment_date: new Date(),
+        name: $scope.currentUser.first_name,
+        email: $scope.currentUser.email
       };
+
+      $scope.saveComment = saveComment;
       $scope.params = {};
       $scope.errors = {};
       $scope.comment[param] = $stateParams.id;
@@ -21,18 +26,20 @@ angular.module('app').directive('postComments', function() {
         {
           name: 'name',
           label: 'Имя',
-          hideLabel: true
+          inline: true,
+          disabled: true
         },
         {
           name: 'email',
           label: 'Email',
-          hideLabel: true
+          inline: true,
+          disabled: true
         },
         {
           name: 'message',
           label: 'Комментарий',
           type: 'textarea',
-          hideLabel: true
+          clear: true
         }
       ];
 
@@ -42,7 +49,6 @@ angular.module('app').directive('postComments', function() {
             Notification.success('Коментарий был успешно добавлен');
             Restangular.all('comments').getList($scope.params).then(function(responce) {
               $scope.comments = responce;
-              console.log(responce)
             });
             $scope.comment.name = "";
             $scope.comment.email = "";

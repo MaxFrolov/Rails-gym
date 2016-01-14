@@ -25,6 +25,11 @@ class ProductsController < ApiController
     render nothing: true
   end
 
+  def recommended_products
+    @products = @products.sample(params[:count].to_f)
+    render_resources @products
+  end
+
   private
 
   def product_params

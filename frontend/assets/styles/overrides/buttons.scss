@@ -7,6 +7,7 @@
   &.btn-info {
     color: #fff;
   }
+
   &.btn-upper {
     text-transform: uppercase;
   }
@@ -61,7 +62,8 @@
   }
 
   &:active, &:focus {
-    background: #585859;
+    background: #585859 !important;
+    color: #fff;
   }
 }
 
@@ -97,7 +99,7 @@
   transition: all .2s ease-in-out;
   font-family: 'Play', sans-serif;
   padding: 8px 30px;
-  font-size: 16px;
+  font-size: 14px;
 
   &:hover {
     transition: all .2s ease-in-out;
