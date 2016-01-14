@@ -1,0 +1,5 @@
+a.recommended-products ui-sref="{{link}}" ng-repeat="resource in resources"
+  img.img-responsive src="{{resource.image_product_url}}"
+  .img-header__wrapper
+    span {{resource.name}}
+    p {{resource.price | currency: "₴"}}

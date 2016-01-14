@@ -1,10 +1,9 @@
 .billing-page
   .container
     .billing__returning-customer
-      .returning-customer__block ng-if="!currentUser.exists()"
-        span Постоянный клиент?
-        a ng-click="returningCustomer = !returningCustomer"  Нажмите здесь, чтобы войти
-
+      .returning-customer__block
+        span> Постоянный клиент?
+        a ng-click="returningCustomer = !returningCustomer"  ng-disabled="" Нажмите здесь, чтобы войти
       .returning-customer__form ng-show="returningCustomer"
         span Если вы покупали у нас прежде, пожалуйста, введите свои данные в полях ниже. Если вы являетесь новым клиентом,
              пожалуйста, перейдите в раздел Детали заказа.

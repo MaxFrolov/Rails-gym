@@ -1,0 +1,23 @@
+.recommended-products {
+  display: block;
+  text-align: center;
+  font: 14px 'Play', sans-serif;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  img {
+    max-width: 150px;
+    margin: 20px auto;
+  }
+
+  span {
+    color: #6D6C6C;
+  }
+
+  p {
+    color: #ea4c23;
+    font-weight: bold;
+  }
+}

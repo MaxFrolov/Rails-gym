@@ -25,6 +25,11 @@ class FoodsController < ApiController
     render nothing: true
   end
 
+  def recommended_foods
+    @foods = @foods.sample(params[:count].to_f)
+    render_resources @foods
+  end
+
   private
 
   def food_params

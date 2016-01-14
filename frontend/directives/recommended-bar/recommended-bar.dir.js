@@ -4,7 +4,7 @@ angular.module('app').directive('recommendedBar', function() {
     templateUrl:'directives/recommended-bar/recommended-bar.html',
     scope: {
       resources: '=',
-      link:'@'
+      link: '@'
     }
   }
 });
