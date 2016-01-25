@@ -24,9 +24,10 @@
           uib-tab heading="Отзывы"
             p asfasg
       .col-sm-4 ng-repeat="product in recommendedProducts"
-        .product_block__recommended
+        a.product_block__recommended
           img.img-responsive src="{{product.image_product_url}}"
           span {{product.category}}
           h3 {{product.name}}
           p {{product.price | currency: "₴"}}
           .recommended-inner__bg
+            span Посмотреть детали
