@@ -65,6 +65,8 @@ gem 'spa_rails', github: 'Rezonans/spa_rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'ransack'
 gem 'rails_admin'
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'rails_admin_tag_list'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular-animate'
