@@ -1,4 +1,4 @@
-class UserAdvices < ActiveRecord::Migration
+class CreateUserAdvices < ActiveRecord::Migration
   def change
     create_table :user_advices do |t|
       t.belongs_to :user, index: true

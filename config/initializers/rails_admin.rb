@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = ['User', 'Post', 'Product', 'UserAdvice', 'Order_item', 'Order', 'Food', 'Event']
+  config.included_models = ['User', 'Post', 'Product', 'UserAdvice', 'OrderItem', 'Order', 'Food', 'Event', 'Workout']
 
   config.actions do
     dashboard                     # mandatory
@@ -34,5 +34,18 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.model Post do
+    include_fields :id, :image, :header, :short_description, :post_description,
+                   :post_category, :tag_list
+
+    configure :tag_list  do
+      partial 'tag_list_with_autocomplete'
+    end
+
+    field :tag_list do
+      label 'Tags'
+    end
   end
 end
