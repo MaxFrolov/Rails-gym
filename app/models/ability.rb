@@ -17,6 +17,7 @@ class Ability
     end
 
     can [:index, :show], Workout
+    can [:create], OrderedUser
     can [:index, :show], Comment
     can [:index, :show, :recommended_posts], Post
     can [:index, :show, :recommended_foods], Food

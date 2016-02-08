@@ -48,4 +48,17 @@ RailsAdmin.config do |config|
       label 'Tags'
     end
   end
+
+  config.model Food do
+    include_fields :id, :image, :header, :short_description, :food_description,
+                   :category, :tag_list
+
+    configure :tag_list  do
+      partial 'tag_list_with_autocomplete'
+    end
+
+    field :tag_list do
+      label 'Tags'
+    end
+  end
 end

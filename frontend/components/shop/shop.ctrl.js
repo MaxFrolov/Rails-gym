@@ -25,6 +25,7 @@ angular.module('app').controller('ShopCtrl', function($scope, Restangular, $stat
   function setToStorage() {
     localStorage['cart'] = JSON.stringify($scope.cart);
     localStorage['totalPrice'] = $scope.priceTotal;
+    $scope.addingSuccess = false;
   }
 
   function countCartItem() {

@@ -74,7 +74,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-ui-utils'
   gem 'rails-assets-ui-router'
   gem 'rails-assets-restangular', '1.5.1'
-  gem 'rails-assets-lodash'
+  gem 'rails-assets-lodash', '3.10.1'
   gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular-ui-select', github: 'sars/angular-ui-select' # https://github.com/angular-ui/ui-select/pull/1068
