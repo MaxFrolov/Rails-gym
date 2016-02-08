@@ -2,9 +2,10 @@
   .container
     .row
       .nutrition-posts.col-sm-4 ng-repeat="nutrition in nutritions"
-        .nutrition-post__bg
+        a.nutrition-post__bg ui-sref="app.nutrition.food({ id: nutrition.id })"
           img.img-responsive ng-src="{{nutrition.image_url}}"
           .inner-type-bg
+            span Посмотреть детали
         h3 {{food_categories[nutrition.category]}}
         h4 {{nutrition.short_description}}
         a ui-sref="app.nutrition.food({ id: nutrition.id })" читать дальше...
