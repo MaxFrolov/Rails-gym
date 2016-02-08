@@ -15,16 +15,20 @@
         .add-cart__success ng-if="addingSuccess"
           span Товар успешно добавлен
           button.btn.btn-cart type="button" ui-sref="app.shop.cart" ng-click="setToStorage()" перейти в корзину
-      .col-sm-12.product-block__tab
-        uib-tabset
-          uib-tab heading="Описание"
-            p {{product.product_description}}
-          uib-tab heading="Рекоммендация по пременению"
-            p {{product.recommendation_for_use}}
-          uib-tab heading="Отзывы"
-            p asfasg
+      .container-fluid
+        .row
+          .col-sm-12.product-block__tab
+            uib-tabset
+              uib-tab heading="Описание"
+                p {{product.product_description}}
+              uib-tab heading="Рекоммендация по пременению"
+                p {{product.recommendation_for_use}}
+              uib-tab heading="Отзывы"
+                p asfasg
+      .related-products__header
+        h3 Рекоммендуемые продукты
       .col-sm-4 ng-repeat="product in recommendedProducts"
-        a.product_block__recommended
+        a.product_block__recommended ui-sref="app.shop.product({id: product.id})"
           img.img-responsive src="{{product.image_product_url}}"
           span {{product.category}}
           h3 {{product.name}}

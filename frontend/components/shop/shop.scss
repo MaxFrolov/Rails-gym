@@ -257,6 +257,16 @@
     color: #6D6C6C;
   }
 
+  .related-products__header h3 {
+    padding: 10px;
+    border-left: 3px solid #ea4c23;
+    text-transform: uppercase;
+    color: #6D6C6C;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
   .product_block__recommended {
     position: relative;
     padding: 15px;
@@ -291,7 +301,7 @@
     }
 
     .recommended-inner__bg {
-      transition: all .2s ease-in-out;
+      transition: all .5s ease-in-out;
       opacity: 0;
       width: 100%;
       height: 100%;
@@ -300,13 +310,13 @@
       left: 0;
       background: #ea4c23;
       text-align: center;
-      padding-top: 30%;
 
       span {
         color: #fff;
-        font-family: 'Play', sans-serif;
-        border: 1px solid #fff;
+        font: 18px 'Play', sans-serif;
+        border: 2px solid #fff;
         padding: 10px 25px;
+        cursor: pointer;
 
         &:hover {
           background: rgba(255, 255, 255, 0.3);
@@ -315,9 +325,10 @@
     }
 
     &:hover .recommended-inner__bg {
+      padding-top: 40%;
       opacity: 1;
-      background: rgba(234, 76, 35, 0.7);
-      transition: all .2s ease-in-out;
+      background: rgba(234, 76, 35, 0.8);
+      transition: all .5s ease-in-out;
     }
   }
 }
