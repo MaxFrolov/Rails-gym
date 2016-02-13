@@ -31,7 +31,9 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show] do
       get '/recommended_products', to: 'products#recommended_products', on: :collection
     end
-    resources :orders, only: [:show]
+    resources :orders, only: [:show] do
+      resource :ordered_users, only: [:create]
+    end
     resources :order_items, only: [:create, :update]
 
   end
