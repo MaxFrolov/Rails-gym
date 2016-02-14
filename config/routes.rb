@@ -31,11 +31,12 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show] do
       get '/recommended_products', to: 'products#recommended_products', on: :collection
     end
-    resources :orders, only: [:show] do
-      resource :ordered_users, only: [:create]
+    resources :ordered_users, only: [:create] do
+      resources :orders, only: [:show, :create]
     end
-    resources :order_items, only: [:create, :update]
-
+    resources :orders, only: [:destroy] do
+      resources :order_items, only: [:create, :update]
+    end
   end
 
   match '/(*path)', via: :all, to: frontend_page('index.htm')
