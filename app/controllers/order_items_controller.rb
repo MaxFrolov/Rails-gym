@@ -2,7 +2,6 @@ class OrderItemsController < ApiController
   load_resource
 
   def create
-    @order = Order.new
     @order_item = @order.order_items.new(order_item_params[:items])
     @order.save
   end

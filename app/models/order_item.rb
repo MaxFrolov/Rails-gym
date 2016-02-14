@@ -1,6 +1,6 @@
 class OrderItem < ActiveRecord::Base
   belongs_to :product
-  belongs_to :order, invers_of: :order_items
+  belongs_to :order
   before_save :finalize
 
   attr_accessor :items

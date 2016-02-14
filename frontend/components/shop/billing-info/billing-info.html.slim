@@ -39,11 +39,11 @@
                   th Всего
                   td {{priceTotal | currency: "₴"}}
             label
-              input type="checkbox" ng-true-value="true" ng-model="billingInfo.c_o_d"
+              input type="checkbox" ng-true-value="'c_o_d'" ng-model="billingInfo.payment"
               span Наложенный платеж
             br
             label
-              input type="checkbox" ng-true-value="true" ng-model="billingInfo.online_pay"
+              input type="checkbox" ng-true-value="'online_pay'" ng-model="billingInfo.payment"
               span Безналичный расчет
             .col-sm-offset-2.col-sm-8
               button.btn.btn-primary.btn-lg.auth__submit type="submit" оформить заказ

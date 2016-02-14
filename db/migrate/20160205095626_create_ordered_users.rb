@@ -10,7 +10,6 @@ class CreateOrderedUsers < ActiveRecord::Migration
       t.string :country
       t.string :address
       t.string :order_notes
-      t.string :payment_type
       t.references :user, index: true
 
       t.timestamps null: false
