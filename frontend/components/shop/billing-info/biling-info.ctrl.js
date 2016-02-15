@@ -1,4 +1,4 @@
-angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, Notification) {
+angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, Notification, CurrentUser) {
   $scope.errors = {};
 
   $scope.loginObj = {};
@@ -134,45 +134,41 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
     }
   }
 
-  $scope.productObj = {};
-  $scope.orderItems = { items:[] };
+  $scope.orderItems = [];
 
   function oderProcessing() {
     for (var i in $scope.cart) {
       var items = $scope.cart;
-      $scope.orderItems.items.push({
+      $scope.orderItems.push({
         product_id: items[i].product.id,
         quantity: items[i].count,
         unit_price: items[i].product.price
       });
     }
-
-    $scope.ordered_users = _.pick($scope.billingInfo, 'first_name', 'last_name', 'company_name', 'email',
-        'phone', 'city', 'country', 'address', 'order_notes');
-
     $scope.order = {
-      total: Math.round($scope.cart.totalPrice * 100) / 100,
+      total: Math.round($scope.priceTotal * 100) / 100,
       payment_type: $scope.billingInfo.payment
     };
+    $scope.order.ordered_user_attributes = _.pick($scope.billingInfo, 'first_name', 'last_name', 'company_name', 'email',
+        'phone', 'city', 'country', 'address', 'order_notes');
+    $scope.order.order_items_attributes = $scope.orderItems;
 
-    Restangular.all('ordered_users').customPOST($scope.ordered_users).then(function(user) {
-      Restangular.one('ordered_users', user.id).all('orders').customPOST($scope.order).then(function(order) {
-        Restangular.one('orders', order.id).all('order_items').customPOST($scope.orderItems).then(function(responce) {
-
+    if ($scope.billingInfo.register) {
+      $http.post('/api/registration', {user: $scope.user}).then(function(responce) {
+        $auth.setToken(responce.data.auth_token);
+        CurrentUser.reload().then(function(user) {
+          $scope.order.ordered_user_attributes.user_id = user.id;
+          Restangular.all('orders').customPOST($scope.order).then(function() {
+            Notification.success('Ваш заказ успешно оформлен.')
+          });
+        }).catch(function(response) {
+          $scope.errors = response.errors;
         });
       });
-    });
-    Restangular.all('order_items').customPOST($scope.orderItems).then(function(responce) {
-        console.log(responce);
-    });
-
-    //$http.post('/api/registration', {user: $scope.user}).then(function(responce) {
-    //  $auth.setToken(responce.data.auth_token);
-    //  CurrentUser.reload().then(function() {
-    //    $state.go('app.blog.posts');
-    //  }).catch(function(response) {
-    //    $scope.errors = response.errors;
-    //  });
-    //});
+    } else {
+      Restangular.all('orders').customPOST($scope.order).then(function() {
+        Notification.success('Ваш заказ успешно оформлен.')
+      });
+    }
   }
 });

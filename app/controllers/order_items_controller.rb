@@ -2,8 +2,8 @@ class OrderItemsController < ApiController
   load_resource
 
   def create
-    @order_item = @order.order_items.new(order_item_params[:items])
-    @order.save
+    @order_items = params[:resource][:items].each { |a| OrderItem.create[a] }
+    render_resource_data(@order_items)
   end
 
   def update
