@@ -3,7 +3,7 @@ class OrderedUsersController < ApiController
 
   def create
     @ordered_user.save
-    render_resource_or_errors(@ordered_user)
+    render_resource_or_errors @ordered_user, include_order: true
   end
 
   def ordered_user_params

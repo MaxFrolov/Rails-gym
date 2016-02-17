@@ -31,11 +31,10 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show] do
       get '/recommended_products', to: 'products#recommended_products', on: :collection
     end
-    resources :ordered_users, only: [:create] do
-      resources :orders, only: [:show, :create]
-    end
-    resources :orders, only: [:destroy] do
+
+    resources :orders, only: [:destroy, :create] do
       resources :order_items, only: [:create, :update]
+      resources :ordered_users, only: [:create]
     end
   end
 

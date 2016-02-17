@@ -11,6 +11,7 @@ class CreateOrderedUsers < ActiveRecord::Migration
       t.string :address
       t.string :order_notes
       t.references :user, index: true
+      t.references :order, index: true
 
       t.timestamps null: false
     end

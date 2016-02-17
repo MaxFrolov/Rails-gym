@@ -6,11 +6,13 @@ class OrdersController < ApiController
   end
 
   def create
-    @order = @order.save
+    @order.save
     render_resource_or_errors(@order)
   end
 
   def order_params
-    params.allow_empty_require(:resource).permit(:order_status, :subtotal, :total, :payment_type)
+    params.require(:resource).permit(:order_status, :subtotal, :total, :payment_type,
+                                     order_items_attributes: [:unit_price, :quantity, :order_status, :subtotal, :total, :product_id],
+                                     ordered_user_attributes: [:first_name, :last_name, :company_name, :email, :phone, :city, :country, :address, :order_notes])
   end
 end
