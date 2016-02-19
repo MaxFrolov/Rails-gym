@@ -121,6 +121,12 @@ angular.module('app')
         templateUrl: 'components/shop/billing-info/billing-info.html',
         controller: 'BillingInfoCtrl'
       })
+      .state('app.shop.order-review', {
+        url: '/order-review?id',
+        templateUrl: 'components/shop/order-review/order-review.html',
+        controller: 'OrderReviewCtrl'
+      })
+
       .state('confirmEmail', {
         url: '/users/confirm/:token',
         onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {

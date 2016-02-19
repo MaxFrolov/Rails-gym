@@ -1,4 +1,5 @@
-angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, Notification, CurrentUser) {
+angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, Notification, CurrentUser, $state,
+                                                             $http) {
   $scope.errors = {};
 
   $scope.loginObj = {};
@@ -46,7 +47,15 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
         condition: function() {
           return $scope.condition
         }
-      };
+      },
+      birthday = {
+        name: 'birthday',
+        label: 'Дата рождения',
+        type: 'birthday',
+        condition: function() {
+          return $scope.condition
+        }
+      }
 
   $scope.fields = [
     {
@@ -101,6 +110,7 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
         return !user.exists()
       }
     },
+    birthday,
     password,
     passwordConfirm,
     {
@@ -153,21 +163,25 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
         'phone', 'city', 'country', 'address', 'order_notes');
     $scope.order.order_items_attributes = $scope.orderItems;
 
+
     if ($scope.billingInfo.register) {
+      $scope.user = _.pick($scope.billingInfo, 'first_name', 'last_name', 'email', 'phone', 'birthday', 'password', 'password_confirmation')
       $http.post('/api/registration', {user: $scope.user}).then(function(responce) {
         $auth.setToken(responce.data.auth_token);
         CurrentUser.reload().then(function(user) {
           $scope.order.ordered_user_attributes.user_id = user.id;
-          Restangular.all('orders').customPOST($scope.order).then(function() {
-            Notification.success('Ваш заказ успешно оформлен.')
+          Restangular.all('orders').customPOST($scope.order).then(function(order) {
+            Notification.success('Ваш заказ успешно оформлен.');
+            $state.go('app.shop.order-review', {id: order.id});
           });
         }).catch(function(response) {
           $scope.errors = response.errors;
         });
       });
     } else {
-      Restangular.all('orders').customPOST($scope.order).then(function() {
-        Notification.success('Ваш заказ успешно оформлен.')
+      Restangular.all('orders').customPOST($scope.order).then(function(order) {
+        Notification.success('Ваш заказ успешно оформлен.');
+        $state.go('app.shop.order-review', {id: order.id});
       });
     }
   }
