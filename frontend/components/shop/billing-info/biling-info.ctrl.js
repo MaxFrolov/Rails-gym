@@ -170,18 +170,21 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
         $auth.setToken(responce.data.auth_token);
         CurrentUser.reload().then(function(user) {
           $scope.order.ordered_user_attributes.user_id = user.id;
-          Restangular.all('orders').customPOST($scope.order).then(function(order) {
-            Notification.success('Ваш заказ успешно оформлен.');
-            $state.go('app.shop.order-review', {id: order.id});
-          });
+          postOrder();
         }).catch(function(response) {
           $scope.errors = response.errors;
         });
       });
     } else {
+      postOrder();
+    }
+
+    function postOrder() {
       Restangular.all('orders').customPOST($scope.order).then(function(order) {
         Notification.success('Ваш заказ успешно оформлен.');
         $state.go('app.shop.order-review', {id: order.id});
+        localStorage.removeItem('cart');
+        localStorage.removeItem('totalPrice');
       });
     }
   }

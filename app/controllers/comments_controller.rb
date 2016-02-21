@@ -9,7 +9,6 @@ class CommentsController < ApiController
   end
 
   def show
-    @comment = Comment.find_by(id: params[:id])
     render_resource_data(@comment)
   end
 

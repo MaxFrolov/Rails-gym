@@ -2,7 +2,7 @@ class OrdersController < ApiController
   load_resource
 
   def show
-    render_resource_data(@order.includes(:ordered_user, :ordered_items))
+    render_resource_data(@order)
   end
 
   def create
