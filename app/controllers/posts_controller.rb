@@ -5,7 +5,6 @@ class PostsController < ApiController
     params[:category] ?
     @posts = @posts.where(post_category: params[:category]).page(params[:page]).per(params[:per]) :
         @posts = @posts.ransack(q: params[:sort] || 'created_at desc').result.page(params[:page]).per(params[:per])
-
     render_resources @posts
   end
 

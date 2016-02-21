@@ -4,10 +4,9 @@ class CreateComments < ActiveRecord::Migration
       t.string :message
       t.string :name
       t.string :email
-      t.datetime :comment_date
-      t.references :user, index: true
-      t.references :post, index: true
-      t.references :food, index: true
+      t.integer :likes_count, default: 0, null: false
+      t.belongs_to :user, index: true
+      t.belongs_to :target, polymorphic: true
       t.timestamps null: false
     end
   end

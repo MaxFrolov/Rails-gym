@@ -5,6 +5,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :header
       t.string :short_description
       t.string :post_description
+      t.integer :likes_count, default: 0, null: false
+      t.integer :comments_count, default: 0, null: false
       t.datetime :post_date
       t.references :user, index: true
       t.timestamps null: false

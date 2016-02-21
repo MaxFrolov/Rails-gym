@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
   attributes :id, :short_description, :image_url, :post_date, :post_description, :header, :post_category
 
-  has_many :comments
+  has_many :comments, :polymorphic => true, serializer: CommentSerializer
 end

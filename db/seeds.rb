@@ -38,7 +38,7 @@ product_incr = 0
                     grams: Faker::Number.decimal(2), count: rand(1..15), sale: false})
 end
 
-25.times do
-Comment.create({ message: Faker::Hipster.sentence(3), user_id: rand(1..12), post_id: rand(1..12), food_id: rand(1..12), email: Faker::Internet.email,
-                 name: Faker::Name.first_name, comment_date: Faker::Time.between(3.month.ago, Time.now, :all)})
-end
+# 25.times do
+# Comment.create({ message: Faker::Hipster.sentence(3), user_id: rand(1..12), post_id: rand(1..12), food_id: rand(1..12), email: Faker::Internet.email,
+#                  name: Faker::Name.first_name, comment_date: Faker::Time.between(3.month.ago, Time.now, :all)})
+# end
