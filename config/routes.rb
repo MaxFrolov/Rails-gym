@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       get '/recommended_products', to: 'products#recommended_products', on: :collection
     end
 
-    resources :orders, only: [:destroy, :create] do
+    resources :orders, only: [:destroy, :create, :show] do
       resources :order_items, only: [:create, :update]
       resources :ordered_users, only: [:create]
     end

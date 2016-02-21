@@ -1,6 +1,6 @@
 .billing-page
   .container
-    .billing__returning-customer
+    .billing__returning-customer ng-if="!currentUser.exists()"
       .returning-customer__block
         span> Постоянный клиент?
         a ng-click="returningCustomer = !returningCustomer"  ng-disabled="" Нажмите здесь, чтобы войти

@@ -1,0 +1,31 @@
+.order-review-page
+  .container
+    .row
+      .col-sm-12.order-review-products__header
+        h4 Детали вашего заказа
+      .col-sm-4.order-review__user
+        h4 Детали доставки
+        p Имя: {{order.ordered_user.first_name}} {{order.ordered_user.last_name}}
+        p Email: {{order.ordered_user.email}}
+        p Телефон: {{order.ordered_user.phone}}
+        p Город: {{order.ordered_user.country}}
+        p Область: {{order.ordered_user.city}}
+        p Адрес: {{order.ordered_user.address}}
+        p Тип оплаты: {{order.payment_type}}
+      .col-sm-8
+        h4 Список товаров
+        div ng-repeat="item in order.order_items"
+          .container-fluid
+            .row.order-review__products
+              .col-sm-5
+                span {{item.product.name}}
+              .col-sm-2
+                span X {{item.quantity}}
+              .col-sm-3
+                img src="{{item.product.image_product_url}}"
+              .col-sm-2
+                span {{item.product.price*item.quantity  | currency: "₴"}}
+      .col-sm-offset-4.col-sm-8.order-review__total
+        p Общая стоимость: {{order.total  | currency: "₴"}}
+    .order-review__button
+      button.btn.btn-brand ui-sref="app.shop.products" вернутся в магазин

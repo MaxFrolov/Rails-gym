@@ -1,9 +1,10 @@
-angular.module('app').controller('Main', function($scope, currentUser) {
+angular.module('app').controller('Main', function($scope, currentUser, $auth, CurrentUser) {
   $scope.currentUser = currentUser;
   $scope.eventId = 0;
   $scope.changeState = changeState;
   $scope.cycle = cycle;
   $scope.popularTypes = cycle(6);
+  $scope.logout = logout;
 
   $scope.carouselInterval = 5000;
 
@@ -62,6 +63,13 @@ angular.module('app').controller('Main', function($scope, currentUser) {
       $scope.varible.push(i);
     }
     return $scope.varible
+  }
+
+  function logout() {
+    $auth.logout();
+    CurrentUser.reload();
+    Notification.success('Выход выполнен успешно');
+    $state.go('main');
   }
 
 });
