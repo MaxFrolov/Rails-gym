@@ -8,7 +8,9 @@
           h4 Автор: {{commentInfo.name}}
           span {{commentInfo.created_at | calendarDate}}
           p {{commentInfo.message}}
-          i.fa.fa-heart-o
+          .post-comments__like
+            likes target-id="commentInfo.id" target-type="comment" current-user="currentUser"
+            span {{commentInfo.likes_count}}
   .col-sm-9 ng-if="!currentUser.exists()"
     h5 Зарегестрируйтесь что бы оставить комментарий
   .col-sm-8.auth__form-wrapper ng-if="currentUser.exists()"

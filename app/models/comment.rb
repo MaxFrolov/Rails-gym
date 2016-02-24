@@ -10,5 +10,5 @@ class Comment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :target, polymorphic: true, inverse_of: :comments, counter_cache: true
-  has_many :likes, as: :target, inverse_of: :comments, dependent: :delete_all
+  has_many :likes, as: :target, inverse_of: :target, dependent: :delete_all
 end

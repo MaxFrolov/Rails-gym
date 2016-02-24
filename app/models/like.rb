@@ -1,6 +1,6 @@
 class Like < ActiveRecord::Base
   TARGETS = %w(Post Food Product Event Comment)
-  belongs_to :user, inverse_of: :likes
+  belongs_to :user
   belongs_to :target, polymorphic: true, inverse_of: :likes, counter_cache: true
 
   with_options on: :create do |item|

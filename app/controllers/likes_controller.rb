@@ -1,15 +1,10 @@
-class LikesController < ApplicationController
-  before_action :load_target, only: :create
-
-  load_resource through: :target, only: :create
-  load_resource through: :user, only: :destroy
+class LikesController < ApiController
+  before_action :load_target
+  load_and_authorize_resource through: :target
 
   def index
-    likes = @user.likes.includes(:target).by_types(params[:types]).latest.page(params[:page])
-                .per(params[:per_page]).padding(params[:padding])
-    Like.preload(likes)
-
-    render_resources likes, include_target: true
+    @likes = @likes.includes(:target)
+    render_resources @likes
   end
 
   def create
@@ -26,12 +21,12 @@ class LikesController < ApplicationController
   private
 
   def load_target
-    params.require(:resource).permit(:type, :id).tap do |data|
-      unless Like::TARGETS.include? data[:type]
-        raise ::ParamError::NotAcceptableValue.new(:type, data[:type], Like::TARGETS)
+    params.require(:resource).permit(:target_type, :target_id).tap do |data|
+      unless Like::TARGETS.include? data[:target_type].camelize
+        raise ::ParamError::NotAcceptableValue.new(:target_type, data[:target_type], Like::TARGETS)
       end
 
-      @target = Like.load_target(data[:type], data[:id])
+      @target = data[:target_type].camelize.constantize.find(data[:target_id])
     end
   end
 end

@@ -6,6 +6,9 @@
           h2 {{food.header}}
           h4 {{food.short_description}}
           img src="{{food.image_url}}"
+          .food-page__likes
+            span {{food.likes_count}}
+            likes target-id="food.id" target-type="food" current-user="currentUser"
           p {{food.food_description}}
         post-comments comments="food.comments" current-user="currentUser" target='food'
       .food-bar.col-sm-3

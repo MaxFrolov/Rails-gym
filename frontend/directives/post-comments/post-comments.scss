@@ -32,6 +32,13 @@
       font-family: 'Play', sans-serif;
       font-weight: bold;
     }
+
+    .post-comments__like {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
 

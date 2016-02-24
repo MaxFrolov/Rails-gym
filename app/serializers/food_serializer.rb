@@ -1,5 +1,5 @@
 class FoodSerializer < ActiveModel::Serializer
-  attributes :id, :category, :header, :food_description, :short_description, :image_url
+  attributes :id, :category, :header, :food_description, :short_description, :image_url, :likes_count
 
-  has_many :comments
+  has_many :comments, :polymorphic => true, serializer: CommentSerializer
 end

@@ -7,7 +7,7 @@ angular.module('app').directive('postComments', function() {
       currentUser: '=',
       target: '@'
     },
-    controller: function($scope, Restangular, $stateParams, Notification, $state) {
+    controller: function($scope, Restangular, $stateParams, Notification) {
 
       $scope.comment = {
         name: $scope.currentUser.first_name,
