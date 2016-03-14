@@ -18,9 +18,13 @@ Rails.application.routes.draw do
       resource :foods, only: [:create, :update, :destroy]
       resource :events, only: [:create, :update, :destroy]
       resource :products, only: [:create, :update, :destroy]
+      scope ':target_type/:target_id', target_type: /(post|food|product|event)/ do
+        resources :comments, only: [:create, :update, :destroy]
+      end
+      resources :likes, only: [:index, :create, :destroy]
     end
 
-    resources :comments, only: [:index, :show]
+
     resources :posts, only: [:index, :show] do
       get '/recommended_posts', to: 'posts#recommended_posts', on: :collection
     end
@@ -35,6 +39,11 @@ Rails.application.routes.draw do
     resources :orders, only: [:destroy, :create, :show] do
       resources :order_items, only: [:create, :update]
       resources :ordered_users, only: [:create]
+    end
+
+
+    scope ':target_type/:target_id', target_type: /(post|food|product|event)/ do
+      resources :comments, only: :index
     end
   end
 

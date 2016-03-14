@@ -10,6 +10,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :recommendation_for_use
       t.float :grams
       t.integer :count
+      t.integer :likes_count, default: 0, null: false
+      t.integer :comments_count, default: 0, null: false
       t.boolean :sale
       t.timestamps null: false
     end

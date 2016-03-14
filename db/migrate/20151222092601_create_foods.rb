@@ -6,6 +6,8 @@ class CreateFoods < ActiveRecord::Migration
       t.string :food_description
       t.string :short_description
       t.string :image
+      t.integer :likes_count, default: 0, null: false
+      t.integer :comments_count, default: 0, null: false
       t.timestamps null: false
     end
   end

@@ -4,14 +4,12 @@ angular.module('app').directive('postComments', function() {
     templateUrl: 'directives/post-comments/post-comments.html',
     scope: {
       comments: '=',
-      currentUser: '='
+      currentUser: '=',
+      target: '@'
     },
-    controller: function($scope, Restangular, $stateParams, Notification, $state) {
-
-      var param = $state.includes('app.blog.*')? 'post_id' : 'food_id';
+    controller: function($scope, Restangular, $stateParams, Notification) {
 
       $scope.comment = {
-        comment_date: new Date(),
         name: $scope.currentUser.first_name,
         email: $scope.currentUser.email
       };
@@ -19,8 +17,6 @@ angular.module('app').directive('postComments', function() {
       $scope.saveComment = saveComment;
       $scope.params = {};
       $scope.errors = {};
-      $scope.comment[param] = $stateParams.id;
-      $scope.params[param] = $stateParams.id;
 
       $scope.fields = [
         {
@@ -44,15 +40,13 @@ angular.module('app').directive('postComments', function() {
       ];
 
       function saveComment() {
-        Restangular.one('users', $scope.currentUser.id).all('comments').customPOST($scope.comment)
+        Restangular.one($scope.target,  $stateParams.id).one('users', $scope.currentUser.id).all('comments').customPOST($scope.comment)
           .then(function() {
+            $scope.comment.message = "";
             Notification.success('Коментарий был успешно добавлен');
-            Restangular.all('comments').getList($scope.params).then(function(responce) {
+            Restangular.one($scope.target,  $stateParams.id).all('comments').getList().then(function(responce) {
               $scope.comments = responce;
             });
-            $scope.comment.name = "";
-            $scope.comment.email = "";
-            $scope.comment.message = "";
           })
           .catch(function (response) {
             $scope.errors = response.data.errors;

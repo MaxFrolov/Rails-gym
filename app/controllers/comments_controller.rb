@@ -1,25 +1,20 @@
 class CommentsController < ApiController
-  load_and_authorize_resource
+  before_action :load_target
+  load_and_authorize_resource through: :target
 
   def index
-    params[:post_id]?
-      @comments = @comments.where(post_id: params[:post_id]).includes(:user) :
-        @comments = @comments.where(food_id: params[:food_id]).includes(:user)
-    render_resources(@comments)
-  end
-
-  def show
-    render_resource_data(@comment)
+    @comments = @comments.includes(:user)
+    render_resources @comments
   end
 
   def create
     @comment.save
-    render_resource_or_errors(@comment)
+    render_resource_or_errors @comment
   end
 
   def update
     @comment.update(comment_params)
-    render_resource_or_errors(@comment)
+    render_resource_or_errors @comment
   end
 
   def destroy
@@ -29,7 +24,15 @@ class CommentsController < ApiController
 
   private
 
+  def load_target
+    unless Comment::TARGETS.include? params[:target_type].camelize
+      raise ::ParamError::NotAcceptableValue.new(:target_type, params[:target_type], Comment::TARGETS)
+    end
+
+    @target = params[:target_type].camelize.constantize.find(params[:target_id])
+  end
+
   def comment_params
-    params.allow_empty_require(:resource).permit(:message, :comment_date, :user_id, :post_id, :name, :email, :food_id)
+    params.require(:resource).permit(:name, :email, :message)
   end
 end

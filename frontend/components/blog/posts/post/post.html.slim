@@ -9,7 +9,7 @@
           img.img-responsive src="{{currentPost.image_url}}"
         .post_body
           p {{currentPost.post_description}}
-        post-comments comments="currentPost.comments" current-user="currentUser"
+        post-comments comments="currentPost.comments" current-user="currentUser" target='post'
       .col-sm-3
         .blog-bar-categories рекомендуемые
         recommended-bar resources="recommendedPosts" link="app.blog.post({ id: resource.id })"

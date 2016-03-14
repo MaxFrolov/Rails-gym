@@ -6,8 +6,10 @@
           avatar user="commentInfo.user"
         .col-sm-10
           h4 Автор: {{commentInfo.name}}
-          span {{commentInfo.comment_date | calendarDate}}
+          span {{commentInfo.created_at | calendarDate}}
           p {{commentInfo.message}}
+          .post-comments__like
+            likes resource="commentInfo" target-type="comment" current-user="currentUser"
   .col-sm-9 ng-if="!currentUser.exists()"
     h5 Зарегестрируйтесь что бы оставить комментарий
   .col-sm-8.auth__form-wrapper ng-if="currentUser.exists()"
