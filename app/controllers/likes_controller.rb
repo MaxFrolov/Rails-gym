@@ -1,6 +1,7 @@
 class LikesController < ApiController
-  before_action :load_target
-  load_and_authorize_resource through: :target
+  before_action :load_target, only: :create
+  load_and_authorize_resource through: :target, only: :create
+  load_resource only: :destroy
 
   def index
     @likes = @likes.includes(:target)

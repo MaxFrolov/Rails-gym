@@ -1,8 +1,4 @@
 class LikeSerializer < ActiveModel::Serializer
-  attributes :id, :target_id, :target_type, :created_at
+  attributes :id, :target_id, :target_type, :created_at, :user_id
 
-  has_one :target, polymorphic: true
-  def target
-    object.target.active_model_serializer
-  end
 end

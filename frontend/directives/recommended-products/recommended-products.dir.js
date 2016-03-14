@@ -5,9 +5,6 @@ angular.module('app').directive('recommendedProducts', function() {
     scope: {
       resources: '=',
       link: '@'
-    },
-    controller: function($scope) {
-      console.log($scope.link)
     }
   }
 });
