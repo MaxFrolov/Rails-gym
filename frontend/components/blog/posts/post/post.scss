@@ -36,4 +36,14 @@
     color: $text;
     font-family: 'Open Sans', sans-serif;
   }
+
+  .post_main__img {
+    position: relative;
+
+    .post-likes__wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
 }

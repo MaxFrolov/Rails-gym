@@ -7,5 +7,7 @@ class Post < ActiveRecord::Base
 
   enum post_category: { music: 0, technology: 1, sport: 2, nature: 3 }
 
+  default_scope { order(created_at: :desc) }
+
   mount_uploader :image, BaseUploader
 end

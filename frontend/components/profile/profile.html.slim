@@ -9,14 +9,22 @@
             span {{currentUser.last_name}}
           .profile_img-change
             upload-button.center-block on-success='successfulAvatarCropHandler(responce)'
-      .col-sm-8.profile_characteristic
-        ul
-          li
-            i.fa.fa-birthday-cake
-            '{{currentUser.birthday}}
-          li
-            i.fa.fa-at
-            '{{currentUser.email}}
+        .profile_characteristic
+          ul
+            li
+              i.fa.fa-birthday-cake
+              '{{currentUser.birthday}}
+            li
+              i.fa.fa-at
+              '{{currentUser.email}}
+            li
+              i.fa.fa-phone
+              '{{currentUser.phone}}
+      .col-sm-8
+        .profile-charts
+          canvas id="base" class="chart-base" chart-type="type" chart-data="data" chart-labels="labels" chart-legend="true"
+          canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"
+          canvas id="line" class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
   .calendar-block
     .container-fluid
       .row.calendar-block__wrapper

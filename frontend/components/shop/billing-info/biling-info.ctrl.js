@@ -185,6 +185,10 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
         $state.go('app.shop.order-review', {id: order.id});
         localStorage.removeItem('cart');
         localStorage.removeItem('totalPrice');
+      }).catch(function (responce) {
+        $scope.errors = _.mapKeys(responce.data.errors, function(value, key) {
+          return key.replace(/^ordered_user\./, '');
+        });
       });
     }
   }

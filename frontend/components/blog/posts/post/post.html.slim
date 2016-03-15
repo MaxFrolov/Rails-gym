@@ -7,6 +7,8 @@
           h5 {{currentPost.short_description}}
         .post_main__img
           img.img-responsive src="{{currentPost.image_url}}"
+          .post-likes__wrapper
+            likes target-type="post" current-user="currentUser" resource="currentPost"
         .post_body
           p {{currentPost.post_description}}
         post-comments comments="currentPost.comments" current-user="currentUser" target='post'

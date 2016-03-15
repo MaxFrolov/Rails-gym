@@ -35,6 +35,8 @@
         margin-bottom: 15px;
         display: block;
         padding-bottom: 5px;
+        width: 90%;
+        float: left;
 
         &:after {
           content: "";
@@ -44,6 +46,20 @@
           width: 30px;
           height: 3px;
           background: $brand-primary;
+        }
+      }
+
+      .post__icons {
+        float: right;
+        color: #6D6C6C;
+        padding-top: 5px;
+
+        span:nth-child(2) {
+          margin-right: 10px;
+        }
+
+        i {
+          margin-right: 2px;
         }
       }
 

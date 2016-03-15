@@ -17,5 +17,6 @@ angular.module('app', [
   'checklist-model',
   'permission',
   'ui-notification',
+  'chart.js',
   'ui.bootstrap.tabs'
 ]);
