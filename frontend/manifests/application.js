@@ -19,6 +19,8 @@
  *= require angular-permission
  *= require angular-checklist-model
  *= require satellizer
+ *= require Chart.js
+ *= require angular-chartjs
  *= require ../module
  *= require_tree ../
  */

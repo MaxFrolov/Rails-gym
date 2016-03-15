@@ -20,13 +20,16 @@
 
 .profile_characteristic {
   font-family: 'Open Sans', sans-serif;
+  margin-top: 15px;
 
   ul {
     list-style: none;
+    padding-left: 0;
 
     li {
       font-size: 16px;
       color: $text;
+      margin-top: 10px;
 
       &>i {
         font-size: 18px;
@@ -106,3 +109,9 @@
   height: 300px;
 }
 
+.profile-charts {
+  .chart-container {
+    max-width: 500px;
+    max-height: 500px;
+  }
+}

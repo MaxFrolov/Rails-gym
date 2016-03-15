@@ -90,4 +90,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-ui-notification'
   gem 'rails-assets-angular-sanitize'
   gem 'rails-assets-satellizer', '0.11.3'
+  gem 'rails-assets-angular-chartjs'
 end

@@ -77,12 +77,27 @@
   .nutrition-posts {
     margin-bottom: 30px;
 
+    .nutrition__icons {
+      float: right;
+      color: #6D6C6C;
+      padding-top: 5px;
+
+      span {
+        margin-right: 5px;
+      }
+
+      i {
+        margin-right: 2px;
+      }
+    }
+
     h3 {
       color: $brand-primary;
       font-family: 'Play', sans-serif;
       text-transform: capitalize;
       margin-top: 5px;
       margin-bottom: 5px;
+      float: left;
     }
 
     h4 {

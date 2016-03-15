@@ -16,6 +16,12 @@ angular.module('app').controller('ShopCtrl', function($scope, Restangular, $stat
   $scope.setToStorage = setToStorage;
   $scope.removeItem = removeItem;
   $scope.countCartItem = countCartItem;
+  $scope.clearCart = clearCart;
+
+  function clearCart() {
+    $scope.cart = {};
+    $scope.priceTotal = 0;
+  }
 
   function removeItem(item) {
     $scope.cart[item.product.id].count > 1 ? $scope.cart[item.product.id].count-- : delete $scope.cart[item.product.id];
