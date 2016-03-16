@@ -122,7 +122,7 @@ section.main-page__video-training
   .container
     .row
       .col-sm-offset-3.col-sm-6.video-training_wrapper
-        iframe width="100%" height="100%" src="https://www.youtube.com/embed/CWCXLvbi3CM" frameborder="0" allowfullscreen=""
+        iframe width="100%" height="100%" src="https://www.youtube.com/embed/CWCXLvbi3CM??autoplay=0&controls=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen=""
 section.main-page__latest_news
   .container.rules__description
     .row
@@ -205,7 +205,7 @@ section.main-page__price
             p тренажеры
             p без тренера
             p 3 дня в неделю
-          button.btn.btn-primary type="button" записаться
+          button.btn.btn-primary ng-click="recordModal('beginner')" записаться
       .col-sm-4
         .price-wrapper.red-border
           h3 Стандарт
@@ -215,7 +215,7 @@ section.main-page__price
             p тренажеры
             p с тренером
             p 3 дня в неделю
-          button.btn.btn-primary type="button" записаться
+          button.btn.btn-primary type="button" ng-click="recordModal('standart')" записаться
       .col-sm-4
         .price-wrapper
           h3 Про
@@ -225,7 +225,7 @@ section.main-page__price
             p тренажеры
             p с тренером
             p безлимит
-          button.btn.btn-primary type="button" записаться
+          button.btn.btn-primary type="button" ng-click="recordModal('pro')" записаться
 .main-page__counters
   .container
     .row
