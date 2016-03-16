@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       resources :ordered_users, only: [:create]
     end
 
+    resources :plans, only: :create
 
     scope ':target_type/:target_id', target_type: /(post|food|product|event)/ do
       resources :comments, only: :index

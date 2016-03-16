@@ -1,0 +1,8 @@
+ng-include src='"components/app/modals/modal-header.html"'
+.container
+  .row
+    .col-sm-6
+      form.form-horizontal name="planForm" ng-submit="ok()" novalidate="novalidate"
+        horizontal-form obj="user" fields="fields" errors="errors"
+
+ng-include src='"components/app/modals/modal-footer.html"'

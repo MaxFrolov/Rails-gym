@@ -1,4 +1,4 @@
-angular.module('app').controller('Main', function($scope, currentUser, $auth, CurrentUser) {
+angular.module('app').controller('Main', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state) {
   $scope.currentUser = currentUser;
   $scope.eventId = 0;
   $scope.changeState = changeState;
@@ -72,4 +72,19 @@ angular.module('app').controller('Main', function($scope, currentUser, $auth, Cu
     $state.go('main');
   }
 
+  $scope.recordModal = recordModal;
+
+  function recordModal(plan) {
+    $uibModal.open({
+      animation: true,
+      templateUrl: 'components/main/plan-modals/plan-modal.html',
+      controller: 'PlanCtrl',
+      size: 'md',
+      resolve: {
+        plan: function() {
+          return plan
+        }
+      }
+    });
+  }
 });
