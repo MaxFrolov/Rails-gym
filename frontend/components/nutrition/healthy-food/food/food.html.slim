@@ -3,12 +3,12 @@
     .row
       .col-sm-9
         .food-page-main
-          h2 {{food.header}}
-          h4 {{food.short_description}}
+          h2 {{food.title}}
+          h4 {{food.subtitle}}
           img src="{{food.image_url}}"
           .food-page__likes
             likes target-type="food" current-user="currentUser" resource="food"
-          p {{food.food_description}}
+          p {{food.description}}
         post-comments comments="food.comments" current-user="currentUser" target='food'
       .food-bar.col-sm-3
         .food-bar__header рекомендуемые

@@ -18,16 +18,22 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = ['User', 'Post', 'Product', 'UserAdvice', 'OrderItem', 'Order', 'Food', 'Event', 'Workout', 'Plan']
+  config.included_models = ['User', 'Post', 'Product', 'UserAdvice', 'OrderItem', 'Order', 'Food', 'Event', 'Workout', 'Plan', 'Video', 'Article']
 
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      except %w(Post)
+    end
     export
     bulk_delete
-    show
-    edit
+    show do
+      except %w(Post)
+    end
+    edit do
+      except %w(Post)
+    end
     delete
     show_in_app
 
@@ -37,7 +43,7 @@ RailsAdmin.config do |config|
   end
 
   config.model Post do
-    include_fields :id, :image, :header, :short_description, :post_description,
+    include_fields :id, :image, :type, :title, :subtitle, :description,
                    :post_category, :tag_list
 
     configure :tag_list  do
@@ -49,8 +55,78 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model Video do
+    include_fields :id, :title, :subtitle, :description, :link, :video_id, :service, :source, :tag_list,
+                   :created_at, :updated_at, :type
+
+    configure :tag_list  do
+      partial 'tag_list_with_autocomplete'
+    end
+
+    field :tag_list do
+      label 'Tags'
+    end
+
+    group :image do
+      label 'Image options'
+
+      field :image, :carrierwave
+      field :remote_image_url, :string
+      field :source
+    end
+
+    list do
+      exclude_fields :description, :image, :remote_image_url, :type
+    end
+
+    edit do
+      exclude_fields :video_id, :type
+      field :created_at
+    end
+
+    show do
+      exclude_fields :type
+      include_fields :preview_image
+    end
+  end
+
+  config.model Article do
+    include_fields :id, :title, :subtitle, :source, :description, :tag_list,
+                   :created_at, :updated_at, :type
+
+    configure :tag_list  do
+      partial 'tag_list_with_autocomplete'
+    end
+
+    field :tag_list do
+      label 'Tags'
+    end
+
+    group :image do
+      label 'Image options'
+
+      field :image, :carrierwave
+      field :remote_image_url, :string
+      field :source
+    end
+
+    list do
+      exclude_fields :description, :remote_image_url, :type
+    end
+
+    edit do
+      exclude_fields :type
+      field :created_at
+    end
+
+    show do
+      exclude_fields :type
+      include_fields :preview_image
+    end
+  end
+
   config.model Food do
-    include_fields :id, :image, :header, :short_description, :food_description,
+    include_fields :id, :image, :title, :subtitle, :description,
                    :category, :tag_list
 
     configure :tag_list  do

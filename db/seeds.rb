@@ -18,18 +18,11 @@ product_incr = 0
                 avatar: File.open(File.join(Rails.root, 'test', 'fixtures' , 'avatars', "#{rand(1..4)}.png")),
                 phone: Faker::PhoneNumber.cell_phone})
 
-  User.find_by(first_name: 'Max').posts.create ({image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'blog-img', "blog_picture#{post_incr += 1}.jpg")),
-                 header: Faker::Hipster.sentence(3), short_description: Faker::Hipster.sentence(5),
-                 post_description: Faker::Hipster.paragraph(8), post_date: Faker::Time.between(3.month.ago, Time.now, :all),
-                                                 post_category: rand(0..3)})
-
-
-
-  Food.create({ category: rand(0..3), short_description: Faker::Hipster.sentence(5),
+  Food.create({ category: rand(0..3), subtitle: Faker::Hipster.sentence(5),
                 image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'nutrition', "#{nutrition_incr += 1}.jpg")),
-                food_description: Faker::Hipster.paragraph(8), header: Faker::Hipster.sentence(3) })
+                description: Faker::Hipster.paragraph(8), title: Faker::Hipster.sentence(3) })
 
-  Event.create({ header: Faker::Hipster.sentence(3), short_description: Faker::Hipster.sentence(5), description: Faker::Hipster.paragraph(8),
+  Event.create({ title: Faker::Hipster.sentence(3), subtitle: Faker::Hipster.sentence(5), description: Faker::Hipster.paragraph(8),
                 start_date: Faker::Date.forward(14),  end_date: Faker::Date.forward(23),
                  image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'events', "#{event_incr += 1}.jpg")), user_id: 1})
   Product.create ({ name: Faker::Commerce.product_name, category: rand(1..4), price: Faker::Commerce.price, product_description: Faker::Hipster.paragraph(8),
