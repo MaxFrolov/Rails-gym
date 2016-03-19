@@ -6,14 +6,14 @@
           .post-img
             img.img-responsive ng-src="{{post.image_url}}"
           .blog_description
-            a.post-header href="#" {{post.header}}
+            a.post-header href="#" {{post.title}}
             .post__icons
               i.fa.fa-comment-o
               span {{post.comments_count}}
               i.fa.fa-heart-o
               span {{post.likes_count}}
             .clearfix
-            h5 {{post.short_description}}
+            h5 {{post.subtitle}}
             a.link ui-sref='app.blog.post({ id: post.id })' читать дальше...
           .blog_posts__meta
             span {{post.created_at | calendarDate}}

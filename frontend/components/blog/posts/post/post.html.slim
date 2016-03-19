@@ -3,14 +3,14 @@
     .row
       .col-sm-9
         .post-head__header
-          h2 {{currentPost.header}}
-          h5 {{currentPost.short_description}}
+          h2 {{currentPost.title}}
+          h5 {{currentPost.subtitle}}
         .post_main__img
           img.img-responsive src="{{currentPost.image_url}}"
           .post-likes__wrapper
             likes target-type="post" current-user="currentUser" resource="currentPost"
         .post_body
-          p {{currentPost.post_description}}
+          p {{currentPost.description}}
         post-comments comments="currentPost.comments" current-user="currentUser" target='post'
       .col-sm-3
         .blog-bar-categories рекомендуемые

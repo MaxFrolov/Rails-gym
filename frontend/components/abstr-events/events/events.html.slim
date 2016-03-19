@@ -6,8 +6,8 @@
           img.img-responsive src="{{event.image_url}}"
         .event__date
           p {{event.start_date | date}} - {{event.end_date | date}}
-        h3 {{event.header}}
-        h4 {{event.short_description}}
+        h3 {{event.title}}
+        h4 {{event.description}}
         a ui-sref="app.abstract-events.event({ id: event.id })" читать дальше...
 
     collection-pagination resource="events"
