@@ -80,7 +80,7 @@ RailsAdmin.config do |config|
     end
 
     edit do
-      exclude_fields :video_id, :type
+      exclude_fields :video_id, :type, :service
       field :created_at
     end
 

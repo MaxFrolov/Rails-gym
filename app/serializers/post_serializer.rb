@@ -1,6 +1,6 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :short_description, :image_url, :created_at, :post_description, :header, :post_category,
-             :likes_count, :comments_count
+  attributes :id, :subtitle, :created_at, :description, :title, :post_category,
+             :likes_count, :comments_count, :type
 
   has_many :comments, :polymorphic => true, serializer: CommentSerializer
   has_many :likes, :polymorphic => true, serializer: LikeSerializer

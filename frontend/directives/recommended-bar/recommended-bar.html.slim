@@ -1,4 +1,5 @@
 a.recommended-posts ui-sref="{{link}}" ng-repeat="resource in resources"
-  img.img-responsive src="{{resource.image_url}}"
+  img.img-responsive src="{{resource.image.medium || resource.image.auto_generated}}"
+  i.fa.fa-play-circle.play-icon-small ng-if="resource.type === 'Video'"
   .img-header__wrapper
-    span {{resource.header}}
+    span {{resource.title}}

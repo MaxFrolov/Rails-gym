@@ -33,7 +33,6 @@ class FoodsController < ApiController
   private
 
   def food_params
-    params.allow_empty_require(:resource).permit(:id, :name, :category, :price, :product_description, :image_product, :composition, :recommendation_for_use,
-                                                 :grams, :count, :sale)
+    params.allow_empty_require(:resource).permit(:id, :title, :category, :description, :subtitle)
   end
 end

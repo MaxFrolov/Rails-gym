@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   enum role: {member: 0, admin: 1}
 
-  mount_uploader :avatar, BaseUploader
+  mount_uploader :avatar, Base
 
   has_many :events
   has_many :posts
