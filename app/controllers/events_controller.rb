@@ -28,6 +28,6 @@ class EventsController < ApiController
   private
 
   def event_params
-    params.allow_empty_require(:resource).permit(:image, :header, :short_description, :description, :start_date, :end_date)
+    params.allow_empty_require(:resource).permit(:title, :subtitle, :description, :start_date, :end_date)
   end
 end

@@ -9,5 +9,5 @@ class Post < ActiveRecord::Base
 
   default_scope { order(created_at: :desc) }
 
-  mount_uploader :image, BaseUploader
+  mount_uploader :image, Post::ImageUploader
 end
