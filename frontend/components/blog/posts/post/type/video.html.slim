@@ -1,0 +1,10 @@
+.post-head__header
+  .post_main__img
+    .post_video__wrapper.embed-responsive.embed-responsive-16by9
+      iframe.embed-responsive-item src="{{link | trusted}}" allowFullScreen=""
+  .post-video__title
+    h2 {{currentPost.title}}
+    .post-likes__video-wrapper
+      likes target-type="post" current-user="currentUser" resource="currentPost"
+    .clearfix
+    h5 {{currentPost.subtitle}}

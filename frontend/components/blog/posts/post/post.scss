@@ -4,7 +4,28 @@
   padding-top: 30px;
   padding-bottom: 50px;
 
+  .post-video__title {
+    margin-top: 10px;
+
+    h2 {
+      float: left;
+    }
+
+    .post-likes__video-wrapper {
+      display: inline-block;
+      float: right;
+    }
+  }
+
   .post-head__header {
+
+    h5 {
+      font-size: 18px;
+      font-style: italic;
+      color: $text;
+      font-family: 'Open Sans', sans-serif;
+    }
+
     h2 {
       margin-top: 0;
       text-transform: uppercase;
