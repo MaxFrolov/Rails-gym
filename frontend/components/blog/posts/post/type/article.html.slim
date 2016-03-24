@@ -1,0 +1,7 @@
+.post-head__header
+  h2 {{currentPost.title}}
+  h5 {{currentPost.subtitle}}
+  .post_main__img
+    img.img-responsive src="{{currentPost.image.origin}}"
+    .post-likes__wrapper
+      likes target-type="post" current-user="currentUser" resource="currentPost"

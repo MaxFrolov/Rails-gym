@@ -2,13 +2,8 @@
   .container
     .row
       .col-sm-9
-        .post-head__header
-          h2 {{currentPost.title}}
-          h5 {{currentPost.subtitle}}
-        .post_main__img
-          img.img-responsive src="{{currentPost.image_url}}"
-          .post-likes__wrapper
-            likes target-type="post" current-user="currentUser" resource="currentPost"
+        ng-include src='"components/blog/posts/post/type/article.html"' ng-if="currentPost.type === 'Article'"
+        ng-include src='"components/blog/posts/post/type/video.html"' ng-if="currentPost.type === 'Video'"
         .post_body
           p {{currentPost.description}}
         post-comments comments="currentPost.comments" current-user="currentUser" target='post'
