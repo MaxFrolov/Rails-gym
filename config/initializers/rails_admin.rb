@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = ['User', 'Post', 'Product', 'UserAdvice', 'OrderItem', 'Order', 'Food', 'Event', 'Workout', 'Plan', 'Video', 'Article']
+  config.included_models = ['User', 'Post', 'Product', 'UserAdvice', 'OrderItem', 'Order', 'Food', 'Event', 'Workout', 'Plan', 'Video', 'Article', 'Gallery']
 
   config.actions do
     dashboard                     # mandatory
@@ -122,6 +122,17 @@ RailsAdmin.config do |config|
     show do
       exclude_fields :type
       include_fields :preview_image
+    end
+  end
+
+  config.model Gallery do
+    include_fields :id, :photo, :description, :created_at
+
+    group :photo do
+      label 'Image options'
+
+      field :photo, :carrierwave
+      field :remote_photo_url, :string
     end
   end
 

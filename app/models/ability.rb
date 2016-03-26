@@ -23,6 +23,7 @@ class Ability
     can [:index, :show, :recommended_posts], Post
     can [:index, :show, :recommended_foods], Food
     can [:index, :show], Event
+    can [:index, :show], Gallery
     can [:index, :show, :recommended_products], Product
     can [:index, :show, :create, :update], Order
     can [:index, :show, :create, :update], OrderItem
