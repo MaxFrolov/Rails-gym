@@ -126,6 +126,11 @@ angular.module('app')
         templateUrl: 'components/shop/order-review/order-review.html',
         controller: 'OrderReviewCtrl'
       })
+      .state('app.gallery', {
+        url: '/gallery',
+        templateUrl: 'components/galleries/galleries.html',
+        controller: 'GalleryCtrl'
+      })
 
       .state('confirmEmail', {
         url: '/users/confirm/:token',

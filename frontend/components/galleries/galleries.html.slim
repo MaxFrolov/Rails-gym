@@ -1,0 +1,34 @@
+.gallery-page
+  .container
+    .row
+      .col-sm-3.gallery-photo__wrapper ng-repeat="photo in gallery" ng-click="openPhoto(photo.id)"
+        img.img-responsive ng-src="{{photo.photo.small}}"
+        .inner-bg
+          i.fa.fa-heart
+          span {{photo.likes_count}}
+          i.fa.fa-comment
+          span {{photo.comments_count}}
+.gallery-modal ng-class="{galleryModalActive: openModal}"
+  .gallery-inner__modal
+    .close ng-click="closeModal()"
+      i.fa.fa-times
+    .container-fluid
+      .row
+        .col-sm-8.inner-photo__wrapper
+          img.img-responsive ng-src="{{openedPhoto.photo.medium}}"
+        .col-sm-4.inner-info__wrapper
+          h4 {{openedPhoto.description}}
+          .inner-comments__wrapper
+            .inner-comments__comment ng-repeat="comment in openedPhoto.comments"
+              .inner-user_avatar
+                img.img-responsive ng-src="{{comment.user.avatar_url}}"
+              span> {{comment.name}}:
+              span {{comment.message}}
+          .inner-form__wrapper ng-if="currentUser.exists()"
+            i.fa ng-class="{'fa-heart-o': !userLiked, 'fa-heart': userLiked}" ng-click="submitLike()"
+            form ng-submit="submitComment()"
+              .input-group
+                input.form-control ng-model="comment.message" placeholder="Введите комментарий..." type="text"
+                span.input-group-btn
+                  button.btn.btn-default type="submit" ok
+

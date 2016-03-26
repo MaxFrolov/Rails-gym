@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resource :foods, only: [:create, :update, :destroy]
       resource :events, only: [:create, :update, :destroy]
       resource :products, only: [:create, :update, :destroy]
-      scope ':target_type/:target_id', target_type: /(post|food|product|event)/ do
+      scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
         resources :comments, only: [:create, :update, :destroy]
       end
       resources :likes, only: [:index, :create, :destroy]
@@ -42,8 +42,9 @@ Rails.application.routes.draw do
     end
 
     resources :plans, only: :create
+    resources :galleries, only: [:index, :show]
 
-    scope ':target_type/:target_id', target_type: /(post|food|product|event)/ do
+    scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
       resources :comments, only: :index
     end
   end

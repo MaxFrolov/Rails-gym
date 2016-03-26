@@ -16,6 +16,8 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
       $scope.stateHeader = 'События';
     } else if ($state.includes('app.shop.*')) {
       $scope.stateHeader = 'Магазин';
+    }  else if ($state.includes('app.gallery.*')) {
+      $scope.stateHeader = 'Галлерея';
     } else {
       $scope.stateHeader = ''
     }
