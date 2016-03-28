@@ -3,12 +3,13 @@ angular.module('app').controller('GalleryCtrl', function($scope, Restangular, cu
     $scope.closeModal = closeModal;
     $scope.submitComment = submitComment;
     $scope.submitLike = submitLike;
+    $scope.loading = true;
     $scope.currentUser = currentUser;
     $scope.comment = {};
 
     Restangular.all('galleries').getList().then(function(responce) {
         $scope.gallery = responce;
-    });
+    }).finally(function() { $scope.loading = false; });
 
     function openPhoto(id) {
         Restangular.one('galleries', id).get().then(function(responce) {

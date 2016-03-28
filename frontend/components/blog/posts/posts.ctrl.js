@@ -1,6 +1,7 @@
 angular.module('app').controller('PostsCtrl',function($scope, Restangular, $stateParams, $state, toParams) {
   $scope.sortValue = sortValue;
   $scope.sortBy = sortBy;
+  $scope.loading = true;
 
   $scope.categoryFields= [
     {
@@ -27,7 +28,9 @@ angular.module('app').controller('PostsCtrl',function($scope, Restangular, $stat
     sort: $stateParams.sort
   };
 
-  $scope.posts = Restangular.all('posts').withHttpConfig({paramSerializer: toParams}).getList(params).$object;
+  Restangular.all('posts').withHttpConfig({paramSerializer: toParams}).getList(params).then(function(posts){
+      $scope.posts = posts;
+  }).finally(function() { $scope.loading = false; });
 
   function sortBy(value) {
     $scope.posts.getList({category: value}).then(function (result) {

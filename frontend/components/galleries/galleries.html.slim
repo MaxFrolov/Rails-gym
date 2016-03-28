@@ -8,6 +8,7 @@
           span {{photo.likes_count}}
           i.fa.fa-comment
           span {{photo.comments_count}}
+      spinner loading="loading"
 .gallery-modal ng-class="{galleryModalActive: openModal}"
   .gallery-inner__modal
     .close ng-click="closeModal()"
