@@ -6,6 +6,7 @@
           ng-include src='"components/blog/posts/posts-templates/article-template.html"' ng-if="post.type === 'Article'"
           ng-include src='"components/blog/posts/posts-templates/video-template.html"' ng-if="post.type === 'Video'"
         collection-pagination resource="posts"
+        spinner loading="loading"
       .col-sm-3
         .blog-bar-categories категории
         .blog-categories
