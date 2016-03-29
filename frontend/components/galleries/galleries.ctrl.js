@@ -19,6 +19,9 @@ angular.module('app').controller('GalleryCtrl', function($scope, Restangular, cu
     }
 
     function closeModal() {
+        Restangular.all('galleries').getList().then(function(responce) {
+            $scope.gallery = responce;
+        });
         $scope.openModal = false;
         $scope.openedPhoto = {};
     }

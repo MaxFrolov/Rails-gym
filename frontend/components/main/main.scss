@@ -111,9 +111,6 @@ $shadows-big: multiple-box-shadow(100);
     top: 30%;
 
     h1, h2, h3 {
-      background: -webkit-linear-gradient(white, #38495a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       text-transform: uppercase;
       font-family: 'PT Sans Caption', sans-serif;
     }
