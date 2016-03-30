@@ -1,6 +1,9 @@
 angular.module('app').controller('ShopCtrl', function($scope, Restangular, $stateParams) {
+  $scope.loading = true;
 
-  $scope.products = Restangular.all('products').getList({ page: $stateParams.page, per: 6 }).$object;
+  Restangular.all('products').getList({ page: $stateParams.page, per: 6 }).then(function(posts) {
+      $scope.products = posts;
+  }).finally(function() { $scope.loading = false; });
   $scope.recommendedProducts = Restangular.all('products').all('recommended_products').getList({count: 3}).$object;
 
   $scope.sortOptions = [

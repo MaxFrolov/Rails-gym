@@ -18,5 +18,6 @@ angular.module('app', [
   'permission',
   'ui-notification',
   'chart.js',
+  'smoothScroll',
   'ui.bootstrap.tabs'
 ]);

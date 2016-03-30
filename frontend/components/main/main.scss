@@ -73,6 +73,36 @@ $shadows-big: multiple-box-shadow(100);
     transform: translateY(-800px);
   }
 }
+
+.anchorScroll {
+  position: fixed;
+  right: 25px;
+  bottom: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e8e8e8;
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  z-index: 30;
+  text-decoration: none;
+
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:hover {
+    background: rgba(224, 224, 224, 0.25);
+  }
+
+  >i {
+    color: #BDBDBD;
+    font-size: 24px;
+  }
+}
+
 .main-page__background {
   overflow: hidden;
 }
