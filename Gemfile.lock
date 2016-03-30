@@ -246,6 +246,8 @@ GEM
     rails-assets-ngImgCrop (0.3.2)
     rails-assets-ngInfiniteScroll (1.2.1)
       rails-assets-angular (>= 1.2.0)
+    rails-assets-ngSmoothScroll (2.0.0)
+      rails-assets-angular (>= 1.2.0, < 2)
     rails-assets-ngmap (1.15.1)
     rails-assets-restangular (1.5.1)
       rails-assets-angular (~> 1.0)
@@ -373,23 +375,24 @@ DEPENDENCIES
   rails-assets-angular!
   rails-assets-angular-animate!
   rails-assets-angular-bootstrap!
-  rails-assets-angular-chartjs
-  rails-assets-angular-checklist-model
-  rails-assets-angular-mask
-  rails-assets-angular-permission
-  rails-assets-angular-sanitize
-  rails-assets-angular-timer
-  rails-assets-angular-ui-notification
+  rails-assets-angular-chartjs!
+  rails-assets-angular-checklist-model!
+  rails-assets-angular-mask!
+  rails-assets-angular-permission!
+  rails-assets-angular-sanitize!
+  rails-assets-angular-timer!
+  rails-assets-angular-ui-notification!
   rails-assets-angular-ui-select!
   rails-assets-bootstrap!
-  rails-assets-humanize-duration
+  rails-assets-humanize-duration!
   rails-assets-lodash (= 3.10.1)!
-  rails-assets-moment
-  rails-assets-ngImgCrop
-  rails-assets-ngInfiniteScroll
-  rails-assets-ngmap
+  rails-assets-moment!
+  rails-assets-ngImgCrop!
+  rails-assets-ngInfiniteScroll!
+  rails-assets-ngSmoothScroll!
+  rails-assets-ngmap!
   rails-assets-restangular (= 1.5.1)!
-  rails-assets-satellizer (= 0.11.3)
+  rails-assets-satellizer (= 0.11.3)!
   rails-assets-ui-router!
   rails-assets-ui-utils!
   rails_admin
@@ -405,3 +408,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.11.2

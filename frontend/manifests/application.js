@@ -21,6 +21,7 @@
  *= require satellizer
  *= require Chart.js
  *= require angular-chartjs
+ *= require ngSmoothScroll
  *= require ../module
  *= require_tree ../
  */
