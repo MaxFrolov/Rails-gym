@@ -1,9 +1,6 @@
 header.main-page__background
-  #anchor
   #stars
-  #stars2
-  #stars3
-  .container-fluid.main-page__wrapper
+  #anchor.container-fluid.main-page__wrapper
     .row
       ul
         li
@@ -59,7 +56,7 @@ section.main-page__rules
               span Чем ты сильнее, сильнее зависть людей.
       .col-sm-4
         img.img-responsive src='<%=asset_path "assets/first-page-images/man.png" %>'
-a.anchorScroll href="#" scroll-to="anchor"
+a.anchorScroll href="#" scroll-to="anchor" ng-class="{'anchor__active': visible}"
   i.fa.fa-arrow-up
 .main-page__events
   .container-fluid

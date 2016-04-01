@@ -1,10 +1,11 @@
-angular.module('app').controller('Main', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state) {
+angular.module('app').controller('Main', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state, $window) {
   $scope.currentUser = currentUser;
   $scope.eventId = 0;
   $scope.changeState = changeState;
   $scope.cycle = cycle;
   $scope.popularTypes = cycle(6);
   $scope.logout = logout;
+  $scope.visible = $window.scrollY > 100;
 
   $scope.carouselInterval = 5000;
 
@@ -87,4 +88,10 @@ angular.module('app').controller('Main', function($scope, currentUser, $auth, Cu
       }
     });
   }
+
+  $window.onscroll = function() {
+    $scope.visible = $window.scrollY > 100;
+    $scope.$apply();
+  };
 });
+
