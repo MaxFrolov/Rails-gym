@@ -44,7 +44,7 @@ RailsAdmin.config do |config|
 
   config.model Post do
     include_fields :id, :image, :type, :title, :subtitle, :description,
-                   :post_category, :tag_list
+                   :post_category, :tag_list, :post_category
 
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
@@ -57,7 +57,7 @@ RailsAdmin.config do |config|
 
   config.model Video do
     include_fields :id, :title, :subtitle, :description, :link, :video_id, :service, :source, :tag_list,
-                   :created_at, :updated_at, :type
+                   :created_at, :updated_at, :type, :post_category
 
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
@@ -92,7 +92,7 @@ RailsAdmin.config do |config|
 
   config.model Article do
     include_fields :id, :title, :subtitle, :source, :description, :tag_list,
-                   :created_at, :updated_at, :type
+                   :created_at, :updated_at, :type, :post_category
 
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
