@@ -8,6 +8,6 @@
           p {{event.start_date | date}} - {{event.end_date | date}}
         h3 {{event.title}}
         h4 {{event.subtitle}}
-        a ui-sref="app.abstract-events.event({ id: event.id })" читать дальше...
+        a ui-sref="app.event({ id: event.id })" читать дальше...
 
     collection-pagination resource="events"

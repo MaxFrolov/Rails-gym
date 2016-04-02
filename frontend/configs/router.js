@@ -13,7 +13,7 @@ angular.module('app')
         templateUrl: 'components/main/main.html',
         controller: 'Main',
         resolve: {
-          currentUser: function($auth, CurrentUser) {
+          currentUser: function (CurrentUser) {
             return CurrentUser.get();
           }
         }
@@ -33,7 +33,7 @@ angular.module('app')
         templateUrl: 'components/auth/sign-up/method/method.html'
       })
       .state('app.signUp', {
-        url:'/sign-up',
+        url: '/sign-up',
         templateUrl: 'components/auth/sign-up/signUp.html',
         controller: 'SignUpCtrl'
       })
@@ -44,12 +44,12 @@ angular.module('app')
       })
       .state('app.blog', {
         abstract: true,
-        url:'/blog',
+        url: '/blog',
         templateUrl: 'components/blog/blog.html',
         controller: 'BlogCtrl'
       })
       .state('app.blog.posts', {
-        url:'/posts?sort&page',
+        url: '/posts?sort&page',
         templateUrl: 'components/blog/posts/posts.html',
         controller: 'PostsCtrl'
       })
@@ -79,20 +79,14 @@ angular.module('app')
         templateUrl: 'components/nutrition/healthy-food/food/food.html',
         controller: 'FoodCtrl'
       })
-      .state('app.abstract-events', {
-        abstract: true,
-        url: '/abstract-events',
-        templateUrl: 'components/abstr-events/abstr-events.html',
-        controller: 'AbstrEventsCtrl'
-      })
-      .state('app.abstract-events.events', {
+      .state('app.events', {
         url: '/events?page',
-        templateUrl: 'components/abstr-events/events/events.html',
+        templateUrl: 'components/events/events.html',
         controller: 'EventsCtrl'
       })
-      .state('app.abstract-events.event', {
+      .state('app.event', {
         url: '/event?id',
-        templateUrl: 'components/abstr-events/events/event/event.html',
+        templateUrl: 'components/events/event/event.html',
         controller: 'EventCtrl'
       })
       .state('app.shop', {
@@ -131,26 +125,36 @@ angular.module('app')
         templateUrl: 'components/galleries/galleries.html',
         controller: 'GalleryCtrl'
       })
+      .state('app.workouts', {
+        url: '/workouts',
+        templateUrl: 'components/workouts/workouts.html',
+        controller: 'WorkoutsCtrl'
+      })
+      .state('app.workout', {
+        url: '/workout?id',
+        templateUrl: 'components/workouts/workout/workout.html',
+        controller: 'WorkoutCtrl'
+      })
 
       .state('confirmEmail', {
         url: '/users/confirm/:token',
-        onEnter: function($stateParams, $http, $state, $auth, CurrentUser) {
+        onEnter: function ($stateParams, $http, $state, $auth, CurrentUser) {
           $http.get('/api/confirmation', {params: {confirmation_token: $stateParams.token}})
-            .then(function(response) {
+            .then(function (response) {
               $auth.setToken(response.data.auth_token);
-              CurrentUser.reload().then(function() {
+              CurrentUser.reload().then(function () {
                // Notification.success('Your email has been confirmed');
                 $state.go('main');
               });
             })
-            .catch(function(response) {
-              CurrentUser.reload().then(function() {
+            .catch(function () {
+              CurrentUser.reload().then(function () {
                 //Notification.error(response.data.errors);
                 $state.go('main');
-              })
+              });
             });
         }
       });
-    $urlRouterProvider.otherwise('/');
 
+    $urlRouterProvider.otherwise('/');
   });
