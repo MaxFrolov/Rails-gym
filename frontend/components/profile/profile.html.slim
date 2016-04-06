@@ -33,7 +33,7 @@
             h5 Разработка плана
             h3 Тренировочный процесс на эту неделю
             a.training-calendar Календарь тренировок
-        a.profile-calendar__plan.calendar-plan href="#" ng-repeat="field in planFields"
+        a.profile-calendar__plan.calendar-plan ui-sref="app.workouts" ng-repeat="field in planFields"
           h4 {{field.day}}
           .profile-calendar__body
             h2 {{field.body}}

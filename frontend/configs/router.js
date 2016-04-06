@@ -64,19 +64,13 @@ angular.module('app')
         controller: 'ProfileCtrl'
       })
       .state('app.nutrition', {
-        abstract: true,
-        url: '/nutrition',
+        url: '/nutrition?page',
         templateUrl: 'components/nutrition/nutrition.html',
         controller: 'NutritionCtrl'
       })
-      .state('app.nutrition.healthy-food', {
-        url: '/healthy-food?page',
-        templateUrl: 'components/nutrition/healthy-food/healthy-food.html',
-        controller: 'HealthyFoodCtrl'
-      })
-      .state('app.nutrition.food', {
-        url: '/food?id',
-        templateUrl: 'components/nutrition/healthy-food/food/food.html',
+      .state('app.food', {
+        url: '/nutrition/food?id',
+        templateUrl: 'components/nutrition/food/food.html',
         controller: 'FoodCtrl'
       })
       .state('app.events', {
@@ -85,7 +79,7 @@ angular.module('app')
         controller: 'EventsCtrl'
       })
       .state('app.event', {
-        url: '/event?id',
+        url: '/events/event?id',
         templateUrl: 'components/events/event/event.html',
         controller: 'EventCtrl'
       })
@@ -130,10 +124,15 @@ angular.module('app')
         templateUrl: 'components/workouts/workouts.html',
         controller: 'WorkoutsCtrl'
       })
-      .state('app.workout', {
-        url: '/workout?id',
-        templateUrl: 'components/workouts/workout/workout.html',
-        controller: 'WorkoutCtrl'
+      .state('app.exercises', {
+        url: '/workouts/exercises?id',
+        templateUrl: 'components/workouts/exercises/exercises.html',
+        controller: 'ExercisesCtrl'
+      })
+      .state('app.exercise', {
+        url: '/exercises/exercise?id',
+        templateUrl: 'components/workouts/exercise/exercise.html',
+        controller: 'ExerciseCtrl'
       })
 
       .state('confirmEmail', {

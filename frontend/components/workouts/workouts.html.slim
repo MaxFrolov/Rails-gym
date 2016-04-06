@@ -1,0 +1,14 @@
+.workouts-page
+  .container
+    .row
+      .col-sm-6 ng-repeat="workout in workouts"
+        .col-sm-6.workouts-img__container
+          img.img-responsive ng-src="{{workout.image_url}}"
+        .col-sm-6
+          .workouts-title
+            h3 {{workout.title}}
+          .workouts-subtitle
+            h4 {{workout.subtitle}}
+          .workouts-description
+            span {{workout.description}}
+          a.btn.btn-brand ui-sref="app.exercises({id: workout.id})" посмотреть
