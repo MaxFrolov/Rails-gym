@@ -50,29 +50,29 @@
     font-style: italic;
     font-size: 16px;
   }
-}
 
-.auth__form-wrapper {
-  padding: 20px;
-  margin-top: 20px;
+  .auth__form-wrapper {
+    padding: 20px;
+    margin-top: 20px;
 
-  .left {
-    float: left;
-    width: 48%;
+    .left {
+      float: left;
+      width: 48%;
 
-    &:nth-last-child(2) {
-      margin-left: 12%;
+      &:nth-last-child(2) {
+        margin-left: 12%;
+      }
     }
-  }
-  .clear {
-    clear: both;
-  }
+    .clear {
+      clear: both;
+    }
 
-  .btn-lg.auth__submit {
-    background-color: #fff;
+    .btn-lg.auth__submit {
+      background-color: #fff;
 
-    &:hover {
-      background-color: #000
+      &:hover {
+        background-color: #000
+      }
     }
   }
 }

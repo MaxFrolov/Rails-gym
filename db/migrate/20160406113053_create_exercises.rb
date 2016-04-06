@@ -1,0 +1,16 @@
+class CreateExercises < ActiveRecord::Migration
+  def change
+    create_table :exercises do |t|
+      t.string :title
+      t.string :subtitle
+      t.string :description
+      t.integer :reps
+      t.integer :sets
+      t.string :image
+      t.integer :likes_count, default: 0, null: false
+      t.integer :comments_count, default: 0, null: false
+      t.references :workout, index: true
+      t.timestamps null: false
+    end
+  end
+end

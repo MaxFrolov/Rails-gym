@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       get '/recommended_foods', to: 'foods#recommended_foods', on: :collection
     end
     resources :events, only: [:index, :show]
+    resources :workouts, only: [:index, :show]
+    resources :exercises, only: [:index, :show]
     resources :products, only: [:index, :show] do
       get '/recommended_products', to: 'products#recommended_products', on: :collection
     end

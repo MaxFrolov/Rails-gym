@@ -4,15 +4,15 @@
       ul
         li ui-sref-active="active"
           a ui-sref="main" Главная
-        li ng-class="{active: activeNestedChild('app.abstract-events.*')}"
-          a ui-sref="app.abstract-events.events" Cобытия
-        li ng-class="{active: activeNestedChild('app.shop.*')}"
+        li ng-class="{active: activeNestedChild('events')}"
+          a ui-sref="app.events" Cобытия
+        li ng-class="{active: activeNestedChild('shop')}"
           a ui-sref="app.shop.products" Магазин
-        li ng-class="{active: activeNestedChild('app.nutrition.*')}"
-          a ui-sref="app.nutrition.healthy-food" Питание
-        li ng-class="{active: activeNestedChild('app.blog.*')}"
+        li ng-class="{active: activeNestedChild('nutrition')}"
+          a ui-sref="app.nutrition" Питание
+        li ng-class="{active: activeNestedChild('blog')}"
           a ui-sref="app.blog.posts" Блог
-        li ng-class="{active: activeNestedChild('app.gallery.*')}"
+        li ng-class="{active: activeNestedChild('gallery')}"
           a ui-sref="app.gallery" Галлерея
     .header-page__login ng-if="!currentUser.exists()"
       a ui-sref="app.login" Войти

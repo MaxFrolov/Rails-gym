@@ -6,7 +6,7 @@ class CreateWorkouts < ActiveRecord::Migration
       t.string :subtitle
       t.string :description
       t.string :image
-      t.integer :reps
+      t.integer :level
       t.timestamps null: false
     end
   end
