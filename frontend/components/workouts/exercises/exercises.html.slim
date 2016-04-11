@@ -1,7 +1,7 @@
 .exercises-page
   .container
     .row
-      .col-sm-8 ng-repeat="exercise in exercises"
+      .col-sm-9 ng-repeat="exercise in exercises"
         .col-sm-6.exercises-img__container
           img.img-responsive ng-src="{{exercise.image_url}}"
         .col-sm-6
@@ -13,3 +13,4 @@
             span Повторений: {{exercise.reps}}
             span Подходов: {{exercise.sets}}
           a.btn.btn-brand ui-sref="app.exercise({id: exercise.id})" Детальнее
+      .col-sm-3
