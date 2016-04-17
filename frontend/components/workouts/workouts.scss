@@ -1,0 +1,106 @@
+.workouts-page {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .workouts-img__container {
+    position: relative;
+    padding: 0;
+
+    &:hover .inner-type-bg {
+      opacity: 1;
+      background: rgba(234, 76, 35, 0.7);;
+      transition: all 0.35s;
+
+      span {
+
+        &:before, &:after {
+          visibility: visible;
+        }
+
+        &:before {
+          top: 0;
+        }
+
+        &:after {
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  .inner-type-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.35s;
+    text-align: center;
+
+    span {
+      font-weight: bold;
+      color: #fff;
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 auto;
+      left: 0;
+      padding: 10px 0;
+      font-family: 'Play', sans-serif;
+      text-transform: uppercase;
+
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #fff;
+        visibility: hidden;
+        transition: all 0.5s ease;
+      }
+
+      &:before {
+        top: -60px;
+      }
+
+      &:after {
+        bottom: -60px;
+      }
+    }
+  }
+
+  .workouts-level {
+    color: #c73813;
+    font-family: 'Play', sans-serif;
+    text-transform: uppercase;
+
+    h3 {
+      margin-bottom: 15px;
+    }
+  }
+
+  .workouts-title {
+    color: #6D6C6C;
+    font-family: 'PT Sans Caption', sans-serif;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  }
+
+  .workouts-description {
+    color: #848484;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 20px;
+  }
+
+  .workouts-button {
+
+    a:hover {
+      color: #fff;
+    }
+  }
+}
