@@ -37,7 +37,7 @@ angular.module('app').controller('SignUpCtrl', function($scope, $http, $auth, $s
     $http.post('/api/registration', {user: $scope.user}).then(function(responce) {
       $auth.setToken(responce.data.auth_token);
       CurrentUser.reload().then(function() {
-        $state.go('app.blog.posts');
+        $state.go('app.inner-layout.blog.posts');
       }).catch(function(response) {
         $scope.errors = response.errors;
       });

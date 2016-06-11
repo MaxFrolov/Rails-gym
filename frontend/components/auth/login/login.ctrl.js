@@ -38,7 +38,7 @@ angular.module('app').controller('LoginCtrl', function($scope, $state, $auth, No
     $scope.errors = {};
     CurrentUser.reload().then(function () {
       Notification.success('Вход выполнен успешно.');
-      $state.go('app.blog.posts');
+      $state.go('app.inner-layout.blog.posts');
     });
   }
 

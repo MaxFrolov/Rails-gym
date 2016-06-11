@@ -1,41 +1,8 @@
+ng-include src="'components/profile/navbar/navbar.html'"
 .profile-page
-  .container
-    .row
-      .col-sm-3
-        .profile_avatar__wrapper
-          avatar user="currentUser"
-          .profile_avatar__name
-            span> {{currentUser.first_name}}
-            span {{currentUser.last_name}}
-          .profile_img-change
-            upload-button.center-block on-success='successfulAvatarCropHandler(responce)'
-        .profile_characteristic
-          ul
-            li
-              i.fa.fa-birthday-cake
-              '{{currentUser.birthday}}
-            li
-              i.fa.fa-at
-              '{{currentUser.email}}
-            li
-              i.fa.fa-phone
-              '{{currentUser.phone}}
-      .col-sm-8
-        .profile-charts
-          canvas id="base" class="chart-base" chart-type="type" chart-data="data" chart-labels="labels" chart-legend="true"
-          canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"
-          canvas id="line" class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
-  .calendar-block
-    .container-fluid
-      .row.calendar-block__wrapper
-        .profile-calendar__develop.calendar-plan__develop
-          .calendar-flex-wrap
-            h5 Разработка плана
-            h3 Тренировочный процесс на эту неделю
-            a.training-calendar Календарь тренировок
-        a.profile-calendar__plan.calendar-plan ui-sref="app.workouts" ng-repeat="field in planFields"
-          h4 {{field.day}}
-          .profile-calendar__body
-            h2 {{field.body}}
-          .calendar-details
-            span узнать больше...
+  .page-container
+    .page-content
+      .sidebar.sidebar-main ng-class="{'sidebar-xs': sidebarXs}"
+        ng-include src="'components/profile/sidebar/sidebar.html'"
+      .content-wrapper
+        ui-view.app__content

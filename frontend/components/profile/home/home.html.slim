@@ -1,0 +1,29 @@
+.page-header.page-header-default
+  .page-header-content
+    .page-title
+      h4
+        i.fa.fa-arrow-circle-o-left>
+        'Достижения
+.content
+  .container-fluid
+    .row
+      .col-sm-6
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Выполнено упражнений:
+          .panel-body
+            .profile-charts
+              canvas id="line" class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
+      .col-sm-6
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Выполнено упражнений:
+          .panel-body
+            canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"
+      .col-sm-12
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Количество упражнений за весь период:
+          .panel-body
+            .profile-charts
+              canvas id="base" class="chart-base" chart-type="type" chart-data="data" chart-labels="labels" chart-legend="true"

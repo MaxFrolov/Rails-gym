@@ -28,111 +28,131 @@ angular.module('app')
           }
         }
       })
-      .state('app.signUpMethod', {
+      .state('app.inner-layout', {
+        abstract: true,
+        templateUrl: 'components/inner-layout/inner-layout.html'
+      })
+      .state('app.inner-layout.signUpMethod', {
         url: '/sign-up-method',
         templateUrl: 'components/auth/sign-up/method/method.html'
       })
-      .state('app.signUp', {
+      .state('app.inner-layout.signUp', {
         url: '/sign-up',
         templateUrl: 'components/auth/sign-up/signUp.html',
         controller: 'SignUpCtrl'
       })
-      .state('app.login', {
+      .state('app.inner-layout.login', {
         url: '/login',
         templateUrl: 'components/auth/login/login.html',
         controller: 'LoginCtrl'
       })
-      .state('app.blog', {
+      .state('app.inner-layout.blog', {
         abstract: true,
         url: '/blog',
         templateUrl: 'components/blog/blog.html',
         controller: 'BlogCtrl'
       })
-      .state('app.blog.posts', {
+      .state('app.inner-layout.blog.posts', {
         url: '/posts?sort&page',
         templateUrl: 'components/blog/posts/posts.html',
         controller: 'PostsCtrl'
       })
-      .state('app.blog.post', {
+      .state('app.inner-layout.blog.post', {
         url: '/post?id',
         templateUrl: 'components/blog/posts/post/post.html',
         controller: 'PostCtrl'
       })
-      .state('app.profile', {
-        url: '/profile',
-        templateUrl: 'components/profile/profile.html',
-        controller: 'ProfileCtrl'
-      })
-      .state('app.nutrition', {
+      .state('app.inner-layout.nutrition', {
         url: '/nutrition?page',
         templateUrl: 'components/nutrition/nutrition.html',
         controller: 'NutritionCtrl'
       })
-      .state('app.food', {
+      .state('app.inner-layout.food', {
         url: '/nutrition/food?id',
         templateUrl: 'components/nutrition/food/food.html',
         controller: 'FoodCtrl'
       })
-      .state('app.events', {
+      .state('app.inner-layout.events', {
         url: '/events?page',
         templateUrl: 'components/events/events.html',
         controller: 'EventsCtrl'
       })
-      .state('app.event', {
+      .state('app.inner-layout.event', {
         url: '/events/event?id',
         templateUrl: 'components/events/event/event.html',
         controller: 'EventCtrl'
       })
-      .state('app.shop', {
+      .state('app.inner-layout.shop', {
         abstract: true,
         url: '/shop',
         templateUrl: 'components/shop/shop.html',
         controller: 'ShopCtrl'
       })
-      .state('app.shop.products', {
+      .state('app.inner-layout.shop.products', {
         url: '/products?page',
         templateUrl: 'components/shop/products/products.html',
         controller: 'ProductsCtrl'
       })
-      .state('app.shop.product', {
+      .state('app.inner-layout.shop.product', {
         url: '/product?id',
         templateUrl: 'components/shop/products/product/product.html',
         controller: 'ProductCtrl'
       })
-      .state('app.shop.cart', {
+      .state('app.inner-layout.shop.cart', {
         url: '/cart',
         templateUrl: 'components/shop/cart/cart.html',
         controller: 'CartCtrl'
       })
-      .state('app.shop.order', {
+      .state('app.inner-layout.shop.order', {
         url: '/order',
         templateUrl: 'components/shop/billing-info/billing-info.html',
         controller: 'BillingInfoCtrl'
       })
-      .state('app.shop.order-review', {
+      .state('app.inner-layout.shop.order-review', {
         url: '/order-review?id',
         templateUrl: 'components/shop/order-review/order-review.html',
         controller: 'OrderReviewCtrl'
       })
-      .state('app.gallery', {
+      .state('app.inner-layout.gallery', {
         url: '/gallery',
         templateUrl: 'components/galleries/galleries.html',
         controller: 'GalleryCtrl'
       })
-      .state('app.workouts', {
+      .state('app.inner-layout.workouts', {
         url: '/workouts',
         templateUrl: 'components/workouts/workouts.html',
         controller: 'WorkoutsCtrl'
       })
-      .state('app.exercises', {
+      .state('app.inner-layout.exercises', {
         url: '/workouts/exercises?id',
         templateUrl: 'components/workouts/exercises/exercises.html',
         controller: 'ExercisesCtrl'
       })
-      .state('app.exercise', {
+      .state('app.inner-layout.exercise', {
         url: '/exercises/exercise?id',
         templateUrl: 'components/workouts/exercise/exercise.html',
         controller: 'ExerciseCtrl'
+      })
+      .state('app.profile', {
+        abstract: true,
+        url: '/profile',
+        templateUrl: 'components/profile/profile.html',
+        controller: 'ProfileCtrl'
+      })
+      .state('app.profile.home', {
+        url: '/home',
+        templateUrl: 'components/profile/home/home.html',
+        controller: 'ProfileHomeCtrl'
+      })
+      .state('app.profile.account-settings', {
+        url: '/account-settings',
+        templateUrl: 'components/profile/account-settings/account-settings.html',
+        controller: 'ProfileSettingsCtrl'
+      })
+      .state('app.profile.training-process', {
+        url: '/training-process',
+        templateUrl: 'components/profile/training-process/training-process.html',
+        controller: 'ProfileTrainingCtrl'
       })
 
       .state('confirmEmail', {

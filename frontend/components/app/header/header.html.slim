@@ -5,21 +5,21 @@
         li ui-sref-active="active"
           a ui-sref="main" Главная
         li ng-class="{active: activeNestedChild('events')}"
-          a ui-sref="app.events" Cобытия
+          a ui-sref="app.inner-layout.events" Cобытия
         li ng-class="{active: activeNestedChild('shop')}"
-          a ui-sref="app.shop.products" Магазин
+          a ui-sref="app.inner-layout.shop.products" Магазин
         li ng-class="{active: activeNestedChild('nutrition')}"
-          a ui-sref="app.nutrition" Питание
+          a ui-sref="app.inner-layout.nutrition" Питание
         li ng-class="{active: activeNestedChild('blog')}"
-          a ui-sref="app.blog.posts" Блог
+          a ui-sref="app.inner-layout.blog.posts" Блог
         li ng-class="{active: activeNestedChild('gallery')}"
-          a ui-sref="app.gallery" Галлерея
+          a ui-sref="app.inner-layout.gallery" Галлерея
     .header-page__login ng-if="!currentUser.exists()"
-      a ui-sref="app.login" Войти
-      a ui-sref="app.signUpMethod" Зарегистрироваться
+      a ui-sref="app.inner-layout.login" Войти
+      a ui-sref="app.inner-layout.signUpMethod" Зарегистрироваться
     .header-page__login ng-if="currentUser.exists()"
       a href="#" Добро пожаловать {{currentUser.first_name}}
-      a ui-sref="app.profile" Профиль
+      a ui-sref="app.profile.home" Профиль
       a href="#" ng-click="logout()" Выйти
     .header-page__state
       h2 {{stateHeader}}

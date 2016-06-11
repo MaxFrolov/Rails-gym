@@ -2,23 +2,42 @@ angular.module('app').controller('PostsCtrl',function($scope, Restangular, $stat
   $scope.sortValue = sortValue;
   $scope.sortBy = sortBy;
   $scope.loading = true;
-
   $scope.categoryFields= [
     {
-     name: 'Музыка',
+     name: 'Программы',
      value: 0
     },
     {
-     name: 'Спорт',
+     name: 'Растягивание',
      value: 1
     },
     {
-     name: 'Технологии',
+     name: 'Упражнения',
      value: 2
     },
     {
-     name: 'Природа',
+     name: 'Кардио',
      value: 3
+    },
+    {
+      name: 'Мышечные группы',
+      value: 4
+    },
+    {
+      name: 'Советы и рекомендации',
+      value: 5
+    },
+    {
+      name: 'Спортивные клубы',
+      value: 6
+    },
+    {
+      name: 'Тренажеры',
+      value: 7
+    },
+    {
+      name: 'Исследования',
+      value: 8
     }
   ];
 
