@@ -327,6 +327,29 @@
   }
 }
 
+.calendar-elements {
+  width: 14.28%;
+  height: 40px;
+  border: 1px solid whitesmoke;
+  background: white;
+  float: left;
+}
+
+.calender-header {
+  border: 1px solid grey;
+  .left-switch-date, .right-switch-date {
+    display: inline-block;
+    width: 25%;
+    height: 40px;
+  }
+  span.calendar-main-date {
+    display: inline-block;
+    width: 50%;
+    height: 40px;
+  }
+}
+
+
 @media (min-width: 769px) {
   .navbar-header {
     margin-left: -20px;

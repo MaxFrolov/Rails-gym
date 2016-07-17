@@ -1,0 +1,40 @@
+.page-header.page-header-default
+  .page-header-content
+    .page-title
+      h4
+        i.fa.fa-arrow-circle-o-left>
+        'Дневник тренеровок
+.content
+  .container-fluid
+    .row
+      .col-sm-6.col-sm-offset-3
+        .panel
+          .panel-body
+            .calender-header
+              span.left-switch-date
+                i.fa.fa-chevron-left ng-click="decrementDate()"
+              span.calendar-main-date {{monthDate.format('YYYY-MM')}}
+              span.right-switch-date ng-click="incrementDate()"
+                i.fa.fa-chevron-right
+            .clearfix
+            .calendar-elements ng-repeat="date in daysInMonth track by $index"
+              span {{date.getDate()}}
+              span.diary-calendar-plus ng-click="openModal(date)" +
+              span ng-if="date.toDateString() === currentDate.toDateString()" Сегодня
+              span ng-if="diaryDate(date)" ng-click="console.log('aaa')" запись
+      .col-sm-12
+        .panel
+          .panel-body
+            table.table
+              thead
+                tr
+                  th Упражнение
+                  th Повторения
+                  th Вес
+              tbody
+                tr
+                  td Становя
+                  td 5
+                  td 49кг
+          .text-center
+            .btn.btn-brand Сохранить

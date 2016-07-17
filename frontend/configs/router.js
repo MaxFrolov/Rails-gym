@@ -154,6 +154,11 @@ angular.module('app')
         templateUrl: 'components/profile/training-process/training-process.html',
         controller: 'ProfileTrainingCtrl'
       })
+      .state('app.profile.diary', {
+        url: '/diary',
+        templateUrl: 'components/profile/diary/diary.html',
+        controller: 'DiaryCtrl'
+      })
 
       .state('confirmEmail', {
         url: '/users/confirm/:token',

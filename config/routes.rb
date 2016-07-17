@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resource :foods, only: [:create, :update, :destroy]
       resource :events, only: [:create, :update, :destroy]
       resource :products, only: [:create, :update, :destroy]
+      resources :training_diaries, only: [:index, :create, :update, :destroy]
       scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
         resources :comments, only: [:create, :update, :destroy]
       end
