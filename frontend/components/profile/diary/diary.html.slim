@@ -12,29 +12,36 @@
           .panel-body
             .calender-header
               span.left-switch-date
-                i.fa.fa-chevron-left ng-click="decrementDate()"
-              span.calendar-main-date {{monthDate.format('YYYY-MM')}}
-              span.right-switch-date ng-click="incrementDate()"
+                i.fa.fa-chevron-left.text-left ng-click="decrementDate()"
+              span.calendar-main-date.text-center {{monthDate.format('YYYY-MM')}}
+              span.right-switch-date.text-right ng-click="incrementDate()"
                 i.fa.fa-chevron-right
             .clearfix
-            .calendar-elements ng-repeat="date in daysInMonth track by $index"
-              span {{date.getDate()}}
-              span.diary-calendar-plus ng-click="openModal(date)" +
-              span ng-if="date.toDateString() === currentDate.toDateString()" Сегодня
-              span ng-if="diaryDate(date)" ng-click="console.log('aaa')" запись
-      .col-sm-12
+            .calendar-elements ng-repeat="date in daysInMonth track by $index" ng-class="{'current-date': date.toDateString() === currentDate.toDateString()}"
+              span.diary-calendar-date {{date.getDate()}}
+              span.diary-calendar-plus.fa.fa-plus ng-click="openModal(date)"
+              span.fa.fa-tags.diary-calendar-record ng-if="diaryDate(date)" ng-click="showRecords(date)"
+      .col-sm-12 ng-if="clickedDateRecords.length"
         .panel
           .panel-body
-            table.table
+            table.table.training-diary-table
               thead
                 tr
                   th Упражнение
+                  th Подходы
                   th Повторения
                   th Вес
               tbody
-                tr
-                  td Становя
-                  td 5
-                  td 49кг
-          .text-center
-            .btn.btn-brand Сохранить
+                tr ng-repeat="clickedDateRecord in clickedDateRecords"
+                  td {{clickedDateRecord.exercise}}
+                  td {{clickedDateRecord.sets}}
+                  td
+                    table
+                      tbody
+                        tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
+                          td {{diary_exercise.repetition}}
+                  td
+                    table
+                      tbody
+                        tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
+                          td {{diary_exercise.weight}} кг.

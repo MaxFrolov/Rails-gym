@@ -1,10 +1,12 @@
 angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Restangular) {
 	$scope.daysInMonth = [];
+	$scope.clickedDateRecords = [];
 	$scope.monthDate = moment().startOf('month');
 	$scope.incrementDate = incrementDate;
 	$scope.decrementDate = decrementDate;
 	$scope.diaryDate = diaryDate;
 	$scope.openModal = openModal;
+	$scope.showRecords = showRecords;
 	$scope.quantityDays = quantityDays();
 	$scope.currentDate = new Date;
 
@@ -53,5 +55,10 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 				}
 			}
 		});
+	}
+
+	function showRecords(date) {
+		$scope.clickedDateRecords = _.filter($scope.diaries, {date: date.toISOString()});
+		console.log($scope.clickedDateRecords)
 	}
 })
