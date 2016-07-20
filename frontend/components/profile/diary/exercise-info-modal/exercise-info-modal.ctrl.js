@@ -1,4 +1,4 @@
-angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangular, Notification, date, userId) {
+angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangular, Notification, date, userId, diaries) {
 	$scope.setsQuantity = setsQuantity;
 	$scope.ok = ok;
 	$scope.exerciseInfo = {};
@@ -32,8 +32,9 @@ angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangula
 		$scope.exerciseInfo.training_diary_exercises_attributes = $scope.setsInfo;
 		$scope.exerciseInfo.date = date;
 		Restangular.one('users', userId).all('training_diaries').customPOST($scope.exerciseInfo).then(function (response) {
-			console.log(response)
+			diaries.push(response)
+			$scope.$dismiss('cancel');
+			Notification.success('Запись успешно сохранена!');
 		});
-		console.log($scope.exerciseInfo, date)
 	}
 });

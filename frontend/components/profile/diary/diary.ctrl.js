@@ -9,6 +9,10 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 	$scope.showRecords = showRecords;
 	$scope.quantityDays = quantityDays();
 	$scope.currentDate = new Date;
+	$scope.exercisesTypes = {
+		bench_press: 'Жим лежа',
+		bench_press_on_an_incline_bench: 'Жим на наклонной скамье'
+	}
 
 	$scope.diaries = Restangular.one('users', $scope.currentUser.id).all('training_diaries').getList().$object;
 
@@ -52,6 +56,9 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 				},
 				userId: function () {
 					return $scope.currentUser.id
+				},
+				diaries: function () {
+					return $scope.diaries
 				}
 			}
 		});
@@ -59,6 +66,5 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 
 	function showRecords(date) {
 		$scope.clickedDateRecords = _.filter($scope.diaries, {date: date.toISOString()});
-		console.log($scope.clickedDateRecords)
 	}
 })
