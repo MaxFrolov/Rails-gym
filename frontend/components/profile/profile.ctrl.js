@@ -1,4 +1,11 @@
-angular.module('app').controller('ProfileCtrl', function($scope, Restangular, $timeout) {
+angular.module('app').controller('ProfileCtrl', function($scope) {
+  $scope.sidebarXs = false
+  $scope.toggleSidebar = toggleSidebar
+
+  function toggleSidebar() {
+    $scope.sidebarXs = !$scope.sidebarXs
+  }
+
   $scope.planFields = [
     {
       day: 'Понедельник',
@@ -41,13 +48,7 @@ angular.module('app').controller('ProfileCtrl', function($scope, Restangular, $t
     return currentUser;
   }
 
-  $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales", "Tele Sales", "Corporate Sales"];
-  $scope.series = ['Series A', 'Series B'];
-  $scope.data =  [65, 59, 80, 81, 56, 55, 40];
-  $scope.lineData = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
-  ];
-  $scope.type = 'PolarArea';
+  $scope.series = ['Жим лежа'];
+  $scope.isopen = false;
 
 });

@@ -1,0 +1,40 @@
+.calendar-elements {
+  position: relative;
+
+  .diary-calendar-date {
+    margin-left: 2px;
+  }
+
+  .diary-calendar-plus {
+    display: inline-block;
+    background: #ea4c23;
+    color: #fff;
+    float: right;
+    border-radius: 50%;
+    font-size: 10px;
+    margin-top: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    line-height: 18px;
+  }
+
+  .diary-calendar-record {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    padding: 3px;
+    color: #ffffff;
+    background: rgba(38, 166, 154, 0.76);
+    cursor: pointer;
+  }
+}
+
+.training-diary-table {
+
+  > tbody > tr > td {
+    vertical-align: middle;
+  }
+}

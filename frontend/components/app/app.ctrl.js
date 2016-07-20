@@ -23,7 +23,6 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
         gallery: 'Галлерея',
         login: 'Вход',
         'sign-up': 'Регистрация',
-        profile: 'Профиль',
         workouts: 'Тренировки',
         exercises: 'Упражнения'
       };

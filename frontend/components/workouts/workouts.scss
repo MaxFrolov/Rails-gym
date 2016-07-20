@@ -103,4 +103,31 @@
       color: #fff;
     }
   }
+
+  .workouts-bar-categories {
+    padding: 10px;
+    border-left: 3px solid #ea4c23;
+    text-transform: uppercase;
+    color: #6D6C6C;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+  }
+  .workouts-categories {
+
+    >ul {
+      list-style: none;
+      margin-bottom: 30px;
+
+     >li {
+       display: block;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+       >a {
+         color: #ea4c23
+       }
+     }
+    }
+  }
 }

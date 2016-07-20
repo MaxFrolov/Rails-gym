@@ -1,0 +1,36 @@
+.page-header.page-header-default
+  .page-header-content
+    .page-title
+      h4
+        i.fa.fa-arrow-circle-o-left>
+        'Достижения
+.content
+  .container-fluid
+    .row ng-if="lineData && labels"
+      .col-sm-8
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Весовая статисика по упражнениям за временной период:
+          .panel-body
+            .exercises-stats-select
+              .container-fluid
+                .row
+                  .col-sm-4
+                    ui-select(ng-model="exerciseSelectObj.obj" theme="bootstrap" search-enabled="false"
+                      ng-required="exerciseField.required" on-select="exerciseField.onChange($item, $model)"
+                      on-remove="exerciseField.onChange($item, $model)")
+
+                      ui-select-match allow-clear="false" placeholder="{{exerciseField.label}}..." {{$select.selected.label}}
+                      ui-select-choices.ui-select-choices-square(repeat="choice.value as choice in exerciseField.choices || []")
+
+                        div ng-bind-html="choice.label | highlight: $select.search"
+                  .col-sm-3
+                  .col-sm-3
+            .profile-charts
+              canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
+      .col-sm-4
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Выполнено упражнений:
+          .panel-body
+            canvas id="doughnut" class="chart chart-doughnut" chart-data="pieData" chart-labels="pieLabels" chart-legend="true"

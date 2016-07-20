@@ -182,7 +182,7 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
     function postOrder() {
       Restangular.all('orders').customPOST($scope.order).then(function(order) {
         Notification.success('Ваш заказ успешно оформлен.');
-        $state.go('app.shop.order-review', {id: order.id});
+        $state.go('app.inner-layout.shop.order-review', {id: order.id});
         localStorage.removeItem('cart');
         localStorage.removeItem('totalPrice');
       }).catch(function (responce) {

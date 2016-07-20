@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :user_advices
   has_many :foods, through: :user_advices
+  has_many :training_diaries
 end

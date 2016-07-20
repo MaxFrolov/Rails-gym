@@ -14,6 +14,7 @@ class Ability
       can [:create, :update, :destroy], Food,  user_id: user.id
       can [:create, :update, :destroy], Event,  user_id: user.id
       can [:create, :update, :destroy], Product,  user_id: user.id
+      can [:index, :create, :update, :destroy, :diary_stats], TrainingDiary,  user_id: user.id
     end
 
     can [:index, :show], Workout

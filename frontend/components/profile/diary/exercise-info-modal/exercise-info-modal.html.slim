@@ -1,0 +1,18 @@
+ng-include src='"components/app/modals/modal-header.html"'
+.container
+  .row
+    .col-sm-6
+      form.form-horizontal name="exerciseInfoForm" ng-submit="ok()" novalidate="novalidate"
+        horizontal-form obj="exerciseInfo" fields="fields" errors="errors"
+        .form-group
+          label.control-label.col-sm-4 Количество подходов
+          .col-sm-8
+            input.form-control type="number" placeholder="Количество подходов" ng-change="setsQuantity()" ng-model="exerciseInfo.sets"
+        div ng-repeat="setInfo in setsInfo"
+          .form-group
+            label.control-label.col-sm-4 {{$index + 1}} подход:
+            .col-sm-5
+              input.form-control type="number" placeholder="Кол. повторений" ng-model="setsInfo[$index].repetition"
+            .col-sm-3
+              input.form-control type="number" placeholder="Вес, кг." ng-model="setsInfo[$index].weight"
+ng-include src='"components/app/modals/modal-footer.html"'

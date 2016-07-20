@@ -9,6 +9,6 @@
       span {{post.likes_count}}
     .clearfix
     h5 {{post.subtitle}}
-    a.link ui-sref='app.blog.post({ id: post.id })' читать дальше...
+    a.link ui-sref='app.inner-layout.blog.post({ id: post.id })' читать дальше...
   .blog_posts__meta
     span {{post.created_at | calendarDate}}

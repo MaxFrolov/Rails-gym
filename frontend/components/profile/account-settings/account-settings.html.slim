@@ -1,0 +1,32 @@
+.page-header.page-header-default
+  .page-header-content
+    .page-title
+      h4
+        i.fa.fa-arrow-circle-o-left>
+        'Настройка профиля
+.content
+  .container-fluid
+    .row
+      .col-sm-8
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Изменение персональных данных:
+          .panel-body
+            form.form-horizontal name="personalDetailsForm" ng-submit="onSubmit()" novalidate="novalidate"
+              horizontal-form obj="personalDetails" fields="fields" errors="errors" width="9"
+              .row
+                .col-sm-offset-3.col-sm-9
+                  button.btn.btn-primary.btn-lg.auth__submit type="submit" Сохранить
+
+      .col-sm-4
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Изменение аватара:
+          .panel-body
+            .profile_avatar__wrapper
+              avatar user="currentUser"
+              .profile_avatar__name
+                span> {{currentUser.first_name}}
+                span {{currentUser.last_name}}
+              .profile_img-change
+                upload-button.center-block on-success='successfulAvatarCropHandler(responce)'

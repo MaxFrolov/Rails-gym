@@ -6,18 +6,18 @@ header.main-page__background
         li
           a ui-sref="main" Главная
         li
-          a ui-sref="app.events" Cобытия
+          a ui-sref="app.inner-layout.events" Cобытия
         li
-          a ui-sref="app.shop.products" Магазин
+          a ui-sref="app.inner-layout.shop.products" Магазин
         li
-          a ui-sref="app.nutrition" Питание
+          a ui-sref="app.inner-layout.nutrition" Питание
         li
-          a ui-sref="app.blog.posts" Блог
+          a ui-sref="app.inner-layout.blog.posts" Блог
         li
-          a ui-sref="app.gallery" Галлерея
+          a ui-sref="app.inner-layout.gallery" Галлерея
     .main-header__login ng-if="!currentUser.exists()"
-      a ui-sref="app.login" Войти
-      a ui-sref="app.signUpMethod" Зарегистрироваться
+      a ui-sref="app.inner-layout.login" Войти
+      a ui-sref="app.inner-layout.signUpMethod" Зарегистрироваться
     .main-header__login ng-if="currentUser.exists()"
       a href="#" Добро пожаловать {{currentUser.first_name}}
       a href="#" ng-click="logout()" Выйти

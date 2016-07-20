@@ -1,0 +1,26 @@
+.page-header.page-header-default
+  .page-header-content
+    .page-title
+      h4
+        i.fa.fa-arrow-circle-o-left>
+        'Тренировочный план
+.content
+  .container-fluid
+    .row
+      .col-sm-12
+        .panel.panel-flat
+          .panel-body.training-process-wrapper
+            .calendar-block
+              .container-fluid
+                .row.calendar-block__wrapper
+                  .profile-calendar__develop.calendar-plan__develop
+                    .calendar-flex-wrap
+                      h5 Разработка плана
+                      h3 Тренировочный процесс на эту неделю
+                      a.training-calendar Календарь тренировок
+                  a.profile-calendar__plan.calendar-plan ui-sref="app.inner-layout.workouts" ng-repeat="field in planFields"
+                    h4 {{field.day}}
+                    .profile-calendar__body
+                      h2 {{field.body}}
+                    .calendar-details
+                      span узнать больше...
