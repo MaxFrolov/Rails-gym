@@ -1,0 +1,19 @@
+ui-select(ng-if="!field.multiple" ng-model="field.obj[field.name]" theme="bootstrap" search-enabled="false"
+  ng-required="field.required" on-select="field.onChange($item, $model)"
+  on-remove="field.onChange($item, $model)")
+
+  ui-select-match allow-clear="{{field.allowClear}}" placeholder="{{field.label}}..." {{$select.selected.label}}
+  ui-select-choices.ui-select-choices-square(repeat="choice.value as choice in field.choices || []"
+    refresh="field.refreshChoices && field.refreshChoices($select.search, $select)")
+
+    div ng-bind-html="choice.label | highlight: $select.search"
+
+ui-select(ng-if="field.multiple" ng-model="field.obj[field.name]" theme="bootstrap"
+  ng-required="field.required" multiple="" on-select="field.onChange($item, $model)"
+  on-remove="field.onChange($item, $model)")
+
+  ui-select-match allow-clear="{{field.allowClear}}" placeholder="{{field.label}}..." {{$item.label}}
+  ui-select-choices.ui-select-choices-square(repeat="{{field.fullValue ? '' : 'choice.value as '}}choice in field.choices || []"
+    refresh="field.refreshChoices && field.refreshChoices($select.search, $select)")
+
+    div ng-bind-html="choice.label | highlight: $select.search"

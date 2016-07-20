@@ -8,7 +8,7 @@
             span.shop__count-products страница: {{products.reqParams.page || 1}} | количество продуктов: {{products.length}} | всего: {{products.total}}
           collection-sort resource="products" options="sortOptions"
         .col-sm-4.shop_page__products ng-repeat="product in products"
-          a.img-wrapper ui-sref="app.shop.product({id: product.id})"
+          a.img-wrapper ui-sref="app.inner-layout.shop.product({id: product.id})"
             img.img-responsive src="{{product.image_product_url}}"
           h5 {{product.category}}
           .text-center
@@ -28,8 +28,8 @@
             p Всего: {{priceTotal | currency: "₴"}}
           .container-fluid.row ng-if="!_.isEmpty(cart)"
             .col-sm-6
-              button.btn.btn-brand type="button" ng-click="setToStorage()" ui-sref="app.shop.cart" в корзину
+              button.btn.btn-brand type="button" ng-click="setToStorage()" ui-sref="app.inner-layout.shop.cart" в корзину
             .col-sm-6
-              button.btn.btn-brand type="button" ng-click="setToStorage()" ui-sref="app.shop.order" оформить
+              button.btn.btn-brand type="button" ng-click="setToStorage()" ui-sref="app.inner-layout.shop.order" оформить
 
     collection-pagination resource="products"

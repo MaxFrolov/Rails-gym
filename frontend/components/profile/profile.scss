@@ -1,8 +1,220 @@
 @import "assets/styles/vars";
 
+.navbar-inverse {
+  border: 1px solid #37474F;
+  border-bottom-color: rgba(255,255,255,.1);
+  color: #fff;
+  background-color: #37474F;
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: 46px;
+
+  .navbar-header {
+    min-width: 260px;
+
+    a {
+      padding-top: 13px;
+      padding-bottom: 13px;
+      height: auto;
+    }
+  }
+
+  .navbar-collapse {
+    border-color: rgba(0,0,0,.2);
+
+    .navbar-nav {
+      margin: 0;
+      text-align: left;
+
+      .dropdown-user {
+        a, span {
+          padding-top: 6.5px;
+          padding-bottom: 6.5px;
+        }
+
+        img {
+          max-height: 30px;
+          margin-top: -2.5px;
+          border-radius: 50%;
+        }
+
+        span {
+          display: inline-block;
+          padding-left: 7px;
+        }
+
+        .dropdown-menu {
+
+          >li i {
+            font-size: 16px;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      >li {
+
+        >a {
+          padding-top: 13px;
+          padding-bottom: 13px;
+
+          &:hover, &:focus {
+            color: #fff;
+            background-color: rgba(0,0,0,.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.page-container {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  min-height: calc(100vh - 48px);
+
+  .page-content {
+    display: table-row;
+  }
+
+  .sidebar {
+    display: table-cell;
+    vertical-align: top;
+    width: 260px;
+    background-color: #263238;
+    color: #fff;
+    position: relative;
+  }
+
+  .sidebar-content {
+    position: relative;
+    padding-bottom: 8px;
+  }
+
+  .navigation {
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+
+    >li {
+      position: relative;
+
+      >a {
+        padding: 12px 20px;
+        min-height: 44px;
+        font-weight: 500;
+        transition: background .15s linear,color .15s linear;
+        display: block;
+        text-decoration: none;
+        color: #fff;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, .1);
+          color: #fff;
+        }
+
+        >i {
+          font-size: 16px;
+          margin-right: 15px;
+          position: relative;
+          top: 1px
+        }
+      }
+
+      &.active>a {
+        background-color: #26A69A;
+        color: #fff;
+      }
+
+      &+li {
+        margin-top: 1px;
+      }
+    }
+  }
+
+  .content-wrapper {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .page-header {
+    margin: 0;
+    padding: 0;
+    border-bottom-width: 0;
+  }
+
+  .page-header-default {
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 0 0 #ddd;
+  }
+
+  .page-header-content {
+    position: relative;
+    background-color: inherit;
+    padding: 0 20px;
+  }
+
+  .page-title {
+    padding: 20px 36px 20px 0;
+    display: block;
+    position: relative;
+  }
+
+  .panel {
+    margin-bottom: 20px;
+    border-color: #ddd;
+    color: #333;
+  }
+
+  .panel-flat {
+
+    >.panel-heading+.panel-body {
+      padding-top: 0;
+    }
+
+    >.panel-heading {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: #fff;
+
+      h6.panel-title {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .panel-heading {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+
+  .panel-body.training-process-wrapper {
+    padding: 0;
+  }
+
+  .img-sm {
+    width: 36px;
+    height: 36px;
+  }
+
+  .category-content {
+    padding: 20px;
+
+    &.no-padding {
+      padding: 0;
+    }
+  }
+
+  .text-size-mini {
+    font-size: 11px;
+  }
+}
+
 .profile-page {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  background: #f5f5f5;
 }
 
 .profile_avatar__wrapper {
@@ -41,7 +253,7 @@
 }
 
 .calendar-plan {
-  width: 14.285%;
+  width: 14.286%;
   background: #212d36;
   float: left;
   border-right: 2px solid rgba(255, 255, 255, 0.1);
@@ -59,7 +271,6 @@
 .calendar-block {
   text-align: center;
   font-family: 'Play', sans-serif;
-  margin-top: 50px;
 }
 
 .profile-calendar__plan {
@@ -115,3 +326,159 @@
     max-height: 500px;
   }
 }
+
+.calendar-elements {
+  width: 14.285%;
+  height: 50px;
+  background: white;
+  float: left;
+  font-family: 'Play', sans-serif;
+  padding: 2px;
+
+  .calendar-elements-content {
+    border: 1px solid #ececec;
+    height: 100%;
+
+    &.current-date {
+      background: #3ddacb;
+      color: #fff;
+    }
+  }
+}
+
+.calender-header {
+  border: 1px solid #eaeaea;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  background: rgba(55, 71, 79, 0.07);
+  margin-bottom: 5px;
+
+  .left-switch-date, .right-switch-date {
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    line-height: 38px;
+    width: 30px;
+    cursor: pointer;
+
+    &:hover {
+      background: #fff;
+    }
+  }
+
+  .left-switch-date {
+    left: 0;
+  }
+
+  .right-switch-date {
+    right: 0;
+  }
+
+  span.calendar-main-date {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-family: 'Play', sans-serif;
+    font-size: 18px;
+  }
+}
+
+
+@media (min-width: 769px) {
+  .navbar-header {
+    margin-left: -20px;
+  }
+
+  .navbar-nav {
+    margin-left: 20px;
+  }
+
+  .navbar-right {
+    margin-right: 0;
+  }
+
+  .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sidebar-xs.sidebar-main {
+    width: 56px;
+
+    .sidebar-user {
+
+      .category-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .media-left {
+        padding: 0;
+        text-align: center;
+        display: block;
+      }
+
+      .media-body {
+        display: none;
+      }
+    }
+
+    .navigation {
+
+      >.navigation-header {
+        padding: 0;
+        text-align: center;
+
+        >span {
+          display: none;
+        }
+
+        >i {
+          display: block;
+          top: 0;
+          padding: 13px 0;
+        }
+      }
+
+      >li {
+
+        &:hover>a>span {
+          display: block;
+        }
+
+        >a {
+          display: block;
+          text-align: center;
+          padding-left: 0;
+          padding-right: 0;
+
+          >i {
+            margin: 2px 0;
+            display: block;
+            float: none;
+          }
+
+          >span {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: -260px;
+            background-color: #26A69A;
+            border: 1px solid #26A69A;
+            padding: 11px 20px;
+            width: 260px;
+            text-align: left;
+            color: #fff;
+            cursor: pointer;
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px;
+            z-index: 99;
+          }
+        }
+      }
+    }
+  }
+}
+

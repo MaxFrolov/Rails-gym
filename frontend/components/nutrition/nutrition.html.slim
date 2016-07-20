@@ -2,7 +2,7 @@
   .container
     .row
       .nutrition-posts.col-sm-4 ng-repeat="nutrition in nutritions"
-        a.nutrition-post__bg ui-sref="app.food({ id: nutrition.id })"
+        a.nutrition-post__bg ui-sref="app.inner-layout.food({ id: nutrition.id })"
           img.img-responsive ng-src="{{nutrition.image_url}}"
           .inner-type-bg
             span Посмотреть детали
@@ -14,6 +14,6 @@
           span {{nutrition.likes_count}}
         .clearfix
         h4 {{nutrition.subtitle}}
-        a ui-sref="app.nutrition.food({ id: nutrition.id })" читать дальше...
+        a ui-sref="app.inner-layout.nutrition.food({ id: nutrition.id })" читать дальше...
       spinner loading="loading"
     collection-pagination resource="nutritions"

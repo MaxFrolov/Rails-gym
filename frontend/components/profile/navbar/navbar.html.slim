@@ -1,0 +1,41 @@
+.navbar.navbar-inverse
+  .navbar-header
+    a.navbar-brand ui-sref="main" GYM
+  .navbar-collapse.collapse
+    ul.nav.navbar-nav
+      li
+        a.sidebar-control.sidebar-main-toggle.hidden-xs ng-click="toggleSidebar()"
+          i.fa.fa-bars
+    .navbar-right
+      ul.nav.navbar-nav
+        li.dropdown.dropdown-user is-open="status.isopen" uib-dropdown=""
+          a#single-button uib-dropdown-toggle="" href="#"
+            img src="{{currentUser.avatar_url}}"
+            span>{{currentUser.first_name}}
+            i.caret
+          ul.dropdown-menu aria-labelledby="single-button" role="menu" uib-dropdown-menu=""
+            li role="menuitem"
+              a ui-sref="main"
+                i.fa.fa-home
+                'Главная
+            li role="menuitem"
+              a ui-sref="app.inner-layout.blog.posts"
+                i.fa.fa-newspaper-o
+                'Блог
+            li role="menuitem"
+              a ui-sref="app.inner-layout.shop.products"
+                i.fa.fa-shopping-cart
+                'Магазин
+            li role="menuitem"
+              a ui-sref="app.inner-layout.gallery"
+                i.fa.fa-picture-o
+                'Галлерея
+            li.divider
+            li role="menuitem" ui-sref-active="active"
+              a ui-sref="app.profile.account-settings"
+                i.fa.fa-gear
+                'Настройки профиля
+            li role="menuitem"
+              a href="#" ng-click="logout()"
+                i.fa.fa-power-off
+                'Выйти

@@ -1,0 +1,30 @@
+.sidebar-content
+  .sidebar-user
+    .category-content
+      .media
+        a.media-left href="#"
+          img.img-circle.img-sm src="{{currentUser.avatar_url}}"
+        .media-body
+          span.media-heading.text-semibold {{currentUser.first_name}} {{currentUser.last_name}}
+          .text-size-mini.text-muted
+            i.fa.fa-at>
+            '{{currentUser.email}}
+  .sidebar-category
+    .category-content.no-padding
+      ul.navigation.navigation-main.navigation-accordion
+        li ui-sref-active="active"
+          a href="#" ui-sref="app.profile.home"
+            i.fa.fa-bar-chart>
+            span Достижения
+        li ui-sref-active="active"
+          a href="#" ui-sref="app.profile.training-process"
+            i.fa.fa-file-text-o>
+            span Тренировочный план
+        li ui-sref-active="active"
+          a href="#" ui-sref="app.profile.diary"
+            i.fa.fa-list-alt>
+            span Дневник тренеровок
+        li ui-sref-active="active"
+          a href="#" ui-sref="app.profile.account-settings"
+            i.fa.fa-gears>
+            span Настройки профиля

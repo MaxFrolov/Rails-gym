@@ -1,0 +1,48 @@
+.page-header.page-header-default
+  .page-header-content
+    .page-title
+      h4
+        i.fa.fa-arrow-circle-o-left>
+        'Дневник тренеровок
+.content
+  .container-fluid
+    .row
+      .col-sm-6.col-sm-offset-3
+        .panel
+          .panel-body
+            .calender-header
+              span.left-switch-date ng-click="decrementDate()"
+                i.fa.fa-chevron-left
+              span.calendar-main-date.text-center {{monthDate.format('YYYY-MM')}}
+              span.right-switch-date ng-click="incrementDate()"
+                i.fa.fa-chevron-right
+            .clearfix
+            .calendar-elements ng-repeat="date in daysInMonth track by $index"
+              .calendar-elements-content ng-class="{'current-date': date.toDateString() === currentDate.toDateString()}"
+                span.diary-calendar-date {{date.getDate()}}
+                span.diary-calendar-plus.fa.fa-plus ng-click="openModal(date)"
+                span.fa.fa-tags.diary-calendar-record ng-if="diaryDate(date)" ng-click="showRecords(date)"
+      .col-sm-6.col-sm-offset-3 ng-if="clickedDateRecords.length"
+        .panel
+          .panel-body
+            table.table.training-diary-table
+              thead
+                tr
+                  th Упражнение
+                  th.text-center Подходы
+                  th.text-center Повторения
+                  th.text-center Вес
+              tbody
+                tr ng-repeat="clickedDateRecord in clickedDateRecords"
+                  td {{exercisesTypes[clickedDateRecord.exercise]}}
+                  td.text-center {{clickedDateRecord.sets}}
+                  td
+                    table.centered-block
+                      tbody.text-center
+                        tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
+                          td {{diary_exercise.repetition}}
+                  td
+                    table.centered-block
+                      tbody
+                        tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
+                          td {{diary_exercise.weight}} кг.
