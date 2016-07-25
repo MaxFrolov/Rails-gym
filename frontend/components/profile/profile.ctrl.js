@@ -48,15 +48,7 @@ angular.module('app').controller('ProfileCtrl', function($scope) {
     return currentUser;
   }
 
-  $scope.labels = ["Спина", "Плечи", "Грудь", "Ноги"];
-  $scope.series = ['Series A', 'Series B'];
-  $scope.data =  [65, 59, 80, 81, 56, 55, 40];
-  $scope.lineData = [
-    [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
-  ];
-  $scope.type = 'PolarArea';
-
+  $scope.series = ['Жим лежа'];
   $scope.isopen = false;
 
 });
