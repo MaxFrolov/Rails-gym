@@ -92,4 +92,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-satellizer', '0.11.3'
   gem 'rails-assets-angular-chartjs'
   gem 'rails-assets-ngSmoothScroll'
+  gem 'rails-assets-angular-material'
+  gem 'rails-assets-ngAnimate-animate.css'
 end
