@@ -340,7 +340,12 @@
     height: 100%;
 
     &.current-date {
-      background: #3ddacb;
+      background: #e0f2f1;
+      color: #fff;
+    }
+
+    &.active-date {
+      background: #e8eaf6;
       color: #fff;
     }
   }

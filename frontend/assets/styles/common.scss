@@ -1,6 +1,10 @@
 @import "assets/styles/vars";
 @import "assets/styles/fonts";
 
+* {
+  outline: none;
+}
+
 .input-group-addon {
   border-radius: 0;
   border-color: $form-border-color;
@@ -57,4 +61,16 @@
 
 .centered-block {
   margin: 0 auto;
+}
+
+.ui-select-container.ui-select-bootstrap {
+  outline: none;
+
+  .ui-select-match {
+    outline: none;
+  }
+}
+
+.relative {
+  position: relative;
 }

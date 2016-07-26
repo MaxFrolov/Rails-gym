@@ -8,6 +8,7 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 	$scope.openModal = openModal;
 	$scope.showRecords = showRecords;
 	$scope.quantityDays = quantityDays();
+	$scope.selectDate = selectDate;
 	$scope.currentDate = new Date;
 	$scope.exercisesTypes = {
 		bench_press: 'Жим лежа',
@@ -44,7 +45,7 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 		quantityDays()
 	}
 
-	function openModal(date) {
+	function openModal() {
 		$uibModal.open({
 			animation: true,
 			templateUrl: 'components/profile/diary/exercise-info-modal/exercise-info-modal.html',
@@ -52,7 +53,7 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 			size: 'md',
 			resolve: {
 				date: function() {
-					return date
+					return $scope.dateSelected
 				},
 				userId: function () {
 					return $scope.currentUser.id
@@ -66,5 +67,9 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 
 	function showRecords(date) {
 		$scope.clickedDateRecords = _.filter($scope.diaries, {date: date.toISOString()});
+	}
+
+	function selectDate(date) {
+		$scope.dateSelected = date;
 	}
 })

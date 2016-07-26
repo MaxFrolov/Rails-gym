@@ -8,8 +8,9 @@
   .container-fluid
     .row
       .col-sm-6.col-sm-offset-3
-        .panel
+        .panel.relative
           .panel-body
+            h4.text-center Выберите дату для записи данных
             .calender-header
               span.left-switch-date ng-click="decrementDate()"
                 i.fa.fa-chevron-left
@@ -18,10 +19,11 @@
                 i.fa.fa-chevron-right
             .clearfix
             .calendar-elements ng-repeat="date in daysInMonth track by $index"
-              .calendar-elements-content ng-class="{'current-date': date.toDateString() === currentDate.toDateString()}"
+              .calendar-elements-content(ng-class="{'current-date': date.toDateString() === currentDate.toDateString(), 'active-date': date.toDateString() === dateSelected.toDateString()}"
+              ng-click="selectDate(date)")
                 span.diary-calendar-date {{date.getDate()}}
-                span.diary-calendar-plus.fa.fa-plus ng-click="openModal(date)"
                 span.fa.fa-tags.diary-calendar-record ng-if="diaryDate(date)" ng-click="showRecords(date)"
+            md-button.md-raised.md-primary.md-button.add-record-button ng-if="dateSelected" ng-click="openModal()" + Записать данные
       .col-sm-6.col-sm-offset-3 ng-if="clickedDateRecords.length"
         .panel
           .panel-body

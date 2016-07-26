@@ -16,7 +16,7 @@
               .container-fluid
                 .row
                   .col-sm-4
-                    ui-select(ng-model="exerciseSelectObj" theme="bootstrap" search-enabled="false"
+                    ui-select(ng-model="exerciseSelect" theme="bootstrap" search-enabled="false"
                       ng-required="exerciseField.required" on-select="exerciseField.onChange($item, $model)"
                       on-remove="exerciseField.onChange($item, $model)")
 
@@ -26,10 +26,10 @@
                         div ng-bind-html="choice.label | highlight: $select.search"
                   .col-sm-8.select-date-range
                     span Выберите период:
-                    md-datepicker ng-model="startDate" md-placeholder="конечная дата"
+                    md-datepicker ng-model="startDate" md-placeholder="начальная дата"
                     span.select-date-line —
-                    md-datepicker ng-model="endDate" md-placeholder="начальная дата"
-                    md-button.md-raised.md-primary.md-button.pull-right ng-click="refreshChart()" обновить график
+                    md-datepicker ng-model="endDate" md-placeholder="конечная дата"
+                    md-button.md-raised.md-primary.md-button.pull-right ng-click="refreshChart(startDate, endDate)" обновить график
             .profile-charts
               canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
       .col-sm-4
