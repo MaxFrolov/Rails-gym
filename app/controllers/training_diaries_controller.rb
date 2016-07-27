@@ -23,7 +23,7 @@ class TrainingDiariesController < ApiController
 
   def diary_stats
     training_exercises = @training_diaries.ransack(exercise_eq: params[:exercise] || 0).result
-    training_exercises = training_exercises.stats_by_period(@start_period, @end_period)
+    training_exercises = training_exercises.stats_by_period(@start_period, @end_period).order(:date)
     filtered_weights = filter_weights(training_exercises.includes(:training_diary_exercises))
     stats = {
         dates: training_exercises.pluck(:date).map { |date| Date.parse(date.to_s).to_formatted_s(:iso8601) },

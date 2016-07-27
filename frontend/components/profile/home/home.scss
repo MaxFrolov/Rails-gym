@@ -1,11 +1,36 @@
-.exercises-stats-select {
-  margin-bottom: 20px;
-}
+.stats-content-wrapper {
 
-.select-date-range {
+  .exercises-stats-select {
+    margin-bottom: 20px;
+  }
 
-  span.select-date-line {
-    margin-left: 20px;
-    margin-right: 10px;
+  .select-date-range {
+    text-align: right;
+
+    @media (max-width: 1199px) {
+      text-align: left;
+    }
+
+    .inline-wrapper {
+      display: inline-block;
+      text-align: left;
+    }
+
+    span.select-date-line {
+      margin-left: 20px;
+      margin-right: 10px;
+    }
+  }
+
+  .panel-title-wrapper {
+    padding-top: 15px;
+  }
+
+  .refresh-chart-wrapper {
+    text-align: right;
+
+    @media (max-width: 1199px) {
+      text-align: left;
+    }
   }
 }
