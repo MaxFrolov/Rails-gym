@@ -7,15 +7,13 @@
 .content.stats-content-wrapper
   .container-fluid
     .row ng-if="lineData && labels"
-      .col-sm-12
-        .panel.panel-flat
+      .line-chart-wrapper
+        .panel.panel-flat.relative
           .panel-heading
             .container-fluid
               .row
-                .col-sm-12.col-lg-6.panel-title-wrapper
+                .col-sm-12.panel-title-wrapper
                   h6.panel-title Весовая статисика по упражнениям за временной период:
-                .col-sm-12.col-lg-6.refresh-chart-wrapper
-                  md-button.md-raised.md-primary.md-button ng-click="refreshChart(startDate, endDate)" обновить график
           .panel-body
             .exercises-stats-select
               .container-fluid
@@ -35,9 +33,10 @@
                       md-datepicker ng-model="startDate" md-placeholder="начальная дата"
                       span.select-date-line —
                       md-datepicker ng-model="endDate" md-placeholder="конечная дата"
+                    md-button.md-raised.md-primary.md-button.refresh-chart ng-click="refreshChart(startDate, endDate)" обновить график
             .profile-charts
               canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
-      .col-sm-4
+      .pie-chart-wrapper
         .panel.panel-flat
           .panel-heading
             h6.panel-title Выполнено упражнений:

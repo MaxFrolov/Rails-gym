@@ -12,11 +12,14 @@
           .panel-heading
             h6.panel-title Изменение персональных данных:
           .panel-body
-            form.form-horizontal name="personalDetailsForm" ng-submit="onSubmit()" novalidate="novalidate"
-              horizontal-form obj="personalDetails" fields="fields" errors="errors" width="9"
+            .container-fluid
               .row
-                .col-sm-offset-3.col-sm-9
-                  button.btn.btn-primary.btn-lg.auth__submit type="submit" Сохранить
+                .col-sm-10.col-sm-offset-1
+                  form.form-horizontal name="personalDetailsForm" ng-submit="onSubmit()" novalidate="novalidate"
+                    horizontal-form obj="personalDetails" fields="fields" errors="errors" width="9"
+                    .row
+                      .col-sm-offset-3.col-sm-9
+                        button.btn.btn-primary.btn-lg.auth__submit type="submit" Сохранить
 
       .col-sm-4
         .panel.panel-flat

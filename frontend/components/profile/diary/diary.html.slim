@@ -7,7 +7,7 @@
 .content
   .container-fluid
     .row
-      .col-sm-6.col-sm-offset-3
+      .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12
         .panel.relative
           .panel-body
             h4.text-center Выберите дату для записи данных
@@ -24,7 +24,7 @@
                 span.diary-calendar-date {{date.getDate()}}
                 span.fa.fa-tags.diary-calendar-record ng-if="diaryDate(date)" ng-click="showRecords(date)"
             md-button.md-raised.md-primary.md-button.add-record-button ng-if="dateSelected" ng-click="openModal()" + Записать данные
-      .col-sm-6.col-sm-offset-3 ng-if="clickedDateRecords.length"
+      .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12 ng-if="clickedDateRecords.length"
         .panel
           .panel-body
             table.table.training-diary-table
