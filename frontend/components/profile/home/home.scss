@@ -1,3 +1,89 @@
-.exercises-stats-select {
-  margin-bottom: 20px;
+.stats-content-wrapper {
+
+  .exercises-stats-select {
+    margin-bottom: 20px;
+  }
+
+  .select-date-range {
+    text-align: right;
+
+    @media (max-width: 1199px) {
+      text-align: left;
+    }
+
+    .inline-wrapper {
+      display: inline-block;
+      text-align: left;
+    }
+
+    span.select-date-line {
+      margin-left: 20px;
+      margin-right: 10px;
+    }
+  }
+
+  .line-chart-wrapper, .pie-chart-wrapper {
+    float: left;
+    margin-bottom: 15px;
+
+    >.panel {
+      margin: 0 10px;
+    }
+  }
 }
+
+@media (min-width: 1340px) {
+  .line-chart-wrapper {
+    width: 80%;
+  }
+
+  .pie-chart-wrapper {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .line-chart-wrapper {
+    width: 70%;
+  }
+
+  .pie-chart-wrapper {
+    width: 30%;
+  }
+}
+
+@media (max-width: 1339px) {
+  .line-chart-wrapper {
+    width: 100%;
+  }
+
+  .pie-chart-wrapper {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .select-date-range {
+    position: static;
+  }
+
+  .refresh-chart {
+    float: none;
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .refresh-chart {
+    float: right;
+  }
+}
+
+@media (max-width: 1000px) {
+  .refresh-chart {
+    float: none;
+  }
+}
+

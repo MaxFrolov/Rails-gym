@@ -19,5 +19,8 @@ angular.module('app', [
   'ui-notification',
   'chart.js',
   'smoothScroll',
-  'ui.bootstrap.tabs'
+  'ui.bootstrap.tabs',
+  'ngMaterial',
+  'ngAnimate',
+  'ngAria'
 ]);

@@ -1,6 +1,10 @@
 @import "assets/styles/vars";
 @import "assets/styles/fonts";
 
+* {
+  outline: none;
+}
+
 .input-group-addon {
   border-radius: 0;
   border-color: $form-border-color;
@@ -57,4 +61,43 @@
 
 .centered-block {
   margin: 0 auto;
+}
+
+.ui-select-container.ui-select-bootstrap {
+  outline: none;
+
+  .ui-select-match {
+    outline: none;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
 }

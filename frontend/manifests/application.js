@@ -22,6 +22,8 @@
  *= require Chart.js
  *= require angular-chartjs
  *= require ngSmoothScroll
+ *= require angular-material
+ *= require ngAnimate-animate
  *= require ../module
  *= require_tree ../
  */
