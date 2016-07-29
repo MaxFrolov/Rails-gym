@@ -30,9 +30,10 @@
                   .col-md-12.col-sm-12.col-xs-12.col-lg-8.select-date-range
                     .inline-wrapper
                       span Выберите период:
-                      md-datepicker ng-model="startDate" md-placeholder="начальная дата"
-                      span.select-date-line —
-                      md-datepicker ng-model="endDate" md-placeholder="конечная дата"
+                      .date-pickers-wrapper
+                        md-datepicker ng-model="startDate" md-placeholder="начальная дата"
+                        span.select-date-line —
+                        md-datepicker ng-model="endDate" md-placeholder="конечная дата"
                     md-button.md-raised.md-primary.md-button.refresh-chart ng-click="refreshChart(startDate, endDate)" обновить график
             .profile-charts
               canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"

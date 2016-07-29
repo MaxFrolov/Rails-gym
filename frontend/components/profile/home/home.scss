@@ -87,3 +87,32 @@
   }
 }
 
+@media (min-width: 615px) {
+  .date-pickers-wrapper {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 614px) {
+  .date-pickers-wrapper {
+    display: block;
+  }
+}
+
+@media (max-width: 489px) {
+  .stats-content-wrapper .select-date-range .inline-wrapper {
+    display: block;
+  }
+
+  .select-date-line {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .pie-chart-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+}
+

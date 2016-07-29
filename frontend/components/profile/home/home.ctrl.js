@@ -30,7 +30,6 @@ angular.module('app').controller('ProfileHomeCtrl', function($scope, $http, Noti
 		fetchStats(startDate, endDate)
 	}
 
-
 	function fetchStats(startDate, endDate) {
 		var params = {
 			start_period: moment(startDate || $scope.startDate).format('YYYY-MM-DD'),

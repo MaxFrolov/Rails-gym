@@ -1,7 +1,17 @@
 .navbar.navbar-inverse
   .navbar-header
+    button.navbar-toggle.collapsed aria-expanded="false" type="button" ng-click="toggleMobileSidebar()"
+      span.sr-only Toggle sidebar
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    button.navbar-toggle.collapsed aria-expanded="false" type="button" ng-click="toggleMobileNavbar()"
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
     a.navbar-brand ui-sref="main" GYM
-  .navbar-collapse.collapse
+  .navbar-collapse.collapse ng-class="{'in': navbarMobile}"
     ul.nav.navbar-nav
       li
         a.sidebar-control.sidebar-main-toggle.hidden-xs ng-click="toggleSidebar()"

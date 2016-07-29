@@ -30,6 +30,10 @@
     align-self: flex-start;
     display: flex;
     justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
   }
 
   .radio-inline, .checkbox-inline, .form-group__label {

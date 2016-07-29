@@ -1,8 +1,9 @@
-ng-include src="'components/profile/navbar/navbar.html'"
-.profile-page
-  .page-container
-    .page-content
-      .sidebar.sidebar-main ng-class="{'sidebar-xs': sidebarXs}"
-        ng-include src="'components/profile/sidebar/sidebar.html'"
-      .content-wrapper
-        ui-view.app__content
+.profile-page-wrapper ng-class="{'sidebar-mobile': sidebarMobile}"
+  ng-include src="'components/profile/navbar/navbar.html'"
+  .profile-page
+    .page-container
+      .page-content
+        .sidebar.sidebar-main ng-class="{'sidebar-xs': sidebarXs}"
+          ng-include src="'components/profile/sidebar/sidebar.html'"
+        .content-wrapper
+          ui-view.app__content

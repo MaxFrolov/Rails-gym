@@ -68,7 +68,6 @@
   }
 }
 
-
 .page-container {
   width: 100%;
   display: table;
@@ -77,15 +76,6 @@
 
   .page-content {
     display: table-row;
-  }
-
-  .sidebar {
-    display: table-cell;
-    vertical-align: top;
-    width: 220px;
-    background-color: #263238;
-    color: #fff;
-    position: relative;
   }
 
   .sidebar-content {
@@ -132,11 +122,6 @@
         margin-top: 1px;
       }
     }
-  }
-
-  .content-wrapper {
-    display: table-cell;
-    vertical-align: top;
   }
 
   .page-header {
@@ -210,6 +195,43 @@
 
   .text-size-mini {
     font-size: 11px;
+  }
+}
+
+.content-wrapper {
+  width: 100%;
+}
+
+.sidebar {
+  width: 100%;
+  background-color: #263238;
+  color: #fff;
+  position: relative;
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    display: table-cell;
+    vertical-align: top;
+    width: 220px;
+    background-color: #263238;
+  }
+
+  .content-wrapper {
+    display: table-cell;
+    vertical-align: top;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-main {
+    display: none;
+  }
+
+  .sidebar-mobile {
+    .sidebar-main {
+      display: block;
+    }
   }
 }
 
@@ -334,6 +356,10 @@
   float: left;
   font-family: 'Play', sans-serif;
   padding: 2px;
+
+  @media (max-width: 768px) {
+    height: 60px;
+  }
 
   .calendar-elements-content {
     border: 1px solid #ececec;

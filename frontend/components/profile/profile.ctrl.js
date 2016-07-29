@@ -1,9 +1,31 @@
 angular.module('app').controller('ProfileCtrl', function($scope) {
   $scope.sidebarXs = false
+  $scope.sidebarMobile = false
+  $scope.navbarMobile = false
   $scope.toggleSidebar = toggleSidebar
+  $scope.toggleMobileSidebar = toggleMobileSidebar
+  $scope.toggleMobileNavbar = toggleMobileNavbar
+
+  $scope.$on('create', function (event, chart) {
+    if (chart.id === 'chart-0')
+      $scope.chart = chart
+  });
+
+  function toggleMobileNavbar() {
+    $scope.navbarMobile = !$scope.navbarMobile
+  }
+
+  function toggleMobileSidebar() {
+    $scope.sidebarMobile = !$scope.sidebarMobile
+  }
 
   function toggleSidebar() {
     $scope.sidebarXs = !$scope.sidebarXs
+    setTimeout(function() {
+      $scope.chart.resize()
+      $scope.chart.reflow()
+      $scope.chart.render()
+    }, 100)
   }
 
   $scope.planFields = [
