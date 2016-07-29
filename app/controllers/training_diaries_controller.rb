@@ -7,6 +7,7 @@ class TrainingDiariesController < ApiController
   end
 
   def create
+    @training_diary.list_of_exercise_id = params[:list_of_exercise_id]
     @training_diary.save
     render_resource_or_errors(@training_diary)
   end

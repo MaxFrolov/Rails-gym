@@ -1,10 +1,10 @@
 class CreateTrainingDiaries < ActiveRecord::Migration
   def change
     create_table :training_diaries do |t|
-      t.integer :exercise
       t.integer :sets
       t.timestamp :date
-      t.references :user
+      t.references :user, index: true
+      t.references :list_of_exercise, index: true
       t.timestamps null: false
     end
   end

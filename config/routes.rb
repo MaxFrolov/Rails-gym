@@ -18,7 +18,10 @@ Rails.application.routes.draw do
       resource :foods, only: [:create, :update, :destroy]
       resource :events, only: [:create, :update, :destroy]
       resource :products, only: [:create, :update, :destroy]
-      resources :training_diaries, only: [:index, :create, :update, :destroy] do
+      resources :list_of_exercises, only: [] do
+        resource :training_diaries, only: [:create]
+      end
+      resources :training_diaries, only: [:index, :update, :destroy] do
         get '/diary_stats', to: 'training_diaries#diary_stats', on: :collection
       end
       scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
@@ -48,6 +51,7 @@ Rails.application.routes.draw do
 
     resources :plans, only: :create
     resources :galleries, only: [:index, :show]
+    resources :list_of_exercises, only: [:index]
 
     scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
       resources :comments, only: :index

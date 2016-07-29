@@ -1,5 +1,6 @@
 class TrainingDiary < ActiveRecord::Base
   belongs_to :user
+  belongs_to :list_of_exercise
   has_many :training_diary_exercises
 
   scope :stats_by_period, -> (start_time, end_time) do
@@ -8,5 +9,4 @@ class TrainingDiary < ActiveRecord::Base
 
   accepts_nested_attributes_for :training_diary_exercises, allow_destroy: true
 
-  enum exercise: { bench_press: 0, bench_press_on_an_incline_bench: 1 }
 end

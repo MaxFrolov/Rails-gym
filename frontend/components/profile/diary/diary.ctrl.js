@@ -10,10 +10,6 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 	$scope.quantityDays = quantityDays();
 	$scope.selectDate = selectDate;
 	$scope.currentDate = new Date;
-	$scope.exercisesTypes = {
-		bench_press: 'Жим лежа',
-		bench_press_on_an_incline_bench: 'Жим на наклонной скамье'
-	}
 
 	$scope.diaries = Restangular.one('users', $scope.currentUser.id).all('training_diaries').getList().$object;
 

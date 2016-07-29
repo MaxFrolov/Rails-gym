@@ -7,8 +7,8 @@ angular.module('app').controller('ProfileCtrl', function($scope) {
   $scope.toggleMobileNavbar = toggleMobileNavbar
 
   $scope.$on('create', function (event, chart) {
-    if (chart.id === 'chart-0')
-      $scope.chart = chart
+    if (chart.id === 'chart-0') $scope.lineChartInstance = chart
+    if (chart.id === 'chart-1') $scope.PieChartInstance = chart
   });
 
   function toggleMobileNavbar() {
@@ -20,11 +20,14 @@ angular.module('app').controller('ProfileCtrl', function($scope) {
   }
 
   function toggleSidebar() {
+    var charts = ['lineChartInstance', 'PieChartInstance']
     $scope.sidebarXs = !$scope.sidebarXs
     setTimeout(function() {
-      $scope.chart.resize()
-      $scope.chart.reflow()
-      $scope.chart.render()
+      charts.map(function (chart) {
+        $scope[chart].resize()
+        $scope[chart].reflow()
+        $scope[chart].render()
+      })
     }, 100)
   }
 

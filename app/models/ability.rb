@@ -29,5 +29,6 @@ class Ability
     can [:index, :show, :create, :update], Order
     can [:index, :show, :create, :update], OrderItem
     can [:index, :show], Exercise
+    can [:index], ListOfExercise
   end
 end

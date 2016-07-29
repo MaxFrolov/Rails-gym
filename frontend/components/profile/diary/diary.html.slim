@@ -37,7 +37,7 @@
                     th.text-center Вес
                 tbody
                   tr ng-repeat="clickedDateRecord in clickedDateRecords"
-                    td {{exercisesTypes[clickedDateRecord.exercise]}}
+                    td {{clickedDateRecord.exercise}}
                     td.text-center {{clickedDateRecord.sets}}
                     td
                       table.centered-block

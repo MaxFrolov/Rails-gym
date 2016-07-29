@@ -42,7 +42,21 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model Order do
+    navigation_label 'Магазин'
+  end
+
+  config.model OrderItem do
+    navigation_label 'Магазин'
+  end
+
+  config.model Product do
+    navigation_label 'Магазин'
+  end
+
   config.model Post do
+    navigation_label 'Блог'
+
     include_fields :id, :image, :type, :title, :subtitle, :description,
                    :post_category, :tag_list, :post_category
 
@@ -127,6 +141,8 @@ RailsAdmin.config do |config|
 
   config.model Gallery do
     include_fields :id, :photo, :description, :created_at
+    label 'Галлерея'
+    label_plural 'Галлерея'
 
     group :photo do
       label 'Image options'
@@ -137,6 +153,9 @@ RailsAdmin.config do |config|
   end
 
   config.model Food do
+    label 'Питание'
+    label_plural 'Питание'
+
     include_fields :id, :image, :title, :subtitle, :description,
                    :category, :tag_list
 
