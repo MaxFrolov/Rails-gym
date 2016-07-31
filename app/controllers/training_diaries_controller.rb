@@ -23,7 +23,7 @@ class TrainingDiariesController < ApiController
   end
 
   def diary_stats
-    training_exercises = @training_diaries.ransack(exercise_eq: params[:exercise] || 0).result
+    training_exercises = @training_diaries.ransack(list_of_exercise_id_eq: params[:exercise]).result
     training_exercises = training_exercises.stats_by_period(@start_period, @end_period).order(:date)
     filtered_weights = filter_weights(training_exercises.includes(:training_diary_exercises))
     stats = {
@@ -49,15 +49,15 @@ class TrainingDiariesController < ApiController
   end
 
   def exercises_names(exercises_items)
-    exercises = []
-    exercises_items.exercises.each_key { |exercise| exercises << exercise }
-    exercises
+    @exercises = []
+    exercises_items.each { |exercise| @exercises << exercise.list_of_exercise.title }
+    @exercises.uniq
   end
 
   def exercises_count(exercises_items)
     exercises_counts = []
     items = exercises_items.to_a
-    exercises_items.exercises.each_key { |exercise| exercises_counts << items.select { |i| i.exercise == exercise}.length }
+    @exercises.map { |exercise| exercises_counts << items.select { |i| i.list_of_exercise.title == exercise}.length }
     exercises_counts
   end
 

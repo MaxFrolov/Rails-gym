@@ -19,7 +19,6 @@ angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangula
 	$scope.exerciseListField = {
 		name: 'exercise',
 		label: 'Упражнение',
-		type: 'select',
 		onChange: function(item, model) {
 			$scope.exerciseSelect = model
 		}
