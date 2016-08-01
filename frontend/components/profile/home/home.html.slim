@@ -37,8 +37,8 @@
                         md-datepicker ng-model="endDate" md-placeholder="конечная дата"
                     md-button.md-raised.md-primary.md-button.refresh-chart ng-click="refreshChart(startDate, endDate)" обновить график
             .profile-charts
-              canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
-      .pie-chart-wrapper
+              canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="{{seriesShow}}" chart-series="series"
+      .pie-chart-wrapper ng-if="pieData.length"
         .panel.panel-flat
           .panel-heading
             h6.panel-title Выполнено упражнений:

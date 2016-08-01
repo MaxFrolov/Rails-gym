@@ -1,7 +1,8 @@
 angular.module('app').controller('ProfileHomeCtrl', function($scope, $http, Notification, Restangular) {
 	$scope.refreshChart = refreshChart;
 	$scope.exerciseSelect = '';
-	$scope.startDate = new Date(moment().subtract(1, 'month'));
+	$scope.seriesShow = false
+	$scope.startDate = new Date(moment().subtract(6, 'days'));
 	$scope.endDate = new Date(moment());
 	$scope.exerciseList = []
 	$scope.exercises_categories = {
@@ -15,6 +16,8 @@ angular.module('app').controller('ProfileHomeCtrl', function($scope, $http, Noti
 		label: 'Выберите упражнение',
 		onChange: function (item, model) {
 			$scope.exerciseSelect = model;
+			$scope.series = [item.title];
+			$scope.seriesShow = true
 		}
 	};
 

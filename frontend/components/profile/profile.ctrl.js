@@ -73,7 +73,5 @@ angular.module('app').controller('ProfileCtrl', function($scope) {
     return currentUser;
   }
 
-  $scope.series = ['Жим лежа'];
   $scope.isopen = false;
-
 });

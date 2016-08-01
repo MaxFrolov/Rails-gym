@@ -26,9 +26,11 @@ class TrainingDiariesController < ApiController
     training_exercises = @training_diaries.ransack(list_of_exercise_id_eq: params[:exercise]).result
     training_exercises = training_exercises.stats_by_period(@start_period, @end_period).order(:date)
     filtered_weights = filter_weights(training_exercises.includes(:training_diary_exercises))
+    filtered_dates = training_exercises.pluck(:date).map { |date| Date.parse(date.to_s).to_formatted_s(:iso8601) }
+
     stats = {
-        dates: training_exercises.pluck(:date).map { |date| Date.parse(date.to_s).to_formatted_s(:iso8601) },
-        weights: Array.new(1, filtered_weights),
+        dates: filtered_dates.empty? ? last_week_dates : filtered_dates,
+        weights: Array.new(1, filtered_weights.empty? ? Array.new(last_week_dates.length, 0) : filtered_weights),
         max_weight: filtered_weights.max,
         exercises_categories: exercises_names(@training_diaries),
         exercises_count: exercises_count(@training_diaries)
@@ -41,6 +43,10 @@ class TrainingDiariesController < ApiController
   end
 
   private
+
+  def last_week_dates
+    (@start_period.to_datetime..@end_period.to_datetime).map{ |date| Date.parse(date.to_s).to_formatted_s(:iso8601) }
+  end
 
   def filter_weights(diaries)
     diaries.map do |diary|
