@@ -349,13 +349,27 @@
   }
 }
 
-.calendar-elements {
+.calendar-days, .calendar-elements {
   width: 14.285%;
-  height: 50px;
   background: white;
   float: left;
   font-family: 'Play', sans-serif;
   padding: 2px;
+}
+
+.calendar-days {
+  height: 25px;
+  text-align: center;
+
+  .calendar-days-content {
+    border: 1px solid #ececec;
+    height: 100%;
+    background: rgba(38, 50, 56, 0.04);
+  }
+}
+
+.calendar-elements {
+  height: 50px;
 
   @media (max-width: 768px) {
     height: 60px;

@@ -49,7 +49,6 @@ RailsAdmin.config do |config|
 
   config.model UsersTraining do
     navigation_label 'Расписание тренировок'
-    object_label_method :label_for_admin
 
     list do
       exclude_fields :created_at, :updated_at, :id

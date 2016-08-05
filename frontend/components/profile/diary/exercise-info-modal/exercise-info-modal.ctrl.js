@@ -33,7 +33,6 @@ angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangula
 	}
 
 	function ok() {
-		console.log($scope.exerciseSelect)
 		$scope.exerciseInfo.training_diary_exercises_attributes = $scope.setsInfo;
 		$scope.exerciseInfo.date = date;
 		Restangular.one('users', userId).one('list_of_exercises', $scope.exerciseSelect).all('training_diaries').customPOST($scope.exerciseInfo).then(function (response) {

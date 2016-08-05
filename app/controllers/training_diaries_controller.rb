@@ -29,8 +29,8 @@ class TrainingDiariesController < ApiController
     filtered_dates = training_exercises.pluck(:date).map { |date| Date.parse(date.to_s).to_formatted_s(:iso8601) }
 
     stats = {
-        dates: filtered_dates.empty? ? last_week_dates : filtered_dates,
-        weights: Array.new(1, filtered_weights.empty? ? Array.new(last_week_dates.length, 0) : filtered_weights),
+        dates: params[:exercise].blank? || filtered_dates.empty? ? last_week_dates : filtered_dates,
+        weights: Array.new(1, params[:exercise].blank? || filtered_weights.empty? ? Array.new(last_week_dates.length, 0) : filtered_weights),
         max_weight: filtered_weights.max,
         exercises_categories: exercises_names(@training_diaries),
         exercises_count: exercises_count(@training_diaries)

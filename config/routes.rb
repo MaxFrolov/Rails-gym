@@ -28,8 +28,8 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :update, :destroy]
       end
       resources :likes, only: [:index, :create, :destroy]
+      resources :users_trainings, only: [:index]
     end
-
 
     resources :posts, only: [:index, :show] do
       get '/recommended_posts', to: 'posts#recommended_posts', on: :collection
