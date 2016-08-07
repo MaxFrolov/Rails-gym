@@ -309,13 +309,17 @@
 
   .profile-calendar__body {
     min-height: 200px;
-    display: flex;
     align-items: center;
+
+    >div:not(:last-child) {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
 
     h2 {
       color: #fff;
       margin: 0;
       width: 100%;
+      font-size: 14px;
     }
   }
 

@@ -40,15 +40,18 @@
                 span Вс
             .clearfix
             .calendar-elements ng-repeat="date in daysInMonth track by $index"
+              .calendar-elements-content ng-if="date === ''"
               .calendar-elements-content(ng-class="{'current-date': date.toDateString() === currentDate.toDateString(), 'active-date': date.toDateString() === dateSelected.toDateString()}"
-              ng-click="selectDate(date)")
+              ng-click="selectDate(date)" ng-if="date !== ''")
                 span.diary-calendar-date {{date.getDate()}}
                 span.fa.fa-tags.diary-calendar-record ng-if="trainingDate(date)" ng-click="showRecords(date)"
+            .clearfix
+            .text-center ng-if="showAllExercises"
+              md-button.md-raised.md-primary.md-button ng-click="selectWeek(dateSelected)" все упражнения на эту неделю
       .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12 ng-if="clickedDateRecords"
         .panel
           .panel-heading
             h4 Тренировка на: {{vewDate}}
-            button.btn.btn-primary ng-click="selectWeek(dateSelected)" press button
           .panel-body
             .table-responsive
               table.table.training-diary-table
@@ -78,7 +81,7 @@
                         tbody
                           tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
                             td {{exercise_set.weight}} кг.
-      .col-sm-12
+      .col-sm-12 ng-if="weekDaysRecords"
         .panel.panel-flat
           .panel-body.training-process-wrapper
             .calendar-block
@@ -86,12 +89,13 @@
                 .row.calendar-block__wrapper
                   .profile-calendar__develop.calendar-plan__develop
                     .calendar-flex-wrap
-                      h5 Разработка плана
                       h3 Тренировочный процесс на эту неделю
-                      a.training-calendar Календарь тренировок
-                  a.profile-calendar__plan.calendar-plan ui-sref="app.inner-layout.workouts" ng-repeat="field in planFields"
-                    h4 {{field.day}}
-                    .profile-calendar__body
-                      h2 {{field.body}}
+                  a.profile-calendar__plan.calendar-plan ui-sref="app.inner-layout.workouts" ng-repeat="record in weekDaysRecords"
+                    h4 {{record.day}}
+                    .profile-calendar__body  ng-if="record.record"
+                      div ng-repeat="exercise in record.record.user_training_exercises"
+                        h2 {{exercise.exercise}}
+                    .profile-calendar__body ng-if="!record.record"
+                      h2 Отдых
                     .calendar-details
                       span узнать больше...

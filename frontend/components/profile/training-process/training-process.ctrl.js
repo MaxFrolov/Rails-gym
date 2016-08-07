@@ -1,5 +1,6 @@
 angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restangular) {
 	$scope.daysInMonth = [];
+	$scope.showAllExercises = false;
 	$scope.monthDate = moment().startOf('month');
 	$scope.incrementDate = incrementDate;
 	$scope.decrementDate = decrementDate;
@@ -13,7 +14,7 @@ angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restang
 	$scope.trainings = Restangular.one('users', $scope.currentUser.id).all('users_trainings').getList().$object
 
 	function trainingDate(date) {
-		const clearedDate = moment(date).format('YYYY-MM-DD')
+		const clearedDate = moment(date).format('YYYY-MM-DD');
 		if ($scope.trainings) return _.some($scope.trainings, {date: new Date(clearedDate).toISOString()})
 	}
 
@@ -29,9 +30,9 @@ angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restang
 		}
 
 		var firstDate = _.head($scope.daysInMonth),
-			weekDay = moment(firstDate).day()
+			weekDay = moment(firstDate).day() - 1;
 		for (var i = 0; i < weekDay; i++) {
-			$scope.daysInMonth.push()
+			$scope.daysInMonth.unshift('')
 		}
 
 		return $scope.daysInMonth;
@@ -48,19 +49,27 @@ angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restang
 	}
 
 	function showRecords(date) {
-		$scope.vewDate = moment(date).format('MM-DD-YYYY')
-		const clearedDate = moment(date).format('YYYY-MM-DD')
+		$scope.vewDate = moment(date).format('MM-DD-YYYY');
+		var clearedDate = moment(date).format('YYYY-MM-DD');
 		$scope.clickedDateRecords = _.find($scope.trainings, {date: new Date(clearedDate).toISOString()});
 	}
 
 	function selectDate(date) {
 		$scope.dateSelected = date;
+		$scope.showAllExercises = true;
 	}
 
 	function selectWeek (date) {
-		var currentPlaceInWeek = moment(date).day(),
+		var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+		 currentPlaceInWeek = moment(date).day(),
 		 indexCurrentDate = $scope.daysInMonth.indexOf(date),
-		 beginOfTheWeek = indexCurrentDate - currentPlaceInWeek + 1
-		$scope.weekDays = $scope.daysInMonth.slice(beginOfTheWeek, beginOfTheWeek + 7)
+		 beginOfTheWeek = indexCurrentDate - currentPlaceInWeek + 1,
+		 weekDays = $scope.daysInMonth.slice(beginOfTheWeek, beginOfTheWeek + 7)
+		$scope.weekDaysRecords = weekDays.map(function(item, index) {
+			var clearedDate = moment(item).format('YYYY-MM-DD'),
+				currentDayRecord =	_.find($scope.trainings, {date: new Date(clearedDate).toISOString()});
+			return {date: item, day: days[index], record: currentDayRecord }
+		})
+		console.log($scope.weekDaysRecords)
 	}
 })
