@@ -50,4 +50,13 @@ angular.module('app').controller('ProfileHomeCtrl', function($scope, $http, Noti
 				$scope.pieLabels = response.data.exercises_categories
 			});
 	}
+
+	$scope.options = {
+		scales: {
+			xAxes: [{
+				type: 'linear',
+				position: 'bottom'
+			}]
+		}
+	};
 });

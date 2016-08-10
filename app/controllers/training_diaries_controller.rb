@@ -3,7 +3,7 @@ class TrainingDiariesController < ApiController
   before_action :set_period_boundaries, only: :diary_stats
 
   def index
-    render_resources @training_diaries.includes(:training_diary_exercises)
+    render_resources @training_diaries.includes(:training_diary_exercises, :list_of_exercise)
   end
 
   def create
@@ -23,6 +23,7 @@ class TrainingDiariesController < ApiController
   end
 
   def diary_stats
+    @training_diaries = @training_diaries.includes(:list_of_exercise)
     training_exercises = @training_diaries.ransack(list_of_exercise_id_eq: params[:exercise]).result
     training_exercises = training_exercises.stats_by_period(@start_period, @end_period).order(:date)
     filtered_weights = filter_weights(training_exercises.includes(:training_diary_exercises))
@@ -39,7 +40,7 @@ class TrainingDiariesController < ApiController
   end
 
   def training_diary_params
-    params.require(:resource).permit(:exercise, :sets, :date, training_diary_exercises_attributes: [:repetition, :weight])
+    params.require(:resource).permit(:exercise, :sets, :date, training_diary_exercises_attributes: [:repetition, :weight, :time])
   end
 
   private
@@ -50,7 +51,13 @@ class TrainingDiariesController < ApiController
 
   def filter_weights(diaries)
     diaries.map do |diary|
-      diary.training_diary_exercises.map(&:weight).max
+      if diary.list_of_exercise.time?
+        diary.training_diary_exercises.map(&:time).max
+      elsif diary.list_of_exercise.weight?
+        diary.training_diary_exercises.map(&:weight).max
+      else
+        diary.training_diary_exercises.map(&:repetition).max
+      end
     end
   end
 
@@ -63,7 +70,7 @@ class TrainingDiariesController < ApiController
   def exercises_count(exercises_items)
     exercises_counts = []
     items = exercises_items.to_a
-    @exercises.map { |exercise| exercises_counts << items.select { |i| i.list_of_exercise.title == exercise}.length }
+    @exercises.uniq.map { |exercise| exercises_counts << items.select { |i| i.list_of_exercise.title == exercise }.length }
     exercises_counts
   end
 

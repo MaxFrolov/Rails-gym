@@ -21,6 +21,7 @@ angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangula
 		label: 'Упражнение',
 		onChange: function(item, model) {
 			$scope.exerciseSelect = model
+			$scope.exerciseMeasuring = item.measuring
 		}
 	}
 

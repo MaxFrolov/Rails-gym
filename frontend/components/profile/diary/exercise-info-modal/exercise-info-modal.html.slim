@@ -22,8 +22,10 @@ ng-include src='"components/app/modals/modal-header.html"'
         div ng-repeat="setInfo in setsInfo"
           .form-group
             label.control-label.col-sm-4 {{$index + 1}} подход:
-            .col-sm-5
+            .col-sm-5 ng-if="exerciseMeasuring !== 'time'"
               input.form-control type="number" placeholder="Кол. повторений" ng-model="setsInfo[$index].repetition"
-            .col-sm-3
+            .col-sm-3 ng-if="exerciseMeasuring === 'weight'"
               input.form-control type="number" placeholder="Вес, кг." ng-model="setsInfo[$index].weight"
+            .col-sm-5 ng-if="exerciseMeasuring === 'time'"
+              input.form-control type="number" placeholder="Время, мин." ng-model="setsInfo[$index].time"
 ng-include src='"components/app/modals/modal-footer.html"'

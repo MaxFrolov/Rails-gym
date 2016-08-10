@@ -35,6 +35,7 @@
                     th.text-center Подходы
                     th.text-center Повторения
                     th.text-center Вес
+                    th.text-center Время
                 tbody
                   tr ng-repeat="clickedDateRecord in clickedDateRecords"
                     td {{clickedDateRecord.exercise}}
@@ -43,9 +44,16 @@
                       table.centered-block
                         tbody.text-center
                           tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
-                            td {{diary_exercise.repetition}}
+                            td {{diary_exercise.repetition || '-'}}
                     td
                       table.centered-block
                         tbody
                           tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
-                            td {{diary_exercise.weight}} кг.
+                            td ng-if="diary_exercise.weight" {{diary_exercise.weight}} кг.
+                            td ng-if="!diary_exercise.weight" -
+                    td
+                      table.centered-block
+                        tbody
+                          tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
+                            td ng-if="diary_exercise.time" {{diary_exercise.time}} мин.
+                            td ng-if="!diary_exercise.time" -

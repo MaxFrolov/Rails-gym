@@ -9,7 +9,10 @@ angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restang
 	$scope.quantityDays = quantityDays();
 	$scope.selectDate = selectDate;
 	$scope.selectWeek = selectWeek;
+	$scope.closeWeekTrainings = closeWeekTrainings;
+	$scope.closeDayTrainings = closeDayTrainings;
 	$scope.currentDate = new Date;
+	$scope.days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
 	$scope.trainings = Restangular.one('users', $scope.currentUser.id).all('users_trainings').getList().$object
 
@@ -50,6 +53,7 @@ angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restang
 
 	function showRecords(date) {
 		$scope.vewDate = moment(date).format('MM-DD-YYYY');
+		$scope.selectedDayName = $scope.days[moment(date).day() - 1]
 		var clearedDate = moment(date).format('YYYY-MM-DD');
 		$scope.clickedDateRecords = _.find($scope.trainings, {date: new Date(clearedDate).toISOString()});
 	}
@@ -59,17 +63,23 @@ angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restang
 		$scope.showAllExercises = true;
 	}
 
-	function selectWeek (date) {
-		var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-		 currentPlaceInWeek = moment(date).day(),
+	function selectWeek(date) {
+		var currentPlaceInWeek = moment(date).day(),
 		 indexCurrentDate = $scope.daysInMonth.indexOf(date),
 		 beginOfTheWeek = indexCurrentDate - currentPlaceInWeek + 1,
 		 weekDays = $scope.daysInMonth.slice(beginOfTheWeek, beginOfTheWeek + 7)
 		$scope.weekDaysRecords = weekDays.map(function(item, index) {
 			var clearedDate = moment(item).format('YYYY-MM-DD'),
 				currentDayRecord =	_.find($scope.trainings, {date: new Date(clearedDate).toISOString()});
-			return {date: item, day: days[index], record: currentDayRecord }
+			return {date: item, day: $scope.days[index], record: currentDayRecord }
 		})
-		console.log($scope.weekDaysRecords)
+	}
+
+	function closeWeekTrainings() {
+		return $scope.weekDaysRecords = undefined
+	}
+
+	function closeDayTrainings() {
+		return $scope.clickedDateRecords = undefined
 	}
 })
