@@ -1,5 +1,14 @@
 .stats-content-wrapper {
 
+  span.y-axis-label {
+    position: absolute;
+    transform: rotate(-90deg) translateX(-50%);
+    left: -15px;
+    top: 50%;
+    font-family: 'Play', sans-serif;
+    transform-origin: top left;
+  }
+
   .exercises-stats-select {
     margin-bottom: 20px;
   }

@@ -5,10 +5,7 @@ angular.module('app').controller('ProfileHomeCtrl', function($scope, $http, Noti
 	$scope.startDate = new Date(moment().subtract(6, 'days'));
 	$scope.endDate = new Date(moment());
 	$scope.exerciseList = []
-	$scope.exercises_categories = {
-		bench_press: 'Жим лежа',
-		bench_press_on_an_incline_bench: 'Жим на наклонной'
-	};
+
 	fetchStats();
 
 	$scope.exerciseField = {
@@ -18,6 +15,12 @@ angular.module('app').controller('ProfileHomeCtrl', function($scope, $http, Noti
 			$scope.exerciseSelect = model;
 			$scope.series = [item.title];
 			$scope.seriesShow = true
+			var yAxisLabels = {
+				time: 'Максимальное время в мин.',
+				weight: 'Максимальные веса в кг.',
+				blank: 'Количество подходов'
+			};
+			$scope.yAxisLabel = yAxisLabels[item.measuring]
 		}
 	};
 
@@ -50,13 +53,4 @@ angular.module('app').controller('ProfileHomeCtrl', function($scope, $http, Noti
 				$scope.pieLabels = response.data.exercises_categories
 			});
 	}
-
-	$scope.options = {
-		scales: {
-			xAxes: [{
-				type: 'linear',
-				position: 'bottom'
-			}]
-		}
-	};
 });
