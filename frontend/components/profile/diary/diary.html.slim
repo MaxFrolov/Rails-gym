@@ -18,12 +18,19 @@
               span.right-switch-date ng-click="incrementDate()"
                 i.fa.fa-chevron-right
             .clearfix
+              .calendar-days ng-repeat="day in days"
+                .calendar-days-content
+                  span {{day}}
+            .clearfix
             .calendar-elements ng-repeat="date in daysInMonth track by $index"
+              .calendar-elements-content ng-if="date === ''"
               .calendar-elements-content(ng-class="{'current-date': date.toDateString() === currentDate.toDateString(), 'active-date': date.toDateString() === dateSelected.toDateString()}"
-              ng-click="selectDate(date)")
+              ng-click="selectDate(date)" ng-if="date !== ''")
                 span.diary-calendar-date {{date.getDate()}}
                 span.fa.fa-tags.diary-calendar-record ng-if="diaryDate(date)" ng-click="showRecords(date)"
-            md-button.md-raised.md-primary.md-button.add-record-button ng-if="dateSelected" ng-click="openModal()" + Записать данные
+            .clearfix
+            .text-center.add-record-wrapper ng-if="dateSelected"
+              md-button.md-raised.md-primary.md-button ng-click="openModal()" + Записать данные
       .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12 ng-if="clickedDateRecords.length"
         .panel
           .panel-body
@@ -36,6 +43,7 @@
                     th.text-center Повторения
                     th.text-center Вес
                     th.text-center Время
+                    th.text-center Действия
                 tbody
                   tr ng-repeat="clickedDateRecord in clickedDateRecords"
                     td {{clickedDateRecord.exercise}}
@@ -57,3 +65,6 @@
                           tr ng-repeat="diary_exercise in clickedDateRecord.training_diary_exercises"
                             td ng-if="diary_exercise.time" {{diary_exercise.time}} мин.
                             td ng-if="!diary_exercise.time" -
+                    td.text-center.actions__wrapper
+                      i.fa.fa-pencil.text-muted> title="Редактировать"
+                      i.fa.fa-times.text-muted title="Удалить" ng-click="showConfirm($event, clickedDateRecord.id)"

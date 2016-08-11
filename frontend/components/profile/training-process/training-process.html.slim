@@ -66,6 +66,7 @@
                     th.text-center Подход
                     th.text-center Повторения
                     th.text-center Вес
+                    th.text-center Время
                 tbody
                   tr ng-repeat="clickedDateRecord in clickedDateRecords.user_training_exercises"
                     td {{clickedDateRecord.exercise}}
@@ -79,10 +80,16 @@
                       table.centered-block
                         tbody.text-center
                           tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
-                            td {{exercise_set.repetition}}
+                            td {{exercise_set.repetition || '-'}}
                     td
                       table.centered-block
                         tbody
                           tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
                             td ng-if="exercise_set.weight" {{exercise_set.weight}} кг.
-                            td ng-if="!exercise_set.weight" —
+                            td ng-if="!exercise_set.weight" -
+                    td
+                      table.centered-block
+                        tbody
+                          tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
+                            td ng-if="exercise_set.time" {{exercise_set.time}} мин.
+                            td ng-if="!exercise_set.time" -

@@ -1,7 +1,7 @@
 class TrainingDiary < ActiveRecord::Base
   belongs_to :user
   belongs_to :list_of_exercise
-  has_many :training_diary_exercises
+  has_many :training_diary_exercises, dependent: :destroy
 
   scope :stats_by_period, -> (start_time, end_time) do
     where('date >= ? AND date <= ?', start_time, end_time)

@@ -44,10 +44,21 @@
   }
 }
 
-.add-record-button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.add-record-wrapper {
+  padding-top: 5px;
+}
+
+.actions__wrapper > i {
+  opacity: 0.8;
+  cursor: pointer;
+
+  &:first-child {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 550px) {
