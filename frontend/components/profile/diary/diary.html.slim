@@ -66,5 +66,5 @@
                             td ng-if="diary_exercise.time" {{diary_exercise.time}} мин.
                             td ng-if="!diary_exercise.time" -
                     td.text-center.actions__wrapper
-                      i.fa.fa-pencil.text-muted> title="Редактировать"
+                      i.fa.fa-pencil.text-muted> title="Редактировать" ng-click="openEditModal(clickedDateRecord)"
                       i.fa.fa-times.text-muted title="Удалить" ng-click="showConfirm($event, clickedDateRecord.id)"

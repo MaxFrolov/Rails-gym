@@ -1,0 +1,31 @@
+ng-include src='"components/app/modals/modal-header.html"'
+.container
+  .row
+    .col-sm-6
+      form.form-horizontal name="exerciseInfoForm" ng-submit="ok()" novalidate="novalidate"
+        .form-group
+          label.control-label.col-sm-4 Упражнение
+          .col-sm-8
+            ui-select(ng-model="exerciseSelect" theme="bootstrap" search-enabled="true"
+              ng-required="exerciseListField.required" on-select="exerciseListField.onChange($item, $model)"
+              on-remove="exerciseListField.onChange($item, $model)")
+
+              ui-select-match allow-clear="false" placeholder="{{exerciseListField.label}}..." {{$select.selected.title}}
+              ui-select-choices.ui-select-choices-square(repeat="choice.id as choice in exerciseList track by $index" refresh="refreshExercises($select.search)"
+                refresh-delay="200")
+
+                div ng-bind-html="choice.title | highlight: $select.search"
+        .form-group
+          label.control-label.col-sm-4 Количество подходов
+          .col-sm-8
+            input.form-control type="number" placeholder="Количество подходов" ng-change="setsQuantity()" ng-model="exerciseInfo.sets"
+        div ng-repeat="setInfo in setsInfo"
+          .form-group
+            label.control-label.col-sm-4 {{$index + 1}} подход:
+            .col-sm-5 ng-if="exerciseMeasuring !== 'time'"
+              input.form-control type="number" placeholder="Кол. повторений" ng-model="setsInfo[$index].repetition"
+            .col-sm-3 ng-if="exerciseMeasuring === 'weight'"
+              input.form-control type="number" placeholder="Вес, кг." ng-model="setsInfo[$index].weight"
+            .col-sm-5 ng-if="exerciseMeasuring === 'time'"
+              input.form-control type="number" placeholder="Время, мин." ng-model="setsInfo[$index].time"
+ng-include src='"components/app/modals/modal-footer.html"'

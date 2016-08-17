@@ -40,7 +40,7 @@ class TrainingDiariesController < ApiController
   end
 
   def training_diary_params
-    params.require(:resource).permit(:exercise, :sets, :date, training_diary_exercises_attributes: [:repetition, :weight, :time])
+    params.require(:resource).permit(:exercise, :sets, :date, training_diary_exercises_attributes: [:id, :repetition, :weight, :time])
   end
 
   private

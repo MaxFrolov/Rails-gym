@@ -8,7 +8,7 @@ angular.module('app')
     NotificationProvider.setOptions({
       startTop: 20,
       startRight: 20,
-      positionX: 'left',
-      positionY: 'bottom'
+      positionX: 'right',
+      positionY: 'top'
     });
   });

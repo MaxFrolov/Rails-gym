@@ -9,6 +9,7 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 	$scope.showRecords = showRecords;
 	$scope.quantityDays = quantityDays();
 	$scope.selectDate = selectDate;
+	$scope.openEditModal = openEditModal;
 	$scope.currentDate = new Date;
 	$scope.days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
@@ -66,6 +67,32 @@ angular.module('app').controller('DiaryCtrl', function ($scope, $uibModal, Resta
 				},
 				showRecords: function () {
 					return $scope.showRecords
+				}
+			}
+		});
+	}
+
+	function openEditModal(record) {
+		$uibModal.open({
+			animation: true,
+			templateUrl: 'components/profile/diary/exercise-info-edit-modal/exercise-info-edit-modal.html',
+			controller: 'ExerciseInfoEditCtrl',
+			size: 'md',
+			resolve: {
+				date: function() {
+					return $scope.dateSelected
+				},
+				userId: function () {
+					return $scope.currentUser.id
+				},
+				diaries: function () {
+					return $scope.diaries
+				},
+				showRecords: function () {
+					return $scope.showRecords
+				},
+				editedRecord: function () {
+					return record
 				}
 			}
 		});
