@@ -15,6 +15,7 @@ angular.module('app').directive('postComments', function() {
       };
 
       $scope.saveComment = saveComment;
+      $scope.likedComment = likedComment;
       $scope.params = {};
       $scope.errors = {};
 
@@ -52,6 +53,10 @@ angular.module('app').directive('postComments', function() {
             $scope.errors = response.data.errors;
             Notification.error('Что то пошло не так при отправке комментария');
           })
+      }
+
+      function likedComment (comment) {
+        return _.some(comment.likes, {user_id: $scope.currentUser.id});
       }
     }
   }

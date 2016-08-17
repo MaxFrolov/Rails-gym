@@ -1,10 +1,15 @@
 .likes__wrapper {
   display: inline-block;
-  padding-right: 15px;
-  background-color: #ea4c23;
-  color: #fff;
 
-  small {
-    margin-left: 5px;
+  i {
+    font-size: 16px;
+  }
+
+  span.likes_count {
+    font-size: 16px;
+  }
+
+  .md-button.md-icon-button {
+    margin-right: 0;
   }
 }

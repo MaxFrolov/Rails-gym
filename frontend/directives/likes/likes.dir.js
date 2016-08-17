@@ -5,7 +5,8 @@ angular.module('app').directive('likes', function () {
 		scope: {
 			targetType: '@',
 			currentUser: '=',
-			resource: '='
+			resource: '=',
+			userLiked: '='
 		},
 		controller: function ($scope, Restangular, Notification) {
 			$scope.clicked = clicked;
@@ -34,6 +35,7 @@ angular.module('app').directive('likes', function () {
 					likes.push(like);
 					$scope.resource.likes_count++;
 					$scope.likes = 1;
+					$scope.userLiked = true;
 				});
 			}
 
@@ -41,8 +43,9 @@ angular.module('app').directive('likes', function () {
 				var likeId = _.find($scope.resource.likes, {user_id: $scope.currentUser.id});
 				$scope.removeLike = Restangular.one('users', $scope.currentUser.id).one('likes', likeId.id).remove()
 					.then(function () {
-					likes.splice(likes.length - 1, 1);
-					$scope.resource.likes_count--;
+						likes.splice(likes.length - 1, 1);
+						$scope.resource.likes_count--;
+						$scope.userLiked = false;
 				})
 			}
 		}

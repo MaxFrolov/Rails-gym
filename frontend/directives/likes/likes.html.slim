@@ -1,5 +1,4 @@
 .likes__wrapper
-  .btn.btn-brand ng-click="clicked()"
-    i.fa.fa-heart-o
-  small {{resource.likes_count}}
-  
+  md-button.md-icon-button.md-accent aria-label="Favorite" ng-click="clicked()"
+    i.fa ng-class="{'fa-heart-o': !userLiked, 'fa-heart': userLiked}"
+  span.likes_count.text-muted {{resource.likes_count}}

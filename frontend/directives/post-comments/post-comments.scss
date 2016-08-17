@@ -6,7 +6,7 @@
   .post-comment__wrapper {
     padding: 20px 30px;
     border-bottom: 1px solid #E6E6E6;
-    background-color: #FDFDFD;
+    background-color: #f7f7f7;
 
     &:last-child {
       border-bottom: none;
@@ -27,7 +27,7 @@
       margin-top: 5px;
     }
 
-    span {
+    span.comments-data {
       color: $brand-primary;
       font-family: 'Play', sans-serif;
       font-weight: bold;
