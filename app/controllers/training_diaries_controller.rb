@@ -3,10 +3,11 @@ class TrainingDiariesController < ApiController
   before_action :set_period_boundaries, only: :diary_stats
 
   def index
-    render_resources @training_diaries.includes(:training_diary_exercises)
+    render_resources @training_diaries.includes(:training_diary_exercises, :list_of_exercise)
   end
 
   def create
+    @training_diary.list_of_exercise_id = params[:list_of_exercise_id]
     @training_diary.save
     render_resource_or_errors(@training_diary)
   end
@@ -22,12 +23,15 @@ class TrainingDiariesController < ApiController
   end
 
   def diary_stats
-    training_exercises = @training_diaries.ransack(exercise_eq: params[:exercise] || 0).result
+    @training_diaries = @training_diaries.includes(:list_of_exercise)
+    training_exercises = @training_diaries.ransack(list_of_exercise_id_eq: params[:exercise]).result
     training_exercises = training_exercises.stats_by_period(@start_period, @end_period).order(:date)
     filtered_weights = filter_weights(training_exercises.includes(:training_diary_exercises))
+    filtered_dates = training_exercises.pluck(:date).map { |date| Date.parse(date.to_s).to_formatted_s(:iso8601) }
+
     stats = {
-        dates: training_exercises.pluck(:date).map { |date| Date.parse(date.to_s).to_formatted_s(:iso8601) },
-        weights: Array.new(1, filtered_weights),
+        dates: params[:exercise].blank? || filtered_dates.empty? ? last_week_dates : filtered_dates,
+        weights: Array.new(1, params[:exercise].blank? || filtered_weights.empty? ? Array.new(last_week_dates.length, 0) : filtered_weights),
         max_weight: filtered_weights.max,
         exercises_categories: exercises_names(@training_diaries),
         exercises_count: exercises_count(@training_diaries)
@@ -36,27 +40,37 @@ class TrainingDiariesController < ApiController
   end
 
   def training_diary_params
-    params.require(:resource).permit(:exercise, :sets, :date, training_diary_exercises_attributes: [:repetition, :weight])
+    params.require(:resource).permit(:exercise, :sets, :date, training_diary_exercises_attributes: [:id, :repetition, :weight, :time])
   end
 
   private
 
+  def last_week_dates
+    (@start_period.to_datetime..@end_period.to_datetime).map{ |date| Date.parse(date.to_s).to_formatted_s(:iso8601) }
+  end
+
   def filter_weights(diaries)
     diaries.map do |diary|
-      diary.training_diary_exercises.map(&:weight).max
+      if diary.list_of_exercise.time?
+        diary.training_diary_exercises.map(&:time).max
+      elsif diary.list_of_exercise.weight?
+        diary.training_diary_exercises.map(&:weight).max
+      else
+        diary.training_diary_exercises.map(&:repetition).max
+      end
     end
   end
 
   def exercises_names(exercises_items)
-    exercises = []
-    exercises_items.exercises.each_key { |exercise| exercises << exercise }
-    exercises
+    @exercises = []
+    exercises_items.each { |exercise| @exercises << exercise.list_of_exercise.title }
+    @exercises.uniq
   end
 
   def exercises_count(exercises_items)
     exercises_counts = []
     items = exercises_items.to_a
-    exercises_items.exercises.each_key { |exercise| exercises_counts << items.select { |i| i.exercise == exercise}.length }
+    @exercises.uniq.map { |exercise| exercises_counts << items.select { |i| i.list_of_exercise.title == exercise }.length }
     exercises_counts
   end
 

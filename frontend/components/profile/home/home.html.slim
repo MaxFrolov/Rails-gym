@@ -19,14 +19,15 @@
               .container-fluid
                 .row
                   .col-md-6.col-sm-6.col-xs-12.col-lg-4
-                    ui-select(ng-model="exerciseSelect" theme="bootstrap" search-enabled="false"
+                    ui-select(ng-model="exerciseSelect" theme="bootstrap" search-enabled="true"
                       ng-required="exerciseField.required" on-select="exerciseField.onChange($item, $model)"
                       on-remove="exerciseField.onChange($item, $model)")
 
-                      ui-select-match allow-clear="false" placeholder="{{exerciseField.label}}..." {{$select.selected.label}}
-                      ui-select-choices.ui-select-choices-square(repeat="choice.value as choice in exerciseField.choices || []")
+                      ui-select-match allow-clear="false" placeholder="{{exerciseField.label}}..." {{$select.selected.title}}
+                      ui-select-choices.ui-select-choices-square(repeat="choice.id as choice in exerciseList track by $index" refresh="refreshExercises($select.search)"
+                        refresh-delay="200")
 
-                        div ng-bind-html="choice.label | highlight: $select.search"
+                        div ng-bind-html="choice.title | highlight: $select.search"
                   .col-md-12.col-sm-12.col-xs-12.col-lg-8.select-date-range
                     .inline-wrapper
                       span Выберите период:
@@ -35,9 +36,10 @@
                         span.select-date-line —
                         md-datepicker ng-model="endDate" md-placeholder="конечная дата"
                     md-button.md-raised.md-primary.md-button.refresh-chart ng-click="refreshChart(startDate, endDate)" обновить график
-            .profile-charts
-              canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="true" chart-series="series"
-      .pie-chart-wrapper
+            .profile-charts.relative
+              span.y-axis-label.text-muted ng-if="yAxisLabel" {{yAxisLabel}}
+              canvas id="line" height='100' class="chart chart-line" chart-data="lineData" chart-labels="labels" chart-legend="{{seriesShow}}" chart-series="series"
+      .pie-chart-wrapper ng-if="pieData.length"
         .panel.panel-flat
           .panel-heading
             h6.panel-title Выполнено упражнений:

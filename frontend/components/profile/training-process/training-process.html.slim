@@ -7,20 +7,89 @@
 .content
   .container-fluid
     .row
-      .col-sm-12
-        .panel.panel-flat
-          .panel-body.training-process-wrapper
-            .calendar-block
-              .container-fluid
-                .row.calendar-block__wrapper
-                  .profile-calendar__develop.calendar-plan__develop
-                    .calendar-flex-wrap
-                      h5 Разработка плана
-                      h3 Тренировочный процесс на эту неделю
-                      a.training-calendar Календарь тренировок
-                  a.profile-calendar__plan.calendar-plan ui-sref="app.inner-layout.workouts" ng-repeat="field in planFields"
-                    h4 {{field.day}}
-                    .profile-calendar__body
-                      h2 {{field.body}}
-                    .calendar-details
-                      span узнать больше...
+      .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12
+        .panel.relative
+          .panel-body
+            .calender-header
+              span.left-switch-date ng-click="decrementDate()"
+                i.fa.fa-chevron-left
+              span.calendar-main-date.text-center {{monthDate.format('YYYY-MM')}}
+              span.right-switch-date ng-click="incrementDate()"
+                i.fa.fa-chevron-right
+            .clearfix
+            .calendar-days ng-repeat="day in days"
+              .calendar-days-content
+                span {{day}}
+            .clearfix
+            .calendar-elements ng-repeat="date in daysInMonth track by $index"
+              .calendar-elements-content ng-if="date === ''"
+              .calendar-elements-content(ng-class="{'current-date': date.toDateString() === currentDate.toDateString(), 'active-date': date.toDateString() === dateSelected.toDateString()}"
+              ng-click="selectDate(date)" ng-if="date !== ''")
+                span.diary-calendar-date {{date.getDate()}}
+                span.fa.fa-tags.diary-calendar-record ng-if="trainingDate(date)" ng-click="showRecords(date)"
+            .clearfix
+            .text-center ng-if="showAllExercises"
+              md-button.md-raised.md-primary.md-button ng-click="selectWeek(dateSelected)" все упражнения на эту неделю
+      .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12 ng-if="weekDaysRecords"
+        .panel
+          .panel-heading.relative
+            h4 Тренировки на эту неделю:
+            i.fa.fa-times.close-panel.text-muted ng-click="closeWeekTrainings()"
+          .panel-body
+            .table-responsive
+              table.table.training-diary-table
+                thead
+                  tr
+                    th.text-center ng-repeat="day in days"
+                      span {{day}}
+                tbody
+                  tr
+                    td.text-center ng-repeat="training in weekDaysRecords"
+                      table.centered-block ng-if="training.record"
+                        tbody.text-center
+                          tr ng-repeat="exercise in training.record.user_training_exercises"
+                            td {{exercise.exercise}}
+
+                      span ng-if="!training.record" Отдых
+      .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12 ng-if="clickedDateRecords"
+        .panel
+          .panel-heading.relative
+            h4 Тренировка на: {{selectedDayName}}. | {{vewDate}}
+            i.fa.fa-times.close-panel.text-muted ng-click="closeDayTrainings()"
+          .panel-body
+            .table-responsive
+              table.table.training-diary-table
+                thead
+                  tr
+                    th Упражнение
+                    th.text-center Подходы
+                    th.text-center Подход
+                    th.text-center Повторения
+                    th.text-center Вес
+                    th.text-center Время
+                tbody
+                  tr ng-repeat="clickedDateRecord in clickedDateRecords.user_training_exercises"
+                    td {{clickedDateRecord.exercise}}
+                    td.text-center {{clickedDateRecord.sets}}
+                    td
+                      table.centered-block
+                        tbody.text-center
+                          tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
+                            td {{exercise_set.set}}
+                    td
+                      table.centered-block
+                        tbody.text-center
+                          tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
+                            td {{exercise_set.repetition || '-'}}
+                    td
+                      table.centered-block
+                        tbody
+                          tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
+                            td ng-if="exercise_set.weight" {{exercise_set.weight}} кг.
+                            td ng-if="!exercise_set.weight" -
+                    td
+                      table.centered-block
+                        tbody
+                          tr ng-repeat="exercise_set in clickedDateRecord.user_training_exercise_sets"
+                            td ng-if="exercise_set.time" {{exercise_set.time}} мин.
+                            td ng-if="!exercise_set.time" -

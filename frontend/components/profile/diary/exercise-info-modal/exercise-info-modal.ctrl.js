@@ -1,6 +1,8 @@
-angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangular, Notification, date, userId, diaries) {
+angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangular, Notification, date, userId, diaries, showRecords) {
 	$scope.setsQuantity = setsQuantity;
 	$scope.ok = ok;
+	$scope.exerciseSelect = ''
+	$scope.exerciseList = []
 	$scope.exerciseInfo = {};
 	$scope.errors = {};
 	$scope.modalOptions = {
@@ -8,17 +10,20 @@ angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangula
 		buttons: ['ok', 'cancel']
 	};
 
-	$scope.fields = [
-		{
-			name: 'exercise',
-			label: 'Упражнение',
-			type: 'select',
-			choices: [
-				{label: 'Жим лежа', value: 'bench_press'},
-				{label: 'Жим на наклонной скамье', value: 'bench_press_on_an_incline_bench'}
-			]
+	$scope.refreshExercises = function(search) {
+		Restangular.all('list_of_exercises').getList({term: search}).then(function(response) {
+			$scope.exerciseList = response
+		})
+	}
+
+	$scope.exerciseListField = {
+		name: 'exercise',
+		label: 'Упражнение',
+		onChange: function(item, model) {
+			$scope.exerciseSelect = model
+			$scope.exerciseMeasuring = item.measuring
 		}
-	];
+	}
 
 	function setsQuantity() {
 		$scope.setsInfo = [];
@@ -31,8 +36,9 @@ angular.module('app').controller('ExerciseInfoCtrl', function($scope, Restangula
 	function ok() {
 		$scope.exerciseInfo.training_diary_exercises_attributes = $scope.setsInfo;
 		$scope.exerciseInfo.date = date;
-		Restangular.one('users', userId).all('training_diaries').customPOST($scope.exerciseInfo).then(function (response) {
-			diaries.push(response)
+		Restangular.one('users', userId).one('list_of_exercises', $scope.exerciseSelect).all('training_diaries').customPOST($scope.exerciseInfo).then(function (response) {
+			diaries.push(response);
+			showRecords();
 			$scope.$dismiss('cancel');
 			Notification.success('Запись успешно сохранена!');
 		});

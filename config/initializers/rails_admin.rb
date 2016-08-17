@@ -18,7 +18,8 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = ['User', 'Post', 'Product', 'UserAdvice', 'OrderItem', 'Order', 'Food', 'Event', 'Workout', 'Plan', 'Video', 'Article', 'Gallery', 'Exercise']
+  config.included_models = %w(User Post Product UserAdvice OrderItem Order Food Event Workout Plan Video Article Gallery
+    Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet )
 
   config.actions do
     dashboard                     # mandatory
@@ -42,7 +43,70 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model User do
+    object_label_method :label_for_admin
+  end
+
+  config.model UsersTraining do
+    navigation_label 'Расписание тренировок'
+
+    list do
+      exclude_fields :created_at, :updated_at, :id
+    end
+
+    edit do
+      include_fields :id, :date, :user_training_exercises, :user
+      field :user_training_exercises do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.where(users_training_id: nil)
+          }
+        end
+      end
+    end
+  end
+
+  config.model UserTrainingExercise do
+    navigation_label 'Расписание тренировок'
+    object_label_method :label_for_admin
+
+    list do
+      exclude_fields :created_at, :updated_at, :id
+    end
+
+    edit do
+      exclude_fields :users_training
+    end
+  end
+
+  config.model UserTrainingExerciseSet do
+    navigation_label 'Расписание тренировок'
+    object_label_method :label_for_admin
+
+    list do
+      exclude_fields :created_at, :updated_at, :id
+    end
+
+    edit do
+      exclude_fields :user_training_exercise
+    end
+  end
+
+  config.model Order do
+    navigation_label 'Магазин'
+  end
+
+  config.model OrderItem do
+    navigation_label 'Магазин'
+  end
+
+  config.model Product do
+    navigation_label 'Магазин'
+  end
+
   config.model Post do
+    navigation_label 'Блог'
+
     include_fields :id, :image, :type, :title, :subtitle, :description,
                    :post_category, :tag_list, :post_category
 
@@ -127,6 +191,8 @@ RailsAdmin.config do |config|
 
   config.model Gallery do
     include_fields :id, :photo, :description, :created_at
+    label 'Галлерея'
+    label_plural 'Галлерея'
 
     group :photo do
       label 'Image options'
@@ -137,6 +203,9 @@ RailsAdmin.config do |config|
   end
 
   config.model Food do
+    label 'Питание'
+    label_plural 'Питание'
+
     include_fields :id, :image, :title, :subtitle, :description,
                    :category, :tag_list
 
