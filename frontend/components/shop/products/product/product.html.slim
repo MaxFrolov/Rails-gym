@@ -18,20 +18,22 @@
       .container-fluid
         .row
           .col-sm-12.product-block__tab
-            uib-tabset
-              uib-tab heading="Описание"
+            md-tabs md-selected="1" md-border-bottom="" md-autoselect=""
+              md-tab label="Описание"
                 p {{product.product_description}}
-              uib-tab heading="Рекоммендация по пременению"
+              md-tab label="Рекоммендация по пременению"
                 p {{product.recommendation_for_use}}
-              uib-tab heading="Отзывы"
+              md-tab label="Отзывы"
                 p asfasg
       .related-products__header
         h3 Рекоммендуемые продукты
       .col-sm-4 ng-repeat="product in recommendedProducts"
         a.product_block__recommended ui-sref="app.inner-layout.shop.product({id: product.id})"
-          img.img-responsive src="{{product.image_product_url}}"
+          .relative
+            img.img-responsive src="{{product.image_product_url}}"
+            .recommended-inner__bg
+              span Посмотреть детали
           span {{product.category}}
           h3 {{product.name}}
           p {{product.price | currency: "₴"}}
-          .recommended-inner__bg
-            span Посмотреть детали
+
