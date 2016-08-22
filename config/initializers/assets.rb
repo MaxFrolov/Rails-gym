@@ -1,0 +1,1 @@
+Rails.application.config.assets.precompile += %w(rich/editor.css rails_admin/custom/ui.js)

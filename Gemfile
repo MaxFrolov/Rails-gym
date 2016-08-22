@@ -66,6 +66,7 @@ gem 'ransack'
 gem 'rails_admin'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails_admin_tag_list'
+gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular-animate'

@@ -37,6 +37,18 @@ GIT
     rails-assets-angular-ui-select (0.12.0)
       rails-assets-angular (>= 1.2.18)
 
+GIT
+  remote: https://github.com/kreativgebiet/rich.git
+  revision: 2c8f85438e7391f9a11d4972272723bbe85844cd
+  specs:
+    rich (1.4.8)
+      jquery-rails
+      kaminari
+      mime-types
+      rack-raw-upload
+      rails (>= 3.2.0)
+      sass-rails
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -184,6 +196,8 @@ GEM
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
+    rack-raw-upload (1.1.1)
+      multi_json
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -415,6 +429,7 @@ DEPENDENCIES
   rails_admin_tag_list
   ransack
   responders
+  rich!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   slim

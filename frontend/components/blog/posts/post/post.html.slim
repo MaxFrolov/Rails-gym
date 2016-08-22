@@ -5,11 +5,11 @@
         ng-include src='"components/blog/posts/post/type/article.html"' ng-if="currentPost.type === 'Article'"
         ng-include src='"components/blog/posts/post/type/video.html"' ng-if="currentPost.type === 'Video'"
         .post_body
-          p {{currentPost.description}}
+          p ng-bind-html="trustAsHtml(currentPost.description)"
         post-comments comments="currentPost.comments" current-user="currentUser" target='post'
       .col-sm-3
         .blog-bar-categories рекомендуемые
-        recommended-bar resources="recommendedPosts" link="app.blog.post({ id: resource.id })"
+        recommended-bar resources="recommendedPosts" link="app.inner-layout.blog.post({ id: resource.id })"
         .blog-bar-categories продукты
-        recommended-products resources="recommendedProducts" link="app.shop.product({ id: resource.id})"
+        recommended-products resources="recommendedProducts" link="app.inner-layout.shop.product({ id: resource.id})"
         .clearfix
