@@ -141,9 +141,16 @@ RailsAdmin.config do |config|
     end
 
     edit do
-      exclude_fields :video_id, :service, :type
+      exclude_fields :video_id, :service, :type, :preview_image
       field :description, :rich_editor
       field :link
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.where(target_type: 'Post')
+          }
+        end
+      end
     end
 
     show do
@@ -182,6 +189,13 @@ RailsAdmin.config do |config|
     edit do
       exclude_fields :type
       field :description, :rich_editor
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.where(target_type: 'Post')
+          }
+        end
+      end
     end
 
     show do
@@ -219,6 +233,13 @@ RailsAdmin.config do |config|
       exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count
 
       field :description, :rich_editor
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.where(target_type: 'Food')
+          }
+        end
+      end
     end
 
     configure :tag_list  do
