@@ -11,8 +11,8 @@
         .blog-bar-categories категории
         .blog-categories
           ul
-            li ng-repeat="field  in categoryFields"
-              a href='#' ng-click='sortBy(field.value)' {{field.name}}
+            li ng-repeat="category  in postCategories"
+              a href='#' ng-click='sortBy(category.id)' {{category.name}}
         .blog-bar-categories рекомендуемые
         recommended-bar resources="recommendedPosts" link="app.inner-layout.blog.post({ id: resource.id })"
         .clearfix

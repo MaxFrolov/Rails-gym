@@ -54,6 +54,10 @@ Rails.application.routes.draw do
     resources :galleries, only: [:index, :show]
     resources :list_of_exercises, only: [:index]
 
+    scope ':target_type', target_type: /(post|food)/ do
+      resources :categories, only: :index
+    end
+
     scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
       resources :comments, only: :index
     end

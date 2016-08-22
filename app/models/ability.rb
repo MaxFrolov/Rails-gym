@@ -31,5 +31,6 @@ class Ability
     can [:index, :show], Exercise
     can [:index], ListOfExercise
     can [:index], UsersTraining
+    can [:index], Category
   end
 end

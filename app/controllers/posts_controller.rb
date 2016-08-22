@@ -2,10 +2,10 @@ class PostsController < ApiController
   load_resource
 
   def index
-    params[:category] ?
-    @posts = @posts.where(post_category: params[:category]).page(params[:page]).per(params[:per]) :
-        @posts = @posts.ransack(q: params[:sort] || 'created_at desc').result.page(params[:page]).per(params[:per])
-    render_resources @posts
+    params[:category_id] ?
+    @posts = @posts.joins(:categories).where(categories: { id: params[:category_id] }) :
+        @posts = @posts.ransack(q: params[:sort] || 'created_at desc').result
+    render_resources @posts.page(params[:page]).per(params[:per])
   end
 
   def show

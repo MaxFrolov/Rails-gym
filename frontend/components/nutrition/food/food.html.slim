@@ -5,11 +5,11 @@
         .food-page-main
           h2 {{food.title}}
           h4 {{food.subtitle}}
-          img src="{{food.image_url}}"
+          img src="{{food.image.origin}}"
           .food-page__likes
             likes target-type="food" current-user="currentUser" resource="food" user-liked="userLiked"
           p ng-bind-html="trustAsHtml(food.description)"
         post-comments comments="food.comments" current-user="currentUser" target='food'
       .food-bar.col-sm-3
         .food-bar__header рекомендуемые
-        recommended-bar resources="recommendedNutrition" link="app.nutrition.food({ id: resource.id })"
+        recommended-bar resources="recommendedNutrition" link="app.inner-layout.nutrition.food({ id: resource.id })"

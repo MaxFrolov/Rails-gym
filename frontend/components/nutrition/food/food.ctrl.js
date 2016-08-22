@@ -7,5 +7,6 @@ angular.module('app').controller('FoodCtrl', function($scope, Restangular, $stat
   $scope.trustAsHtml = function(string) {
     return $sce.trustAsHtml(string);
   };
+  console.log($scope.recommendedNutrition)
 });
 

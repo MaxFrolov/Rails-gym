@@ -52,7 +52,7 @@ angular.module('app').controller('PostsCtrl',function($scope, Restangular, $stat
   }).finally(function() { $scope.loading = false; });
 
   function sortBy(value) {
-    $scope.posts.getList({category: value}).then(function (result) {
+    $scope.posts.getList({category_id: value}).then(function (result) {
       $scope.posts = result;
     });
   }

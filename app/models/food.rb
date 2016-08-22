@@ -5,5 +5,5 @@ class Food < ActiveRecord::Base
 
   acts_as_taggable
 
-  mount_uploader :image, Base
+  mount_uploader :image, Food::ImageUploader
 end
