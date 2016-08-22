@@ -18,14 +18,14 @@ product_incr = 0
                 avatar: File.open(File.join(Rails.root, 'test', 'fixtures' , 'avatars', "#{rand(1..4)}.png")),
                 phone: Faker::PhoneNumber.cell_phone})
 
-  Food.create({ category: rand(0..3), subtitle: Faker::Hipster.sentence(5),
+  Food.create({ subtitle: Faker::Hipster.sentence(5),
                 image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'nutrition', "#{nutrition_incr += 1}.jpg")),
                 description: Faker::Hipster.paragraph(8), title: Faker::Hipster.sentence(3) })
 
   Event.create({ title: Faker::Hipster.sentence(3), subtitle: Faker::Hipster.sentence(5), description: Faker::Hipster.paragraph(8),
                 start_date: Faker::Date.forward(14),  end_date: Faker::Date.forward(23),
                  image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'events', "#{event_incr += 1}.jpg")), user_id: 1})
-  Product.create ({ name: Faker::Commerce.product_name, category: rand(1..4), price: Faker::Commerce.price, product_description: Faker::Hipster.paragraph(8),
+  Product.create ({ name: Faker::Commerce.product_name, price: Faker::Commerce.price, product_description: Faker::Hipster.paragraph(8),
                     image_product: File.open(File.join(Rails.root, 'test', 'fixtures' , 'products', "#{product_incr += 1}.jpg")),
                     composition: Faker::Commerce.department(5), recommendation_for_use: Faker::Hipster.sentence(5),
                     grams: Faker::Number.decimal(2), count: rand(1..15), sale: false})

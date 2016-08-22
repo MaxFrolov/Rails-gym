@@ -6,7 +6,7 @@
           img.img-responsive ng-src="{{nutrition.image_url}}"
           .inner-type-bg
             span Посмотреть детали
-        h3 {{food_categories[nutrition.category]}}
+        h3 ng-repeat="category in nutrition.categories" {{category.name}}
         .nutrition__icons
           i.fa.fa-comment-o
           span {{nutrition.comments_count}}

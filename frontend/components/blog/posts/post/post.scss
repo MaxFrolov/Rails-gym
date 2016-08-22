@@ -14,6 +14,8 @@
     .post-likes__video-wrapper {
       display: inline-block;
       float: right;
+      position: relative;
+      top: -7px;
     }
   }
 
@@ -50,12 +52,14 @@
     }
   }
 
-  .post_body p {
-    font-size: 18px;
-    padding: 20px 5px;
-    border-bottom: 3px solid #E1E1E1;
-    color: $text;
-    font-family: 'Open Sans', sans-serif;
+  .post_body {
+    margin-top: 20px;
+
+    p {
+      font-size: 18px;
+      color: $text;
+      font-family: 'Open Sans', sans-serif;
+    }
   }
 
   .post_main__img {
@@ -65,6 +69,8 @@
       position: absolute;
       bottom: 0;
       left: 0;
+      background: rgba(255, 255, 255, 0.8);
+      padding-right: 15px;
     }
   }
 }

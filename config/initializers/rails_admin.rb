@@ -19,7 +19,7 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.included_models = %w(User Post Product UserAdvice OrderItem Order Food Event Workout Plan Video Article Gallery
-    Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet )
+    Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category)
 
   config.actions do
     dashboard                     # mandatory
@@ -106,9 +106,7 @@ RailsAdmin.config do |config|
 
   config.model Post do
     navigation_label 'Блог'
-
-    include_fields :id, :image, :type, :title, :subtitle, :description,
-                   :post_category, :tag_list, :post_category
+    include_fields :id, :type, :title, :created_at, :updated_at, :tag_list
 
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
@@ -120,9 +118,8 @@ RailsAdmin.config do |config|
   end
 
   config.model Video do
-    include_fields :id, :title, :subtitle, :description, :link, :video_id, :service, :source, :tag_list,
-                   :created_at, :updated_at, :type, :post_category
-
+    include_fields :id, :title, :subtitle, :link, :video_id, :service, :source, :description, :tag_list,
+                   :created_at, :updated_at, :type, :categories, :preview_image
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
     end
@@ -144,19 +141,23 @@ RailsAdmin.config do |config|
     end
 
     edit do
-      exclude_fields :video_id, :type, :service
-      field :created_at
+      exclude_fields :video_id, :service, :type
+      field :description, :rich_editor
+      field :link
     end
 
     show do
-      exclude_fields :type
-      include_fields :preview_image
+      exclude_fields :type, :video
+      field :description do
+        pretty_value do
+          value.html_safe
+        end
+      end
     end
   end
 
   config.model Article do
-    include_fields :id, :title, :subtitle, :source, :description, :tag_list,
-                   :created_at, :updated_at, :type, :post_category
+    include_fields :id, :title, :subtitle, :source, :description, :tag_list, :created_at, :updated_at, :type, :categories
 
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
@@ -180,12 +181,16 @@ RailsAdmin.config do |config|
 
     edit do
       exclude_fields :type
-      field :created_at
+      field :description, :rich_editor
     end
 
     show do
       exclude_fields :type
-      include_fields :preview_image
+      field :description do
+        pretty_value do
+          value.html_safe
+        end
+      end
     end
   end
 
@@ -206,8 +211,15 @@ RailsAdmin.config do |config|
     label 'Питание'
     label_plural 'Питание'
 
-    include_fields :id, :image, :title, :subtitle, :description,
-                   :category, :tag_list
+    list do
+      exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count, :description
+    end
+
+    edit do
+      exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count
+
+      field :description, :rich_editor
+    end
 
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
@@ -215,6 +227,13 @@ RailsAdmin.config do |config|
 
     field :tag_list do
       label 'Tags'
+    end
+  end
+
+  config.model Category do
+
+    edit do
+      exclude_fields :target
     end
   end
 end
