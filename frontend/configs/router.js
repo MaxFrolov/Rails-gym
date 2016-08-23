@@ -119,7 +119,7 @@ angular.module('app')
         controller: 'GalleryCtrl'
       })
       .state('app.inner-layout.workouts', {
-        url: '/workouts',
+        url: '/workouts?category_id&level',
         templateUrl: 'components/workouts/workouts.html',
         controller: 'WorkoutsCtrl'
       })

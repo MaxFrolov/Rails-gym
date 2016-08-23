@@ -2,28 +2,44 @@
   padding-top: 50px;
   padding-bottom: 50px;
 
+  .workouts-main__wrapper {
+    margin-bottom: 25px;
+  }
+
   .workouts-img__container {
     position: relative;
     padding: 0;
+    overflow: hidden;
 
-    &:hover .inner-type-bg {
-      opacity: 1;
-      background: rgba(234, 76, 35, 0.7);;
-      transition: all 0.35s;
+    img {
+      transition: all 0.5s linear;
+    }
 
-      span {
+    &:hover {
+      & .inner-type-bg {
+        opacity: 1;
+        background: rgba(234, 76, 35, 0.7);;
+        transition: all 0.35s;
 
-        &:before, &:after {
-          visibility: visible;
+        span {
+
+          &:before, &:after {
+            visibility: visible;
+          }
+
+          &:before {
+            top: 0;
+          }
+
+          &:after {
+            bottom: 0;
+          }
         }
+      }
 
-        &:before {
-          top: 0;
-        }
-
-        &:after {
-          bottom: 0;
-        }
+      & img {
+        transform: scale(1.1);
+        transition: all 0.5s linear;
       }
     }
   }
@@ -97,10 +113,13 @@
     padding-bottom: 20px;
   }
 
-  .workouts-button {
+  .workouts-button a {
+    color: #ea4c23;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
 
-    a:hover {
-      color: #fff;
+    &:hover {
+      color: #6D6C6C;
     }
   }
 

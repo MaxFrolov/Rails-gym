@@ -4,6 +4,8 @@
       ul
         li ui-sref-active="active"
           a ui-sref="main" Главная
+        li ng-class="{active: activeNestedChild('workouts')}"
+          a ui-sref="app.inner-layout.workouts" Упражнения
         li ng-class="{active: activeNestedChild('events')}"
           a ui-sref="app.inner-layout.events" Cобытия
         li ng-class="{active: activeNestedChild('shop')}"

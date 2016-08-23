@@ -1,5 +1,4 @@
 class ExerciseSerializer < ActiveModel::Serializer
-  attributes :id, :title, :subtitle, :image_url, :description, :sets, :reps
-
-  has_one :workout
+  attributes :id, :title, :subtitle, :description, :sets, :reps, :likes_count,
+             :comments_count, :time, :type
 end

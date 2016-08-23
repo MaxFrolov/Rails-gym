@@ -3,7 +3,7 @@ class ExercisesController < ApiController
 
   def index
     @exercises = @exercises.where(workout_id: params[:id])
-    render_resources(@exercises)
+    render_resources @exercises
   end
 
   def show

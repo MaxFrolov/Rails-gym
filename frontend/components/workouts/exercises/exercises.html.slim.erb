@@ -1,0 +1,19 @@
+.exercises-page
+  .container
+    .row
+      .col-sm-9.exercise-templates__wrapper ng-repeat="exercise in exercises"
+        ng-include src='"components/workouts/exercises/types/image.html"' ng-if="exercise.type === 'ExerciseImage'"
+        ng-include src='"components/workouts/exercises/types/video.html"' ng-if="exercise.type === 'ExerciseVideo'"
+        .col-sm-6
+          .exercises-title
+            h3 {{exercise.title}}
+          .exercises-subtitle
+            h4 {{exercise.subtitle}}
+          img> src='<%=asset_path "assets/img/timer.png"%>'
+          .exercises-info
+            span> ng-if="exercise.reps" Повторений: {{exercise.reps}}
+            span> ng-if="exercise.reps" Подходов: {{exercise.sets}}
+            span> ng-if="exercise.time" Время: {{exercise.time}} мин.
+          .link-wrapper
+            a.link ui-sref="app.inner-layout.exercise({id: exercise.id})" Детальнее...
+      .col-sm-3

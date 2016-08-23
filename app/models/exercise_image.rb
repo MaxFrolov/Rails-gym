@@ -1,0 +1,3 @@
+class ExerciseImage < Exercise
+
+end

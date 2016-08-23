@@ -54,7 +54,7 @@ Rails.application.routes.draw do
     resources :galleries, only: [:index, :show]
     resources :list_of_exercises, only: [:index]
 
-    scope ':target_type', target_type: /(post|food)/ do
+    scope ':target_type', target_type: /(post|food|workout)/ do
       resources :categories, only: :index
     end
 

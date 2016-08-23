@@ -1,0 +1,14 @@
+.col-sm-8
+  .exercise-title
+    h3 {{exercise.title}}
+  .post_video__wrapper.embed-responsive.embed-responsive-16by9
+    iframe.embed-responsive-item src="{{link | trusted}}" allowFullScreen=""
+  img> src='<%=asset_path "assets/img/timer.png"%>'
+  .exercise-info
+    span> ng-if="exercise.reps" Повторений: {{exercise.reps}}
+    span> ng-if="exercise.reps" Подходов: {{exercise.sets}}
+    span> ng-if="exercise.time" Время: {{exercise.time}} мин.
+  .exercise-subtitle
+    h4 {{exercise.subtitle}}
+  .exercise-description
+    p ng-bind-html="trustAsHtml(exercise.description)"
