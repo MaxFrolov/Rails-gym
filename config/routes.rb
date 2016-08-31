@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resources :training_diaries, only: [:index, :update, :destroy] do
         get '/diary_stats', to: 'training_diaries#diary_stats', on: :collection
       end
-      scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
+      scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery|exercise)/ do
         resources :comments, only: [:create, :update, :destroy]
       end
       resources :likes, only: [:index, :create, :destroy]
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
       resources :categories, only: :index
     end
 
-    scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery)/ do
+    scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery|exercise)/ do
       resources :comments, only: :index
     end
   end

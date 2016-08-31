@@ -1,0 +1,21 @@
+.exercise-page
+  .container
+    .row
+      .col-sm-9
+        .exercise-title
+          h3 {{exercise.title}}
+        ng-include src='"components/workouts/exercise/types/image.html"' ng-if="exercise.type === 'ExerciseImage'"
+        ng-include src='"components/workouts/exercise/types/video.html"' ng-if="exercise.type === 'ExerciseVideo'"
+        img> src='<%=asset_path "assets/img/timer.png"%>'
+        .exercise-info
+          span> ng-if="exercise.reps" Повторений: {{exercise.reps}}
+          span> ng-if="exercise.reps" Подходов: {{exercise.sets}}
+          span> ng-if="exercise.time" Время: {{exercise.time}} мин.
+        .exercise-subtitle
+          h4 {{exercise.subtitle}}
+        .exercise-description
+          p ng-bind-html="trustAsHtml(exercise.description)"
+        post-comments comments="exercise.comments" current-user="currentUser" target='exercise'
+      .col-sm-3
+        .blog-bar-categories рекомендуемые продукты
+        recommended-products resources="recommendedProducts" link="app.inner-layout.shop.product({ id: resource.id})"

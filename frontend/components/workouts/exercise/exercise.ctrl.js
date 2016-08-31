@@ -1,6 +1,8 @@
 angular.module('app').controller('ExerciseCtrl', function($scope, Restangular, $stateParams, $sce) {
+	$scope.recommendedProducts = Restangular.all('products').all('recommended_products').getList({count: 3}).$object;
 	Restangular.one('exercises', $stateParams.id).get().then(function(response) {
 		$scope.exercise = response;
+		$scope.userLiked = _.some(response.likes, {user_id: $scope.currentUser.id});
 
 		if ($scope.exercise.type === 'ExerciseVideo') {
 			var videoTypes = {

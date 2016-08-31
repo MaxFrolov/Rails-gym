@@ -1,5 +1,5 @@
 class Like < ActiveRecord::Base
-  TARGETS = %w(Post Food Product Event Comment Gallery)
+  TARGETS = %w(Post Food Product Event Comment Gallery Exercise)
   belongs_to :user
   belongs_to :target, polymorphic: true, inverse_of: :likes, counter_cache: true
 
