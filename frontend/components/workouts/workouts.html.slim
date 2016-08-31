@@ -2,9 +2,9 @@
   .container-fluid
     .row
       .col-sm-10
-        .col-sm-6 ng-repeat="workout in workouts"
+        .col-sm-6.workouts-main__wrapper ng-repeat="workout in workouts"
           a.col-sm-6.workouts-img__container ui-sref="app.inner-layout.exercises({id: workout.id})"
-            img.img-responsive ng-src="{{workout.image.small}}"
+            img.img-responsive ng-src="{{workout.image.origin}}"
             .inner-type-bg
               span Посмотреть детали
           .col-sm-6
@@ -14,18 +14,16 @@
               h3 {{workout.title}}
             .workouts-subtitle
               h4 {{workout.subtitle}}
-            .workouts-description
-              span {{workout.description}}
             .workouts-button
-              a.btn.btn-brand ui-sref="app.inner-layout.exercises({id: workout.id})" посмотреть
+              a ui-sref="app.inner-layout.exercises({id: workout.id})" посмотреть детали...
       .col-sm-2
         .workouts-bar-categories Категории
         .workouts-categories
           ul
-            li ng-repeat="category  in categoryFields"
-              a href='#' ng-click='sortBy(category.value)' {{category.name}}
+            li ng-repeat="category  in workoutsCategories"
+              a href='#' ng-click='sortByCategory(category.id)' {{category.name}}
         .workouts-bar-categories Уровень
         .workouts-categories
           ul
             li ng-repeat="level  in levelFields"
-              a href='#' ng-click='sortBy(level.value)' {{level.name}}
+              a href='#' ng-click='sortByLevel(level.value)' {{level.name}}

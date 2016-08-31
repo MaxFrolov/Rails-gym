@@ -3,7 +3,6 @@ class CreateWorkouts < ActiveRecord::Migration
     create_table :workouts do |t|
       t.string :title
       t.string :subtitle
-      t.string :description
       t.string :image
       t.integer :level
       t.timestamps null: false

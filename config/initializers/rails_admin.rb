@@ -18,22 +18,22 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = %w(User Post Product UserAdvice OrderItem Order Food Event Workout Plan Video Article Gallery
-    Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category)
+  config.included_models = %w(User Post Product OrderItem Order Food Event Workout Plan Video Article Gallery
+    Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category ExerciseImage ExerciseVideo)
 
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
     new do
-      except %w(Post)
+      except %w(Post Exercise)
     end
     export
     bulk_delete
     show do
-      except %w(Post)
+      except %w(Post Exercise)
     end
     edit do
-      except %w(Post)
+      except %w(Post Exercise)
     end
     delete
     show_in_app
@@ -255,6 +255,87 @@ RailsAdmin.config do |config|
 
     edit do
       exclude_fields :target
+    end
+  end
+
+  config.model Workout do
+    navigation_label 'Упражнения'
+    include_fields :id, :title, :subtitle, :image, :level, :categories, :exercises
+
+    edit do
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.where(target_type: 'Workout')
+          }
+        end
+      end
+    end
+  end
+
+  config.model Exercise do
+    navigation_label 'Упражнения'
+
+    include_fields :id, :type, :title, :created_at, :updated_at
+  end
+
+  config.model ExerciseVideo do
+    include_fields :id, :title, :subtitle, :link, :video_id, :service, :description,
+                   :created_at, :updated_at, :type, :preview_image, :reps, :sets, :time
+    group :image do
+      label 'Image options'
+
+      field :image, :carrierwave
+      field :remote_image_url, :string
+    end
+
+    list do
+      exclude_fields :description, :image, :remote_image_url, :type
+    end
+
+    edit do
+      exclude_fields :video_id, :service, :type, :preview_image
+      field :description, :rich_editor
+      field :link
+    end
+
+    show do
+      exclude_fields :type, :video
+      field :description do
+        pretty_value do
+          value.html_safe
+        end
+      end
+    end
+  end
+
+  config.model ExerciseImage do
+    include_fields :id, :title, :subtitle, :description, :created_at, :updated_at, :type,
+                   :reps, :sets, :time
+
+    group :image do
+      label 'Image options'
+
+      field :image, :carrierwave
+      field :remote_image_url, :string
+    end
+
+    list do
+      exclude_fields :description, :remote_image_url, :type
+    end
+
+    edit do
+      exclude_fields :type
+      field :description, :rich_editor
+    end
+
+    show do
+      exclude_fields :type
+      field :description do
+        pretty_value do
+          value.html_safe
+        end
+      end
     end
   end
 end

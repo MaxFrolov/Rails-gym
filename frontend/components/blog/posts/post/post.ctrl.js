@@ -1,7 +1,7 @@
 angular.module('app').controller('PostCtrl', function($scope, Restangular, Notification, $stateParams, $sce) {
-  Restangular.one('posts', $stateParams.id).get().then(function(responce) {
-    $scope.currentPost = responce;
-    $scope.userLiked = _.some(responce.likes, {user_id: $scope.currentUser.id});
+  Restangular.one('posts', $stateParams.id).get().then(function(response) {
+    $scope.currentPost = response;
+    $scope.userLiked = _.some(response.likes, {user_id: $scope.currentUser.id});
     var currentPost = $scope.currentPost;
 
     if (currentPost.type === 'Video') {
