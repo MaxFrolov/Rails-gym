@@ -287,6 +287,10 @@
     display: block;
     transition: all 1s ease-out 0.5s ;
 
+    .product-wrapper {
+      margin-bottom: 20px;
+    }
+
     span {
       color: #cfb745;
       text-transform: capitalize;

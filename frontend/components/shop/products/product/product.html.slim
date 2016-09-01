@@ -29,7 +29,7 @@
         h3 Рекоммендуемые продукты
       .col-sm-4 ng-repeat="product in recommendedProducts"
         a.product_block__recommended ui-sref="app.inner-layout.shop.product({id: product.id})"
-          .relative
+          .relative.product-wrapper
             img.img-responsive src="{{product.image_product_url}}"
             .recommended-inner__bg
               span Посмотреть детали
