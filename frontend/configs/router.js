@@ -8,16 +8,6 @@ angular.module('app')
     $locationProvider.html5Mode(true);
 
     $stateProvider
-      .state('main', {
-        url: '/',
-        templateUrl: 'components/main/main.html',
-        controller: 'Main',
-        resolve: {
-          currentUser: function (CurrentUser) {
-            return CurrentUser.get();
-          }
-        }
-      })
       .state('app', {
         abstract: true,
         controller: 'AppCtrl',
@@ -27,6 +17,11 @@ angular.module('app')
             return CurrentUser.get();
           }
         }
+      })
+      .state('app.main', {
+        url: '/',
+        templateUrl: 'components/main/main.html',
+        controller: 'MainCtrl'
       })
       .state('app.inner-layout', {
         abstract: true,
@@ -53,7 +48,7 @@ angular.module('app')
         controller: 'BlogCtrl'
       })
       .state('app.inner-layout.blog.posts', {
-        url: '/posts?sort&page',
+        url: '/posts?category_id&page&per',
         templateUrl: 'components/blog/posts/posts.html',
         controller: 'PostsCtrl'
       })
@@ -129,7 +124,7 @@ angular.module('app')
         controller: 'ExercisesCtrl'
       })
       .state('app.inner-layout.exercise', {
-        url: '/exercises/exercise?id',
+        url: '/workouts/exercises/exercise?id',
         templateUrl: 'components/workouts/exercise/exercise.html',
         controller: 'ExerciseCtrl'
       })

@@ -1,4 +1,4 @@
-angular.module('app').controller('Main', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state, $window) {
+angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state, $window) {
   $scope.currentUser = currentUser;
   $scope.eventId = 0;
   $scope.changeState = changeState;

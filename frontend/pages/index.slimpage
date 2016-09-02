@@ -11,7 +11,7 @@ html(lang='en' data-ng-app='app')
 
   body
 
-    ui-view.app
+    .app(ui-view='')
     = javascript_include_tag 'manifests/application'
     = javascript_include_tag 'http://maps.google.com/maps/api/js'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.js'
