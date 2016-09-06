@@ -74,6 +74,26 @@
   margin-top: 50px;
   margin-bottom: 50px;
 
+  .nutrition-category__wrapper {
+    margin-bottom: 20px;
+  }
+
+  .nutrition-category__label {
+    padding: 10px;
+    border-left: 3px solid #ea4c23;
+    text-transform: uppercase;
+    color: #6D6C6C;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    float: left;
+  }
+
+  .nutrition-category__select {
+    float: left;
+    width: 240px;
+    margin-left: 15px;
+  }
+
   .nutrition-posts {
     margin-bottom: 30px;
 

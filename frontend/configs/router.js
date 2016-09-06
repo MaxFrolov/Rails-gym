@@ -58,7 +58,7 @@ angular.module('app')
         controller: 'PostCtrl'
       })
       .state('app.inner-layout.nutrition', {
-        url: '/nutrition?page',
+        url: '/nutrition?category_id&per&page',
         templateUrl: 'components/nutrition/nutrition.html',
         controller: 'NutritionCtrl'
       })
@@ -114,7 +114,7 @@ angular.module('app')
         controller: 'GalleryCtrl'
       })
       .state('app.inner-layout.workouts', {
-        url: '/workouts?category_id&level',
+        url: '/workouts?category_id&level&per&page',
         templateUrl: 'components/workouts/workouts.html',
         controller: 'WorkoutsCtrl'
       })

@@ -2,20 +2,24 @@
   .container-fluid
     .row
       .col-sm-10
-        .col-sm-6.workouts-main__wrapper ng-repeat="workout in workouts"
-          a.col-sm-6.workouts-img__container ui-sref="app.inner-layout.exercises({id: workout.id})"
-            img.img-responsive ng-src="{{workout.image.origin}}"
-            .inner-type-bg
-              span Посмотреть детали
-          .col-sm-6
-            .workouts-level
-              h3 {{workout.level}}
-            .workouts-title
-              h3 {{workout.title}}
-            .workouts-subtitle
-              h4 {{workout.subtitle}}
-            .workouts-button
-              a ui-sref="app.inner-layout.exercises({id: workout.id})" посмотреть детали...
+        .container-fluid
+          row
+            .col-sm-6.workouts-main__wrapper ng-repeat="workout in workouts"
+              a.col-sm-12.workouts-img__container ui-sref="app.inner-layout.exercises({id: workout.id})"
+                img.img-responsive ng-src="{{workout.image.small}}"
+                .inner-type-bg
+                  span Посмотреть детали
+              .col-sm-12.workouts-info-wrapper
+                .workouts-level
+                  h3 {{workout.level}}
+                .workouts-title
+                  h3 {{workout.title}}
+                .workouts-subtitle
+                  h4 {{workout.subtitle}}
+                .workouts-button
+                  a ui-sref="app.inner-layout.exercises({id: workout.id})" посмотреть детали...
+        .text-center
+          collection-pagination resource="workouts"
       .col-sm-2
         .workouts-bar-categories Категории
         .workouts-categories

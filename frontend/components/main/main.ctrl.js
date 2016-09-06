@@ -94,4 +94,3 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
     $scope.$apply();
   };
 });
-
