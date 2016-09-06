@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = %w(User Post Product OrderItem Order Food Event Workout Plan Video Article Gallery
+  config.included_models = %w(User Post Product OrderItem Order Food Event Workout Plan Video Article Gallery ItemsCategory
     Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category ExerciseImage ExerciseVideo)
 
   config.actions do
@@ -147,7 +147,7 @@ RailsAdmin.config do |config|
       field :categories do
         associated_collection_scope do
           Proc.new { |scope|
-            scope.where(target_type: 'Post')
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Post' })
           }
         end
       end
@@ -236,7 +236,7 @@ RailsAdmin.config do |config|
       field :categories do
         associated_collection_scope do
           Proc.new { |scope|
-            scope.where(target_type: 'Food')
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Food' })
           }
         end
       end
@@ -254,7 +254,7 @@ RailsAdmin.config do |config|
   config.model Category do
 
     edit do
-      exclude_fields :target
+      exclude_fields :target, :items_categories, :posts, :foods, :workouts
     end
   end
 
@@ -266,7 +266,7 @@ RailsAdmin.config do |config|
       field :categories do
         associated_collection_scope do
           Proc.new { |scope|
-            scope.where(target_type: 'Workout')
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Workout' })
           }
         end
       end

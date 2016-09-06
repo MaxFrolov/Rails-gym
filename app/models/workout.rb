@@ -1,6 +1,7 @@
 class Workout < ActiveRecord::Base
   has_many :exercises
-  has_many :categories, as: :target, inverse_of: :target, dependent: :delete_all
+  has_many :items_categories, as: :target
+  has_many :categories, through: :items_categories
 
   enum level: { beginner: 0, intermediate: 1, advanced: 2 }
 
