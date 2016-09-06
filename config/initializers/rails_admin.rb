@@ -119,7 +119,7 @@ RailsAdmin.config do |config|
 
   config.model Video do
     include_fields :id, :title, :subtitle, :link, :video_id, :service, :source, :description, :tag_list,
-                   :created_at, :updated_at, :type, :preview_image
+                   :created_at, :updated_at, :type, :categories, :preview_image
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
     end
@@ -144,6 +144,13 @@ RailsAdmin.config do |config|
       exclude_fields :video_id, :service, :type, :preview_image
       field :description, :rich_editor
       field :link
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Post' })
+          }
+        end
+      end
     end
 
     show do
@@ -157,7 +164,7 @@ RailsAdmin.config do |config|
   end
 
   config.model Article do
-    include_fields :id, :title, :subtitle, :source, :description, :tag_list, :created_at, :updated_at, :type
+    include_fields :id, :title, :subtitle, :source, :description, :tag_list, :created_at, :updated_at, :type, :categories
 
     configure :tag_list  do
       partial 'tag_list_with_autocomplete'
@@ -182,6 +189,13 @@ RailsAdmin.config do |config|
     edit do
       exclude_fields :type
       field :description, :rich_editor
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.where(target_type: 'Post')
+          }
+        end
+      end
     end
 
     show do
@@ -219,6 +233,13 @@ RailsAdmin.config do |config|
       exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count
 
       field :description, :rich_editor
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Food' })
+          }
+        end
+      end
     end
 
     configure :tag_list  do
@@ -233,15 +254,22 @@ RailsAdmin.config do |config|
   config.model Category do
 
     edit do
-      exclude_fields :target
+      exclude_fields :target, :items_categories, :posts, :foods, :workouts
     end
   end
 
   config.model Workout do
     navigation_label 'Упражнения'
-    include_fields :id, :title, :subtitle, :image, :level, :exercises
+    include_fields :id, :title, :subtitle, :image, :level, :categories, :exercises
 
     edit do
+      field :categories do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Workout' })
+          }
+        end
+      end
     end
   end
 
