@@ -1,11 +1,13 @@
 angular.module('app').controller('WorkoutsCtrl', function($scope, Restangular, $stateParams, $state) {
-	$scope.workouts = Restangular.all('workouts').getList().$object;
+	$stateParams.per = 4;
+	$scope.workouts = Restangular.all('workouts').getList($stateParams).$object;
 	Restangular.all('workout').all('categories').getList().then(function(response) {
 		$scope.workoutsCategories = response;
 		$scope.workoutsCategories.unshift({name: 'Все'})
 	});
 	$scope.sortByCategory = sortByCategory;
 	$scope.sortByLevel = sortByLevel;
+
 
 	function sortByCategory(value) {
 		$stateParams.category_id = value;

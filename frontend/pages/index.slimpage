@@ -3,16 +3,16 @@ html(lang='en' data-ng-app='app')
   head
     base(href="/")
     meta(charset='utf-8')
+    meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"
     title GYM
     meta(name='description' content='App description')
-    meta(name="viewport" content='width=device-width, initial-scale=1.0')
     = stylesheet_link_tag 'manifests/application'
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
 
   body
 
-    ui-view.app
+    .app(ui-view='')
     = javascript_include_tag 'manifests/application'
-    = javascript_include_tag 'http://maps.google.com/maps/api/js'
+    = javascript_include_tag 'http://maps.google.com/maps/api/js?libraries=places&key=AIzaSyAl2UNC7uwdKOWcZ_vnWtHrw8p9BRt5cgI'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.js'
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js'

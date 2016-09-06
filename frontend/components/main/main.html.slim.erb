@@ -1,10 +1,9 @@
 header.main-page__background
-  #stars
   #anchor.container-fluid.main-page__wrapper
     .row
       ul
-        li
-          a ui-sref="main" Главная
+        li ui-sref-active="active"
+          a ui-sref="app.main" Главная
         li
           a ui-sref="app.inner-layout.events" Cобытия
         li
@@ -127,7 +126,6 @@ section.main-page__video-training
   .container
     .row
       .col-sm-offset-3.col-sm-6.video-training_wrapper
-        iframe width="100%" height="100%" src="https://www.youtube.com/embed/CWCXLvbi3CM??autoplay=0&controls=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen=""
 section.main-page__latest_news
   .container.rules__description
     .row

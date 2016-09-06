@@ -12,7 +12,7 @@
         .blog-categories
           ul
             li ng-repeat="category  in postCategories"
-              a href='#' ng-click='sortBy(category.id)' {{category.name}}
+              a href='#' ng-click='sortValue(category.id)' {{category.name}}
         .blog-bar-categories рекомендуемые
         recommended-bar resources="recommendedPosts" link="app.inner-layout.blog.post({ id: resource.id })"
         .clearfix

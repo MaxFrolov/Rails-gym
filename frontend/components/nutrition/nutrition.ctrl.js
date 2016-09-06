@@ -1,13 +1,41 @@
-angular.module('app').controller('NutritionCtrl', function($scope, Restangular, $stateParams) {
-    $scope.loading = true;
-    $scope.food_categories = {
-        set_weight: 'Набор массы',
-        weight_loss: 'Потеря веса',
-        diet: 'Диета',
-        healthy_eating: 'Здоровое питание'
-    };
+angular.module('app').controller('NutritionCtrl', function ($scope, Restangular, $stateParams, $state) {
+	$scope.loading = true;
+	$scope.onChangeCategory = onChangeCategory;
+	$scope.chosenCategory = '';
+	$stateParams.per = 6;
+	fetchFoods();
 
-    Restangular.all('foods').getList({page: $stateParams.page, per: 6}).then(function(nutrition){
-        $scope.nutritions = nutrition;
-    }).finally(function() { $scope.loading = false; });
+	$scope.refreshCategories = function (search) {
+		fetchCategories(search);
+	};
+
+	function onChangeCategory(item, model) {
+		$scope.chosenCategory = model;
+		$stateParams.category_id = model;
+
+		$state.go('.', $stateParams, {notify: false});
+		$scope.nutritions.getList($stateParams).then(function (result) {
+			$scope.nutritions = result;
+		}).finally(function () {
+			$scope.loading = false;
+		});
+	}
+
+	function fetchCategories(search) {
+		Restangular.all('food').all('categories').getList({term: search}).then(function (response) {
+			$scope.nutritionCategories = response;
+			$scope.nutritionCategories.unshift({name: 'Все'})
+		});
+	}
+
+	function fetchFoods() {
+		$scope.loading = true;
+		Restangular.all('foods').getList($stateParams)
+			.then(function (nutrition) {
+				$scope.nutritions = nutrition;
+			})
+			.finally(function () {
+				$scope.loading = false;
+			});
+	}
 });

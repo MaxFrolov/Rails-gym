@@ -8,16 +8,6 @@ angular.module('app')
     $locationProvider.html5Mode(true);
 
     $stateProvider
-      .state('main', {
-        url: '/',
-        templateUrl: 'components/main/main.html',
-        controller: 'Main',
-        resolve: {
-          currentUser: function (CurrentUser) {
-            return CurrentUser.get();
-          }
-        }
-      })
       .state('app', {
         abstract: true,
         controller: 'AppCtrl',
@@ -27,6 +17,11 @@ angular.module('app')
             return CurrentUser.get();
           }
         }
+      })
+      .state('app.main', {
+        url: '/',
+        templateUrl: 'components/main/main.html',
+        controller: 'MainCtrl'
       })
       .state('app.inner-layout', {
         abstract: true,
@@ -53,7 +48,7 @@ angular.module('app')
         controller: 'BlogCtrl'
       })
       .state('app.inner-layout.blog.posts', {
-        url: '/posts?sort&page',
+        url: '/posts?category_id&page&per',
         templateUrl: 'components/blog/posts/posts.html',
         controller: 'PostsCtrl'
       })
@@ -63,7 +58,7 @@ angular.module('app')
         controller: 'PostCtrl'
       })
       .state('app.inner-layout.nutrition', {
-        url: '/nutrition?page',
+        url: '/nutrition?category_id&per&page',
         templateUrl: 'components/nutrition/nutrition.html',
         controller: 'NutritionCtrl'
       })
@@ -119,7 +114,7 @@ angular.module('app')
         controller: 'GalleryCtrl'
       })
       .state('app.inner-layout.workouts', {
-        url: '/workouts?category_id&level',
+        url: '/workouts?category_id&level&per&page',
         templateUrl: 'components/workouts/workouts.html',
         controller: 'WorkoutsCtrl'
       })
@@ -129,7 +124,7 @@ angular.module('app')
         controller: 'ExercisesCtrl'
       })
       .state('app.inner-layout.exercise', {
-        url: '/exercises/exercise?id',
+        url: '/workouts/exercises/exercise?id',
         templateUrl: 'components/workouts/exercise/exercise.html',
         controller: 'ExerciseCtrl'
       })

@@ -2,8 +2,8 @@ class FoodsController < ApiController
   load_resource
 
   def index
-    @foods = @foods.ransack(q: params[:sort] || 'created_at desc').result.page(params[:page]).per(params[:per])
-    render_resources @foods
+    @foods = @foods.joins(:categories).where(categories: { id: params[:category_id] }) unless params[:category_id].blank?
+    render_resources @foods.page(params[:page]).per(params[:per])
   end
 
   def show
