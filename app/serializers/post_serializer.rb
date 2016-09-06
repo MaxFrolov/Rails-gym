@@ -4,5 +4,5 @@ class PostSerializer < ActiveModel::Serializer
 
   has_many :comments, :polymorphic => true, serializer: CommentSerializer
   has_many :likes, :polymorphic => true, serializer: LikeSerializer
-  has_many :categories, :polymorphic => true, serializer: CategorySerializer
+  has_many :categories, serializer: CategorySerializer
 end
