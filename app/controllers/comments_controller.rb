@@ -3,7 +3,7 @@ class CommentsController < ApiController
   load_and_authorize_resource through: :target
 
   def index
-    @comments = @comments.includes(:user)
+    @comments = @comments.includes(:user, :likes)
     render_resources @comments
   end
 

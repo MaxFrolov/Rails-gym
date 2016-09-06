@@ -3,6 +3,7 @@ class FoodsController < ApiController
 
   def index
     @foods = @foods.joins(:categories).where(categories: { id: params[:category_id] }) unless params[:category_id].blank?
+    @foods = @foods.includes(:comments, :likes, :categories)
     render_resources @foods.page(params[:page]).per(params[:per])
   end
 
@@ -27,7 +28,7 @@ class FoodsController < ApiController
 
   def recommended_foods
     @foods = @foods.sample(params[:count].to_f)
-    render_resources @foods
+    render_resources @foods, each_serializer: RecommendedFoodSerializer
   end
 
   private

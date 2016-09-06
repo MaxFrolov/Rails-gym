@@ -192,7 +192,7 @@ RailsAdmin.config do |config|
       field :categories do
         associated_collection_scope do
           Proc.new { |scope|
-            scope.where(target_type: 'Post')
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Post' }).uniq
           }
         end
       end
@@ -226,17 +226,17 @@ RailsAdmin.config do |config|
     label_plural 'Питание'
 
     list do
-      exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count, :description
+      exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count, :description, :items_categories
     end
 
     edit do
-      exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count
+      exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count, :items_categories
 
       field :description, :rich_editor
       field :categories do
         associated_collection_scope do
           Proc.new { |scope|
-            scope.joins(:items_categories).where(items_categories: { target_type: 'Food' })
+            scope.joins(:items_categories).where(items_categories: { target_type: 'Food' }).uniq
           }
         end
       end

@@ -19,7 +19,7 @@
           img.img-responsive ng-src="{{nutrition.image.medium}}"
           .inner-type-bg
             span Посмотреть детали
-        h3 ng-repeat="category in nutrition.categories" {{category.name}}
+        h3 {{_.pluck(nutrition.categories, 'name').join(', ')}}
         .nutrition__icons
           i.fa.fa-comment-o
           span {{nutrition.comments_count}}
