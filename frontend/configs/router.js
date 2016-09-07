@@ -67,16 +67,6 @@ angular.module('app')
         templateUrl: 'components/nutrition/food/food.html',
         controller: 'FoodCtrl'
       })
-      .state('app.inner-layout.events', {
-        url: '/events?page',
-        templateUrl: 'components/events/events.html',
-        controller: 'EventsCtrl'
-      })
-      .state('app.inner-layout.event', {
-        url: '/events/event?id',
-        templateUrl: 'components/events/event/event.html',
-        controller: 'EventCtrl'
-      })
       .state('app.inner-layout.shop', {
         abstract: true,
         url: '/shop',

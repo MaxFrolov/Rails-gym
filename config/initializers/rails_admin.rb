@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = %w(User Post Product OrderItem Order Food Event Workout Plan Video Article Gallery ItemsCategory
+  config.included_models = %w(User Post Product OrderItem Order Food Workout Plan Video Article Gallery ItemsCategory
     Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category ExerciseImage ExerciseVideo)
 
   config.actions do

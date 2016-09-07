@@ -18,7 +18,6 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
       titles = {
         blog: 'Блог',
         nutrition: 'Питание',
-        events: 'События',
         shop: 'Магазин',
         gallery: 'Галлерея',
         login: 'Вход',

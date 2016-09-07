@@ -8,7 +8,6 @@ User.create({ email: 'admin@example.com', password: '123123123', confirmed_at: T
               phone: Faker::PhoneNumber.cell_phone})
 post_incr = 0
 nutrition_incr = 0
-event_incr = 0
 product_incr = 0
 
 12.times do
@@ -22,9 +21,6 @@ product_incr = 0
                 image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'nutrition', "#{nutrition_incr += 1}.jpg")),
                 description: Faker::Hipster.paragraph(8), title: Faker::Hipster.sentence(3) })
 
-  Event.create({ title: Faker::Hipster.sentence(3), subtitle: Faker::Hipster.sentence(5), description: Faker::Hipster.paragraph(8),
-                start_date: Faker::Date.forward(14),  end_date: Faker::Date.forward(23),
-                 image: File.open(File.join(Rails.root, 'test', 'fixtures' , 'events', "#{event_incr += 1}.jpg")), user_id: 1})
   Product.create ({ name: Faker::Commerce.product_name, price: Faker::Commerce.price, product_description: Faker::Hipster.paragraph(8),
                     image_product: File.open(File.join(Rails.root, 'test', 'fixtures' , 'products', "#{product_incr += 1}.jpg")),
                     composition: Faker::Commerce.department(5), recommendation_for_use: Faker::Hipster.sentence(5),

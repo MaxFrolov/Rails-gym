@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, Base
 
-  has_many :events
   has_many :posts
   has_many :comments
   has_many :training_diaries

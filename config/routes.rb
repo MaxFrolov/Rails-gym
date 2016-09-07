@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resource :comments, only: [:create, :update]
       resource :posts, only: [:create, :update, :destroy]
       resource :foods, only: [:create, :update, :destroy]
-      resource :events, only: [:create, :update, :destroy]
       resource :products, only: [:create, :update, :destroy]
       resources :list_of_exercises, only: [] do
         resource :training_diaries, only: [:create]
@@ -38,7 +37,6 @@ Rails.application.routes.draw do
     resources :foods, only: [:index, :show] do
       get '/recommended_foods', to: 'foods#recommended_foods', on: :collection
     end
-    resources :events, only: [:index, :show]
     resources :workouts, only: [:index, :show]
     resources :exercises, only: [:index, :show]
     resources :products, only: [:index, :show] do
