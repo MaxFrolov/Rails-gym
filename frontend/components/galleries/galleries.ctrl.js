@@ -1,17 +1,24 @@
-angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, currentUser) {
+angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, currentUser, Notification) {
 	$scope.openPhoto = openPhoto;
 	$scope.closeModal = closeModal;
 	$scope.submitComment = submitComment;
 	$scope.submitLike = submitLike;
 	$scope.loading = true;
 	$scope.currentUser = currentUser;
+	$scope.fetchGalleries = fetchGalleries;
 	$scope.comment = {};
+	var per = 0;
+	fetchGalleries();
 
-	Restangular.all('galleries').getList().then(function (responce) {
-		$scope.gallery = responce;
-	}).finally(function () {
-		$scope.loading = false;
-	});
+	function fetchGalleries() {
+		per += 8;
+		Restangular.all('galleries').getList({page: 1, per: per}).then(function (responce) {
+			$scope.gallery = responce;
+			$scope.hideLoadMore = responce.total !== responce.length
+		}).finally(function () {
+			$scope.loading = false;
+		});
+	}
 
 	function openPhoto(id) {
 		Restangular.one('galleries', id).get().then(function (responce) {
@@ -32,6 +39,9 @@ angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, c
 	function submitComment() {
 		$scope.comment.name = $scope.currentUser.first_name + ' ' + $scope.currentUser.last_name;
 		$scope.comment.email = $scope.currentUser.email;
+		if (!$scope.comment.message) {
+			return Notification.error('Комментарий не может быть пустым.')
+		}
 
 		Restangular.one('gallery', $scope.openedPhoto.id).one('users', $scope.currentUser.id)
 			.all('comments')
@@ -39,6 +49,9 @@ angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, c
 			.then(function (comment) {
 				$scope.comment.message = undefined;
 				$scope.openedPhoto.comments.push(comment);
+			})
+			.catch(function() {
+				Notification.error('Что то пошло не так, попробуйте еще раз...')
 			})
 	}
 

@@ -2,7 +2,8 @@ class GalleriesController < ApiController
   load_resource
 
   def index
-    render_resources @galleries
+    @galleries = @galleries.includes(:likes, :comments)
+    render_resources @galleries.page(params[:page]).per(params[:per])
   end
 
   def show

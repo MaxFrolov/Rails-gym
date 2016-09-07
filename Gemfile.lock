@@ -228,7 +228,7 @@ GEM
     rails-assets-angular-checklist-model (0.8.0)
       rails-assets-angular (>= 1.0.8)
     rails-assets-angular-mask (3.0.16)
-    rails-assets-angular-material (1.0.9)
+    rails-assets-angular-material (1.1.1)
       rails-assets-angular (>= 1.4.8, < 2)
       rails-assets-angular-animate (>= 1.4.8, < 2)
       rails-assets-angular-aria (>= 1.4.8, < 2)
@@ -406,7 +406,7 @@ DEPENDENCIES
   rails-assets-angular-chartjs!
   rails-assets-angular-checklist-model!
   rails-assets-angular-mask!
-  rails-assets-angular-material!
+  rails-assets-angular-material (= 1.1.1)!
   rails-assets-angular-permission!
   rails-assets-angular-sanitize!
   rails-assets-angular-timer!

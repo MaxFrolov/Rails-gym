@@ -9,15 +9,17 @@
           i.fa.fa-comment
           span {{photo.comments_count}}
       spinner loading="loading"
+  .text-center
+    md-button.md-raised.md-warn ng-click="fetchGalleries()" ng-if="hideLoadMore" показать больше...
 .gallery-modal ng-class="{galleryModalActive: openModal}"
   .gallery-inner__modal
-    .close ng-click="closeModal()"
-      i.fa.fa-times
     .container-fluid
       .row
         .col-sm-8.inner-photo__wrapper
           img.img-responsive ng-src="{{openedPhoto.photo.medium}}"
         .col-sm-4.inner-info__wrapper
+          .close ng-click="closeModal()"
+            i.fa.fa-times
           h4 {{openedPhoto.description}}
           .inner-comments__wrapper
             .inner-comments__comment ng-repeat="comment in openedPhoto.comments"
@@ -31,5 +33,4 @@
               .input-group
                 input.form-control ng-model="comment.message" placeholder="Введите комментарий..." type="text"
                 span.input-group-btn
-                  button.btn.btn-default type="submit" ok
-
+                  md-button.md-raised type="submit" ok

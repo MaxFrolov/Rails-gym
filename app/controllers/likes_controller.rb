@@ -4,7 +4,7 @@ class LikesController < ApiController
   load_resource only: :destroy
 
   def index
-    @likes = @likes.includes(:target)
+    @likes = @likes.includes(:target, :user)
     render_resources @likes
   end
 
