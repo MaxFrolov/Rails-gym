@@ -22,5 +22,7 @@ angular.module('app', [
   'ui.bootstrap.tabs',
   'ngMaterial',
   'ngAnimate',
-  'ngAria'
+  'ngAria',
+  'ngTouch',
+  'angular-carousel'
 ]);

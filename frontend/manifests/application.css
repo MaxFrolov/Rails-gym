@@ -4,5 +4,6 @@
  *= require angular-ui-notification
  *= require angular-chartjs
  *= require angular-material
+ *= require angular-carousel
  *= require_tree ../
  */

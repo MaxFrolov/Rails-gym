@@ -6,35 +6,40 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
   $scope.popularTypes = cycle(6);
   $scope.logout = logout;
   $scope.visible = $window.scrollY > 100;
+  $scope.noWrapSlides = true;
+  $scope.loaded = false;
+  $scope.active = 0;
+  $scope.myInterval = 5000;
 
-  $scope.carouselInterval = 5000;
+  $scope.serviceSlides = [
+    {label: 'Вы можете получить полную статитику по вашим упражнениям, которые вы ведете в дневнике тренеровок'},
+    {label: 'Персональный дневник тренеровок с которым вы всегда будете в курсе своих изменений'},
+    {label: 'Возможность заказать личную программу тренеровок у тренера'}
+  ];
 
   $scope.slides = [
     {image: '/assets/assets/first-page-images/man.png',
       text: 'Не знаю як тренажерка, а заняття з аеробіки мені дуже подобаються. Ходила в різні заклади,' +
       ' але врешті-решт зупинилась саме на цьому. Зараз вже півроку як переїхали, але все-одно ходжу "Раструсись".' +
-      ' Тренер Алеся просто супер.'},
+      ' Тренер Алеся просто супер.', id: 0},
     {image: '/assets/assets/first-page-images/types/5.jpg', text: 'Хороший клуб, тренеры внимательны и профессиональны,' +
-    ' но самый лучший тренер - Алеся!'}
+    ' но самый лучший тренер - Алеся!', id: 1}
   ];
 
   $scope.fields = [
     {
-      name: 'Чемпионат Европы имени В.Кравцова',
-      date: '15 Июля, 2016 | 11:00 - 17:00',
+      name: 'Консультации по питанию',
       id: 0,
       activeState: true,
       trueDate: '2016-06-15T08:00:00.000Z'
     },
     {
-      name: 'WRPF Чемпионат Мира',
-      date: '23 Мая, 2016 | 10:00 - 18:00',
+      name: 'Личные программы',
       id: 1,
       trueDate: '2016-05-23T07:00:00.000Z'
     },
     {
-      name: 'Чемпионат Украины',
-      date: '12 Августа, 2016 | 13:00 - 16:00',
+      name: 'Советы и рекоммендации по тренировакам',
       id: 2,
       trueDate: '2016-08-12T10:00:00.000Z'
     }
@@ -47,10 +52,19 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
     { counts: 10, text: 'Тренеров' }
   ];
 
-  $scope.eventDate = $scope.fields[0].trueDate;
+  var proposalMessages = [
+    'Вы можете полуить консультацию по питанию свзявшись со мной, мы обговорим все детали и в результате вы получите письмо' +
+    ' с программой по питанию на оговоренные сроки', 'Вы можете получить программу тренеровок свзявшись со мной,' +
+    'мы обговорим все детали и в результате вы получите письмо с программой по тренировке на оговоренные сроки',
+    'Вы можете получить консультацию по вашим тренировкам свзявшись со мной, мы обговорим все детали и в результате вы получите письмо' +
+    ' с программой по питанию на оговоренные сроки'
+  ];
 
-  function changeState(id, trueDate) {
-    $scope.eventDate = trueDate;
+  $scope.eventDate = $scope.fields[0].trueDate;
+  $scope.proposalMessage = proposalMessages[0];
+
+  function changeState(id) {
+    $scope.proposalMessage = proposalMessages[id];
     $scope.eventId = id;
     _.each($scope.fields, function(item) {
       item.activeState = (item.id === id)
@@ -93,4 +107,8 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
     $scope.visible = $window.scrollY > 100;
     $scope.$apply();
   };
+
+  angular.element(document).ready(function () {
+    $scope.loaded = true;
+  });
 });

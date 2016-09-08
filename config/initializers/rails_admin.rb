@@ -21,22 +21,43 @@ RailsAdmin.config do |config|
   config.included_models = %w(User Post Product OrderItem Order Food Workout Plan Video Article Gallery ItemsCategory
     Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category ExerciseImage ExerciseVideo)
 
+  hidden_modules = %w(ItemsCategory)
+
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
-    new do
-      except %w(Post Exercise)
+    dashboard do
+      except hidden_modules
     end
-    export
-    bulk_delete
+    index do
+      except hidden_modules
+    end
+    new do
+      except hidden_modules + %w(Post Exercise)
+    end
+    export do
+      except hidden_modules
+    end
+    bulk_delete do
+      except hidden_modules
+    end
     show do
-      except %w(Post Exercise)
+      except hidden_modules + %w(Post Exercise)
     end
     edit do
-      except %w(Post Exercise)
+      except hidden_modules + %w(Post Exercise)
     end
-    delete
-    show_in_app
+    delete do
+      except hidden_modules
+    end
+    show_in_app do
+      only %w(Post Video Article)
+
+      controller do
+        proc do
+          path = "blog/post?id=#{@object.id}"
+          redirect_to frontend_url(path: path)
+        end
+      end
+    end
 
     ## With an audit adapter, you can add:
     # history_index
@@ -44,11 +65,15 @@ RailsAdmin.config do |config|
   end
 
   config.model User do
+    label 'Пользователь'
+    label_plural 'Пользователи'
     object_label_method :label_for_admin
   end
 
   config.model UsersTraining do
-    navigation_label 'Расписание тренировок'
+    label 'Тренировка'
+    label_plural 'Тренировки'
+    navigation_label 'Расписания тренировок'
 
     list do
       exclude_fields :created_at, :updated_at, :id
@@ -67,20 +92,27 @@ RailsAdmin.config do |config|
   end
 
   config.model UserTrainingExercise do
-    navigation_label 'Расписание тренировок'
-    object_label_method :label_for_admin
+    label 'Упражнениe'
+    label_plural 'Упражнения'
+    navigation_label 'Расписания тренировок'
 
     list do
       exclude_fields :created_at, :updated_at, :id
     end
 
     edit do
+      field :list_of_exercise do
+        label 'Упражнение'
+      end
       exclude_fields :users_training
     end
   end
 
   config.model UserTrainingExerciseSet do
-    navigation_label 'Расписание тренировок'
+    label 'Информация по упражнению'
+    label_plural 'Информация по упражнению'
+
+    navigation_label 'Расписания тренировок'
     object_label_method :label_for_admin
 
     list do
@@ -93,18 +125,26 @@ RailsAdmin.config do |config|
   end
 
   config.model Order do
+    label 'Заказ'
+    label_plural 'Заказы'
     navigation_label 'Магазин'
   end
 
   config.model OrderItem do
+    label 'Заказанный товар'
+    label_plural 'Заказанные товары'
     navigation_label 'Магазин'
   end
 
   config.model Product do
+    label 'Продукт'
+    label_plural 'Продукты'
     navigation_label 'Магазин'
   end
 
   config.model Post do
+    label 'Пост'
+    label_plural 'Посты'
     navigation_label 'Блог'
     include_fields :id, :type, :title, :created_at, :updated_at, :tag_list
 
@@ -118,6 +158,8 @@ RailsAdmin.config do |config|
   end
 
   config.model Video do
+    label 'Пост с видео'
+    label_plural 'Посты с видео'
     include_fields :id, :title, :subtitle, :link, :video_id, :service, :source, :description, :tag_list,
                    :created_at, :updated_at, :type, :categories, :preview_image
     configure :tag_list  do
@@ -164,6 +206,8 @@ RailsAdmin.config do |config|
   end
 
   config.model Article do
+    label 'Пост с картинкой'
+    label_plural 'Посты с картинкой'
     include_fields :id, :title, :subtitle, :source, :description, :tag_list, :created_at, :updated_at, :type, :categories
 
     configure :tag_list  do
@@ -222,8 +266,8 @@ RailsAdmin.config do |config|
   end
 
   config.model Food do
-    label 'Питание'
-    label_plural 'Питание'
+    label 'Еда'
+    label_plural 'Еда'
 
     list do
       exclude_fields :id, :created_at,  :updated_at, :comments_count, :users, :likes_count, :description, :items_categories
@@ -252,7 +296,8 @@ RailsAdmin.config do |config|
   end
 
   config.model Category do
-
+    label 'Категория'
+    label_plural 'Категории'
     edit do
       exclude_fields :target, :items_categories, :posts, :foods, :workouts
     end
@@ -260,6 +305,8 @@ RailsAdmin.config do |config|
 
   config.model Workout do
     navigation_label 'Упражнения'
+    label 'Тренировка'
+    label_plural 'Тренировки'
     include_fields :id, :title, :subtitle, :image, :level, :categories, :exercises
 
     edit do
@@ -274,14 +321,18 @@ RailsAdmin.config do |config|
   end
 
   config.model Exercise do
+    label 'Пост упражнения'
+    label_plural 'Посты упражнений'
     navigation_label 'Упражнения'
 
     include_fields :id, :type, :title, :created_at, :updated_at
   end
 
   config.model ExerciseVideo do
+    label 'Упражнение с видео'
+    label_plural 'Упражнения с видео'
     include_fields :id, :title, :subtitle, :link, :video_id, :service, :description,
-                   :created_at, :updated_at, :type, :preview_image, :reps, :sets, :time
+                   :created_at, :updated_at, :type, :preview_image, :reps, :sets, :time, :workout
     group :image do
       label 'Image options'
 
@@ -310,8 +361,10 @@ RailsAdmin.config do |config|
   end
 
   config.model ExerciseImage do
+    label 'Упражнение с картинками'
+    label_plural 'Упражнения с картинками'
     include_fields :id, :title, :subtitle, :description, :created_at, :updated_at, :type,
-                   :reps, :sets, :time
+                   :reps, :sets, :time, :workout
 
     group :image do
       label 'Image options'
@@ -337,5 +390,12 @@ RailsAdmin.config do |config|
         end
       end
     end
+  end
+
+  config.model ListOfExercise do
+    label 'Упражнение'
+    label_plural 'Упражнения'
+    navigation_label 'Упражнения'
+    include_fields :id, :title, :measuring, :level
   end
 end

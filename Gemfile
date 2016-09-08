@@ -69,6 +69,7 @@ gem 'rails_admin_tag_list'
 gem 'rich', :git => 'https://github.com/kreativgebiet/rich.git'
 
 source 'https://rails-assets.org' do
+  gem 'rails-assets-angular-carousel'
   gem 'rails-assets-angular-animate'
   gem 'rails-assets-angular'
   gem 'rails-assets-ui-utils'

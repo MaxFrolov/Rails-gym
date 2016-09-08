@@ -1,3 +1,5 @@
+#loader ng-class="{hideLoader: loaded}"
+  spinner loading="!loaded"
 header.main-page__background
   #anchor.container-fluid.main-page__wrapper
     .row
@@ -24,7 +26,64 @@ header.main-page__background
       h2 Приготовьтесь
       h1 Изменить
       h3 Свою жизнь
-
+section.main-page__our-trainer
+  .container.rules__description
+    .row
+      .col-sm-5.page-rules__who-i
+        span.brand-color>Тренер
+        'Алеся Петренко
+      .col-sm-7.page-rules__rule
+        span Вас ждет очень информативный тренинг. Ваш тренер всегда будет готов объяснить факты. Его умения технично
+             помогут вам достичь желаемых результатов.
+  .container
+    .row
+      .col-sm-6
+        img src='<%=asset_path "assets/first-page-images/teacher.png" %>'
+      .col-sm-6.our-trainer__information
+        .our-trainer__blocks
+          .img-circle
+            img src='<%=asset_path "assets/first-page-images/post_1.jpg" %>'
+          .block_description
+            h4 построим идеальное тело
+            span Lorem ipsum dolor emmet.
+            p вместе мы сможем изменить ваше тело к лучшему и добиться наилучших показателей.
+        .clearfix
+        .our-trainer__blocks
+          .img-circle
+            img src='<%=asset_path "assets/first-page-images/post_2.jpg" %>'
+          .block_description
+            h4 только рабочие программы
+            span Lorem ipsum dolor emmet.
+            p Мои советы и наставления помогут вам достич желаемых результатов.
+        .clearfix
+        .our-trainer__blocks
+          .img-circle
+            img src='<%=asset_path "assets/first-page-images/post_3.jpg" %>'
+          .block_description
+            h4 опытный тренер
+            span Lorem ipsum dolor emmet.
+            p Хороший опыт помогает мне дать вам лучшие тренировки.
+section.main-line-images
+  .container-fluid
+    .row
+      .line_wrapper_bg
+        img.img-responsive src='<%=asset_path "assets/first-page-images/line-images/gal_1.jpg" %>'
+        .inner-type-bg
+      .line_wrapper_bg
+        img.img-responsive src='<%=asset_path "assets/first-page-images/line-images/gal_2.jpg" %>'
+        .inner-type-bg
+      .line_wrapper_bg
+        img.img-responsive src='<%=asset_path "assets/first-page-images/line-images/gal_4.jpg" %>'
+        .inner-type-bg
+      .line_wrapper_bg
+        img.img-responsive src='<%=asset_path "assets/first-page-images/line-images/gal_5.jpg" %>'
+        .inner-type-bg
+      .line_wrapper_bg
+        img.img-responsive src='<%=asset_path "assets/first-page-images/line-images/gal_7.jpg" %>'
+        .inner-type-bg
+      .line_wrapper_bg
+        img.img-responsive src='<%=asset_path "assets/first-page-images/line-images/gal_9.jpg" %>'
+        .inner-type-bg
 section.main-page__rules
   .container.rules__description
     .row
@@ -64,13 +123,13 @@ a.anchorScroll href="#" scroll-to="anchor" ng-class="{'anchor__active': visible}
         .container-fluid
           .next-events__wrapper
             .main__next-events
-              span.brand-color> Следующие
-              'события
+              span.brand-color> Мои
+              'консультации
             .main__next-events-description Вот уже много лет я не теряю любви к регулярным тренировкам, есть особый
                                            драйв в том, чтобы бросать своему телу новые вызовы и достигать результата.
       .col-sm-2
         .row.events__wrap
-          .event__field-wrap ng-repeat="field in fields" ng-class="{'active': field.activeState}" ng-click="changeState(field.id, field.trueDate)"
+          .event__field-wrap ng-repeat="field in fields" ng-class="{'active': field.activeState}" ng-click="changeState(field.id)"
             span {{field.date}}
             p {{field.name}}
       .col-sm-5.event-time__wrapper
@@ -78,13 +137,13 @@ a.anchorScroll href="#" scroll-to="anchor" ng-class="{'anchor__active': visible}
           img ng-src='/assets/assets/first-page-images/event-page-{{eventId}}.jpg'
           .wrap-inner
           .event-timer
-            timer end-time="eventDate" interval="1000" max-time-unit="'day'" {{ddays}} day{{daysS}} | {{hours}} hour{{hoursS}} | {{minutes}} minute{{minutesS}} | {{seconds}} second{{secondsS}}
+            span {{proposalMessage}}
 section.main-page__popular_types
   .container.rules__description
     .row
       .col-sm-5.page-rules__who-i
-        span.brand-color>Популярные
-        'виды
+        span.brand-color>Наши
+        'Тренировки
       .col-sm-7.page-rules__rule Тебе тяжело в тренажёрном зале, но твоему сопернику может быть в два раза тяжелее.
   .container
     .row
@@ -105,27 +164,27 @@ section.main-page__popular_types
                                            драйв в том, чтобы бросать своему телу новые вызовы и достигать результата.
         .col-sm-7
           .carousel-block
-            carousel-wrapper slides="slides" carousel-interval="carouselInterval"
-section.main-page__our-trainer
-  .container.rules__description
-    .row
-      .col-sm-5.page-rules__who-i
-        span.brand-color>Наш
-        'тренер
-      .col-sm-7.page-rules__rule Час, который ты проводишь в зале, очень важен! Но, на самом деле, ключ
-                                 успеха состоит в том, как ты проведешь остальные оставшиеся 23 часа.
+            div active="active" interval="myInterval" no-wrap="noWrapSlides" uib-carousel=""
+              div index="slide.id" ng-repeat="slide in slides track by slide.id" uib-slide=""
+                img ng-src="{{slide.image}}"
+                .carousel-caption
+                  p  {{slide.text}}
+section.main-page__service
   .container
-    .row
-      .col-sm-6
-        img src='<%=asset_path "assets/first-page-images/teacher.png" %>'
-      .col-sm-6.our-trainer__information
-        h3 Алеся Петренко
-        p Мастер / Волейбол
-        span Очень информативный тренинг. Ваш тренер всегда будет готов объяснить факты. Его умение технично...
+    .page-rules__who-i
+      span.brand-color>Услуги нашего
+      'сервиса
+    ul rn-carousel-auto-slide="" rn-carousel="" rn-carousel-buffered=""
+      li ng-repeat="slide in serviceSlides"
+        h3 {{slide.label}}
+        .slider-img
+          img.img-responsive ng-src='assets/assets/first-page-images/service-slides/{{$index}}.jpg'
 section.main-page__video-training
   .container
     .row
-      .col-sm-offset-3.col-sm-6.video-training_wrapper
+      .col-sm-offset-2.col-sm-8.video-training_wrapper
+        h3 Час, который ты проводишь в зале, очень важен! Но, на самом деле, ключ
+           успеха состоит в том, как ты проведешь остальные оставшиеся 23 часа.
 section.main-page__latest_news
   .container.rules__description
     .row

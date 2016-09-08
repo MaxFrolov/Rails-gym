@@ -24,6 +24,7 @@
  *= require ngSmoothScroll
  *= require angular-material
  *= require ngAnimate-animate
+ *= require angular-carousel
  *= require ../module
  *= require_tree ../
  */
