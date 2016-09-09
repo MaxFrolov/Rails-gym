@@ -82,4 +82,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  #middleware for prerender.io
+  config.middleware.use Rack::Prerender, prerender_token: ENV['PRERENDER_TOKEN']
 end
