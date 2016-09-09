@@ -101,3 +101,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-material', '1.1.1'
   gem 'rails-assets-ngAnimate-animate.css'
 end
+
+ruby '2.2.3'
