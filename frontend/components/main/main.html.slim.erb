@@ -175,10 +175,18 @@ section.main-page__service
       span.brand-color>Услуги нашего
       'сервиса
     ul rn-carousel-auto-slide="" rn-carousel="" rn-carousel-buffered=""
-      li ng-repeat="slide in serviceSlides"
-        h3 {{slide.label}}
+      li
+        h3 Вы можете получить полную статитику по вашим упражнениям, которые вы ведете в дневнике тренеровок
         .slider-img
-          img.img-responsive ng-src='assets/assets/first-page-images/service-slides/{{$index}}.jpg'
+          img.img-responsive src='<%=asset_path "/assets/first-page-images/service-slides/0.jpg" %>'
+      li
+        h3 Персональный дневник тренеровок с которым вы всегда будете в курсе своих изменений
+        .slider-img
+          img.img-responsive src='<%=asset_path "/assets/first-page-images/service-slides/1.jpg" %>'
+      li
+        h3 Возможность заказать личную программу тренеровок у тренера
+        .slider-img
+          img.img-responsive src='<%=asset_path "/assets/first-page-images/service-slides/2.jpg" %>'
 section.main-page__video-training
   .container
     .row

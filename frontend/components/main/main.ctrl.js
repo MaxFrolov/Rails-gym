@@ -11,12 +11,6 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
   $scope.active = 0;
   $scope.myInterval = 5000;
 
-  $scope.serviceSlides = [
-    {label: 'Вы можете получить полную статитику по вашим упражнениям, которые вы ведете в дневнике тренеровок'},
-    {label: 'Персональный дневник тренеровок с которым вы всегда будете в курсе своих изменений'},
-    {label: 'Возможность заказать личную программу тренеровок у тренера'}
-  ];
-
   $scope.slides = [
     {image: '/assets/assets/first-page-images/man.png',
       text: 'Не знаю як тренажерка, а заняття з аеробіки мені дуже подобаються. Ходила в різні заклади,' +
