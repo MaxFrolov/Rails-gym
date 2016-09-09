@@ -38,8 +38,8 @@ GIT
       rails-assets-angular (>= 1.2.18)
 
 GIT
-  remote: https://github.com/kreativgebiet/rich.git
-  revision: 2c8f85438e7391f9a11d4972272723bbe85844cd
+  remote: https://github.com/Venumteam/rich.git
+  revision: a31a0add409b6e0cae07b3b603b939e547d035ca
   specs:
     rich (1.4.8)
       jquery-rails
