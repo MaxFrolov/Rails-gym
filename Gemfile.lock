@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/Venumteam/rich.git
-  revision: a31a0add409b6e0cae07b3b603b939e547d035ca
+  revision: 114c683212761e5c477975f63ca3f5c80e642645
   specs:
     rich (1.4.8)
       jquery-rails
