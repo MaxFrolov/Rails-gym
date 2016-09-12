@@ -35,14 +35,12 @@ group :development, :test do
 end
 
 group :production do
-  gem 'unicorn'
   gem 'rails_12factor'
 end
 
 group :development do
   gem 'quiet_assets'
   gem 'letter_opener'
-  gem 'unicorn'
 end
 
 # For seed data
@@ -52,6 +50,7 @@ gem 'faker'
 gem 'mini_magick', '4.2.7'
 gem 'carrierwave-data-uri'
 
+gem 'unicorn'
 gem 'kaminari'
 gem 'rails-api'
 gem 'factory_girl_rails'
@@ -90,7 +89,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-ngmap'
   gem 'rails-assets-angular-checklist-model'
   gem 'rails-assets-angular-mask'
-  gem 'rails-assets-angular-permission'
+  gem 'rails-assets-angular-permission', '1.1.0'
   gem 'rails-assets-ngInfiniteScroll'
   gem 'rails-assets-ngImgCrop'
   gem 'rails-assets-angular-ui-notification'

@@ -122,7 +122,13 @@ angular.module('app')
         abstract: true,
         url: '/profile',
         templateUrl: 'components/profile/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        data: {
+          permissions: {
+            only: ['member', 'admin'],
+            redirectTo: 'app.main'
+          }
+        }
       })
       .state('app.profile.home', {
         url: '/home',

@@ -68,7 +68,7 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
     $auth.logout();
     CurrentUser.reload();
     Notification.success('Выход выполнен успешно');
-    $state.go('main');
+    $state.go('app.main');
   }
 
   $scope.recordModal = recordModal;
