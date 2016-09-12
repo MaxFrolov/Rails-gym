@@ -74,8 +74,19 @@ section .rn-carousel-control {
     h3 {
       font-family: 'PT Sans Caption', sans-serif;
       color: #848484;
-      border-bottom: 2px solid whitesmoke;
-      padding-bottom: 20px;
+    }
+
+    hr {
+      border-top: 3px solid #ea4c23;
+      width: 150px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .service-slider__wrapper {
+
+    .rn-carousel-control {
+      top: 50%;
     }
   }
 

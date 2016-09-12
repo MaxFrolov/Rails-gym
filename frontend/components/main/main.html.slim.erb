@@ -184,14 +184,17 @@ section.main-page__service
       ul rn-carousel-auto-slide="5" rn-carousel="" rn-carousel-buffered="" rn-carousel-controls="" rn-carousel-transition="fadeAndSlide" rn-carousel-controls-allow-loop=""
         li
           h3 Вы можете получить полную статитику по вашим упражнениям, которые вы ведете в дневнике тренеровок
+          hr
           .slider-img
             img.img-responsive src='<%=asset_path "assets/first-page-images/service-slides/0.jpg" %>'
         li
           h3 Персональный дневник тренеровок с которым вы всегда будете в курсе своих изменений
+          hr
           .slider-img
             img.img-responsive src='<%=asset_path "assets/first-page-images/service-slides/1.jpg" %>'
         li
           h3 Возможность заказать личную программу тренеровок у тренера
+          hr
           .slider-img
             img.img-responsive src='<%=asset_path "assets/first-page-images/service-slides/2.jpg" %>'
 section.main-page__video-training
@@ -210,9 +213,10 @@ section.main-page__latest_news
   .container
     .row
       .col-sm-4 ng-repeat="post in recommendedPosts"
-        .news-img__wrapper
-          img.img-responsive ng-src="{{post.image.small}}"
-          i.fa.fa-play-circle.play-icon-small ng-if="post.type === 'Video'"
+        a ui-sref="app.inner-layout.blog.post({ id: post.id })"
+          .news-img__wrapper
+            img.img-responsive ng-src="{{post.image.small}}"
+            i.fa.fa-play-circle.play-icon-small ng-if="post.type === 'Video'"
         .news-inform
           .news-date {{post.created_at | calendarDate}}
           .news-edit
@@ -224,7 +228,7 @@ section.main-page__latest_news
               '{{post.comments_count}}
         .news-description
           h4 {{post.title}}
-          p {{post.subtitle.length > 150 ? post.subtitle.concat )}}
+          p {{post.subtitle.length > 150 ? post.subtitle.slice(0, 150).concat('...') : post.subtitle }}
 section.main-page__price
   .container.rules__description
     .row
