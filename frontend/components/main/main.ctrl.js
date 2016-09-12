@@ -1,4 +1,4 @@
-angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state, $window) {
+angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state, $window, Restangular) {
   $scope.currentUser = currentUser;
   $scope.eventId = 0;
   $scope.changeState = changeState;
@@ -6,19 +6,9 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
   $scope.popularTypes = cycle(6);
   $scope.logout = logout;
   $scope.visible = $window.scrollY > 100;
-  $scope.noWrapSlides = true;
   $scope.loaded = false;
-  $scope.active = 0;
-  $scope.myInterval = 5000;
 
-  $scope.slides = [
-    {image: '/assets/assets/first-page-images/man.png',
-      text: 'Не знаю як тренажерка, а заняття з аеробіки мені дуже подобаються. Ходила в різні заклади,' +
-      ' але врешті-решт зупинилась саме на цьому. Зараз вже півроку як переїхали, але все-одно ходжу "Раструсись".' +
-      ' Тренер Алеся просто супер.', id: 0},
-    {image: '/assets/assets/first-page-images/types/5.jpg', text: 'Хороший клуб, тренеры внимательны и профессиональны,' +
-    ' но самый лучший тренер - Алеся!', id: 1}
-  ];
+  $scope.recommendedPosts = Restangular.all('posts').all('recommended_posts').getList({count: 3}).$object;
 
   $scope.fields = [
     {
