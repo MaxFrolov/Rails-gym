@@ -38,6 +38,15 @@ GIT
       rails-assets-angular (>= 1.2.18)
 
 GIT
+  remote: git://github.com/svenfuchs/rails-i18n.git
+  revision: 705798b51a6a94d415a8670da3f84ee91496aa62
+  branch: rails-4-x
+  specs:
+    rails-i18n (4.0.9)
+      i18n (~> 0.7)
+      railties (~> 4.0)
+
+GIT
   remote: https://github.com/Venumteam/rich.git
   revision: 114c683212761e5c477975f63ca3f5c80e642645
   specs:
@@ -441,6 +450,7 @@ DEPENDENCIES
   rails-assets-satellizer (= 0.11.3)!
   rails-assets-ui-router!
   rails-assets-ui-utils!
+  rails-i18n!
   rails_12factor
   rails_admin
   rails_admin_tag_list

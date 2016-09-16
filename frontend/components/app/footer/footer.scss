@@ -26,6 +26,10 @@
           font-family: 'Play', sans-serif;
           display: inline-block;
           color: #C1C1C1;
+
+          &:hover {
+            color: #fff;
+          }
         }
 
         &:first-child {
