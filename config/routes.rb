@@ -61,5 +61,11 @@ Rails.application.routes.draw do
     end
   end
 
+  %w{facebook}.each { |name| post "#{name}/data", to: 'oauth#retrieve_data', defaults: { provider: name } }
+
+  scope :auth do
+    %w{facebook}.each { |name| post name, to: 'oauth#authenticate_user', defaults: { provider: name } }
+  end
+
   match '/(*path)', via: :all, to: frontend_page('index.htm')
 end

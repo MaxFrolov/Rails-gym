@@ -18,9 +18,25 @@
 }
 
 .login-page .social-buttons-block {
-  padding: 30px;
+  padding: 30px 5px;
 }
 
 .social-buttons-block__icon {
   margin-right: 5px;
+}
+
+.social-buttons-block {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+
+  button {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    width: 100%;
+
+    i {
+      font-size: 18px;
+    }
+  }
 }

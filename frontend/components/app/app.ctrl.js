@@ -2,10 +2,19 @@
 
 /* Controllers */
 
-angular.module('app').controller('AppCtrl', function($scope, $auth, $state, CurrentUser, Notification, currentUser, $rootScope) {
+angular.module('app').controller('AppCtrl', function($scope, $auth, $state, CurrentUser, Notification, currentUser, $rootScope,
+                                                     RetrievedData) {
   $scope.currentUser = currentUser;
   $scope.logout = logout;
   $scope.activeNestedChild = activeNestedChild;
+  $scope.socialSignUp = socialSignUp;
+
+  function socialSignUp(provider) {
+    $auth.oauthData(provider).then(function(response) {
+      $state.go('app.inner-layout.signUp', {user: RetrievedData[provider](response.data.resource)});
+    });
+  }
+
   changeTitles();
 
   $rootScope.$on('$stateChangeSuccess', function() {

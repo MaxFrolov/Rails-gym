@@ -72,6 +72,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails_admin_tag_list'
 gem 'rich', :git => 'https://github.com/Venumteam/rich.git'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x'
+gem 'httpclient'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular-carousel'
