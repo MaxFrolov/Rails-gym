@@ -1,5 +1,5 @@
-angular.module('app').controller('SignUpCtrl', function($scope, $http, $auth, $state, CurrentUser) {
-  $scope.user = {};
+angular.module('app').controller('SignUpCtrl', function($scope, $http, $auth, $state, CurrentUser, $stateParams) {
+  $scope.user = $stateParams.user || {};
   $scope.errors = {};
   $scope.signUp = signUp;
 

@@ -7,10 +7,8 @@ angular.module('app').run(function(Permission, CurrentUser, $auth, $rootScope, N
 
 	_.each(['member', 'admin'], function(role) {
 		Permission.defineRole(role, function() {
-			if (!$auth.isAuthenticated()) {
 
-				return false;
-			}
+			return $auth.isAuthenticated();
 		});
 	});
 

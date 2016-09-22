@@ -52,6 +52,6 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
     $auth.logout();
     CurrentUser.reload();
     Notification.success('Successfully logged out');
-    $state.go('main');
+    $state.go('app.main');
   }
 });

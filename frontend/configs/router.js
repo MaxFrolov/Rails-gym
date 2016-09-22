@@ -34,7 +34,10 @@ angular.module('app')
       .state('app.inner-layout.signUp', {
         url: '/sign-up',
         templateUrl: 'components/auth/sign-up/signUp.html',
-        controller: 'SignUpCtrl'
+        controller: 'SignUpCtrl',
+        params: {
+          user: null
+        }
       })
       .state('app.inner-layout.login', {
         url: '/login',
@@ -159,13 +162,13 @@ angular.module('app')
               $auth.setToken(response.data.auth_token);
               CurrentUser.reload().then(function () {
                // Notification.success('Your email has been confirmed');
-                $state.go('main');
+                $state.go('app.main');
               });
             })
             .catch(function () {
               CurrentUser.reload().then(function () {
                 //Notification.error(response.data.errors);
-                $state.go('main');
+                $state.go('app.main');
               });
             });
         }
