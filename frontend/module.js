@@ -24,5 +24,6 @@ angular.module('app', [
   'ngAnimate',
   'ngAria',
   'ngTouch',
-  'angular-carousel'
+  'angular-carousel',
+  'duParallax'
 ]);

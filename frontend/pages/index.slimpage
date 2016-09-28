@@ -17,3 +17,5 @@ html(lang='en' data-ng-app='app')
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.js'
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js'
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-touch.js'
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.4/SmoothScroll.min.js'
+    = javascript_include_tag '//oblador.github.io/angular-scroll/0.6.2/angular-scroll.min.js'

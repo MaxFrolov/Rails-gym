@@ -1,9 +1,10 @@
 #loader ng-class="{hideLoader: loaded}"
   spinner loading="!loaded"
 header.main-page__background
+  img.parallax-img du-parallax="" y="background" x="'50%'" src='<%=asset_path "assets/first-page-images/main.jpg" %>'
   #anchor.container-fluid.main-page__wrapper
     .row
-      ul
+      ul.relative
         li ui-sref-active="active"
           a ui-sref="app.main" Главная
         li

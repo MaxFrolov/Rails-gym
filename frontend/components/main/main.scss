@@ -135,6 +135,16 @@ section .rn-carousel-control {
 
 .main-page__background {
   overflow: hidden;
+  position: relative;
+}
+
+.parallax-img {
+  opacity: 1;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .main-page__wrapper {
@@ -142,8 +152,6 @@ section .rn-carousel-control {
   padding-bottom: 50px;
   height: 100vh;
   width: 100%;
-  background: asset_url('assets/first-page-images/main.jpg') no-repeat 50% 0;
-  background-size: cover;
   text-align: center;
 
   li.active>a{

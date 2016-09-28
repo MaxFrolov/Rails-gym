@@ -9,6 +9,8 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
   $scope.activeNestedChild = activeNestedChild;
   $scope.socialSignUp = socialSignUp;
 
+  window.SmoothScroll({animationTime: 800, stepSize: 120});
+
   function socialSignUp(provider) {
     $auth.oauthData(provider).then(function(response) {
       $state.go('app.inner-layout.signUp', {user: RetrievedData[provider](response.data.resource)});
