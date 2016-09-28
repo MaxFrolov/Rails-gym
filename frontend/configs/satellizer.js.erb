@@ -22,7 +22,19 @@ angular.module('app').config(function($authProvider) {
       'user_hometown', 'user_location', 'user_work_history', 'user_friends']
   });
 
-
+  $authProvider.oauth2({
+    name: 'vk',
+    url: '/auth/vk',
+    redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
+    clientId: 'my-client-id',
+    authorizationEndpoint: 'http://oauth.vk.com/authorize',
+    scope: 'friends, photos, email, photo_big',
+    display: 'popup',
+    responseType: 'code',
+    requiredUrlParams: ['response_type', 'client_id', 'redirect_uri', 'display', 'scope', 'v'],
+    scopeDelimiter: ',',
+    v: '5.37'
+  });
 
 }).run([
   '$auth',

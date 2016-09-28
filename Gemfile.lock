@@ -137,6 +137,10 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     excon (0.45.4)
     execjs (2.5.2)
@@ -154,6 +158,7 @@ GEM
     haml (4.0.7)
       tilt
     hike (1.2.3)
+    httpclient (2.8.2.4)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -411,8 +416,10 @@ DEPENDENCIES
   carrierwave-data-uri
   database_cleaner
   devise
+  dotenv-rails
   factory_girl_rails
   faker
+  httpclient
   jbuilder (~> 2.0)
   jwt_authentication!
   kaminari

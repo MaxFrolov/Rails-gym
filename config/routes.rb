@@ -59,6 +59,12 @@ Rails.application.routes.draw do
     scope ':target_type/:target_id', target_type: /(post|food|product|event|gallery|exercise)/ do
       resources :comments, only: :index
     end
+
+    post 'facebook/data', to: 'oauth#retrieve_data', defaults: { provider: 'facebook' }
+
+    scope :auth do
+      %w{facebook}.each { |name| post name, to: 'oauth#authenticate_user', defaults: { provider: name } }
+    end
   end
 
   match '/(*path)', via: :all, to: frontend_page('index.htm')

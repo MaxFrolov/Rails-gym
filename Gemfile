@@ -17,6 +17,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Support of .env files to set environment variables
+gem 'dotenv-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -72,6 +74,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails_admin_tag_list'
 gem 'rich', :git => 'https://github.com/Venumteam/rich.git'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x'
+gem 'httpclient'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular-carousel'
