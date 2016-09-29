@@ -1,4 +1,4 @@
-angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state, $window, Restangular) {
+angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth, CurrentUser, $uibModal, $state, $window, Restangular, parallaxHelper) {
   $scope.currentUser = currentUser;
   $scope.eventId = 0;
   $scope.changeState = changeState;
@@ -7,6 +7,7 @@ angular.module('app').controller('MainCtrl', function($scope, currentUser, $auth
   $scope.logout = logout;
   $scope.visible = $window.scrollY > 100;
   $scope.loaded = false;
+  $scope.background = parallaxHelper.createAnimator(-0.3);
 
   $scope.recommendedPosts = Restangular.all('posts').all('recommended_posts').getList({count: 3}).$object;
 

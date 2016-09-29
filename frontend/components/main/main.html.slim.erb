@@ -1,9 +1,10 @@
 #loader ng-class="{hideLoader: loaded}"
   spinner loading="!loaded"
 header.main-page__background
+  img.parallax-img du-parallax="" y="background" x="-50" src='<%=asset_path "assets/first-page-images/main.jpg" %>'
   #anchor.container-fluid.main-page__wrapper
     .row
-      ul
+      ul.relative
         li ui-sref-active="active"
           a ui-sref="app.main" Главная
         li
@@ -152,6 +153,7 @@ section.main-page__popular_types
           img.img-responsive ng-src='assets/assets/first-page-images/types/{{type}}.jpg'
           .inner-type-bg
 .main-page__reviews
+  img.parallax-img du-parallax="" y="background" x="-50" src='<%=asset_path "assets/first-page-images/reviews.jpg" %>'
   section.inner-bg__reviews
     .container
       .row
@@ -198,6 +200,7 @@ section.main-page__service
           .slider-img
             img.img-responsive src='<%=asset_path "assets/first-page-images/service-slides/2.jpg" %>'
 section.main-page__video-training
+  img.parallax-img du-parallax="" y="background" x="-50" src='<%=asset_path "assets/first-page-images/bg-video.jpg" %>'
   .container
     .row
       .col-sm-offset-2.col-sm-8.video-training_wrapper

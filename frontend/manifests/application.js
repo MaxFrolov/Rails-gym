@@ -25,6 +25,7 @@
  *= require angular-material
  *= require ngAnimate-animate
  *= require angular-carousel
+ *= require ng-parallax
  *= require ../module
  *= require_tree ../
  */
