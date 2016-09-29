@@ -433,9 +433,8 @@ section.main-page__rules {
 }
 
 .main-page__reviews {
-  background: asset_url("assets/first-page-images/reviews.jpg") no-repeat fixed 50% 0;
-  background-size: cover;
   position: relative;
+  overflow: hidden;
 
   .inner-bg__reviews {
     min-height: 460px;
@@ -445,6 +444,7 @@ section.main-page__rules {
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
+    position: relative;
 
     .carousel-block {
       position: relative;
@@ -513,8 +513,8 @@ section.main-page__rules {
 }
 
 .main-page__video-training {
-  background: asset_url("assets/first-page-images/bg-video.jpg") no-repeat fixed;
-  background-size: cover;
+  position: relative;
+  overflow: hidden;
 
   .video-training_wrapper {
     text-align: center;

@@ -22,6 +22,13 @@ GIT
       uglifier (~> 2.7.1)
 
 GIT
+  remote: git://github.com/Venumteam/rails-assets-ng-parallax.git
+  revision: 32e9e67ef9f389fabe712e5d1525aeffb07fc021
+  specs:
+    rails-assets-ng-parallax (0.1.8)
+      rails-assets-angular (>= 1.2.18)
+
+GIT
   remote: git://github.com/sars/angular-rails-templates.git
   revision: a873ee33836d5cbb02e73dc2b6731ec5aab4c981
   specs:
@@ -289,9 +296,6 @@ GEM
     rails-assets-lodash (3.10.1)
     rails-assets-moment (2.10.6)
     rails-assets-momentjs (2.9.0)
-    rails-assets-ng-parallax (0.1.8)
-      rails-assets-angular (>= 1.2.0, < 2)
-      rails-assets-angular-scroll (>= 0.6.0, < 0.7)
     rails-assets-ngAnimate-animate.css (0.1.1)
       rails-assets-angular
       rails-assets-angular-animate
@@ -446,6 +450,7 @@ DEPENDENCIES
   rails-assets-angular-material (= 1.1.1)!
   rails-assets-angular-permission (= 1.1.0)!
   rails-assets-angular-sanitize!
+  rails-assets-angular-scroll!
   rails-assets-angular-timer!
   rails-assets-angular-ui-notification!
   rails-assets-angular-ui-select!
