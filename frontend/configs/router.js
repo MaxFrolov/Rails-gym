@@ -97,7 +97,7 @@ angular.module('app')
         controller: 'BillingInfoCtrl'
       })
       .state('app.inner-layout.shop.order-review', {
-        url: '/order-review?id',
+        url: '/order-review/{id}',
         templateUrl: 'components/shop/order-review/order-review.html',
         controller: 'OrderReviewCtrl'
       })

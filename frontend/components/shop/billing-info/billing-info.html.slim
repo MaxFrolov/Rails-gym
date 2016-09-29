@@ -47,3 +47,6 @@
             .col-sm-offset-2.col-sm-8
               button.btn.btn-primary.btn-lg.auth__submit type="submit" оформить заказ
             .clearfix
+    form id="payForm" method="post" action="https://www.liqpay.com/api/3/checkout" acceptCharset="utf-8"
+      input type="hidden" name="data" value="{{liqpayData.data}}"
+      input type="hidden" name="signature" value="{{liqpayData.signature}}"

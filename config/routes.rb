@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     resources :plans, only: :create
     resources :galleries, only: [:index, :show]
     resources :list_of_exercises, only: [:index]
+    resources :liqpay_callbacks, only: :create
 
     scope ':target_type', target_type: /(post|food|workout)/ do
       resources :categories, only: :index

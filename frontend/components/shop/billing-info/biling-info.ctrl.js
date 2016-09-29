@@ -1,5 +1,5 @@
 angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular, $auth, Notification, CurrentUser, $state,
-                                                             $http) {
+                                                             $http, $timeout) {
   $scope.errors = {};
 
   $scope.loginObj = {};
@@ -181,10 +181,21 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
 
     function postOrder() {
       Restangular.all('orders').customPOST($scope.order).then(function(order) {
-        Notification.success('Ваш заказ успешно оформлен.');
-        $state.go('app.inner-layout.shop.order-review', {id: order.id});
-        localStorage.removeItem('cart');
-        localStorage.removeItem('totalPrice');
+        if ($scope.billingInfo.payment === 'online_pay') {
+          $scope.liqpayData = {
+            data: _.get(order, 'liqpay_data.data'),
+            signature: _.get(order, 'liqpay_data.signature')
+          };
+
+          $timeout(function() {
+            document.getElementById('payForm').submit()
+          })
+        } else {
+          Notification.success('Ваш заказ успешно оформлен.');
+          localStorage.removeItem('cart');
+          localStorage.removeItem('totalPrice');
+          $state.go('app.inner-layout.shop.order-review', {id: order.id});
+        }
       }).catch(function (responce) {
         $scope.errors = _.mapKeys(responce.data.errors, function(value, key) {
           return key.replace(/^ordered_user\./, '');

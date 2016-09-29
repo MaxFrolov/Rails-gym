@@ -10,4 +10,8 @@ class Order < ActiveRecord::Base
 
   scope :not_cancelled, -> { where.not(status: Order.order_status[:cancelled])}
 
+  def liqpay_data
+    Liqpay.new.order_data(self)
+  end
+
 end
