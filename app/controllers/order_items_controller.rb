@@ -16,7 +16,7 @@ class OrderItemsController < ApiController
   private
 
   def order_item_params
-    params.require(:resource).permit(items: [:unit_price, :quantity, :order_status, :subtotal, :total, :product_id])
+    params.require(:resource).permit(items: [:quantity, :product_id])
   end
 end
 
