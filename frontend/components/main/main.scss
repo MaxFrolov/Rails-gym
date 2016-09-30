@@ -31,6 +31,10 @@
   }
 }
 
+.section-padding {
+  padding: 100px 0;
+}
+
 section .rn-carousel-control {
 
   &.rn-carousel-control-prev {
@@ -54,8 +58,6 @@ section .rn-carousel-control {
 }
 
 .main-page__service {
-  padding-top: 50px;
-  padding-bottom: 50px;
 
   .service-slider__wrapper {
     position: relative;
@@ -148,8 +150,6 @@ section .rn-carousel-control {
 }
 
 .main-page__wrapper {
-  padding-top: 50px;
-  padding-bottom: 50px;
   height: 100vh;
   width: 100%;
   text-align: center;
@@ -226,8 +226,6 @@ span.brand-color {
 section  {
   color: $text;
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 .page-rules__who-i {

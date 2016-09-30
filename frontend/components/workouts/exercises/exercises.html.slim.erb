@@ -1,7 +1,7 @@
 .exercises-page
   .container
     .row
-      .col-sm-9.exercise-templates__wrapper ng-repeat="exercise in exercises"
+      .col-sm-9.exercise-templates__wrapper.animate-repeat ng-repeat="exercise in exercises"
         ng-include src='"components/workouts/exercises/types/image.html"' ng-if="exercise.type === 'ExerciseImage'"
         ng-include src='"components/workouts/exercises/types/video.html"' ng-if="exercise.type === 'ExerciseVideo'"
         .col-sm-6

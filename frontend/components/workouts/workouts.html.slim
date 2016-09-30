@@ -4,7 +4,7 @@
       .col-sm-10
         .container-fluid
           row
-            .col-sm-6.workouts-main__wrapper ng-repeat="workout in workouts"
+            .col-sm-6.workouts-main__wrapper.animate-repeat ng-repeat="workout in workouts"
               a.col-sm-12.workouts-img__container ui-sref="app.inner-layout.exercises({id: workout.id})"
                 img.img-responsive ng-src="{{workout.image.small}}"
                 .inner-type-bg

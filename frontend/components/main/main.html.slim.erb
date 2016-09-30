@@ -28,42 +28,43 @@ header.main-page__background
       h1 Изменить
       h3 Свою жизнь
 section.main-page__our-trainer
-  .container.rules__description
-    .row
-      .col-sm-5.page-rules__who-i
-        span.brand-color>Тренер
-        'Алеся Петренко
-      .col-sm-7.page-rules__rule
-        span Вас ждет очень информативный тренинг. Ваш тренер всегда будет готов объяснить факты. Его умения технично
-             помогут вам достичь желаемых результатов.
-  .container
-    .row
-      .col-sm-6
-        img src='<%=asset_path "assets/first-page-images/teacher.png" %>'
-      .col-sm-6.our-trainer__information
-        .our-trainer__blocks
-          .img-circle
-            img src='<%=asset_path "assets/first-page-images/post_1.jpg" %>'
-          .block_description
-            h4 построим идеальное тело
-            span Lorem ipsum dolor emmet.
-            p вместе мы сможем изменить ваше тело к лучшему и добиться наилучших показателей.
-        .clearfix
-        .our-trainer__blocks
-          .img-circle
-            img src='<%=asset_path "assets/first-page-images/post_2.jpg" %>'
-          .block_description
-            h4 только рабочие программы
-            span Lorem ipsum dolor emmet.
-            p Мои советы и наставления помогут вам достич желаемых результатов.
-        .clearfix
-        .our-trainer__blocks
-          .img-circle
-            img src='<%=asset_path "assets/first-page-images/post_3.jpg" %>'
-          .block_description
-            h4 опытный тренер
-            span Lorem ipsum dolor emmet.
-            p Хороший опыт помогает мне дать вам лучшие тренировки.
+  .section-padding
+    .container.rules__description
+      .row
+        .col-sm-5.page-rules__who-i
+          span.brand-color>Тренер
+          'Алеся Петренко
+        .col-sm-7.page-rules__rule
+          span Вас ждет очень информативный тренинг. Ваш тренер всегда будет готов объяснить факты. Его умения технично
+               помогут вам достичь желаемых результатов.
+    .container
+      .row
+        .col-sm-6
+          img src='<%=asset_path "assets/first-page-images/teacher.png" %>'
+        .col-sm-6.our-trainer__information
+          .our-trainer__blocks
+            .img-circle
+              img src='<%=asset_path "assets/first-page-images/post_1.jpg" %>'
+            .block_description
+              h4 построим идеальное тело
+              span Lorem ipsum dolor emmet.
+              p вместе мы сможем изменить ваше тело к лучшему и добиться наилучших показателей.
+          .clearfix
+          .our-trainer__blocks
+            .img-circle
+              img src='<%=asset_path "assets/first-page-images/post_2.jpg" %>'
+            .block_description
+              h4 только рабочие программы
+              span Lorem ipsum dolor emmet.
+              p Мои советы и наставления помогут вам достич желаемых результатов.
+          .clearfix
+          .our-trainer__blocks
+            .img-circle
+              img src='<%=asset_path "assets/first-page-images/post_3.jpg" %>'
+            .block_description
+              h4 опытный тренер
+              span Lorem ipsum dolor emmet.
+              p Хороший опыт помогает мне дать вам лучшие тренировки.
 section.main-line-images
   .container-fluid
     .row
@@ -86,35 +87,36 @@ section.main-line-images
         img.img-responsive src='<%=asset_path "assets/first-page-images/line-images/gal_9.jpg" %>'
         .inner-type-bg
 section.main-page__rules
-  .container.rules__description
-    .row
-      .col-sm-5.page-rules__who-i
-        span.brand-color>что
-        'для меня важно ?
-      .col-sm-7.page-rules__rule Я не хочу вас тащить в спортивный зал. Сидя дома, просто осмотритесь...
-  .container
-    .row
-      .col-sm-8.page__main-rules
-        p Выставлять приоритеты, планировать и развивать успешные привычки для достижения вашей конечной цели.
-          Примите меры, будьте терпеливы и оставайтесь сосредоточенными.
-        ul
-          li
-            span 01
-            .rules-content
-              h5 будь терпеливым
-              span Aдский труд побьет талант
-          li
-            span 02
-            .rules-content
-              h5 усиленно тренируйся
-              span Все, что с ним происходит сейчас - это вполне закономерно
-          li
-            span 03
-            .rules-content
-              h5 будь сильным
-              span Чем ты сильнее, сильнее зависть людей.
-      .col-sm-4
-        img.img-responsive src='<%=asset_path "assets/first-page-images/man.png" %>'
+  .section-padding
+    .container.rules__description
+      .row
+        .col-sm-5.page-rules__who-i
+          span.brand-color>что
+          'для меня важно ?
+        .col-sm-7.page-rules__rule Я не хочу вас тащить в спортивный зал. Сидя дома, просто осмотритесь...
+    .container
+      .row
+        .col-sm-8.page__main-rules
+          p Выставлять приоритеты, планировать и развивать успешные привычки для достижения вашей конечной цели.
+            Примите меры, будьте терпеливы и оставайтесь сосредоточенными.
+          ul
+            li
+              span 01
+              .rules-content
+                h5 будь терпеливым
+                span Aдский труд побьет талант
+            li
+              span 02
+              .rules-content
+                h5 усиленно тренируйся
+                span Все, что с ним происходит сейчас - это вполне закономерно
+            li
+              span 03
+              .rules-content
+                h5 будь сильным
+                span Чем ты сильнее, сильнее зависть людей.
+        .col-sm-4
+          img.img-responsive src='<%=asset_path "assets/first-page-images/man.png" %>'
 a.anchorScroll href="#" scroll-to="anchor" ng-class="{'anchor__active': visible}"
   i.fa.fa-arrow-up
 .main-page__events
@@ -140,18 +142,19 @@ a.anchorScroll href="#" scroll-to="anchor" ng-class="{'anchor__active': visible}
           .event-timer
             span {{proposalMessage}}
 section.main-page__popular_types
-  .container.rules__description
-    .row
-      .col-sm-5.page-rules__who-i
-        span.brand-color>Наши
-        'Тренировки
-      .col-sm-7.page-rules__rule Тебе тяжело в тренажёрном зале, но твоему сопернику может быть в два раза тяжелее.
-  .container
-    .row
-      .col-sm-4 ng-repeat="type in popularTypes"
-        .type_wrapper_bg
-          img.img-responsive ng-src='assets/assets/first-page-images/types/{{type}}.jpg'
-          .inner-type-bg
+  .section-padding
+    .container.rules__description
+      .row
+        .col-sm-5.page-rules__who-i
+          span.brand-color>Наши
+          'Тренировки
+        .col-sm-7.page-rules__rule Тебе тяжело в тренажёрном зале, но твоему сопернику может быть в два раза тяжелее.
+    .container
+      .row
+        .col-sm-4 ng-repeat="type in popularTypes"
+          .type_wrapper_bg
+            img.img-responsive ng-src='assets/assets/first-page-images/types/{{type}}.jpg'
+            .inner-type-bg
 .main-page__reviews
   img.parallax-img du-parallax="" y="background" x="-50" src='<%=asset_path "assets/first-page-images/reviews.jpg" %>'
   section.inner-bg__reviews
@@ -177,7 +180,7 @@ section.main-page__popular_types
                 img src='<%=asset_path "assets/first-page-images/types/5.jpg" %>'
                 .carousel-caption
                   p Хороший клуб, тренеры внимательны и профессиональны, но самый лучший тренер - Алеся!
-section.main-page__service
+section.main-page__service.section-padding
   .container
     .page-rules__who-i
       span.brand-color>Услуги нашего
@@ -207,71 +210,73 @@ section.main-page__video-training
         h3 Час, который ты проводишь в зале, очень важен! Но, на самом деле, ключ
            успеха состоит в том, как ты проведешь остальные оставшиеся 23 часа.
 section.main-page__latest_news
-  .container.rules__description
-    .row
-      .col-sm-5.page-rules__who-i
-        span.brand-color>Последние
-        'новости
-      .col-sm-7.page-rules__rule Настоящая сила рождается в голове. Она заставляет идти, даже когда тело хочет упасть.
-  .container
-    .row
-      .col-sm-4 ng-repeat="post in recommendedPosts"
-        a ui-sref="app.inner-layout.blog.post({ id: post.id })"
-          .news-img__wrapper
-            img.img-responsive ng-src="{{post.image.small}}"
-            i.fa.fa-play-circle.play-icon-small ng-if="post.type === 'Video'"
-        .news-inform
-          .news-date {{post.created_at | calendarDate}}
-          .news-edit
-            span
-              i.fa.fa-heart
-              '{{post.likes_count}}
-            span
-              i.fa.fa-comment
-              '{{post.comments_count}}
-        .news-description
-          h4 {{post.title}}
-          p {{post.subtitle.length > 150 ? post.subtitle.slice(0, 150).concat('...') : post.subtitle }}
+  .section-padding
+    .container.rules__description
+      .row
+        .col-sm-5.page-rules__who-i
+          span.brand-color>Последние
+          'новости
+        .col-sm-7.page-rules__rule Настоящая сила рождается в голове. Она заставляет идти, даже когда тело хочет упасть.
+    .container
+      .row
+        .col-sm-4 ng-repeat="post in recommendedPosts"
+          a ui-sref="app.inner-layout.blog.post({ id: post.id })"
+            .news-img__wrapper
+              img.img-responsive ng-src="{{post.image.small}}"
+              i.fa.fa-play-circle.play-icon-small ng-if="post.type === 'Video'"
+          .news-inform
+            .news-date {{post.created_at | calendarDate}}
+            .news-edit
+              span
+                i.fa.fa-heart
+                '{{post.likes_count}}
+              span
+                i.fa.fa-comment
+                '{{post.comments_count}}
+          .news-description
+            h4 {{post.title}}
+            p {{post.subtitle.length > 150 ? post.subtitle.slice(0, 150).concat('...') : post.subtitle }}
 section.main-page__price
-  .container.rules__description
-    .row
-      .col-sm-5.page-rules__who-i
-        span.brand-color>Цены
-        'в наш зал
-      .col-sm-7.page-rules__rule Смысл жизни – не просто существовать или выживать. Нужно постоянно двигаться вперед,
-                                 вверх, достигать, завоевывать.
-  .container.price-container
-    .row
-      .col-sm-4
-        .price-wrapper
-          h3 Новичек
-          h1 250 грн.
-          h5 1 месяц
-          .price-include
-            p тренажеры
-            p без тренера
-            p 3 дня в неделю
-          button.btn.btn-primary ng-click="recordModal('beginner')" записаться
-      .col-sm-4
-        .price-wrapper.red-border
-          h3 Стандарт
-          h1 360 грн.
-          h5 1 месяц
-          .price-include
-            p тренажеры
-            p с тренером
-            p 3 дня в неделю
-          button.btn.btn-primary type="button" ng-click="recordModal('standart')" записаться
-      .col-sm-4
-        .price-wrapper
-          h3 Про
-          h1 450 грн.
-          h5 1 месяц
-          .price-include
-            p тренажеры
-            p с тренером
-            p безлимит
-          button.btn.btn-primary type="button" ng-click="recordModal('pro')" записаться
+  .section-padding
+    .container.rules__description
+      .row
+        .col-sm-5.page-rules__who-i
+          span.brand-color>Цены
+          'в наш зал
+        .col-sm-7.page-rules__rule Смысл жизни – не просто существовать или выживать. Нужно постоянно двигаться вперед,
+                                   вверх, достигать, завоевывать.
+    .container.price-container
+      .row
+        .col-sm-4
+          .price-wrapper
+            h3 Новичек
+            h1 250 грн.
+            h5 1 месяц
+            .price-include
+              p тренажеры
+              p без тренера
+              p 3 дня в неделю
+            button.btn.btn-primary ng-click="recordModal('beginner')" записаться
+        .col-sm-4
+          .price-wrapper.red-border
+            h3 Стандарт
+            h1 360 грн.
+            h5 1 месяц
+            .price-include
+              p тренажеры
+              p с тренером
+              p 3 дня в неделю
+            button.btn.btn-primary type="button" ng-click="recordModal('standart')" записаться
+        .col-sm-4
+          .price-wrapper
+            h3 Про
+            h1 450 грн.
+            h5 1 месяц
+            .price-include
+              p тренажеры
+              p с тренером
+              p безлимит
+            button.btn.btn-primary type="button" ng-click="recordModal('pro')" записаться
 .main-page__location
   .container-fluid
     .row

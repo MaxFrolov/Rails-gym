@@ -1,7 +1,7 @@
 .gallery-page
   .container
     .row
-      .col-sm-3.gallery-photo__wrapper ng-repeat="photo in gallery" ng-click="openPhoto(photo.id)"
+      .col-sm-3.gallery-photo__wrapper.animate-repeat ng-repeat="photo in gallery" ng-click="openPhoto(photo.id)"
         img.img-responsive ng-src="{{photo.photo.small}}"
         .inner-bg
           i.fa.fa-heart

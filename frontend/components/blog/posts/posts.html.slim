@@ -2,7 +2,7 @@
   .container
     .row
       .col-sm-9
-        .blog-block ng-repeat="post in posts"
+        .blog-block.animate-repeat ng-repeat="post in posts"
           ng-include src='"components/blog/posts/posts-templates/article-template.html"' ng-if="post.type === 'Article'"
           ng-include src='"components/blog/posts/posts-templates/video-template.html"' ng-if="post.type === 'Video'"
         collection-pagination resource="posts"

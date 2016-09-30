@@ -14,7 +14,7 @@
             div ng-bind-html="choice.name | highlight: $select.search"
   .container
     .row
-      .nutrition-posts.col-sm-4 ng-repeat="nutrition in nutritions"
+      .nutrition-posts.animate-repeat.col-sm-4 ng-repeat="nutrition in nutritions"
         a.nutrition-post__bg ui-sref="app.inner-layout.food({ id: nutrition.id })"
           img.img-responsive ng-src="{{nutrition.image.medium}}"
           .inner-type-bg

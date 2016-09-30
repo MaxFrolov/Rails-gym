@@ -328,6 +328,7 @@
       left: 0;
       background: #ea4c23;
       text-align: center;
+      padding-top: 25%;
 
       span {
         color: #fff;
@@ -343,7 +344,6 @@
     }
 
     &:hover .recommended-inner__bg {
-      padding-top: 25%;
       opacity: 1;
       background: rgba(234, 76, 35, 0.8);
     }
