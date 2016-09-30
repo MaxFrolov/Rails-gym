@@ -151,8 +151,7 @@ angular.module('app').controller('BillingInfoCtrl', function($scope, Restangular
       var items = $scope.cart;
       $scope.orderItems.push({
         product_id: items[i].product.id,
-        quantity: items[i].count,
-        unit_price: items[i].product.price
+        quantity: items[i].count
       });
     }
     $scope.order = {

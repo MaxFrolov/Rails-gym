@@ -56,4 +56,8 @@ angular.module('app').controller('AppCtrl', function($scope, $auth, $state, Curr
     Notification.success('Successfully logged out');
     $state.go('app.main');
   }
+
+  $scope.$on("$stateChangeStart", function() {
+    console.log('helloo i"m changed')
+  });
 });
