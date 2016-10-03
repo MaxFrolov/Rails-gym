@@ -31,7 +31,7 @@ RailsAdmin.config do |config|
       except hidden_modules
     end
     new do
-      except hidden_modules + %w(Post Exercise)
+      except hidden_modules + %w(Post Exercise Plan)
     end
     export do
       except hidden_modules
@@ -43,7 +43,7 @@ RailsAdmin.config do |config|
       except hidden_modules + %w(Post Exercise)
     end
     edit do
-      except hidden_modules + %w(Post Exercise)
+      except hidden_modules + %w(Post Exercise Plan)
     end
     delete do
       except hidden_modules
@@ -62,6 +62,11 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.model Plan do
+    label 'Запись на тренировку'
+    label_plural 'Записи на тренировку'
   end
 
   config.model User do

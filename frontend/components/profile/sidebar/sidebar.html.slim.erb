@@ -3,7 +3,7 @@
     .category-content
       .media
         a.media-left href="#"
-          img.img-circle.img-sm src="{{currentUser.avatar_url}}"
+          img.img-circle.img-sm ng-src="{{currentUser.avatar_url || "<%=asset_path 'assets/img/blank_pr.png' %>"}}"
         .media-body
           span.media-heading.text-semibold {{currentUser.first_name}} {{currentUser.last_name}}
           .text-size-mini.text-muted

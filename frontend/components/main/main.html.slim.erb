@@ -3,6 +3,8 @@
 header.main-page__background
   img.parallax-img du-parallax="" y="background" x="-50" src='<%=asset_path "assets/first-page-images/main.jpg" %>'
   #anchor.container-fluid.main-page__wrapper
+    .main-nav-logo
+      img.img-responsive src='<%=asset_path "assets/first-page-images/logo_white1.png" %>'
     .row
       ul.relative
         li ui-sref-active="active"
@@ -23,10 +25,11 @@ header.main-page__background
     .main-header__login ng-if="currentUser.exists()"
       a href="#" Добро пожаловать {{currentUser.first_name}}
       a href="#" ng-click="logout()" Выйти
-    .main-text__brand.title
-      h2 Приготовьтесь
-      h1 Изменить
-      h3 Свою жизнь
+    .block-table
+      .main-text__brand.title
+        h2 Приготовьтесь
+        h1 Изменить
+        h3 Свою жизнь
 section.main-page__our-trainer
   .section-padding
     .container.rules__description
@@ -154,6 +157,8 @@ section.main-page__popular_types
         .col-sm-4 ng-repeat="type in popularTypes"
           .type_wrapper_bg
             img.img-responsive ng-src='assets/assets/first-page-images/types/{{type}}.jpg'
+            .inner-logo
+              img.img-responsive src='<%=asset_path "assets/first-page-images/favicon.png" %>'
             .inner-type-bg
 .main-page__reviews
   img.parallax-img du-parallax="" y="background" x="-50" src='<%=asset_path "assets/first-page-images/reviews.jpg" %>'
@@ -297,7 +302,7 @@ section.main-page__price
           'alesya-berserk@gmail.com
 footer.main-page__footer.text-center
   .footer_logo
-    img src='<%=asset_path "assets/first-page-images/logo.jpg" %>'
+    img src='<%=asset_path "assets/first-page-images/logo.png" %>'
   .footer_social
     ul
       li
