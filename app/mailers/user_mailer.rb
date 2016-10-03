@@ -1,25 +1,20 @@
 class UserMailer < BaseMailer
   def confirmation_instructions(record, token, opts={})
-    mandrill_mail(
-        template: 'user-confirmation-instructions',
-        subject: 'Confirmation instructions',
-        to: opts[:to] || record.email,
-        vars: {
-            EMAIL: opts[:to] || record.email,
-            CONFIRMATION_URL: frontend_url(path: "users/confirm/#{token}")
-        }
+    assign(:email, opts[:to] || record.email,)
+    assign(:confirmation_url, frontend_url(path: "users/confirm/#{token}"))
+
+    mail(
+        email_id: 'tem_LqvXSmTAgXzTtT7m8bPH5P',
+        recipient_address: opts[:to] || record.email,
     )
   end
 
   def reset_password_instructions(record, token, opts={})
-    mandrill_mail(
-        template: 'reset-password-instructions',
-        subject: 'Reset password instructions',
-        to: opts[:to] || record.email,
-        vars: {
-            RESET_TOKEN: token,
-            RESET_URL: frontend_url(path: "recovery/#{token}")
-        }
+    assign(:confirmation_url, frontend_url(path: "recovery/#{token}"))
+
+    mail(
+        email_id: 'tem_PBQAtJJsFKfWw5LWm8B2jM',
+        recipient_address: opts[:to] || record.email,
     )
   end
 

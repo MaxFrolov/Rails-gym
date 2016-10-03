@@ -1,12 +1,4 @@
-class BaseMailer < MandrillMailer::DebuggableMailer
+class BaseMailer < SendWithUsMailer::Base
   include FrontendHelper
-  default from: ENV['EMAIL_SENDER_EMAIL'], from_name: ENV['EMAIL_SENDER_NAME']
-
-  private
-
-  def mandrill_mail(args)
-    args[:merge_language] = 'handlebars'
-    super(args)
-  end
-
+  default from: ENV['EMAIL_SENDER_EMAIL'], locale: 'ru-RU', from_name: ENV['EMAIL_SENDER_NAME']
 end
