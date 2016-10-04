@@ -1,6 +1,9 @@
-angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restangular) {
+angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restangular, Notification) {
 	$scope.daysInMonth = [];
+	$scope.errors = {};
+	$scope.programDetails = _.pick($scope.currentUser, 'first_name', 'last_name', 'phone', 'email');
 	$scope.showAllExercises = false;
+	$scope.isCollapsed = true;
 	$scope.monthDate = moment().startOf('month');
 	$scope.incrementDate = incrementDate;
 	$scope.decrementDate = decrementDate;
@@ -11,10 +14,51 @@ angular.module('app').controller('ProfileTrainingCtrl', function($scope, Restang
 	$scope.selectWeek = selectWeek;
 	$scope.closeWeekTrainings = closeWeekTrainings;
 	$scope.closeDayTrainings = closeDayTrainings;
+	$scope.onSubmit = onSubmit;
+	$scope.changeCollapsed = changeCollapsed;
 	$scope.currentDate = new Date;
 	$scope.days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
-	$scope.trainings = Restangular.one('users', $scope.currentUser.id).all('users_trainings').getList().$object
+	$scope.trainings = Restangular.one('users', $scope.currentUser.id).all('users_trainings').getList().$object;
+
+	$scope.fields = [
+		{
+			name: 'first_name',
+			label: 'Имя'
+		},
+		{
+			name: 'last_name',
+			label: 'Фамилия'
+		},
+		{
+			name: 'email',
+			label: 'Email'
+		},
+		{
+			name: 'phone',
+			label: 'Телефон',
+			type: 'phone'
+		},
+		{
+			name: 'number_of_weeks',
+			label: 'Количетсво недель',
+			type: 'text'
+		}
+	];
+
+	function changeCollapsed() {
+		$scope.isCollapsed = false;
+	}
+
+	function onSubmit() {
+		Restangular.one('users', $scope.currentUser.id).all('user_training_plans').customPOST($scope.programDetails)
+			.then(function() {
+				Notification.success('Заявка успешно оформлена, с вами свяжеться тренер');
+				$scope.isCollapsed = true;
+			}).catch(function(response) {
+				$scope.errors = response.data.errors
+			})
+	}
 
 	function trainingDate(date) {
 		const clearedDate = moment(date).format('YYYY-MM-DD');

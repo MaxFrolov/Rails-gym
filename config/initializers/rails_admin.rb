@@ -19,7 +19,8 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.included_models = %w(User Post Product OrderItem Order Food Workout Plan Video Article Gallery ItemsCategory
-    Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category ExerciseImage ExerciseVideo)
+    Exercise ListOfExercise UsersTraining UserTrainingExercise UserTrainingExerciseSet Category ExerciseImage ExerciseVideo
+    UserTrainingPlan)
 
   hidden_modules = %w(ItemsCategory)
 
@@ -31,7 +32,7 @@ RailsAdmin.config do |config|
       except hidden_modules
     end
     new do
-      except hidden_modules + %w(Post Exercise Plan)
+      except hidden_modules + %w(Post Exercise Plan UserTrainingPlan)
     end
     export do
       except hidden_modules
@@ -64,7 +65,14 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model UserTrainingPlan do
+    navigation_label 'Заявки, записи'
+    label 'Заявка на программу тренировок'
+    label_plural 'Заявки на программы тренировок'
+  end
+
   config.model Plan do
+    navigation_label 'Заявки, записи'
     label 'Запись на тренировку'
     label_plural 'Записи на тренировку'
   end

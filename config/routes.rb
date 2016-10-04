@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resource :posts, only: [:create, :update, :destroy]
       resource :foods, only: [:create, :update, :destroy]
       resource :products, only: [:create, :update, :destroy]
+      resource :user_training_plans, only: [:create]
       resources :list_of_exercises, only: [] do
         resource :training_diaries, only: [:create]
       end

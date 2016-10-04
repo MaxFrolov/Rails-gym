@@ -8,6 +8,24 @@
   .container-fluid
     .row
       .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12
+        .panel.panel-flat
+          .panel-heading
+            h6.panel-title Как заказать программу тренировок?
+          .panel-body
+            p Для заказа плана тренировок - оставьте заявку и тренер свжеться с вами. Когда план будет составлен,
+              у вас появиться возможность его оплатить с помощью платежной системы, после чего вам будет доступна
+              программа тренировок.
+            md-button.md-raised.md-primary.md-button ng-click="changeCollapsed()" оставить заявку
+            .container-fluid uib-collapse="isCollapsed"
+              .row
+                .col-sm-8.col-sm-offset-2
+                  form.form-horizontal name="drawingUpTheProgramForm" ng-submit="onSubmit()" novalidate="novalidate"
+                    horizontal-form obj="programDetails" fields="fields" errors="errors" width="9"
+                    .row
+                      .col-sm-offset-3.col-sm-9
+                        button.btn.btn-primary.btn-lg.auth__submit type="submit" Отправить данные
+
+      .col-lg-8.col-md-10.col-lg-offset-2.col-md-offset-1.col-sm-12
         .panel.relative
           .panel-body
             .calender-header
