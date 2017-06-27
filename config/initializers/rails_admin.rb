@@ -199,13 +199,7 @@ RailsAdmin.config do |config|
       exclude_fields :video_id, :service, :type, :preview_image
       field :description, :rich_editor
       field :link
-      field :categories do
-        associated_collection_scope do
-          Proc.new { |scope|
-            scope.joins(:items_categories).where(items_categories: { target_type: 'Post' })
-          }
-        end
-      end
+      field :categories
     end
 
     show do
@@ -246,13 +240,7 @@ RailsAdmin.config do |config|
     edit do
       exclude_fields :type
       field :description, :rich_editor
-      field :categories do
-        associated_collection_scope do
-          Proc.new { |scope|
-            scope.joins(:items_categories).where(items_categories: { target_type: 'Post' }).uniq
-          }
-        end
-      end
+      field :categories
     end
 
     show do

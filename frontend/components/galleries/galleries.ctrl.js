@@ -14,7 +14,7 @@ angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, c
 		per += 8;
 		Restangular.all('galleries').getList({page: 1, per: per}).then(function (responce) {
 			$scope.gallery = responce;
-			$scope.hideLoadMore = responce.total !== responce.length
+			$scope.hideLoadMore = responce.total !== responce.length;
 		}).finally(function () {
 			$scope.loading = false;
 		});
@@ -40,7 +40,7 @@ angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, c
 		$scope.comment.name = $scope.currentUser.first_name + ' ' + $scope.currentUser.last_name;
 		$scope.comment.email = $scope.currentUser.email;
 		if (!$scope.comment.message) {
-			return Notification.error('Комментарий не может быть пустым.')
+			return Notification.error('Комментарий не может быть пустым.');
 		}
 
 		Restangular.one('gallery', $scope.openedPhoto.id).one('users', $scope.currentUser.id)
@@ -51,8 +51,9 @@ angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, c
 				$scope.openedPhoto.comments.push(comment);
 			})
 			.catch(function() {
-				Notification.error('Что то пошло не так, попробуйте еще раз...')
-			})
+				Notification.error('Что то пошло не так, попробуйте еще раз...');
+			});
+
 	}
 
 	function submitLike() {
@@ -73,7 +74,7 @@ angular.module('app').controller('GalleryCtrl', function ($scope, Restangular, c
 				.then(function () {
 					$scope.userLiked = false;
 					likes.splice(likes.length - 1, 1);
-				})
+				});
 		}
 	}
 });

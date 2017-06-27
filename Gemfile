@@ -38,11 +38,16 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 group :development do
   gem 'quiet_assets'
   gem 'letter_opener'
+  gem 'capistrano',  '~> 3.1'
+  gem 'capistrano-rails', github: 'capistrano/rails'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-rvm'
 end
 
 # For seed data
@@ -52,7 +57,6 @@ gem 'faker'
 gem 'mini_magick', '4.2.7'
 gem 'carrierwave-data-uri'
 
-gem 'unicorn'
 gem 'kaminari'
 gem 'rails-api'
 gem 'factory_girl_rails'
